@@ -5138,6 +5138,7 @@
     <Content Include="Content\lib\typeahead.js\js\typeahead.bundle.min.js" />
     <Content Include="Content\lib\underscore\js\underscore-min.js" />
     <Content Include="Content\lib\underscore\js\underscore.js" />
+    <Content Include="Database\DB TRABALHO.sql" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -5460,6 +5461,7 @@
     <Content Include="Content\lib\lightgallery\fonts\lg.eot" />
     <Content Include="Content\lib\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\lib\lightgallery\fonts\lg.woff" />
+    <Content Include="Views\Principal\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5472,7 +5474,17 @@
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Principal\" />
+    <Folder Include="Repository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{564f96b5-c99f-4720-8266-92d407defde1}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{fb9a8283-3cf4-4b44-8574-db03883000dd}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
