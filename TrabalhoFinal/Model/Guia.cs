@@ -28,6 +28,8 @@ namespace Model
 
         public string CarteiraTrabalho { get; set; }
 
+        public string CatagoriaHabilitacao { get; set; }
+
         public float Salario { get; set; }
 
         public string Cpf { get; set; }
