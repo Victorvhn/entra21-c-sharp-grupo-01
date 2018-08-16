@@ -10,7 +10,7 @@ namespace Model
     {
         public string Login_ { get; set; }
 
-        public char Sexto { get; set; }
+        public char Sexo { get; set; }
 
         public int Id { get; set; }
 
