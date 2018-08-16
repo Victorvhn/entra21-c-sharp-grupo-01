@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Estado
+    public class Pacotes
     {
         public int Id { get; set; }
 
-        public Pais Pais { get; set; }
+        public string  Nome { get; set; }
 
-        public int IdPais { get; set; }
+        public float Valor { get; set; }
 
-        public string Nome { get; set; }
+        public byte PercentualMaximoDesconto { get; set; }
     }
 }

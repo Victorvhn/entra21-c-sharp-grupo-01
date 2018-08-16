@@ -8,6 +8,8 @@ namespace Model
 {
     class Turista
     {
+        public int Id { get; set; }
+
         public Endereco Endereco { get; set; }
 
         public string Senha { get; set; }
@@ -15,8 +17,6 @@ namespace Model
         public char Ativo { get; set; }
 
         public string Perfil { get; set; }
-
-        public int Id { get; set; }
 
         public string Nome { get; set; }
 
