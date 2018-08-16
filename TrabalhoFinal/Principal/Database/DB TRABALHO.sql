@@ -25,6 +25,8 @@ CREATE TABLE enderecos (
 
 
 CREATE TABLE turistas (	
+	login_ VARCHAR(100),
+	sexo CHAR(1),
     senha VARCHAR(100),
     ativo CHAR(1) DEFAULT '1',
     perfil VARCHAR(15) DEFAULT 'USER',
@@ -41,6 +43,8 @@ CREATE TABLE turistas (
 
 
 CREATE TABLE guias (
+	login_ VARCHAR(100),
+	sexo CHAR(1),
 	senha VARCHAR(100),
     ativo CHAR(1) DEFAULT '1',
     perfil VARCHAR(15) DEFAULT 'ADMIN',
