@@ -8,6 +8,10 @@ namespace Model
 {
     public class Turista
     {
+        public string Login_ { get; set; }
+
+        public char Sexto { get; set; }
+
         public int Id { get; set; }
 
         public Endereco Endereco { get; set; }
