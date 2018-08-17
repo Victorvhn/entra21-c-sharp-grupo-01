@@ -47,8 +47,16 @@
     <Compile Include="PaisRepository.cs" />
 
     <Compile Include="PacoteRepository.cs" />
+<<<<<<< HEAD
+    <Compile Include="PontosTuristosRepository.cs" />
+=======
     <Compile Include="PacoteTuristicoRepository.cs" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> e4de1d125527df389bf04a378274f2b3630c9570
+>>>>>>> 603e4d8d43db07e168f355694b942e5fa9fd10ae
+>>>>>>> 0a0131f73a62baf6b59b8186b47b78b0a15a5045
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TuristaRepository.cs" />
   </ItemGroup>
