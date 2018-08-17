@@ -18,5 +18,10 @@ namespace Principal.Controllers
         {
             return View();
         }
+
+        public ActionResult CadastroTurista()
+        {
+            return View();
+        }
     }
 }
