@@ -12,5 +12,10 @@ namespace Model
 
         public string Nome { get; set; }
 
+
+        public void Add(Continente continente)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
