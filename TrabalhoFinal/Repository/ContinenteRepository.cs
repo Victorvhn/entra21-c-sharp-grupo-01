@@ -1,4 +1,5 @@
 ﻿using Model;
+using Principal.Database;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,7 +33,7 @@ namespace Repository
 
         public int Cadastro(Continente continenteses)
         {
-            SqlCommand command = new BancoDados().ObterConexao();
+            SqlCommand command = new Conexao().ObterConexao();
 
             command.CommandText = @"INSERT INTO continente(nome) OUTPUT INSERTED.ID VALUES (@NOME)";
             command.Parameters.AddWithValue("@NOME", continenteses.Nome);
@@ -43,7 +44,7 @@ namespace Repository
 
         public bool Alterar(Continente continente)
         {
-            SqlCommand command = new BancoDados().ObterConexao();
+            SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"UPDATE continentes SET nome = @NOME WHERE id = @ID";
             command.Parameters.AddWithValue("@NOME", continente.Nome);
             return command.ExecuteNonQuery() == 1;
@@ -51,7 +52,7 @@ namespace Repository
 
         public bool Excluir(int id)
         {
-            SqlCommand command = new BancoDados().ObterConexao();
+            SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"DELETE FROM continente WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
@@ -61,7 +62,7 @@ namespace Repository
         public Continente ObterPeloId(int id)
         {
             Continente continente = null;
-            SqlCommand command = new BancoDados().ObterConexao();
+            SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT nome FROM continente WHERE id = @ID";
             command.Parameters.AddWithValue("ID", id);
             DataTable table = new DataTable();
