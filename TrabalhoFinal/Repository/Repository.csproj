@@ -43,6 +43,7 @@
     <Compile Include="Enderecorepository.cs" />
     <Compile Include="EstadoRepositorio.cs" />
     <Compile Include="GuiaRepositorio.cs" />
+    <Compile Include="IdiomaRepository.cs" />
     <Compile Include="PacotePontosTuristicosRepository.cs" />
     <Compile Include="PacoteRepository.cs" />
     <Compile Include="PaisRepository.cs" />
