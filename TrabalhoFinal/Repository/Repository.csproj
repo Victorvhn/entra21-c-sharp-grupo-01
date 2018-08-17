@@ -58,18 +58,12 @@
 
     <Compile Include="PacoteRepository.cs" />
     <Compile Include="PontosTuristosRepository.cs" />
-<<<<<<< HEAD
     <Compile Include="PacoteTuristicoRepository.cs" />
 
-=======
 
     <Compile Include="PacoteTuristicoRepository.cs" />
 
-<<<<<<< HEAD
 
-=======
->>>>>>> d2cec0ce2f2ad4e7ee0a87e44e997a670ad0aed2
->>>>>>> ef2700e05c75cdadbb9c36b08c5c757c970e3f94
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TuristaRepository.cs" />
   </ItemGroup>
