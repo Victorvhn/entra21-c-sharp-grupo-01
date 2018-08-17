@@ -13,28 +13,14 @@ namespace Repository
 {
     public class TuristaRepository
     {
-        public List<Turista> ObterTodos()
-        {
-            List<Turista> turistas = new List<Turista>();
-            SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "";
-            DataTable tabela = new DataTable();
-            tabela.Load(command.ExecuteReader());
-            foreach (DataRow linha in tabela.Rows)
-            {
-                Turista turista = new Turista()
-                {
-                    Id=
-                }
-            }
-                return turistas;
-        }
-
-
-
-
+     
 
     }
+
+
+
+
 }
+
 
 
