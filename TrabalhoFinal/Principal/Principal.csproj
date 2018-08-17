@@ -5463,6 +5463,7 @@
     <Content Include="Content\lib\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\lib\lightgallery\fonts\lg.woff" />
     <Content Include="Views\Principal\Index.cshtml" />
+    <Content Include="Views\Principal\CadastroEndereco.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

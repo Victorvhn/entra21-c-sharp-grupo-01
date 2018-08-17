@@ -13,5 +13,10 @@ namespace Principal.Controllers
         {
             return View();
         }
+
+        public ActionResult CadastroEndereco()
+        {
+            return View();
+        }
     }
 }
