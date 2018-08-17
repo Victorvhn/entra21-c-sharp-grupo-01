@@ -42,8 +42,13 @@
     <Compile Include="ContinenteRepository.cs" />
     <Compile Include="Enderecorepository.cs" />
     <Compile Include="GuiaRepositorio.cs" />
+<<<<<<< HEAD
     <Compile Include="IdiomaRepository.cs" />
     <Compile Include="PaisRepository.cs" />
+=======
+    <Compile Include="PacoteRepository.cs" />
+    <Compile Include="PacoteTuristicoRepository.cs" />
+>>>>>>> e4de1d125527df389bf04a378274f2b3630c9570
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TuristaRepository.cs" />
   </ItemGroup>
