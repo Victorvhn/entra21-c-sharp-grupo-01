@@ -42,6 +42,7 @@
     <Compile Include="ContinenteRepository.cs" />
     <Compile Include="GuiaRepositorio.cs" />
     <Compile Include="PacoteRepository.cs" />
+    <Compile Include="PacoteTuristicoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TuristaRepository.cs" />
   </ItemGroup>
