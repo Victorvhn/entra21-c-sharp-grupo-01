@@ -64,7 +64,7 @@ namespace Principal.Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT nome, id_guia FROM idiomas WHERE id = @ID";
+            command.CommandText = @"SELECT idiomas.nome, id_guia, guias.nome  FROM idiomas JOIN guias ON (idiomas.id_guia = guias.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();
@@ -76,6 +76,10 @@ namespace Principal.Repository
                 idioma.Id = id;
                 idioma.Nome = table.Rows[0][0].ToString();
                 idioma.IdGuia = Convert.ToInt32(table.Rows[0][1].ToString());
+                idioma.Guia = new Guia();
+                idioma.Guia.Nome = table.Rows[0][2].ToString();
+                idioma.Guia.Id = Convert.ToInt32(table.Rows[0][3].ToString());
+
             }
             return idioma;
         }
