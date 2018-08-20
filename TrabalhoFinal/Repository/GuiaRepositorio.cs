@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    class GuiaRepositorio
+    public class GuiaRepositorio
     {
         public List<Guia> ObterTodos()
         {
@@ -43,7 +43,7 @@ namespace Repository
             return guias;
         }
 
-        public int Cadastro(Guia guia)
+        public int Cadastrar(Guia guia)
         {
             SqlCommand command = new Conexao().ObterConexao();
 

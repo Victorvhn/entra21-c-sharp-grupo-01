@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexao.cs" />
     <Compile Include="ContinenteRepository.cs" />
     <Compile Include="Enderecorepository.cs" />
     <Compile Include="EstadoRepositorio.cs" />
@@ -52,10 +54,6 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{0abf1de9-f0e7-4230-bf5c-57727d0b621d}</Project>
       <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Principal\Principal.csproj">
-      <Project>{feea3258-ef99-479b-a3da-6c4a6bf02c13}</Project>
-      <Name>Principal</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

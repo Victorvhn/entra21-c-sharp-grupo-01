@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,6 @@ namespace Principal.Controllers
             return View();
         }
 
-       /* Não ta funcionando Guia repositorio pq precisa da referencia e nao tem como adicionar rever em sala 
         [HttpGet]
         public ActionResult EditarGuia(int id)
         {
@@ -70,6 +70,6 @@ namespace Principal.Controllers
             bool alterado = new GuiaRepositorio().Alterar(guia);
             return null;
         }
-        */
+        
     }
 }
