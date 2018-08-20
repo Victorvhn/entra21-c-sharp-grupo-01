@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    class EstadoRepositorio
+    public class EstadoRepositorio
     {
         public List<Estado> ObterTodos()
         {
