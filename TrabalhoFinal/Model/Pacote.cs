@@ -17,5 +17,7 @@ namespace Model
         public byte PercentualMaximoDesconto { get; set; }
 
         public List<PontoTuristico> PontosTuristicos;
+
+        public List<Guia> Guias { get; set; }
     }
 }
