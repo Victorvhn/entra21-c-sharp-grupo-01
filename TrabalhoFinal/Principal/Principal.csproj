@@ -5507,7 +5507,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{564f96b5-c99f-4720-8266-92d407defde1}</Project>
+      <Project>{0abf1de9-f0e7-4230-bf5c-57727d0b621d}</Project>
       <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
