@@ -35,6 +35,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
+            // bool apagado = new PontosTuristosRepository().Excluir(id);
             
             return null;
         }
@@ -42,6 +43,15 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(PacotePontoTuristico pacotePontosTuristicos)
         {
+            // int identificador = new PontosTuristosRepository().Cadastrar(pontosTuristosRepository);
+            //return RedirectToAction("Editar", new object { id = identificador });
+            return null;
+        }
+        [HttpPost]
+        public ActionResult Update(Continente continente)
+        {
+            // bool alterado = new PontosTuristosRepository().Alterar(pontosTuristosRepository);
+
             return null;
         }
     }
