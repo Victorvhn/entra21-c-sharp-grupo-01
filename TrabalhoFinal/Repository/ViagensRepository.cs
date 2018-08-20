@@ -68,7 +68,7 @@ namespace Repository
             Viagem viagem = null;
 
             SqlCommand command = new Conexao().ObterConexao();
-                ();
+           
             command.CommandText = "SELECT data,data_horario_saida,data_horario_volta FROM viagens WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
