@@ -15,5 +15,7 @@ namespace Model
         public float Valor { get; set; }
 
         public byte PercentualMaximoDesconto { get; set; }
+
+        public List<PontoTuristico> PontosTuristicos;
     }
 }

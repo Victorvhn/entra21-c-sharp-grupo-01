@@ -12,20 +12,21 @@ namespace Repository
 {
     public class PacoteTuristicoRepository
     {
-        public List<PacotePontoTuristico> ObterTodos()
+        public List<PontoTuristico> ObterTodosPontosTuristicosPeloIdPacote(int idPacote)
         {
-            List<PacotePontoTuristico> pacotePontoTuristico = new List<PacotePontoTuristico>();
+            List<PontoTuristico> pacotePontoTuristico = new List<PontoTuristico>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id FROM pacotes_pontos_turisticos";
+            command.CommandText = @"SELECT pt.id, pt.nome FROM pacotes_pontos_turisticos ppt 
+                                JOIN pontos_turisticos pt ON(pt.id = ppt.id_ponto_turistico)
+                                WHERE ppt.id_pacote = @ID_PACOTE";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
             {
-                PacotePontoTuristico pacotePontoturistico = new PacotePontoTuristico()
+                PontoTuristico pacotePontoturistico = new PontoTuristico()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    IdPontoTuristico = Convert.ToInt32(linha[1].ToString()),
-                    IdPacote = Convert.ToInt32(linha[2].ToString())
+                    Nome = linha[1].ToString()
                 };
                 pacotePontoTuristico.Add(pacotePontoturistico);
             }

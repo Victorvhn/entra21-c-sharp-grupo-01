@@ -15,5 +15,7 @@ namespace Model
         public int IdEndereco { get; set; }
 
         public string Nome { get; set; }
+
+        public List<Pacote> Pacotes { get; set; }
     }
 }

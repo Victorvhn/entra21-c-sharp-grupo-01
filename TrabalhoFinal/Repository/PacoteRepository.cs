@@ -32,6 +32,7 @@ namespace Repository
             }
             return pacotes;
         }
+        
         public int Cadastrar(Pacote pacote)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -42,6 +43,7 @@ namespace Repository
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
+       
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -49,6 +51,7 @@ namespace Repository
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
         }
+        
         public Pacote ObterPeloId(int id)
         {
             Pacote pacote = null;
@@ -64,6 +67,7 @@ namespace Repository
                 pacote.Nome = table.Rows[0][0].ToString();
                 pacote.Valor = Convert.ToSingle(table.Rows[0][1].ToString());
                 pacote.PercentualMaximoDesconto = Convert.ToByte(table.Rows[0][2].ToString());
+                pacote.PontosTuristicos = new PacoteTuristicoRepository().ObterTodosPontosTuristicosPeloIdPacote(pacote.Id);
             }
             return pacote;
         }
