@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    class HistoricoViagenRepositorio
+    public class HistoricoViagemRepositorio
     {
         public List<HistoricoViagem> ObterTodos()
         {
@@ -56,6 +56,15 @@ namespace Repository
             command.Parameters.AddWithValue("@ID_PACOTE", historicoViagem.IdPacote);
             command.Parameters.AddWithValue("@ID", historicoViagem.Id);
             return command.ExecuteNonQuery() == 1;
+        }
+
+        public bool Excluir(int id)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"DELETE FROM historico_de_viagens WHERE id = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+            return command.ExecuteNonQuery() == 1;
+
         }
 
         public HistoricoViagem ObterPeloId(int id)
