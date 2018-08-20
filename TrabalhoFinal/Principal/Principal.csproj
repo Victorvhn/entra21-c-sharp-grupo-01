@@ -5477,8 +5477,8 @@
     <Content Include="Content\lib\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\lib\lightgallery\fonts\lg.woff" />
     <Content Include="Views\Principal\Index.cshtml" />
-    <Content Include="Views\Principal\CadastroEndereco.cshtml" />
-    <Content Include="Views\Principal\CadastroTurista.cshtml" />
+    <Content Include="Views\Endereco\CadastroEndereco.cshtml" />
+    <Content Include="Views\Turista\CadastroTurista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5494,7 +5494,6 @@
     <Folder Include="Repository\" />
     <Folder Include="Views\Cidade\" />
     <Folder Include="Views\Continentes\" />
-    <Folder Include="Views\Endereco\" />
     <Folder Include="Views\Estados\" />
     <Folder Include="Views\Guia\" />
     <Folder Include="Views\HistoricoViagem\" />
@@ -5503,7 +5502,6 @@
     <Folder Include="Views\Pacote\" />
     <Folder Include="Views\Paises\" />
     <Folder Include="Views\PontoTuristico\" />
-    <Folder Include="Views\Turista\" />
     <Folder Include="Views\ViagemTurista\" />
     <Folder Include="Views\Viagem\" />
   </ItemGroup>
