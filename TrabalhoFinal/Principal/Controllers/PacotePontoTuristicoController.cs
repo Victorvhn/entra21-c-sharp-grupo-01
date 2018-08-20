@@ -17,20 +17,23 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-           
+            ViewBag.TituloPagina = " Cadastro Pacote Pontos Turisticos";
+            ViewBag.PacotePontoTuristico = new PacotePontoTuristico();
             return View();
         }
 
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            
+            //ViewBag.PacotePontoTuristico = pacotePontoTuristico;
+            ViewBag.TituloPagina = "Editar Pacote Pontos Turisticos";
+            //PacotePontoTuristico pacotePontoTuristico = new PontosTuristosRepository().ObterPeloId(id);
             return View();
         }
 
 
         [HttpGet]
-        public ActionResult Escluir(int id)
+        public ActionResult Excluir(int id)
         {
             
             return null;
