@@ -12,40 +12,38 @@ namespace Repository
 {
     public class ViagensRepository
     {
-        List<Viagem> ObterTodos()
+        public List<Pacote> ObterTodosPacotesPeloIdPacote(int idPacote)
         {
-        List<Viagem> viagens = new List<Viagem>();
-        SqlCommand command = new 
-            Conexao().ObterConexao();
+            List<Pacote> pacotes = new List<Pacote>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT pacotes.id,pacotes.nome,data,data_horario_saida,data_horario_volta FROM viagens JOIN pacotes ON(pacotes.id = viagens.id_pacote) WHERE viagens.id_pacote = @ID_PACOTE";
 
-        command.CommandText = "SELECT id,data,pacote,id_pacote,guia,id_guia,data_horario_saida,data_horario_volta";
-        DataTable table = new DataTable();
-        table.Load(command.ExecuteReader());
-        foreach (DataRow line in table.Rows)
-        {
-            Viagem viagem = new Viagem()
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+
+            foreach (DataRow line in table.Rows)
             {
-                Id = Convert. ToInt32(line[0].ToString()),
-                Data = Convert.ToDateTime(line[1].ToString()),
-                IdPacote = Convert.ToInt32(line[3].ToString()),
-                IdGuia = Convert.ToInt32(line[5].ToString()),
-                DataHorarioSaida = Convert.ToDateTime(line[6].ToString()),
-                DataHorarioVolta = Convert.ToDateTime(line[7].ToString())
-            };
-            viagens.Add(viagem);
-        }
-        return viagens;
+                Pacote pacote = new Pacote()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    Nome = line[1].ToString()
 
+                };
+                pacotes.Add(pacote);
+            }
+            return pacotes;
         }
 
         public int Cadastrar(Viagem viagem)
         {
             SqlCommand command = new Conexao()
 .ObterConexao();
-            command.CommandText = "INSERT INTO viagens (data,data_horario_saida,data_horario_volta) OUTPUT INSERTED.ID VALUES(@DATA,@DATA_HORARIO_SAIDA,@DATA_HORARIO_VOLTA)";
+            command.CommandText = "INSERT INTO viagens (data,data_horario_saida,data_horario_volta,id_guia,id_pacote) OUTPUT INSERTED.ID VALUES(@DATA,@DATA_HORARIO_SAIDA,@DATA_HORARIO_VOLTA,@ID_GUIA,@ID_PACOTES)";
             command.Parameters.AddWithValue("@DATA",viagem.Data);
             command.Parameters.AddWithValue("@DATA_HORARIO_SAIDA", viagem.DataHorarioSaida);
             command.Parameters.AddWithValue("@DATA_HORARIO_VOLTA", viagem.DataHorarioVolta);
+            command.Parameters.AddWithValue("@ID_GUIA", viagem.IdGuia);
+            command.Parameters.AddWithValue("@ID_PACOTES", viagem.IdPacote);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
@@ -54,10 +52,12 @@ namespace Repository
         public bool Alterar(Viagem viagens)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "UPDATE viagens SET data = @DATA, data_horario_saida = @DATA_HORARIO_SAIDA, data_horario_volta = @DATA_HORARIO_VOLTA WHERE id = @ID";
+            command.CommandText = "UPDATE viagens SET data = @DATA, data_horario_saida = @DATA_HORARIO_SAIDA, data_horario_volta = @DATA_HORARIO_VOLTA,id_guia = @ID_GUIA,id_pacotes = @ID_PACOTES WHERE id = @ID";
             command.Parameters.AddWithValue("@DATA", viagens.Data);
             command.Parameters.AddWithValue("@DATA_HORARIO_SAIDA", viagens.DataHorarioSaida);
             command.Parameters.AddWithValue("@DATA_HORARIO_VOLTA", viagens.DataHorarioVolta);
+            command.Parameters.AddWithValue("@ID_GUIA", viagens.IdGuia);
+            command.Parameters.AddWithValue("@ID_PACOTES",viagens.IdPacote);
             command.Parameters.AddWithValue("@ID", viagens.Id);
 
             return command.ExecuteNonQuery() == 1;
