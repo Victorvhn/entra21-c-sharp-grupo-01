@@ -11,10 +11,6 @@ namespace Principal.Controllers
     public class HistoricoViagemController : Controller
     {
         // GET: HistoricoViagem
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         [HttpGet]
         public ActionResult Cadastro()

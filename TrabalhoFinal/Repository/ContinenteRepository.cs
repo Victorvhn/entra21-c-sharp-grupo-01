@@ -64,7 +64,7 @@ namespace Repository
             Continente continente = null;
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT nome FROM continente WHERE id = @ID";
-            command.Parameters.AddWithValue("ID", id);
+            command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             if (table.Rows.Count == 1)

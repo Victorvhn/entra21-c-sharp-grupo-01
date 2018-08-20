@@ -9,9 +9,35 @@ namespace Principal.Controllers
     public class ContinenteController : Controller
     {
         // GET: Continentes
-        public ActionResult Index()
+
+        [HttpGet]
+        public ActionResult Cadastrar()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Editar()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Excluir()
+        {
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar()
+        {
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult Editar()
+        {
+            return null;
         }
     }
 }

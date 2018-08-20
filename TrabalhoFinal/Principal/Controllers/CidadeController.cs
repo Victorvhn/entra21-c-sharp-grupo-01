@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model;
+using Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,35 +11,41 @@ namespace Principal.Controllers
     public class CidadeController : Controller
     {
         // GET: Cidade
-
-        [HttpGet]
-        public ActionResult Cadastrar()
+        public ActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        public ActionResult Editar()
+        public ActionResult Cadastro()
         {
+            ViewBag.TituloPagina = "Cidade Cadastro";
+            ViewBag.Cidade = new Cidade();
             return View();
         }
 
         [HttpGet]
-        public ActionResult Excluir()
+        public ActionResult Editar(int id)
         {
+            Cidade cidade = new CidadeRepositorio().ObterPeloId(id);
+            ViewBag.TituloPagina = "Cidade Editar";
+            ViewBag.Cidade = cidade;
+            return View();
+        }
+
+
+        [HttpGet]
+        public ActionResult Escluir(int id)
+        {
+            bool apagado = new CidadeRepositorio().Excluir(id);
             return null;
         }
 
         [HttpPost]
-        public ActionResult Cadastrar()
+        public ActionResult Store(Cidade cidade)
         {
-            return null;
-        }
-
-        [HttpPost]
-        public ActionResult Editar()
-        {
-            return null;
+            int identificador = new CidadeRepositorio().Cadastrar(cidade);
+            return RedirectToAction("Editar", new { id = identificador});
         }
     }
 }

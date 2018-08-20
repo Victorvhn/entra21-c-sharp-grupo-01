@@ -11,10 +11,6 @@ namespace Principal.Controllers
     public class GuiaController : Controller
     {
         // GET: Guia
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         [HttpGet]
         public ActionResult Cadastro()

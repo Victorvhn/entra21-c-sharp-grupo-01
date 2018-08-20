@@ -10,11 +10,7 @@ namespace Principal.Controllers
 {
     public class EstadoController : Controller
     {
-        // GET: Estados
-        public ActionResult Index()
-        {
-            return View();
-        }
+        // GET: Estados        
 
         [HttpGet]
         public ActionResult Cadastro()
