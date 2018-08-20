@@ -9,9 +9,6 @@ namespace Repository
 {
     public class ViagensTuristasRepository
     {
-        public List<Viagem> ObterTodasViagensPeloIdViagem(int idViagem)
-        {
-            List<Viagem>
-        }
+        
     }
 }
