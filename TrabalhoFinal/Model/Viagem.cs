@@ -12,11 +12,7 @@ namespace Model
 
         public DateTime Data { get; set; }
 
-        public Pacote Pacote { get; set; }
-
         public int IdPacote { get; set; }
-
-        public Guia Guia { get; set; }
 
         public int IdGuia { get; set; }
 
@@ -24,6 +20,6 @@ namespace Model
 
         public DateTime DataHorarioVolta { get; set; }
 
-
+        public List<ViagemTurista> ViagensTuristas;
     }
 }

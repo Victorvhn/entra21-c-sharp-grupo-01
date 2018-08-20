@@ -46,7 +46,7 @@
     <Compile Include="Enderecorepository.cs" />
     <Compile Include="EstadoRepositorio.cs" />
     <Compile Include="GuiaRepositorio.cs" />
-    <Compile Include="HistoricoViagemRepositorio.cs" />
+    <Compile Include="HistoricoViagenRepositorio.cs" />
     <Compile Include="IdiomaRepository.cs" />
     <Compile Include="PacotePontosTuristicosRepository.cs" />
     <Compile Include="PacoteRepository.cs" />
@@ -54,6 +54,7 @@
     <Compile Include="PontosTuristosRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TuristaRepository.cs" />
+    <Compile Include="ViagensRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
