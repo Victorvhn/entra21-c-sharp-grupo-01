@@ -14,7 +14,7 @@ namespace Repository
     {
         public List<PontoTuristico> ObterTodosPontosTuristicosPeloIdPacote(int idPacote)
         {
-            List<PontoTuristico> pacotePontoTuristico = new List<PontoTuristico>();
+            List<PontoTuristico> viagens = new List<PontoTuristico>();
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT pt.id, pt.nome FROM pacotes_pontos_turisticos ppt 
                                 JOIN pontos_turisticos pt ON(pt.id = ppt.id_ponto_turistico)
@@ -28,9 +28,9 @@ namespace Repository
                     Id = Convert.ToInt32(linha[0].ToString()),
                     Nome = linha[1].ToString()
                 };
-                pacotePontoTuristico.Add(pacotePontoturistico);
+                viagens.Add(pacotePontoturistico);
             }
-            return pacotePontoTuristico;
+            return viagens;
         }
 
         public int Cadastro(PacotePontoTuristico pacotePontoTuristico)

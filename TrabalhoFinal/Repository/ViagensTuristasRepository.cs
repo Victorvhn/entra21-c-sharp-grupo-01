@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,9 @@ namespace Repository
 {
     public class ViagensTuristasRepository
     {
+        public List<Viagem> ObterTodasViagensPeloIdViagem(int idViagem)
+        {
+            List<Viagem>
+        }
     }
 }
