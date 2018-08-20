@@ -10,14 +10,11 @@ namespace Model
     {
         public int Id { get; set; }
 
-        public Turista Turista { get; set; }
-
         public int IdTurista { get; set; }
-
-        public Viagem Viagem{ get; set; }
 
         public int IdViagem { get; set; }
 
         public float Valor { get; set; }
+
     }
 }

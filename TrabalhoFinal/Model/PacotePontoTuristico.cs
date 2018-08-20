@@ -10,7 +10,9 @@ namespace Model
     {
 
         public int Id{ get; set; }
+
         public int IdPontoTuristico { get; set; }
+
         public int IdPacote { get; set; }
         
     }

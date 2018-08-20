@@ -35,5 +35,7 @@ namespace Model
         public int IdEndereco { get; set; }
 
         public bool Premium { get; set; }
+
+        public List<Viagem> Viagens { get; set; }
     }
 }

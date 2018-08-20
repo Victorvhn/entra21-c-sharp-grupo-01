@@ -20,6 +20,6 @@ namespace Model
 
         public DateTime DataHorarioVolta { get; set; }
 
-        public List<ViagemTurista> ViagensTuristas;
+        public List<Turista> Turistas { get; set; }
     }
 }
