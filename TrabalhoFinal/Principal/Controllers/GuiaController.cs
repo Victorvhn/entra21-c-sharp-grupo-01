@@ -11,7 +11,7 @@ namespace Principal.Controllers
     public class GuiaController : Controller
     {
         // GET: Guia
-
+        
         [HttpGet]
         public ActionResult Cadastro()
         {
@@ -45,7 +45,8 @@ namespace Principal.Controllers
                 guia.Cpf = guia.Cpf.Replace(".", "").Replace("-", "");
             }*/
                 int identificador = new GuiaRepositorio().Cadastrar(guia);
-                return RedirectToAction("Editar", new { id = identificador });
+                /*return RedirectToAction("Editar", new { id = identificador });*/
+                return null;
 
             /*ViewBag.Guia = guia;
             return View("Guia Cadastro");*/
