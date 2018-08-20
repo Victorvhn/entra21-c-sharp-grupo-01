@@ -71,8 +71,8 @@ namespace Repository
             PacotePontoTuristico pacoteTuristico = null;
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT pontos_turisticos.nome, pontos_turisticos.nome, pacotes.nome, pacotes.id, id_ponto_turistico,id_pacote FROM pacotes_pontos_turisticos JOIN pontos_turisticos on pacotes_pontos_turisticos(pacotes_pontos_turisticos.id_ponto_turistico = pontos_turisticos.id)
-            JOIN pacotes_pontos_turisticos ON(pacotes_pontos_turisticos.id_pacote = pacotes.id WHERE id = @ID)"; 
-            command.Parameters.AddWithValue("ID", id);
+            JOIN pacotes_pontos_turisticos ON(pacotes_pontos_turisticos.id_pacote = pacotes.id ) WHERE id = @ID"; 
+            command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             if (table.Rows.Count == 1)
