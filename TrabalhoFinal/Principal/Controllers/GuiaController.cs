@@ -44,15 +44,15 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(Guia guia)
         {
-            if (ModelState.IsValid)
+            /*if (ModelState.IsValid)
             {
                 guia.Cpf = guia.Cpf.Replace(".", "").Replace("-", "");
+            }*/
                 int identificador = new GuiaRepositorio().Cadastrar(guia);
                 return RedirectToAction("Editar", new { id = identificador });
-            }
 
-            ViewBag.Guia = guia;
-            return View("Guia Cadastro");
+            /*ViewBag.Guia = guia;
+            return View("Guia Cadastro");*/
         }
 
 
