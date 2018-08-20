@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,31 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Estado estado = new EstadoRepositorio().ObterPeloId();
+            Estado estado = new EstadoRepositorio().ObterPeloId(id);
+            ViewBag.Estado = estado;
+            ViewBag.TituloPagina = "Estado Editar";
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Excluir(int id)
+        {
+            bool apagado = new EstadoRepositorio().Excluir(id);
+            return null;
+        }
+
+        [HttpGet]
+        public ActionResult Store(Estado estado)
+        {
+            int identificador = new EstadoRepositorio().Cadastrar(estado);
+            return RedirectToAction("Editar", new { id = identificador });
+        }
+
+        [HttpGet]
+        public ActionResult Update(Estado estado)
+        {
+            bool alterado = new EstadoRepositorio().Alterar(estado);
+            return null;
         }
     }
 }
