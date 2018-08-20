@@ -5144,7 +5144,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HistoricoViagemController.cs" />
+    <Compile Include="Controllers\ViagemController.cs" />
+    <Compile Include="Controllers\CidadeController.cs" />
+    <Compile Include="Controllers\ContinenteController.cs" />
+    <Compile Include="Controllers\EnderecoController.cs" />
+    <Compile Include="Controllers\EstadoController.cs" />
+    <Compile Include="Controllers\GuiaController.cs" />
+    <Compile Include="Controllers\IdiomaController.cs" />
+    <Compile Include="Controllers\PacoteController.cs" />
+    <Compile Include="Controllers\PacotePontoTuristicoController.cs" />
+    <Compile Include="Controllers\PaisesController.cs" />
+    <Compile Include="Controllers\PontoTuristicoController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
+    <Compile Include="Controllers\TuristaController.cs" />
+    <Compile Include="Controllers\ViagemTuristaController.cs" />
     <Compile Include="Database\Conexao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -5478,6 +5492,20 @@
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Models\" />
     <Folder Include="Repository\" />
+    <Folder Include="Views\Cidade\" />
+    <Folder Include="Views\Continentes\" />
+    <Folder Include="Views\Endereco\" />
+    <Folder Include="Views\Estados\" />
+    <Folder Include="Views\Guia\" />
+    <Folder Include="Views\HistoricoViagem\" />
+    <Folder Include="Views\Idioma\" />
+    <Folder Include="Views\PacotePontoTuristico\" />
+    <Folder Include="Views\Pacote\" />
+    <Folder Include="Views\Paises\" />
+    <Folder Include="Views\PontoTuristico\" />
+    <Folder Include="Views\Turista\" />
+    <Folder Include="Views\ViagemTurista\" />
+    <Folder Include="Views\Viagem\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
