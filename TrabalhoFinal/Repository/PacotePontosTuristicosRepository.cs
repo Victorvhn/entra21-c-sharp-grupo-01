@@ -16,7 +16,7 @@ namespace Repository
         {
             List<PacotePontoTuristico> pacotePontoTuristico = new List<PacotePontoTuristico>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, id_ponto_turistico,id_pacote FROM pacotes_pontos_turisticos";
+            command.CommandText = "SELECT id FROM pacotes_pontos_turisticos";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -32,27 +32,27 @@ namespace Repository
             return pacotePontoTuristico;
         }
 
-        public int Cadastro(PacotePontoTuristico poacotePontoTuristico)
+        public int Cadastro(PacotePontoTuristico pacotePontoTuristico)
         {
             SqlCommand command = new Conexao().ObterConexao();
 
             command.CommandText = @"INSERT INTO pacotes_pontos_turisticos (id_ponto_turistico, id_pacote) OUTPUT INSERTED.ID VALUES (@ID_PONTO_TURISTICO, @ID_PACOTE)";
-            command.Parameters.AddWithValue("@ID_PONTO_TURISTICO", poacotePontoTuristico.IdPontoTuristico);
-            command.Parameters.AddWithValue("@ID_PACOTE", poacotePontoTuristico.IdPacote);
-
+            command.Parameters.AddWithValue("@ID_PONTO_TURISTICO", pacotePontoTuristico.IdPontoTuristico);
+            command.Parameters.AddWithValue("@ID_PACOTE", pacotePontoTuristico.IdPacote);
 
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
 
         }
 
-        public bool Alterar(PacotePontoTuristico poacotePontoTuristico)
+        public bool Alterar(PacotePontoTuristico pacotePontoTuristico)
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"UPDATE pacotes_pontos_turisticos SET id_ponto_turistico = @ID_PONTO_TURISTICO, id_pacote = @ID_PACOTE WHERE id = @ID  ";
 
-            command.Parameters.AddWithValue("@ID_PONTO_TURISTICO", poacotePontoTuristico.IdPontoTuristico);
-            command.Parameters.AddWithValue("@ID_PACOTE", poacotePontoTuristico.IdPacote);
+            command.Parameters.AddWithValue("@ID_PONTO_TURISTICO", pacotePontoTuristico.IdPontoTuristico);
+            command.Parameters.AddWithValue("@ID_PACOTE", pacotePontoTuristico.IdPacote);
+            command.Parameters.AddWithValue("@ID", pacotePontoTuristico.Id);
             return command.ExecuteNonQuery() == 1;
         }
 
@@ -80,10 +80,8 @@ namespace Repository
                 pacoteTuristico.Id = id;
                 pacoteTuristico.IdPontoTuristico = Convert.ToInt32(table.Rows[0][0]);
                 pacoteTuristico.IdPacote = Convert.ToInt32(table.Rows[0][1]);
-
             }
             return pacoteTuristico;
-
         }
     }
 }
