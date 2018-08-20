@@ -9,14 +9,35 @@ namespace Principal.Controllers
     public class EnderecoController : Controller
     {
         // GET: Endereco
-        public ActionResult Index()
+
+        [HttpGet]
+        public ActionResult Cadastrar()
         {
             return View();
         }
 
-        public ActionResult CadastroEndereco()
+        [HttpGet]
+        public ActionResult Editar()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Excluir()
+        {
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar()
+        {
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult Editar()
+        {
+            return null;
         }
     }
 }

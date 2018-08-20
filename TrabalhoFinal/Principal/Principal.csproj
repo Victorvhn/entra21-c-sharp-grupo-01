@@ -5479,6 +5479,14 @@
     <Content Include="Views\Principal\Index.cshtml" />
     <Content Include="Views\Endereco\CadastroEndereco.cshtml" />
     <Content Include="Views\Turista\CadastroTurista.cshtml" />
+    <Content Include="Views\Cidade\Cadastrar.cshtml" />
+    <Content Include="Views\Cidade\Editar.cshtml" />
+    <Content Include="Views\Continente\Cadastrar.cshtml" />
+    <Content Include="Views\Continente\Editar.cshtml" />
+    <Content Include="Views\Endereco\Cadastrar.cshtml" />
+    <Content Include="Views\Endereco\Editar.cshtml" />
+    <Content Include="Views\Guia\Cadastro.cshtml" />
+    <Content Include="Views\Guia\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5492,10 +5500,8 @@
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Models\" />
     <Folder Include="Repository\" />
-    <Folder Include="Views\Cidade\" />
     <Folder Include="Views\Continentes\" />
     <Folder Include="Views\Estados\" />
-    <Folder Include="Views\Guia\" />
     <Folder Include="Views\HistoricoViagem\" />
     <Folder Include="Views\Idioma\" />
     <Folder Include="Views\PacotePontoTuristico\" />
