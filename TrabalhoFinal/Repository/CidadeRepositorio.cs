@@ -58,6 +58,15 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
         }
 
+        public bool Excluir(int id)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"DELETE FROM cidades WHERE id = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+            return command.ExecuteNonQuery() == 1;
+
+        }
+
         public Cidade ObterPeloId(int id)
         {
             Cidade cidade = null;

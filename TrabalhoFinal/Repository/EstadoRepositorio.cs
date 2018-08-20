@@ -59,6 +59,16 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
         }
 
+        public bool Excluir(int id)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"DELETE FROM estado WHERE id = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+            return command.ExecuteNonQuery() == 1;
+
+        }
+
+
         public Estado ObterPeloId(int id)
         {
             Estado estado = null;
