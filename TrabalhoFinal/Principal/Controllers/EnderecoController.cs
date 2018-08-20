@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,25 +18,25 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
-        public ActionResult Editar()
+        public ActionResult Editar(int id)
         {
             return View();
         }
 
         [HttpGet]
-        public ActionResult Excluir()
+        public ActionResult Excluir(int id)
         {
             return null;
         }
 
         [HttpPost]
-        public ActionResult Cadastrar()
+        public ActionResult Cadastrar(Endereco endereco)
         {
             return null;
         }
 
         [HttpPost]
-        public ActionResult Editar()
+        public ActionResult Editar(Endereco endereco)
         {
             return null;
         }
