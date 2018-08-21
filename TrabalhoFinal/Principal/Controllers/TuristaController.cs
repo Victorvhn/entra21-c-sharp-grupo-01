@@ -20,7 +20,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Turista Cadastro";
+           
             ViewBag.Turista = new Turista();
             return View();
         }
@@ -30,7 +30,7 @@ namespace Principal.Controllers
         {
             Turista turista = new TuristaRepository().ObterPeloId(id);
             ViewBag.Turista = turista;
-            ViewBag.TituloPagina = "Turista Editar";
+       
             return View();
         }
 
