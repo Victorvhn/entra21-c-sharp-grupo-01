@@ -15,7 +15,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Historico de viagens Cadastro";
+            
             ViewBag.HistoricoViagem = new HistoricoViagem();
             return View();
         }
@@ -25,7 +25,7 @@ namespace Principal.Controllers
         {
             HistoricoViagem historicoViagem = new HistoricoViagemRepositorio().ObterPeloId(id);
             ViewBag.HistoricoViagem = historicoViagem;
-            ViewBag.TituloPagina = "Historico de Viagens Editar";
+           
             return View();
           
         }

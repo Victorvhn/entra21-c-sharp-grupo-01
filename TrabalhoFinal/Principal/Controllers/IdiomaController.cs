@@ -18,7 +18,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Idioma Cadastro";
+         
             ViewBag.Idioma = new Idioma();
             return View();
         }
@@ -27,7 +27,7 @@ namespace Principal.Controllers
         {
             Idioma idioma = new IdiomaRepository().ObterPeloId(id);
             ViewBag.Idioma = idioma;
-            ViewBag.TituloPagina = "Idioma Editar";
+            
             return View();
         }
 
