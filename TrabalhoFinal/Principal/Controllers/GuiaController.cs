@@ -15,7 +15,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Guia Cadastro";
+           
             ViewBag.Guia = new Guia();
             return View();
         }
@@ -25,7 +25,7 @@ namespace Principal.Controllers
         {
             Guia guia = new GuiaRepositorio().ObterPeloId(id);
             ViewBag.Guia = guia;
-            ViewBag.TituloPagina = "Guia Editar";
+            
             return View();
         }
 
