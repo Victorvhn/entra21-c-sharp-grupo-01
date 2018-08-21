@@ -133,7 +133,7 @@ CREATE TABLE viagens (
 	data_horario_saida DATETIME,
 	data_horario_volta DATETIME,
 	FOREIGN KEY (id_pacote) REFERENCES pacotes(id),
-	FOREIGN KEY (id_guia) REFERENCES pacotes(id)
+	FOREIGN KEY (id_guia) REFERENCES guias(id)
 );
 
 
