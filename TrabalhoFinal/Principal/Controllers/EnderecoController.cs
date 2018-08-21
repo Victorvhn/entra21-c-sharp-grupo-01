@@ -45,7 +45,7 @@ namespace Principal.Controllers
         public ActionResult Store(Endereco endereco)
         {
             int identificador = new EnderecoRepository().Cadastrar(endereco);
-            return null;
+            return RedirectToAction("Editar", new { id = identificador });
         }
     }
 }
