@@ -26,7 +26,7 @@ namespace Principal.Controllers
         public ActionResult Editar(int id)
         {
             ViagemTurista viagemTurista = new ViagensTuristasRepository().ObterPeloId(id);
-            ViewBag.ViagemTurista = viagemTurista;
+            //ViewBag.ViagemTurista = viagemTurista;
             ViewBag.TituloPagina = "Viagem Turista Editar";
             return View();
         }
