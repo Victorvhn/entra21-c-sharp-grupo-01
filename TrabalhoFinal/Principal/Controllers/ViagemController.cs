@@ -13,5 +13,8 @@ namespace Principal.Content
         {
             return View();
         }
+
+        [HttpGet
+        public ActionResult
     }
 }

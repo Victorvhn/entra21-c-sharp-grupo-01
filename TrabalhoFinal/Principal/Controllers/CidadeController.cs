@@ -19,7 +19,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Cidade Cadastro";
+            
             ViewBag.Cidade = new Cidade();
             return View();
         }
@@ -28,7 +28,7 @@ namespace Principal.Controllers
         public ActionResult Editar(int id)
         {
             Cidade cidade = new CidadeRepositorio().ObterPeloId(id);
-            ViewBag.TituloPagina = "Cidade Editar";
+           
             ViewBag.Cidade = cidade;
             return View();
         }

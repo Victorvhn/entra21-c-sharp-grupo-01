@@ -32,6 +32,7 @@ namespace Repository
             }
             return idiomas;
         }
+
         public int Cadastrar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -41,6 +42,7 @@ namespace Repository
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
+
         public bool Alterar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -51,6 +53,15 @@ namespace Repository
             command.Parameters.AddWithValue("@ID", idioma.Id);
             return command.ExecuteNonQuery() == 1;
         }
+
+        public bool Excluir (int id)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"DELETE FROM idiomas WHERE id = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+            return command.ExecuteNonQuery() == 1;
+        }
+
         public Idioma ObterPeloId(int id)
         {
             Idioma idioma = null;

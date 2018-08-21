@@ -53,7 +53,7 @@ namespace Repository
             command.CommandText = @"UPDATE  cidades SET nome = @NOME, id_estado = @ID_ESTADO WHERE id = @ID";
 
             command.Parameters.AddWithValue("@NOME", cidade.Nome);
-            command.Parameters.AddWithValue("ID_ESTADO", cidade.IdEstado);
+            command.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
             command.Parameters.AddWithValue("@ID", cidade.Id);
             return command.ExecuteNonQuery() == 1;
         }

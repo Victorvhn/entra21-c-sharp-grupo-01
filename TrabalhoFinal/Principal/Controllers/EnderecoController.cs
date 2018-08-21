@@ -20,7 +20,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ViewBag.TitutloPagina = "Cadastro de Endereço";
+            
             ViewBag.Endereco = new Endereco();
             return null;
         }
@@ -29,7 +29,7 @@ namespace Principal.Controllers
         public ActionResult Editar(int id)
         {
             Endereco endereco = new EnderecoRepository().ObterPeloId(id);
-            ViewBag.TituloPagina = "Endereço Editar";
+           
             ViewBag.Endereco = endereco;
             return View();
         }
