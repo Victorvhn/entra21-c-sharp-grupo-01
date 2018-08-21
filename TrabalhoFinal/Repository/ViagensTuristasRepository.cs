@@ -67,7 +67,7 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
         }
 
-        public ViagemTurista ObterPeloID(int id)
+        public ViagemTurista ObterPeloId(int id)
         {
             ViagemTurista viagemTurista = null;
             SqlCommand command = new Conexao().ObterConexao();
