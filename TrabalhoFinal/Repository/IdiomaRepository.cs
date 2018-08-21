@@ -45,7 +45,7 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"UPDATE idiomas SET nome = @NOME, id_guia = @ID_GUIA WHERE id = @ID";
-            //sou o lucas viado do krlh e n transo pq sou precoce e tenho fimose by: zé
+            
             command.Parameters.AddWithValue("@NOME", idioma.Nome);
             command.Parameters.AddWithValue("@ID_GUIA", idioma.IdGuia);
             command.Parameters.AddWithValue("@ID", idioma.Id);

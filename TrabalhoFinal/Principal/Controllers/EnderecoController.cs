@@ -42,8 +42,6 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-
-        [HttpPost]
         public ActionResult Store(Endereco endereco)
         {
             int identificador = new EnderecoRepository().Cadastrar(endereco);
