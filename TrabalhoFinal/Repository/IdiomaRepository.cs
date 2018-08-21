@@ -32,6 +32,7 @@ namespace Repository
             }
             return idiomas;
         }
+
         public int Cadastrar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -41,16 +42,26 @@ namespace Repository
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
+
         public bool Alterar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"UPDATE idiomas SET nome = @NOME, id_guia = @ID_GUIA WHERE id = @ID";
-            //sou o lucas viado do krlh e n transo pq sou precoce e tenho fimose by: zé
+            
             command.Parameters.AddWithValue("@NOME", idioma.Nome);
             command.Parameters.AddWithValue("@ID_GUIA", idioma.IdGuia);
             command.Parameters.AddWithValue("@ID", idioma.Id);
             return command.ExecuteNonQuery() == 1;
         }
+
+        public bool Excluir (int id)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"DELETE FROM idiomas WHERE id = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+            return command.ExecuteNonQuery() == 1;
+        }
+
         public Idioma ObterPeloId(int id)
         {
             Idioma idioma = null;
