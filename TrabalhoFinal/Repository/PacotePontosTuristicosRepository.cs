@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class PacoteTuristicoRepository
+     public class PacoteTuristicoRepository
     {
         public List<PontoTuristico> ObterTodosPontosTuristicosPeloIdPacote(int idPacote)
         {
