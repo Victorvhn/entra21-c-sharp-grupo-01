@@ -48,12 +48,10 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO guias (login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
+            command.CommandText = @"INSERT INTO guias (sexo, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
             OUTPUT INSERTED.ID
-            VALUES (@LOGIN_, @SEXO, @SENHA, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";
-            command.Parameters.AddWithValue("@LOGIN_", guia.Login_);
-            command.Parameters.AddWithValue("@SEXO", guia.Sexo);
-            command.Parameters.AddWithValue("@SENHA", guia.Senha);
+            VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";            
+            command.Parameters.AddWithValue("@SEXO", guia.Sexo);           
             command.Parameters.AddWithValue("@NOME", guia.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
             command.Parameters.AddWithValue("@NUMERO_CARTEIRA_TRABALHO", guia.CarteiraTrabalho);
@@ -64,6 +62,7 @@ namespace Repository
             command.Parameters.AddWithValue("@DATA_NASCIMENTO", guia.DataNascimento);
             command.Parameters.AddWithValue("@RANK_", guia.Rank);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
+
             return id;
 
         }
