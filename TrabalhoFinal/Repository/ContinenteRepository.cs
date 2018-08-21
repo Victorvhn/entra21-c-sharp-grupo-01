@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    class ContinenteRepository
+    public class ContinenteRepository
     {
         public List<Continente> ObterTodos()
         {
