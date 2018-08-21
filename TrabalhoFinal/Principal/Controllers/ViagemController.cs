@@ -26,7 +26,7 @@ namespace Principal.Content
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Viagem viajens = new ViagensRepository().ObterPeloID(id);
+            Viagem viajens = new ViagensRepository().ObterPeloId(id);
             ViewBag.Viagem = viajens;
             return View();
         }

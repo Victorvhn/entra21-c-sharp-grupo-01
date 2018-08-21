@@ -89,7 +89,7 @@ namespace Repository
                 historicoViagem.IdPacote = Convert.ToInt32(table.Rows[0][1].ToString());
                 historicoViagem.Pacote = new Pacote();
                 historicoViagem.Pacote.Nome = table.Rows[0][2].ToString();
-                historicoViagem.Pacote.Id = Convert.ToInt32(table.Rows.ToString());
+                historicoViagem.Pacote.Id = Convert.ToInt32(table.Rows[0][3].ToString());
             }
             return historicoViagem;
         }

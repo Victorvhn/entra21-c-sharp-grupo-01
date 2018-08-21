@@ -26,7 +26,7 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
                     IdEstado = Convert.ToInt32(line[1].ToString()),
-                    Nome = line[3].ToString()
+                    Nome = line[2].ToString()
                 };
                 cidades.Add(cidade);
             }
