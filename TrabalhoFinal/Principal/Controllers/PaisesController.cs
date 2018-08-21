@@ -20,14 +20,14 @@ namespace Principal.Controllers
         public ActionResult Cadastro()
         {
 
-            ViewBag.Cidade = new Paises();
+            ViewBag.Cidade = new Pais();
             return View();
         }
 
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Paises cidade = new CidadeRepositorio().ObterPeloId(id);
+            Pais cidade = new PaisRepository().ObterPeloId(id);
 
             ViewBag.Cidade = cidade;
             return View();
@@ -37,14 +37,14 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new Paises().Excluir(id);
+            bool apagado = new PaisRepository().Excluir(id);
             return null;
         }
 
         [HttpPost]
-        public ActionResult Store(Paises cidade)
+        public ActionResult Store(Pais paises)
         {
-            int identificador = new CidadeRepositorio().Cadastrar(cidade);
+            int identificador = new PaisRepository().Cadastrar(paises);
             return RedirectToAction("Editar", new { id = identificador });
         }
     }
