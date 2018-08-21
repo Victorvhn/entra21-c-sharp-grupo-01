@@ -29,8 +29,8 @@ namespace Repository
                     Cep = line[1].ToString(),
                     Logradouro = line[2].ToString(),
                     Numero = Convert.ToInt16(line[3].ToString()),
-                    Complemento = line[5].ToString(),
-                    Referencia = line[6].ToString()
+                    Complemento = line[4].ToString(),
+                    Referencia = line[5].ToString()
 
 
                 };
