@@ -18,7 +18,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Viagem Turista Cadastro";
+            
             ViewBag.ViagemTurista = new ViagemTurista();
             return View();
         }
@@ -26,8 +26,8 @@ namespace Principal.Controllers
         public ActionResult Editar(int id)
         {
             ViagemTurista viagemTurista = new ViagensTuristasRepository().ObterPeloId(id);
-            //ViewBag.ViagemTurista = viagemTurista;
-            ViewBag.TituloPagina = "Viagem Turista Editar";
+            ViewBag.ViagemTurista = viagemTurista;
+            
             return View();
         }
 

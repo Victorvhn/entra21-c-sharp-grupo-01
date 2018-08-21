@@ -18,7 +18,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Ponto Turistico Cadastro";
+            
             ViewBag.PontoTuristico = new PontoTuristico();
             return View();
         }
@@ -28,7 +28,7 @@ namespace Principal.Controllers
         {
             PontoTuristico PontoTuristico = new PontosTuristosRepository().ObterPeloId(id);
             ViewBag.PontoTuristico = PontoTuristico;
-            ViewBag.TituloPagina = "Ponto Turistico Editar";
+           
             return View();
         }
 
