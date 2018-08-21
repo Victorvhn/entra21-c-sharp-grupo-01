@@ -48,9 +48,10 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO guias (login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
+            command.CommandText = @"INSERT INTO guias (id+endereco, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
             OUTPUT INSERTED.ID
-            VALUES (@LOGIN_, @SEXO, @SENHA, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";
+            VALUES (@ID_ENDERECO, @LOGIN_, @SEXO, @SENHA, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";
+            command.Parameters.AddWithValue("@ID_ENDERECO", guia.IdEndereco);
             command.Parameters.AddWithValue("@LOGIN_", guia.Login_);
             command.Parameters.AddWithValue("@SEXO", guia.Sexo);
             command.Parameters.AddWithValue("@SENHA", guia.Senha);
