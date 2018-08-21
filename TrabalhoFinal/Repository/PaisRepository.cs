@@ -12,7 +12,7 @@ namespace Repository
 {
     public class PaisRepository
     {
-        List<Pais> ObterTodos()
+        public List<Pais> ObterTodos()
         {
             List<Pais> paises = new List<Pais>();
             SqlCommand command = new Conexao().ObterConexao();
