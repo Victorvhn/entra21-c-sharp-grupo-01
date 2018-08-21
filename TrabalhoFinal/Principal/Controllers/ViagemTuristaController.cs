@@ -31,7 +31,12 @@ namespace Principal.Controllers
             return View();
         }
 
-
+        [HttpGet]
+        public ActionResult Excluir(int id)
+        {
+            bool apagado = new ViagensTuristasRepository().Excluir(id);
+            return null;
+        }
 
         [HttpPost]
         public ActionResult Store(ViagemTurista viagemTurista)
