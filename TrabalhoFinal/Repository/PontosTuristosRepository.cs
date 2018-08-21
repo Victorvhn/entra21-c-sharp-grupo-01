@@ -66,7 +66,7 @@ namespace Repository
                 pontoTuristico.Id = id;
                 pontoTuristico.IdEndereco = Convert.ToInt32(table.Rows[0][0].ToString());
                 pontoTuristico.Endereco = new Endereco();
-                pontoTuristico.Endereco.Id = Convert.ToInt32(table.Rows[0][3].ToString());
+                pontoTuristico.Endereco.Id = Convert.ToInt32(table.Rows[0][1].ToString());
 
             }
             return pontoTuristico;
