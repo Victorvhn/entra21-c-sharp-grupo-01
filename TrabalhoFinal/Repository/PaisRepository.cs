@@ -12,55 +12,56 @@ namespace Repository
 {
     public class PaisRepository
     {
-        List<Continente> ObterTodos()
+        List<Pais> ObterTodos()
         {
-            List<Continente> continentes = new List<Continente>();
+            List<Pais> paises = new List<Pais>();
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "SELECT id, nome FROM continentes";
+            command.CommandText = "SELECT id, id_continente, nome FROM paises";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
             {
-                Continente continente = new Continente()
+                Pais pais = new Pais()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
                     Nome = line[1].ToString(),
+                    IdContinente = Convert.ToInt32(line[2].ToString())
 
                 };
-                continentes.Add(continente);
+                paises.Add(pais);
             }
-            return continentes;
+            return paises;
         }
 
-        public int Cadastrar(Continente continente)
+        public int Cadastrar(Pais pais)
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO continentes (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
-            command.Parameters.AddWithValue("@NOME", continente.Nome);
+            command.CommandText = @"INSERT INTO paises (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
+            command.Parameters.AddWithValue("@NOME", pais.Nome);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
 
         }
 
-        public bool Alterar(Continente continente)
+        public bool Alterar(Pais pais)
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"UPDATE continentes SET nome = @NOME WHERE id = @ID";
-            command.Parameters.AddWithValue("@NOME", continente.Nome);
-            command.Parameters.AddWithValue("ID", continente.Id);
+            command.CommandText = @"UPDATE paises SET nome = @NOME WHERE id = @ID";
+            command.Parameters.AddWithValue("@NOME", pais.Nome);
+            command.Parameters.AddWithValue("ID", pais.Id);
             return command.ExecuteNonQuery() == 1;
         }
 
-        public Continente ObterPeloId(int id)
+        public Pais ObterPeloId(int id)
         {
-            Continente continente = null;
+            Pais pais = null;
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT nome FROM continentes WHERE id = @ID";
+            command.CommandText = @"SELECT paises.nome, continentes.nome, continentes.id FROM paises JOIN paises ON(paises.id_continente = continentes.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();
@@ -68,10 +69,11 @@ namespace Repository
 
             if (table.Rows.Count == 1)
             {
-                continente.Id = id;
-                continente.Nome = table.Rows[0][0].ToString();
+                pais.Id = id;
+                pais.Nome = table.Rows[0][0].ToString();
+                pais.IdContinente = Convert.ToInt32(table.Rows[0][1].ToString());
             }
-            return continente;
+            return pais;
         }
     }
 }
