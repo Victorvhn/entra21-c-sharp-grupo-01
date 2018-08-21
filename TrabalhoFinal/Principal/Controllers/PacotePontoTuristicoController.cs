@@ -51,7 +51,7 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Update(PacotePontoTuristico pacotePontosTuristicos)
         {
-          //  bool alterado = new PontosTuristosRepository().Alterar(pacotePontosTuristico)
+            //bool alterado = new PacotePontosTuristicosRepository().Alterar(pacotePontosTuristico)
 
             return null;
         }
