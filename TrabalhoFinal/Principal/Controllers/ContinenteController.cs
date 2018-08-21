@@ -14,7 +14,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            ViewBag.TituloPagina = "Continente Cadastrar";
+           
             ViewBag.Continente = new Continente();
             return View();
         }
@@ -23,7 +23,7 @@ namespace Principal.Controllers
         public ActionResult Editar(int id)
         {
             //ViewBag.Continente = continente;
-            ViewBag.TituloPagina = "Editar Continente";
+         
             //Continente continente = new ContinenteRepository().ObterPeloId(id);
             return View();
         }
