@@ -18,7 +18,7 @@ namespace Repository
         {
             List<Turista> turista = new List<Turista>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, login_, sexo, senha, nome, sobrenome, cpf, rg, data_nascimento";
+            command.CommandText = "SELECT id, id_endereco, login_, sexo, senha, nome, sobrenome, cpf, rg, data_nascimento";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow linha in table.Rows)
@@ -26,14 +26,15 @@ namespace Repository
                 Turista turistas = new Turista()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Login_ = linha[1].ToString(),
-                    Sexo = Convert.ToChar(linha[2].ToString()),
-                    Senha = linha[3].ToString(),
-                    Nome = linha[4].ToString(),
-                    Sobrenome = linha[5].ToString(),
-                    Cpf = linha[6].ToString(),
-                    Rg = linha[7].ToString(),
-                    DataNascimento = Convert.ToDateTime(linha[11].ToString()),
+                    IdEndereco = Convert.ToInt32(linha[1].ToString()),
+                    Login_ = linha[2].ToString(),
+                    Sexo = Convert.ToChar(linha[3].ToString()),
+                    Senha = linha[4].ToString(),
+                    Nome = linha[5].ToString(),
+                    Sobrenome = linha[6].ToString(),
+                    Cpf = linha[7].ToString(),
+                    Rg = linha[8].ToString(),
+                    DataNascimento = Convert.ToDateTime(linha[9].ToString()),
                     
                 };
                 turista.Add(turistas);
