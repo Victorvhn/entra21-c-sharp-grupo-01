@@ -69,6 +69,7 @@ namespace Repository
 
             if (table.Rows.Count == 1)
             {
+                pais = new Pais;
                 pais.Id = id;
                 pais.Nome = table.Rows[0][0].ToString();
                 pais.IdContinente = Convert.ToInt32(table.Rows[0][1].ToString());
