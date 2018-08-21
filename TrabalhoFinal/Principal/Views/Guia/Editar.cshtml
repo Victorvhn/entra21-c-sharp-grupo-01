@@ -4,5 +4,71 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Editar</h2>
+<div>
+    <div class="col-md-12">
+        <h5 class="text-primary text-center">Editar</h5>
+    </div>
+</div>
+
+<form action="/Guia/Update" method="post">
+    <div>
+        <label for="campo-nome">Nome</label>
+        <input name="Guia.Nome" type="text" id="campo-nome" />
+    </div>
+
+    <div>
+        <label for="campo-sobrenome">Sobrenome</label>
+        <input name="Guia.Sobrenome" type="text" id="campo-sobrenome" />
+    </div>
+
+    <div>
+        <label for="campo-data-nascimento">Data de Nascimento</label>
+        <input name="Guia.DataNascimento" type="date" id="campo-data-nascimento">
+    </div>
+
+    <div>
+        <input name="Guia.Sexo" type="radio" id="campo-sexo" value="true" />
+        <label for="campo-sexo">Homem</label>
+
+
+        <input name="Guia.Sexo" type="radio" id="campo-sexo" value="false" />
+        <label for="campo-sexo">Mulher</label>
+    </div>
+
+    <div>
+        <label for="campo-rg">RG</label>
+        <input name="Guia.Rg" type="text" id="campo-rg" />
+    </div>
+
+    <div>
+        <label for="campo-cpf">CPF</label>
+        <input name="Guia.Cpf" type="text" id="campo-cpf" />
+    </div>
+
+    <div>
+        <label for="campo-numero-carteira-trabalho">Número Carteira de Trabalho</label>
+        <input name="Guia.CarteiraTrabalho" type="text" id="campo-numero-carteira-trabalho" />
+    </div>
+
+    <div>
+        <label for="campo-salario">Salário</label>
+        <input name="Guia.Salario" type="text" id="campo-salario" />
+    </div>
+
+    <div>
+        <label for="campo-categoria-habilitacao">Categoria da Habilitação</label>
+        <input type="text" id="campo-categoria-habilitacao" />
+    </div>
+
+    <div>
+        <label for="campo-rank">Rank</label>
+        <input name="Guia.Rank" type="text" id="campo-rank" />
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-success float-left icomn">Cadastrar</button>
+    </div>
+</form>
+
+
 
