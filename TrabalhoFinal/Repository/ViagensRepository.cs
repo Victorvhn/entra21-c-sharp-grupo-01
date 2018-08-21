@@ -63,22 +63,34 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
         }
 
+        public bool Excluir(int id)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"DELETE FROM viagem WHERE id = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+            return command.ExecuteNonQuery() == 1;
+        }
+
         public Viagem ObterPeloID(int id)
         {
             Viagem viagem = null;
 
             SqlCommand command = new Conexao().ObterConexao();
            
-            command.CommandText = "SELECT data,data_horario_saida,data_horario_volta FROM viagens WHERE id = @ID";
+            command.CommandText = @"SELECT guias.nome, pacotes.nome, pacotes.id, guias.id, data,data_horario_saida,data_horario_volta FROM viagens JOIN pacotes ON viagens(viagens.id_pacote = pacotes.id)
+            JOIN guias ON viagens(viagens.id_guia = guias.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             if (table.Rows.Count == 1)
             {
+                viagem = new Viagem();
                 viagem.Id = id;
                 viagem.Data =Convert.ToDateTime(table.Rows[0][0].ToString());
                 viagem.DataHorarioSaida = Convert.ToDateTime(table.Rows[0][1].ToString());
                 viagem.DataHorarioVolta = Convert.ToDateTime(table.Rows[0][2].ToString());
+                viagem.IdGuia = Convert.ToInt32(table.Rows[0][3].ToString());
+                viagem.IdPacote = Convert.ToInt32(table.Rows[0][4].ToString());
 
             }
             return viagem;
