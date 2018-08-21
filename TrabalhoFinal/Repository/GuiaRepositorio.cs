@@ -48,20 +48,16 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-<<<<<<< HEAD
             command.CommandText = @"INSERT INTO guias (sexo, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
             OUTPUT INSERTED.ID
             VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";            
             command.Parameters.AddWithValue("@SEXO", guia.Sexo);           
-=======
+
             command.CommandText = @"INSERT INTO guias (id+endereco, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
             OUTPUT INSERTED.ID
-            VALUES (@ID_ENDERECO, @LOGIN_, @SEXO, @SENHA, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";
-            command.Parameters.AddWithValue("@ID_ENDERECO", guia.IdEndereco);
-            command.Parameters.AddWithValue("@LOGIN_", guia.Login_);
-            command.Parameters.AddWithValue("@SEXO", guia.Sexo);
-            command.Parameters.AddWithValue("@SENHA", guia.Senha);
->>>>>>> 55534a8c0ed0eebdba637e34889ce7cc31df7bb9
+            VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";
+            command.Parameters.AddWithValue("@ID_ENDERECO", guia.IdEndereco);            
+            command.Parameters.AddWithValue("@SEXO", guia.Sexo);            
             command.Parameters.AddWithValue("@NOME", guia.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
             command.Parameters.AddWithValue("@NUMERO_CARTEIRA_TRABALHO", guia.CarteiraTrabalho);
