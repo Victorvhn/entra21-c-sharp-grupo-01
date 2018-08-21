@@ -25,7 +25,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-          //  PacotePontoTuristico pacotePontoTuristico = new PacotePontosTuristicosRepository().ObterPeloId(id);
+             //PacotePontoTuristico pacotePontoTuristico = new PacotePontosTuristicosRepository().ObterPeloId(id);
             //ViewBag.PacotePontoTuristico = pacotePontoTuristico;
             ViewBag.TituloPagina = "Editar Pacote Pontos Turisticos";
 
@@ -36,7 +36,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-          //  bool apagado = new PontosTuristosRepository().Excluir(id);
+          //bool apagado = new PontosTuristosRepository().Excluir(id);
 
             return null;
         }
@@ -44,7 +44,7 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(PacotePontoTuristico pacotePontosTuristicos)
         {
-           // int identificador = new PontosTuristosRepository().Cadastrar(pacotePontoTuristico);
+             //int identificador = new PontosTuristosRepository().Cadastrar(pacotePontoTuristico);
             //return RedirectToAction("Editar", new object { id = identificador });
             return null;
         }
