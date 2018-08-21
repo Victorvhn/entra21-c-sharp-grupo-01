@@ -15,7 +15,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPAgina = "Estado Cadastro";
+          
             ViewBag.Estado = new Estado();
             return View();
         }
@@ -25,7 +25,7 @@ namespace Principal.Controllers
         {
             Estado estado = new EstadoRepositorio().ObterPeloId(id);
             ViewBag.Estado = estado;
-            ViewBag.TituloPagina = "Estado Editar";
+           
             return View();
         }
 
