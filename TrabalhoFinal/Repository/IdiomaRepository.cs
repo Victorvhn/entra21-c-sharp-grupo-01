@@ -66,7 +66,7 @@ namespace Repository
         {
             Idioma idioma = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT nome, id_guia FROM idiomas WHERE id = @ID";
+            command.CommandText = @"SELECT guia.nome, idioma.nome, id_guia FROM idiomas JOIN idiomas ON(idiomas.id_guia = guias.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
