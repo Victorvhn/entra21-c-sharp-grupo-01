@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    class EnderecoRepository
+    public class EnderecoRepository
     {
 
         public List<Endereco> ObterTodos()
