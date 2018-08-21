@@ -16,7 +16,7 @@ namespace Repository
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_ FROM guias";
+            command.CommandText = "SELECT id_endereco,id, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_ FROM guias";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -35,7 +35,8 @@ namespace Repository
                     Cpf = linha[9].ToString(),
                     Rg = linha[10].ToString(),
                     DataNascimento = Convert.ToDateTime(linha[11].ToString()),
-                    Rank = Convert.ToChar(linha[12].ToString())
+                    Rank = Convert.ToChar(linha[12].ToString()),
+                    IdEndereco = Convert.ToInt32(linha[13].ToString())
 
                 };
                 guias.Add(guia);
@@ -71,7 +72,7 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"UPDATE guias
-            SET login_ = @LOGIN_, sexo = @SEXO, senha = @SENHA, nome = @NOME, sobrenome = @SOBRENOME, numero_carteira_trabalho = @NUMERO_CARTEIRA_TRABALHO, categoria_habilitacao = @CATEGORIA_HABILITACAO
+            SET id_endereco = @ID_ENDERECO, login_ = @LOGIN_, sexo = @SEXO, senha = @SENHA, nome = @NOME, sobrenome = @SOBRENOME, numero_carteira_trabalho = @NUMERO_CARTEIRA_TRABALHO, categoria_habilitacao = @CATEGORIA_HABILITACAO
             salario = @SALARIO, cpf = @CPF, rg = @RG, data_nascimento = @DATA_NASCIMENTO
             WHERE id = @ID";
             command.Parameters.AddWithValue("@LOGIN_", guia.Login_);
@@ -86,6 +87,7 @@ namespace Repository
             command.Parameters.AddWithValue("@RG", guia.Rg);
             command.Parameters.AddWithValue("@DATA_NASCIMENTO", guia.DataNascimento);
             command.Parameters.AddWithValue("@RANK_", guia.Rank);
+            command.Parameters.AddWithValue("@ID_ENDERECO", guia.IdEndereco);
             return command.ExecuteNonQuery() == 1;
         }
 
@@ -103,7 +105,7 @@ namespace Repository
             Guia guia = null;
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT (login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_
-            FROM guias WHERE id = @ID";
+            FROM guias JOIN guias ON(guias.id_endereco = enderecos.id WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -124,9 +126,9 @@ namespace Repository
                 guia.Rg = table.Rows[0][9].ToString();
                 guia.DataNascimento = Convert.ToDateTime(table.Rows[0][10]);
                 guia.Rank = Convert.ToChar(table.Rows[0][11].ToString());
+                guia.IdEndereco = Convert.ToInt32(table.Rows[0][12].ToString());
             }
             return guia;
-
         }
     }
 }
