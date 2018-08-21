@@ -36,7 +36,7 @@ namespace Principal.Controllers
 
 
         [HttpGet]
-        public ActionResult Escluir(int id)
+        public ActionResult Excluir(int id)
         {
             bool apagado = new TuristaRepository().Excluir(id);
             return null;

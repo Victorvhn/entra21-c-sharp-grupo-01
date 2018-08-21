@@ -37,7 +37,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new PaisRepository().Excluir(id);
+            //bool apagado = new PaisRepository().Excluir(id);
             return null;
         }
 
