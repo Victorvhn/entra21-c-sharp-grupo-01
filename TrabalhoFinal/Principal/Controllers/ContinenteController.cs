@@ -40,9 +40,9 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(Continente continente)
         {
-           int identificador = new ContinenteRepository().Cadastrar(continente);
-           return RedirectToAction("Editar", new object { id = identificador });
-            return null;
+            int identificador = new ContinenteRepository().Cadastro(continente);
+            return RedirectToAction("Editar", new { id = identificador });
+            
         }
 
         [HttpPost]
