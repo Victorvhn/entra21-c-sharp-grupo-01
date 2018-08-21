@@ -87,7 +87,7 @@ namespace Repository
                 cidade.IdEstado = Convert.ToInt32(table.Rows[0][1].ToString());
                 cidade.Estado = new Estado();
                 cidade.Estado.Nome = table.Rows[0][2].ToString();
-                cidade.Estado.Id = Convert.ToInt32(table.Rows[0][4].ToString());
+                cidade.Estado.Id = Convert.ToInt32(table.Rows[0][3].ToString());
 
             }
             return cidade;
