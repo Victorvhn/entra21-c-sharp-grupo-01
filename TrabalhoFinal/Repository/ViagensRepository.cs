@@ -36,8 +36,8 @@ namespace Repository
 
         public int Cadastrar(Viagem viagem)
         {
-            SqlCommand command = new Conexao()
-.ObterConexao();
+            SqlCommand command = new Conexao().ObterConexao();
+
             command.CommandText = "INSERT INTO viagens (data,data_horario_saida,data_horario_volta,id_guia,id_pacote) OUTPUT INSERTED.ID VALUES(@DATA,@DATA_HORARIO_SAIDA,@DATA_HORARIO_VOLTA,@ID_GUIA,@ID_PACOTES)";
             command.Parameters.AddWithValue("@DATA",viagem.Data);
             command.Parameters.AddWithValue("@DATA_HORARIO_SAIDA", viagem.DataHorarioSaida);
@@ -71,7 +71,7 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
         }
 
-        public Viagem ObterPeloID(int id)
+        public Viagem ObterPeloId(int id)
         {
             Viagem viagem = null;
 
