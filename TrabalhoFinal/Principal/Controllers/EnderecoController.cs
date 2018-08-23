@@ -1,4 +1,5 @@
 ﻿using Model;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -39,14 +40,23 @@ namespace Principal.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new EnderecoRepository().Excluir(id);
-            return null;
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Store(Endereco endereco)
+        public ActionResult Store(EnderecoString endereco)
         {
-            int identificador = new EnderecoRepository().Cadastrar(endereco);
+            Endereco enderecoModel = new Endereco()
+            {
+                Cep = endereco.Cep.ToString(),
+                Logradouro = endereco.Logradouro.ToString(),
+                Numero = Convert.ToByte(endereco.Numero.ToString()),
+                Referencia = endereco.Referencia.ToString(),
+                Complemento = endereco.Complemento.ToString()
+            };
+            int identificador = new EnderecoRepository().Cadastrar(enderecoModel);
             return RedirectToAction("Editar", new { id = identificador });
+            
         }
     }
 }

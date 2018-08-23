@@ -7,7 +7,7 @@
 <div class="row">
 
     <div class="col-md-10 offset-md-1">
-        <form action="/Principal/StoreEndereco" method="post">
+        <form action="/Endereco/Store" method="post">
 
             <div class="form-horizontal">
                 <div class="card">
@@ -28,8 +28,8 @@
 
                                     <div class="col-md-2">
 
-                                        <label for="campo-cep-endereco">Cep</label>
-                                        <input name="Endereco.Cep" type="text" id="campo-cep-endereco" value="" size="10" maxlength="8" class="form-control form-control-default" />
+                                        <label for="campo-cadastro-endereco-cep">Cep</label>
+                                        <input name="endereco.Cep" type="text" id="campo-cadastro-endereco-cep" size="10" maxlength="8" class="form-control form-control-default" />
 
 
                                     </div>
@@ -40,66 +40,14 @@
 
                                     <div class="col-md-12">
 
-                                        <label for="campo-logradouro-endereco">Logradouro</label>
-                                        <input name="Endereco.Logradouro" type="text" id="campo-logradouro-endereco" size="150" class="form-control form-control-default" />
-
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="col-md-12">
-
-                                        <label for="campo-cidade-endereco">Cidade</label>
-                                        <input name="Endereco.Cidade" type="text" id="campo-cidade-endereco" size="100" class="form-control form-control-default" />
-
-                                    </div>
-
-                                </div>
-
-                                <div class="form-group">
-
-                                    <div class="col-md-6">
-                                        <label for="campo-uf-endereco">UF</label>
-                                        <select name="Endereco.Estado" id="campo-uf-endereco" class="form-control form-control-default">
-                                            <option value="AC">Acre</option>
-                                            <option value="AL">Alagoas</option>
-                                            <option value="AP">Amapá</option>
-                                            <option value="AM">Amazonas</option>
-                                            <option value="BA">Bahia</option>
-                                            <option value="CE">Ceará</option>
-                                            <option value="DF">Distrito Federal</option>
-                                            <option value="ES">Espírito Santo</option>
-                                            <option value="GO">Goiás</option>
-                                            <option value="MA">Maranhão</option>
-                                            <option value="MT">Mato Grosso</option>
-                                            <option value="MS">Mato Grosso do Sul</option>
-                                            <option value="MG">Minas Gerais</option>
-                                            <option value="PA">Pará</option>
-                                            <option value="PB">Paraíba</option>
-                                            <option value="PR">Paraná</option>
-                                            <option value="PE">Pernambuco</option>
-                                            <option value="PI">Piauí</option>
-                                            <option value="RJ">Rio de Janeiro</option>
-                                            <option value="RN">Rio Grande do Norte</option>
-                                            <option value="RS">Rio Grande do Sul</option>
-                                            <option value="RO">Rondônia</option>
-                                            <option value="RR">Roraima</option>
-                                            <option value="SC">Santa Catarina</option>
-                                            <option value="SP">São Paulo</option>
-                                            <option value="SE">Sergipe</option>
-                                            <option value="TO">Tocantins</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-
+                                        <label for="campo-cadastro-endereco-logradouro">Logradouro</label>
+                                        <input name="endereco.Logradouro" type="text" id="campo-cadastro-endereco-logradouro"  size="150" class="form-control form-control-default" />
+                                    </div>                                
                                 <div class="form-group">
 
                                     <div class="col-md-3">
-                                        <label for="campo-numero-endereco">Número</label>
-                                        <input id="campo-numero-endereco" name="Endereco.Numero" type="text" class="form-control autonumber" data-a-sep="." data-a-dec=",">
+                                        <label for="campo-cadastro-endereco-numero">Número</label>
+                                        <input id="campo-cadastro-endereco-numero" name="endereco.Numero" type="text" class="form-control autonumber" data-a-sep="." data-a-dec=",">
 
                                     </div>
 
@@ -108,8 +56,8 @@
                                 <div class="form-group">
 
                                     <div class="col-md-12">
-                                        <label for="campo-complemento-endereco">Complemento</label>
-                                        <input id="campo-complemento-endereco" name="Endereco.Complemento" type="text" class="form-control">
+                                        <label for="campo-cadastro-endereco-complemento">Complemento</label>
+                                        <input id="campo-cadastro-endereco-complemento" name="endereco.Complemento" type="text" class="form-control">
 
                                     </div>
 
@@ -118,8 +66,8 @@
                                 <div class="form-group">
 
                                     <div class="col-md-12">
-                                        <label for="campo-referencia-endereco">Referência</label>
-                                        <textarea id="campo-referencia-endereco" name="Endereco.Referencia" class="form-control"></textarea>
+                                        <label for="campo-cadastro-endereco-referencia">Referência</label>
+                                        <textarea id="campo-cadastro-endereco-referencia"  name="endereco.Referencia" class="form-control"></textarea>
 
                                     </div>
 
@@ -128,7 +76,7 @@
                                 <div class="form-group">
 
                                     <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" value="Salvar" class="btn btn-outline-success" />
+                                        <input type="submit" value="Salvar" class="btn btn-outline-success "/>
                                     </div>
 
                                 </div>
@@ -143,10 +91,7 @@
             </div>
         </form>
 
-
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+      
 
     </div>
 </div>
