@@ -49,6 +49,6 @@ namespace Principal.Controllers
             };
             int identificador = new PacoteRepository().Cadastrar(pacoteModel);
             return null;
-        }}
+        }
     }
 }
