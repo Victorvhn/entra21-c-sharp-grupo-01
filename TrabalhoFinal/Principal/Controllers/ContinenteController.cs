@@ -44,7 +44,7 @@ namespace Principal.Controllers
 
             Continente continenteModel = new Continente()
             {
-                Nome = continente.Nome
+                Nome = continente.Nome.ToString(),
             };
 
 
