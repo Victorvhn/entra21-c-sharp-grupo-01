@@ -52,7 +52,7 @@ namespace Principal.Controllers
                 guiaModel.Rg = guia.Rg.ToString();
                 guiaModel.Cpf = guia.Cpf.ToString();
                 guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
-                guiaModel.CatagoriaHabilitacao = Convert.ToChar(guia.CatagoriaHabilitacao.ToString());
+                guiaModel.CategoriaHabilitacao = Convert.ToChar(guia.CatagoriaHabilitacao.ToString());
                 guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
                 guiaModel.Rank = Convert.ToChar(guia.Rank.ToString());
             }

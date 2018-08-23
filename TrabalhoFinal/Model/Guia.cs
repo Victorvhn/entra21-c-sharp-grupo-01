@@ -28,7 +28,7 @@ namespace Model
 
         public string CarteiraTrabalho { get; set; }
 
-        public char CatagoriaHabilitacao { get; set; }
+        public char CategoriaHabilitacao { get; set; }
 
         public double Salario { get; set; }
 

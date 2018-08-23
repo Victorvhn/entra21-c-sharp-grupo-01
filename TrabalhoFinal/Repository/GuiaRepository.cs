@@ -30,7 +30,7 @@ namespace Repository
                     Nome = linha[4].ToString(),
                     Sobrenome = linha[5].ToString(),
                     CarteiraTrabalho = linha[6].ToString(),
-                    CatagoriaHabilitacao = Convert.ToChar(linha[7].ToString()),
+                    CategoriaHabilitacao = Convert.ToChar(linha[7].ToString()),
                     Salario = Convert.ToSingle(linha[8].ToString()),
                     Cpf = linha[9].ToString(),
                     Rg = linha[10].ToString(),
@@ -55,7 +55,7 @@ namespace Repository
             command.Parameters.AddWithValue("@NOME", guia.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
             command.Parameters.AddWithValue("@NUMERO_CARTEIRA_TRABALHO", guia.CarteiraTrabalho);
-            command.Parameters.AddWithValue("@CATEGORIA_HABILITACAO", guia.CatagoriaHabilitacao);
+            command.Parameters.AddWithValue("@CATEGORIA_HABILITACAO", guia.CategoriaHabilitacao);
             command.Parameters.AddWithValue("@SALARIO", guia.Salario);
             command.Parameters.AddWithValue("@CPF", guia.Cpf);
             command.Parameters.AddWithValue("@RG", guia.Rg);
@@ -80,7 +80,7 @@ namespace Repository
             command.Parameters.AddWithValue("@NOME", guia.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
             command.Parameters.AddWithValue("@NUMERO_CARTEIRA_TRABALHO", guia.CarteiraTrabalho);
-            command.Parameters.AddWithValue("@CATEGORIA_HABILITACAO", guia.CatagoriaHabilitacao);
+            command.Parameters.AddWithValue("@CATEGORIA_HABILITACAO", guia.CategoriaHabilitacao);
             command.Parameters.AddWithValue("@SALARIO", guia.Salario);
             command.Parameters.AddWithValue("@CPF", guia.Cpf);
             command.Parameters.AddWithValue("@RG", guia.Rg);
@@ -119,7 +119,7 @@ namespace Repository
                 guia.Nome = table.Rows[0][3].ToString();
                 guia.Sobrenome = table.Rows[0][4].ToString();
                 guia.CarteiraTrabalho = table.Rows[0][5].ToString();
-                guia.CatagoriaHabilitacao = Convert.ToChar(table.Rows[0][6].ToString());
+                guia.CategoriaHabilitacao = Convert.ToChar(table.Rows[0][6].ToString());
                 guia.Salario = Convert.ToSingle(table.Rows[0][7]);
                 guia.Cpf = table.Rows[0][8].ToString();
                 guia.Rg = table.Rows[0][9].ToString();
