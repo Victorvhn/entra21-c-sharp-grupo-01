@@ -17,12 +17,13 @@ namespace Principal.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult Cadastrar()
         {
             
             ViewBag.Endereco = new Endereco();
-            return null;
+            return View();
         }
 
         [HttpGet]
