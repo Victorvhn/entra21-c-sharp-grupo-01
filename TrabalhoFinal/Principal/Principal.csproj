@@ -5522,7 +5522,6 @@
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Repository\" />
     <Folder Include="Views\Continentes\" />
-    <Folder Include="Views\Estados\" />
     <Folder Include="Views\Idioma\" />
     <Folder Include="Views\PacotePontoTuristico\" />
     <Folder Include="Views\Pacote\" />

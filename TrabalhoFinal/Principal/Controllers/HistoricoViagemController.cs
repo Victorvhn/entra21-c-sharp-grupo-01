@@ -1,4 +1,5 @@
 ﻿using Model;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -38,9 +39,15 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
-        public ActionResult Store(HistoricoViagem historicoViagem)
+        public ActionResult Store(HistoricoViagemString historicoViagem)
         {
-            int identificador = new HistoricoViagemRepository().Cadastrar(historicoViagem);
+            HistoricoViagem historicoViagemModel = new HistoricoViagem();
+            {
+                historicoViagemModel.IdPacote = Convert.ToInt32(historicoViagem.IdPacote.ToString());
+                historicoViagemModel.Data = Convert.ToDateTime(historicoViagem.Data.ToString());
+            }
+
+            int identificador = new HistoricoViagemRepository().Cadastrar(historicoViagemModel);
             return RedirectToAction("Editar", new { id = identificador });
         }
 
