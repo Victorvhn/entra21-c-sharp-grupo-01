@@ -47,6 +47,7 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"UPDATE continentes SET nome = @NOME WHERE id = @ID";
             command.Parameters.AddWithValue("@NOME", continente.Nome);
+            command.Parameters.AddWithValue("@ID", continente.Id);
             return command.ExecuteNonQuery() == 1;
         }
 
