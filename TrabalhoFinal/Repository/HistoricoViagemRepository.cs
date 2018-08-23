@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class HistoricoViagemRepositorio
+    public class HistoricoViagemRepository
     {
         public List<HistoricoViagem> ObterTodos()
         {
