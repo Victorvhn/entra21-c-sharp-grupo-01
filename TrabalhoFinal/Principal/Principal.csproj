@@ -5169,7 +5169,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CidadeString.cs" />
     <Compile Include="Models\ContinenteString.cs" />
+    <Compile Include="Models\EnderecoString.cs" />
+    <Compile Include="Models\EstadoString.cs" />
+    <Compile Include="Models\GuiaString.cs" />
+    <Compile Include="Models\HistoricoViagemString.cs" />
+    <Compile Include="Models\IdiomaString.cs" />
+    <Compile Include="Models\PacotePontoTuristicoString.cs" />
+    <Compile Include="Models\PacoteString.cs" />
+    <Compile Include="Models\PaisString.cs" />
+    <Compile Include="Models\PontoTuristicoString.cs" />
+    <Compile Include="Models\TuristaString.cs" />
+    <Compile Include="Models\ViagemString.cs" />
+    <Compile Include="Models\ViagemTuristaString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
