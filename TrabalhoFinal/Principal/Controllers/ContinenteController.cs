@@ -1,4 +1,5 @@
 ﻿using Model;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -38,11 +39,18 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Continente continente)
+        public ActionResult Store(ContinenteString continente)
         {
-            int identificador = new ContinenteRepository().Cadastro(continente);
-            return RedirectToAction("Editar", new { id = identificador });
-            
+
+            Continente continenteModel = new Continente()
+            {
+                Nome = continente.Nome
+            };
+
+
+            int identificador = new ContinenteRepository().Cadastro(continenteModel);
+            //return RedirectToAction("Editar", new { id = identificador });
+            return null;
         }
 
         [HttpPost]

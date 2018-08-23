@@ -29,14 +29,17 @@ namespace Repository
                 continentes.Add(continente);
             }
             return continentes;
-         }
+        }
 
-        public int Cadastro(Continente continenteses)
+        public int Cadastro(Continente continente)
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO continente(nome) OUTPUT INSERTED.ID VALUES (@NOME)";
-            command.Parameters.AddWithValue("@NOME", continenteses.Nome);
+            command.CommandText = @"INSERT INTO 
+                continentes(nome) 
+                OUTPUT INSERTED.ID 
+                VALUES (@NOME)";
+            command.Parameters.AddWithValue("@NOME", continente.Nome);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
 
