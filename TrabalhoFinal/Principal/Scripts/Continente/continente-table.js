@@ -10,6 +10,7 @@
                 $registro = "<tr>";
                 $registro += "<td>" + id + "</td>";
                 $registro += "<td>" + nome + "</td>";
+                $registro += "<td><a href=\"/Continente/Editar?id=" + id + "\" >Editar</a></td>";
                 $registro += "</tr>";
                 $("#table-continente").append($registro);
             }
