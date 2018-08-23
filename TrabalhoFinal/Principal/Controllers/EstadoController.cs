@@ -1,4 +1,5 @@
 ﻿using Model;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -37,9 +38,14 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
-        public ActionResult Store(Estado estado)
+        public ActionResult Store(EstadoString estado)
         {
-            int identificador = new EstadoRepository().Cadastrar(estado);
+            Estado estadoModel = new Estado()
+            {
+
+            };
+
+            int identificador = new EstadoRepository().Cadastrar(estadoModel);
             return RedirectToAction("Editar", new { id = identificador });
         }
 
