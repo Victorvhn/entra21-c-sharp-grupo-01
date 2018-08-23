@@ -1,4 +1,5 @@
 ﻿using Model;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -39,11 +40,15 @@ namespace Principal.Controllers
             return null;
         }
 
-        [HttpGet]
-        public ActionResult Store(Pacote pacotes)
+        [HttpPost]
+        public ActionResult Store(PacoteString pacote)
         {
-            int identificador = new PacoteRepository().Cadastrar(pacotes);
-            return RedirectToAction("Editar", new { id = identificador });
-        }
+            Pacote pacoteModel = new Pacote()
+            {
+                Nome = pacote.Nome.ToString(),
+            };
+            int identificador = new PacoteRepository().Cadastrar(pacoteModel);
+            return null;
+        }}
     }
 }
