@@ -1,4 +1,5 @@
 ﻿using Model;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -43,11 +44,16 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Turista turista)
+        public ActionResult Store(TuristaString turista)
         {
-            int identificador = new TuristaRepository().Cadastrar(turista);
+            Turista turistaModel = new Turista()
+            {
+                Nome = turista.Nome.ToString(),
+            };
+            int identificador = new TuristaRepository().Cadastrar(turistaModel);
             return null;
         }
+        
         [HttpPost]
         public ActionResult Update(Turista turista)
         {
