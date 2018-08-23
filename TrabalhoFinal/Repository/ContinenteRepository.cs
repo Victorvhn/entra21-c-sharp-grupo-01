@@ -31,7 +31,7 @@ namespace Repository
             return continentes;
         }
 
-<<<<<<< HEAD
+
         public int Cadastro(Continente continente)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -41,14 +41,7 @@ namespace Repository
                 OUTPUT INSERTED.ID 
                 VALUES (@NOME)";
             command.Parameters.AddWithValue("@NOME", continente.Nome);
-=======
-        public int Cadastro(Continente continentes)
-        {
-            SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO continente(nome) OUTPUT INSERTED.ID VALUES (@NOME)";
-            command.Parameters.AddWithValue("@NOME", continentes.Nome);
->>>>>>> 60f024596c5a232fad730acacf51e49a21e9d861
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
 
