@@ -23,7 +23,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            HistoricoViagem historicoViagem = new HistoricoViagemRepositorio().ObterPeloId(id);
+            HistoricoViagem historicoViagem = new HistoricoViagemRepository().ObterPeloId(id);
             ViewBag.HistoricoViagem = historicoViagem;
            
             return View();
@@ -33,21 +33,21 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new HistoricoViagemRepositorio().Excluir(id);
+            bool apagado = new HistoricoViagemRepository().Excluir(id);
             return null;
         }
 
         [HttpGet]
         public ActionResult Store(HistoricoViagem historicoViagem)
         {
-            int identificador = new HistoricoViagemRepositorio().Cadastrar(historicoViagem);
+            int identificador = new HistoricoViagemRepository().Cadastrar(historicoViagem);
             return RedirectToAction("Editar", new { id = identificador });
         }
 
         [HttpGet]
         public ActionResult Update(HistoricoViagem historicoViagem)
         {
-            bool altertado = new HistoricoViagemRepositorio().Alterar(historicoViagem);
+            bool altertado = new HistoricoViagemRepository().Alterar(historicoViagem);
             return null;
 
         }

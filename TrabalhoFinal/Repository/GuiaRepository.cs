@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public class GuiaRepositorio
+    public class GuiaRepository
     {
         public List<Guia> ObterTodos()
         {

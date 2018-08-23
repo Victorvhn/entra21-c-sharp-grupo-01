@@ -23,7 +23,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Guia guia = new GuiaRepositorio().ObterPeloId(id);
+            Guia guia = new GuiaRepository().ObterPeloId(id);
             ViewBag.Guia = guia;
             
             return View();
@@ -33,7 +33,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new GuiaRepositorio().Excluir(id);
+            bool apagado = new GuiaRepository().Excluir(id);
             return null;
         }
 
@@ -44,7 +44,7 @@ namespace Principal.Controllers
             {
                 guia.Cpf = guia.Cpf.Replace(".", "").Replace("-", "");
             }*/
-                int identificador = new GuiaRepositorio().Cadastrar(guia);
+                int identificador = new GuiaRepository().Cadastrar(guia);
                 /*return RedirectToAction("Editar", new { id = identificador });*/
                 return null;
 
@@ -56,7 +56,7 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Update(Guia guia)
         {
-            bool alterado = new GuiaRepositorio().Alterar(guia);
+            bool alterado = new GuiaRepository().Alterar(guia);
             return null;
         }
     }

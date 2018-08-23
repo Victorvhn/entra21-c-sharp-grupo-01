@@ -27,7 +27,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Cidade cidade = new CidadeRepositorio().ObterPeloId(id);
+            Cidade cidade = new CidadeRepository().ObterPeloId(id);
            
             ViewBag.Cidade = cidade;
             return View();
@@ -37,14 +37,14 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new CidadeRepositorio().Excluir(id);
+            bool apagado = new CidadeRepository().Excluir(id);
             return null;
         }
 
         [HttpPost]
         public ActionResult Store(Cidade cidade)
         {
-            int identificador = new CidadeRepositorio().Cadastrar(cidade);
+            int identificador = new CidadeRepository().Cadastrar(cidade);
             return RedirectToAction("Editar", new { id = identificador});
         }
     }
