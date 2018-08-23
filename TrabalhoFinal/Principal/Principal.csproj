@@ -41,6 +41,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -5146,6 +5149,7 @@
     <Content Include="Content\lib\underscore\js\underscore.js" />
     <Content Include="Database\DB TRABALHO.sql" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Continente\continente-table.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5501,15 +5505,16 @@
     <Content Include="Views\Cidade\Cadastrar.cshtml" />
     <Content Include="Views\Cidade\Editar.cshtml" />
     <Content Include="Views\Continente\Cadastrar.cshtml" />
-    <Content Include="Views\Continente\Editar.cshtml" />
-    <Content Include="Views\Endereco\Cadastrar.cshtml" />
     <Content Include="Views\Endereco\Editar.cshtml" />
+    <Content Include="Views\Endereco\Cadastrar.cshtml" />
     <Content Include="Views\Guia\Cadastro.cshtml" />
     <Content Include="Views\Guia\Editar.cshtml" />
     <Content Include="Views\Estado\Cadastro.cshtml" />
     <Content Include="Views\Estado\Editar.cshtml" />
     <Content Include="Views\HistoricoViagem\Cadastro.cshtml" />
     <Content Include="Views\HistoricoViagem\Editar.cshtml" />
+    <Content Include="Views\Continente\Table.cshtml" />
+    <Content Include="Views\Continente\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

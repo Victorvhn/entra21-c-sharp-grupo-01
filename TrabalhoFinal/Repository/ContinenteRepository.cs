@@ -16,7 +16,7 @@ namespace Repository
         {
             List<Continente> continentes = new List<Continente>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome FROM continente";
+            command.CommandText = "SELECT id, nome FROM continentes";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -59,7 +59,7 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"DELETE FROM continente WHERE id = @ID";
+            command.CommandText = @"DELETE FROM continentes WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
 
@@ -69,7 +69,7 @@ namespace Repository
         {
             Continente continente = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT nome FROM continente WHERE id = @ID";
+            command.CommandText = @"SELECT id, nome FROM continentes WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());

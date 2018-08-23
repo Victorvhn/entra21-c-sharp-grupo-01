@@ -4,5 +4,96 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Editar</h2>
+
+<div class="row">
+
+    <div class="col-md-10 offset-md-1">
+        <form action="/Endereco/Store" method="post">
+
+            <div class="form-horizontal">
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <h4>Endereco</h4>
+
+                    </div>
+
+                    <div class="card-block">
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+
+                                    <div class="col-md-2">
+
+                                        <label for="campo-cadastro-endereco-cep">Cep</label>
+                                        <input name="endereco.Cep" type="text" id="campo-cadastro-endereco-cep" value="@ViewBag.Endereco.Nome" size="10" maxlength="8" class="form-control form-control-default" />
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="col-md-12">
+
+                                        <label for="campo-cadastro-endereco-logradouro">Logradouro</label>
+                                        <input name="endereco.Logradouro" type="text" id="campo-cadastro-endereco-logradouro" value="@ViewBag.Endereco.Logradouro" size="150" class="form-control form-control-default" />
+                                    </div>
+                                    <div class="form-group">
+
+                                        <div class="col-md-3">
+                                            <label for="campo-cadastro-endereco-numero">Número</label>
+                                            <input id="campo-cadastro-endereco-numero" value="@ViewBag.Endereco.Numero"  name="endereco.Numero" type="text" class="form-control autonumber" data-a-sep="." data-a-dec=",">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-12">
+                                            <label for="campo-cadastro-endereco-complemento">Complemento</label>
+                                            <input id="campo-cadastro-endereco-complemento" value="@ViewBag.Endereco.Complemento"  name="endereco.Complemento" type="text" class="form-control">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-12">
+                                            <label for="campo-cadastro-endereco-referencia">Referência</label>
+                                            <textarea id="campo-cadastro-endereco-referencia" value="@ViewBag.Endereco.Referencia" name="endereco.Referencia" class="form-control"></textarea>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Salvar" class="btn btn-outline-success " />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+        </form>
+
+
+
+    </div>
+</div>
 

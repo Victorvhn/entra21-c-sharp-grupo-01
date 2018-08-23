@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Principal.Models;
 using Repository;
 using System;
@@ -14,6 +15,13 @@ namespace Principal.Controllers
         // GET: Continentes
 
         [HttpGet]
+        public ActionResult Table()
+        {
+
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Cadastrar()
         {
            
@@ -23,9 +31,7 @@ namespace Principal.Controllers
 
         [HttpGet]
         public ActionResult Editar(int id)
-        {
-            
-         
+        {                     
             Continente continente = new ContinenteRepository().ObterPeloId(id);
             ViewBag.Continente = continente;
             return View();
@@ -59,6 +65,13 @@ namespace Principal.Controllers
            bool alterado = new ContinenteRepository().Alterar(continente);
 
             return null;
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            List<Continente> continentes = new ContinenteRepository().ObterTodos();
+            return Content(JsonConvert.SerializeObject(continentes));
         }
     }
 }
