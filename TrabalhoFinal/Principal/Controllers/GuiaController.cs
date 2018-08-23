@@ -1,4 +1,5 @@
 ﻿using Model;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -38,20 +39,31 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Guia guia)
+        public ActionResult Store(GuiaString guia)
         {
-            /*if (ModelState.IsValid)
+            
+            
+            Guia guiaModel = new Guia();
             {
-                guia.Cpf = guia.Cpf.Replace(".", "").Replace("-", "");
-            }*/
-                int identificador = new GuiaRepository().Cadastrar(guia);
-                /*return RedirectToAction("Editar", new { id = identificador });*/
-                return null;
+                guiaModel.Nome = guia.Nome.ToString();
+                guiaModel.Sobrenome = guia.Sobrenome.ToString();
+                guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/","-").ToString());
+                guiaModel.Sexo = Convert.ToChar(guia.Sexo.ToString());
+                guiaModel.Rg = guia.Rg.ToString();
+                guiaModel.Cpf = guia.Cpf.ToString();
+                guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
+                guiaModel.CatagoriaHabilitacao = Convert.ToChar(guia.CatagoriaHabilitacao.ToString());
+                guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
+                guiaModel.Rank = Convert.ToChar(guia.Rank.ToString());
+            }
 
-            /*ViewBag.Guia = guia;
-            return View("Guia Cadastro");*/
+            int identificador = new GuiaRepository().Cadastrar(guiaModel);
+            return null;
+               
+            
+
+            
         }
-
 
         [HttpPost]
         public ActionResult Update(Guia guia)

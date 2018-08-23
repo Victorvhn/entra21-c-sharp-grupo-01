@@ -30,7 +30,7 @@ namespace Repository
                     Nome = linha[4].ToString(),
                     Sobrenome = linha[5].ToString(),
                     CarteiraTrabalho = linha[6].ToString(),
-                    CatagoriaHabilitacao = linha[7].ToString(),
+                    CatagoriaHabilitacao = Convert.ToChar(linha[7].ToString()),
                     Salario = Convert.ToSingle(linha[8].ToString()),
                     Cpf = linha[9].ToString(),
                     Rg = linha[10].ToString(),
@@ -51,12 +51,6 @@ namespace Repository
             command.CommandText = @"INSERT INTO guias (sexo, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
             OUTPUT INSERTED.ID
             VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";            
-            command.Parameters.AddWithValue("@SEXO", guia.Sexo);           
-
-            command.CommandText = @"INSERT INTO guias (id+endereco, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
-            OUTPUT INSERTED.ID
-            VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";
-            command.Parameters.AddWithValue("@ID_ENDERECO", guia.IdEndereco);            
             command.Parameters.AddWithValue("@SEXO", guia.Sexo);            
             command.Parameters.AddWithValue("@NOME", guia.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
@@ -125,7 +119,7 @@ namespace Repository
                 guia.Nome = table.Rows[0][3].ToString();
                 guia.Sobrenome = table.Rows[0][4].ToString();
                 guia.CarteiraTrabalho = table.Rows[0][5].ToString();
-                guia.CatagoriaHabilitacao = table.Rows[0][6].ToString();
+                guia.CatagoriaHabilitacao = Convert.ToChar(table.Rows[0][6].ToString());
                 guia.Salario = Convert.ToSingle(table.Rows[0][7]);
                 guia.Cpf = table.Rows[0][8].ToString();
                 guia.Rg = table.Rows[0][9].ToString();

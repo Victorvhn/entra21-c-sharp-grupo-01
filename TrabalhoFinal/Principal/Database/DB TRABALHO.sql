@@ -53,7 +53,7 @@ CREATE TABLE guias (
 	nome VARCHAR(100) NOT NULL,
 	sobrenome VARCHAR(100) NOT NULL,
 	numero_carteira_trabalho VARCHAR(11) NOT NULL,
-	categoria_habilitacao CHAR(1) NOT NULL,	
+	categoria_habilitacao CHAR(5) NOT NULL,	
 	salario FLOAT NOT NULL,
 	cpf VARCHAR(11) NOT NULL,
     rg VARCHAR(20) NOT NULL,
@@ -154,4 +154,4 @@ CREATE TABLE historico_de_viagens (
 	FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 );
 
-SELECT * FROM guias;
+
