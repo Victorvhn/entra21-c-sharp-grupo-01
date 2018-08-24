@@ -12,11 +12,13 @@ namespace Repository
 {
     public class ContinenteRepository
     {
-        public List<Continente> ObterTodos()
+        public List<Continente> ObterTodos(string start, string length)
         {
             List<Continente> continentes = new List<Continente>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome FROM continentes";
+            command.CommandText = "SELECT id, nome FROM continentes ORDER BY nome OFFSET " + 
+                start + " ROWS FETCH NEXT " 
+                + length + " ROWS ONLY  ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)

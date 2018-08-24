@@ -70,8 +70,15 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
-            List<Continente> continentes = new ContinenteRepository().ObterTodos();
-            return Content(JsonConvert.SerializeObject(continentes));
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+            
+            List<Continente> continentes = new ContinenteRepository().ObterTodos(start, length);
+            
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = continentes
+            }));
         }
     }
 }
