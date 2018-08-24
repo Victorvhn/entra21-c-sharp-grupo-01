@@ -1,4 +1,6 @@
 ﻿using Model;
+using Newtonsoft.Json;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -41,16 +43,27 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(PontoTuristico PontoTuristico)
+        public ActionResult Store(PontoTuristicoString pontoTuristico)
         {
-            int identificador = new PontosTuristosRepository().Cadastrar(PontoTuristico);
-            return null;
+            PontoTuristico pontoTuristicoModel = new PontoTuristico()
+            {
+                Nome = pontoTuristico.Nome.ToString()
+            };
+            int identificador = new PontosTuristosRepository().Cadastrar(pontoTuristicoModel);
+            return RedirectToAction("Editar", new { id = identificador });
+            
         }
         [HttpPost]
         public ActionResult Update(PontoTuristico PontoTuristico)
         {
             bool alterado = new PontosTuristosRepository().Alterar(PontoTuristico);
             return null;
+        }
+
+        public ActionResult ObterTodosPorJSON()
+        {
+            List<PontoTuristico> pontosTuristicos = new PontosTuristosRepository().ObterTodos();
+            return Content(JsonConvert.SerializeObject(pontosTuristicos));
         }
     }
 }

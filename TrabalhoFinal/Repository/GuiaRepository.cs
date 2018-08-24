@@ -25,7 +25,7 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                     Login_ = linha[1].ToString(),
-                    Sexo = linha[2].ToString(),
+                    Sexo =  linha[2].ToString(),
                     Senha = linha[3].ToString(),
                     Nome = linha[4].ToString(),
                     Sobrenome = linha[5].ToString(),
@@ -35,7 +35,7 @@ namespace Repository
                     Cpf = linha[9].ToString(),
                     Rg = linha[10].ToString(),
                     DataNascimento = Convert.ToDateTime(linha[11].ToString()),
-                    Rank = Convert.ToChar(linha[12].ToString()),
+                    Rank = Convert.ToByte(linha[12].ToString()),
                     IdEndereco = Convert.ToInt32(linha[13].ToString())
 
                 };
@@ -124,7 +124,7 @@ namespace Repository
                 guia.Cpf = table.Rows[0][8].ToString();
                 guia.Rg = table.Rows[0][9].ToString();
                 guia.DataNascimento = Convert.ToDateTime(table.Rows[0][10]);
-                guia.Rank = Convert.ToChar(table.Rows[0][11].ToString());
+                guia.Rank = Convert.ToByte(table.Rows[0][11].ToString());
                 guia.IdEndereco = Convert.ToInt32(table.Rows[0][12].ToString());
             }
             return guia;

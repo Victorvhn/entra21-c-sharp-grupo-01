@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Principal.Models;
 using Repository;
 using System;
@@ -30,8 +31,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Endereco endereco = new EnderecoRepository().ObterPeloId(id);
-           
+            Endereco endereco = new EnderecoRepository().ObterPeloId(id);           
             ViewBag.Endereco = endereco;
             return View();
         }
@@ -57,6 +57,13 @@ namespace Principal.Controllers
             int identificador = new EnderecoRepository().Cadastrar(enderecoModel);
             return RedirectToAction("Editar", new { id = identificador });
             
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            List<Endereco> enderecos = new EnderecoRepository().ObterTodos();
+            return Content(JsonConvert.SerializeObject(enderecos));
         }
     }
 }
