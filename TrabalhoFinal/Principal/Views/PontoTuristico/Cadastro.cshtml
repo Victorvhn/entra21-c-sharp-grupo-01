@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10 offset-md-1">
+        <form action="/Principal/StorePontoTuristico" method="post">
+            <div class="form-horizontal">
+                <div class="card-header">
+                    <h4>Pontos Turísticos</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="col-md-2">
+
+                                <label for="campo-nome-ponto-turistico">Nome</label>
+                                <input name="pontosTuristicos.Nome" type="text" id="campo-cadastro-ponto-turistico-nome" size="10">
+
+                                <div class="col-mds-offset-2 col-md-10">
+                                    <input type="submit" value="Salvar" class="btn btn-outline-success" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
