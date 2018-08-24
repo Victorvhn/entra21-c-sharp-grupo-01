@@ -17,7 +17,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Tabela()
         {
-            return null;
+            return View();
         }
         
         [HttpGet]
@@ -79,8 +79,16 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
-            List<Guia> guias = new GuiaRepository().ObterTodos();
-            return Content(JsonConvert.SerializeObject(guias));
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<Guia> guias = new GuiaRepository().ObterTodos(start, length);
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = guias
+            }));
+
         }
     }
 }

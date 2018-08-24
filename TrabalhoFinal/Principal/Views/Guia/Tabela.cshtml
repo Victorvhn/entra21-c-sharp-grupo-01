@@ -1,42 +1,43 @@
 ﻿
 @{
-    ViewBag.Title = "Tabela";
-    Layout = "~/Views/Shared/Master.cshtml";
-}
-
-<h2>Tabela</h2>
-
-
-@{
     ViewBag.Title = "Table";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Table</h2>
 
-<table class="table" id="table-continente">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>Data Nascimento</th>
-            <th>CPF</th>
-            <th>Rank</th>
-            <th>Ação</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-    <tfoot>
-        <tr>
-            <th>Código</th>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>Data Nascimento</th>
-            <th>CPF</th>
-            <th>Rank</th>
-            <th>Ação</th>
-        </tr>
-    </tfoot>
-</table>
+<div class="card">
+    <div class="card-header">
+        <h5>Tabela Guias</h5>
+        <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li></ul></div>
+    </div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <table class="table table-de" id="table-guia">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Data Nascimento</th>
+                        <th>CPF</th>
+                        <th>Rank</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>Data Nascimento</th>
+                        <th>CPF</th>
+                        <th>Rank</th>
+                        <th>Ação</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
 

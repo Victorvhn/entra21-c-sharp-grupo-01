@@ -12,11 +12,14 @@ namespace Repository
 {
     public class GuiaRepository
     {
-        public List<Guia> ObterTodos()
+        public List<Guia> ObterTodos(string start, string length)
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id_endereco,id, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_ FROM guias";
+            command.CommandText = @"SELECT id_endereco,id, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, 
+            categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_ FROM guias ORDER BY nome OFFSET " +
+                start + " ROWS FETCH NEXT "
+                + length + " ROWS ONLY ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
