@@ -53,12 +53,12 @@ CREATE TABLE guias (
 	nome VARCHAR(100) NOT NULL,
 	sobrenome VARCHAR(100) NOT NULL,
 	numero_carteira_trabalho VARCHAR(11) NOT NULL,
-	categoria_habilitacao VARCHAR(5) NOT NULL,	
+	categoria_habilitacao VARCHAR(10) NOT NULL,	
 	salario FLOAT NOT NULL,
 	cpf VARCHAR(11) NOT NULL,
     rg VARCHAR(20) NOT NULL,
     data_nascimento DATE NOT NULL,	
-	rank_ CHAR(5), --
+	rank_ SMALLINT, 
 	FOREIGN KEY (id_endereco) REFERENCES enderecos(id)
 );
 
@@ -154,4 +154,4 @@ CREATE TABLE historico_de_viagens (
 	FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 );
 
-
+SELECT * FROM guias;
