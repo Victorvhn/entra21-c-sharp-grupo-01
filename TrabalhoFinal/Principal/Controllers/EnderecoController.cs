@@ -50,7 +50,7 @@ namespace Principal.Controllers
             {
                 Cep = endereco.Cep.ToString(),
                 Logradouro = endereco.Logradouro.ToString(),
-                Numero = Convert.ToByte(endereco.Numero.ToString()),
+                Numero = Convert.ToInt16(endereco.Numero.ToString()),
                 Referencia = endereco.Referencia.ToString(),
                 Complemento = endereco.Complemento.ToString()
             };

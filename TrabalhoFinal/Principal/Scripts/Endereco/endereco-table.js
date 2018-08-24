@@ -14,7 +14,6 @@
                 $registro += "<td>" + cep + "</td>";
                 $registro += "<td>" + logradouro + "</td>";
                 $registro += "<td>" + numero + "</td>";
-                $registro += "<td><a href=\"/Endereco/Editar?id=" + id + "\" >Editar</a></td>";
                 $registro += "</tr>";
                 $("#table-endereco").append($registro);
 
