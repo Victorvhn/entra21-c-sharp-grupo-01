@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Principal.Models;
 using Repository;
 using System;
@@ -12,6 +13,12 @@ namespace Principal.Controllers
     public class GuiaController : Controller
     {
         // GET: Guia
+
+        [HttpGet]
+        public ActionResult Tabela()
+        {
+            return null;
+        }
         
         [HttpGet]
         public ActionResult Cadastro()
@@ -67,6 +74,13 @@ namespace Principal.Controllers
         {
             bool alterado = new GuiaRepository().Alterar(guia);
             return null;
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            List<Guia> guias = new GuiaRepository().ObterTodos();
+            return Content(JsonConvert.SerializeObject(guias));
         }
     }
 }
