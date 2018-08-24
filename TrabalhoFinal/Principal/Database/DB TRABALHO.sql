@@ -44,7 +44,7 @@ CREATE TABLE turistas (
 
 CREATE TABLE guias (
 	login_ VARCHAR(100),
-	sexo CHAR(1),
+	sexo VARCHAR(10),
 	senha VARCHAR(100),
     ativo CHAR(1) DEFAULT '1',
     perfil VARCHAR(15) DEFAULT 'ADMIN',
@@ -53,7 +53,7 @@ CREATE TABLE guias (
 	nome VARCHAR(100) NOT NULL,
 	sobrenome VARCHAR(100) NOT NULL,
 	numero_carteira_trabalho VARCHAR(11) NOT NULL,
-	categoria_habilitacao CHAR(5) NOT NULL,	
+	categoria_habilitacao VARCHAR(5) NOT NULL,	
 	salario FLOAT NOT NULL,
 	cpf VARCHAR(11) NOT NULL,
     rg VARCHAR(20) NOT NULL,

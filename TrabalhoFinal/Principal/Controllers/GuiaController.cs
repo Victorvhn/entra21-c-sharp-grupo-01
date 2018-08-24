@@ -48,21 +48,18 @@ namespace Principal.Controllers
                 guiaModel.Nome = guia.Nome.ToString();
                 guiaModel.Sobrenome = guia.Sobrenome.ToString();
                 guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/","-").ToString());
-                guiaModel.Sexo = Convert.ToChar(guia.Sexo.ToString());
+                guiaModel.Sexo = guia.Sexo.ToString();
                 guiaModel.Rg = guia.Rg.ToString();
                 guiaModel.Cpf = guia.Cpf.ToString();
                 guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
-                guiaModel.CategoriaHabilitacao = Convert.ToChar(guia.CatagoriaHabilitacao.ToString());
+                guiaModel.CategoriaHabilitacao = guia.CatagoriaHabilitacao.ToString();
                 guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
                 guiaModel.Rank = Convert.ToChar(guia.Rank.ToString());
             }
 
             int identificador = new GuiaRepository().Cadastrar(guiaModel);
             return null;
-               
-            
-
-            
+              
         }
 
         [HttpPost]

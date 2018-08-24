@@ -10,7 +10,7 @@ namespace Model
     {
         public string Login_ { get; set; }
 
-        public char Sexo { get; set; }
+        public string Sexo { get; set; }
 
         public int Id { get; set; }
 
@@ -28,7 +28,7 @@ namespace Model
 
         public string CarteiraTrabalho { get; set; }
 
-        public char CategoriaHabilitacao { get; set; }
+        public string CategoriaHabilitacao { get; set; }
 
         public double Salario { get; set; }
 

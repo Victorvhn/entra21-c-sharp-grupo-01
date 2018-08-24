@@ -25,12 +25,12 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                     Login_ = linha[1].ToString(),
-                    Sexo = Convert.ToChar(linha[2].ToString()),
+                    Sexo = linha[2].ToString(),
                     Senha = linha[3].ToString(),
                     Nome = linha[4].ToString(),
                     Sobrenome = linha[5].ToString(),
                     CarteiraTrabalho = linha[6].ToString(),
-                    CategoriaHabilitacao = Convert.ToChar(linha[7].ToString()),
+                    CategoriaHabilitacao = linha[7].ToString(),
                     Salario = Convert.ToSingle(linha[8].ToString()),
                     Cpf = linha[9].ToString(),
                     Rg = linha[10].ToString(),
@@ -114,12 +114,12 @@ namespace Repository
                 guia = new Guia();
                 guia.Id = id;
                 guia.Login_ = table.Rows[0][0].ToString();
-                guia.Sexo = Convert.ToChar(table.Rows[0][1].ToString());
+                guia.Sexo = table.Rows[0][1].ToString();
                 guia.Senha = table.Rows[0][2].ToString();
                 guia.Nome = table.Rows[0][3].ToString();
                 guia.Sobrenome = table.Rows[0][4].ToString();
                 guia.CarteiraTrabalho = table.Rows[0][5].ToString();
-                guia.CategoriaHabilitacao = Convert.ToChar(table.Rows[0][6].ToString());
+                guia.CategoriaHabilitacao = table.Rows[0][6].ToString();
                 guia.Salario = Convert.ToSingle(table.Rows[0][7]);
                 guia.Cpf = table.Rows[0][8].ToString();
                 guia.Rg = table.Rows[0][9].ToString();
