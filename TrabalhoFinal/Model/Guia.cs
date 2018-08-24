@@ -38,7 +38,7 @@ namespace Model
 
         public DateTime DataNascimento { get; set; }
 
-        public char Rank { get; set; }
+        public byte Rank { get; set; }
 
         public List<Pacote> Pacotes { get; set; }
     }

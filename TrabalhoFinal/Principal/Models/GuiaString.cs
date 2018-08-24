@@ -29,7 +29,7 @@ namespace Principal.Models
 
         public string CarteiraTrabalho { get; set; }
 
-        public string CatagoriaHabilitacao { get; set; }
+        public string CategoriaHabilitacao { get; set; }
 
         public string Salario { get; set; }
 

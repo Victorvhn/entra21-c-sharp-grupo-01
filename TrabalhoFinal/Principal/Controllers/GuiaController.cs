@@ -52,9 +52,9 @@ namespace Principal.Controllers
                 guiaModel.Rg = guia.Rg.ToString();
                 guiaModel.Cpf = guia.Cpf.ToString();
                 guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
-                guiaModel.CategoriaHabilitacao = guia.CatagoriaHabilitacao.ToString();
+                guiaModel.CategoriaHabilitacao = guia.CategoriaHabilitacao.ToString();
                 guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
-                guiaModel.Rank = Convert.ToChar(guia.Rank.ToString());
+                guiaModel.Rank = Convert.ToByte(guia.Rank.ToString());
             }
 
             int identificador = new GuiaRepository().Cadastrar(guiaModel);
