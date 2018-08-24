@@ -83,12 +83,12 @@ namespace Repository
             if (table.Rows.Count == 1)
             {
                 enderecos = new Endereco();
-                enderecos.Id = Convert.ToInt32(table.Rows[0][0].ToString());
-                enderecos.Cep = table.Rows[0][1].ToString();
-                enderecos.Logradouro = table.Rows[0][2].ToString();
-                enderecos.Numero = Convert.ToInt16(table.Rows[0][3].ToString());
-                enderecos.Complemento = table.Rows[0][4].ToString();
-                enderecos.Referencia = table.Rows[0][5].ToString();
+                enderecos.Id =  id;
+                enderecos.Cep = table.Rows[0][0].ToString();
+                enderecos.Logradouro = table.Rows[0][1].ToString();
+                enderecos.Numero = Convert.ToInt16(table.Rows[0][2].ToString());
+                enderecos.Complemento = table.Rows[0][3].ToString();
+                enderecos.Referencia = table.Rows[0][4].ToString();
 
             }
             return enderecos;
