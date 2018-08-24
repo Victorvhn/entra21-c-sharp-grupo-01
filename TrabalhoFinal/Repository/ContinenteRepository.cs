@@ -76,8 +76,8 @@ namespace Repository
             if (table.Rows.Count == 1)
             {
                 continente = new Continente();
-                continente.Id = id;
-                continente.Nome = table.Rows[0][0].ToString();
+                continente.Id = Convert.ToInt32(table.Rows[0][0].ToString());
+                continente.Nome = table.Rows[0][1].ToString();
             }
             return continente;
 

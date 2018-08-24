@@ -8,12 +8,12 @@
 
 
 <form action="/Continente/Update" method="post">
-    <input type="hidden" name="continente.Id" value="@ViewBag.Continente.Id" />
+    <input type="hidden" name="continente.Id" value="@ViewBag.Continente.Id" id="editar-continente-campo-id"/>
     <div class="form-group">
         <label for="cadastro-continente-campo-nome">
             Nome
         </label>
-        <input type="text" id="cadastro-continente-campo-nome" class="form-control" value="@ViewBag.Continente.Nome" name="continente.Nome" />
+        <input type="text" id="editar-campo-continente-campo-nome" class="form-control" value="@ViewBag.Continente.Nome" name="continente.Nome" />
     </div>
 
     <div>
