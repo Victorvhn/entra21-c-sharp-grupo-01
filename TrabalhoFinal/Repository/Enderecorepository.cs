@@ -76,7 +76,7 @@ namespace Repository
         {
             Endereco enderecos = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT cep, logradouro, numero, complemento, referencia FROM enderecos WHERE id = @Id";
+            command.CommandText = "SELECT cep, logradouro, numero, complemento, referencia FROM enderecos WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());

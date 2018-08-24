@@ -5150,6 +5150,7 @@
     <Content Include="Database\DB TRABALHO.sql" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Continente\continente-table.js" />
+    <Content Include="Scripts\Endereco\endereco-table.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5515,6 +5516,8 @@
     <Content Include="Views\HistoricoViagem\Editar.cshtml" />
     <Content Include="Views\Continente\Table.cshtml" />
     <Content Include="Views\Continente\Editar.cshtml" />
+    <Content Include="Views\Endereco\Index.cshtml" />
+    <Content Include="Views\PontoTuristico\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5531,7 +5534,6 @@
     <Folder Include="Views\PacotePontoTuristico\" />
     <Folder Include="Views\Pacote\" />
     <Folder Include="Views\Paises\" />
-    <Folder Include="Views\PontoTuristico\" />
     <Folder Include="Views\ViagemTurista\" />
     <Folder Include="Views\Viagem\" />
   </ItemGroup>
