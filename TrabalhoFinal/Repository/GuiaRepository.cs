@@ -12,7 +12,40 @@ namespace Repository
 {
     public class GuiaRepository
     {
-        public List<Guia> ObterTodos(string start, string length)
+        public List<Guia> ObterTodos()
+        {
+            List<Guia> guias = new List<Guia>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT id_endereco,id, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, 
+            categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_ FROM guias";
+            DataTable tabela = new DataTable();
+            tabela.Load(command.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                Guia guia = new Guia()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Login_ = linha[1].ToString(),
+                    Sexo = linha[2].ToString(),
+                    Senha = linha[3].ToString(),
+                    Nome = linha[4].ToString(),
+                    Sobrenome = linha[5].ToString(),
+                    CarteiraTrabalho = linha[6].ToString(),
+                    CategoriaHabilitacao = linha[7].ToString(),
+                    Salario = Convert.ToSingle(linha[8].ToString()),
+                    Cpf = linha[9].ToString(),
+                    Rg = linha[10].ToString(),
+                    DataNascimento = Convert.ToDateTime(linha[11].ToString()),
+                    Rank = Convert.ToByte(linha[12].ToString()),
+                    IdEndereco = Convert.ToInt32(linha[13].ToString())
+
+                };
+                guias.Add(guia);
+            }
+            return guias;
+        }
+
+        public List<Guia> ObterTodosJSON(string start, string length)
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
@@ -27,20 +60,13 @@ namespace Repository
                 Guia guia = new Guia()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Login_ = linha[1].ToString(),
-                    Sexo =  linha[2].ToString(),
-                    Senha = linha[3].ToString(),
+                    
                     Nome = linha[4].ToString(),
                     Sobrenome = linha[5].ToString(),
-                    CarteiraTrabalho = linha[6].ToString(),
-                    CategoriaHabilitacao = linha[7].ToString(),
-                    Salario = Convert.ToSingle(linha[8].ToString()),
-                    Cpf = linha[9].ToString(),
-                    Rg = linha[10].ToString(),
                     DataNascimento = Convert.ToDateTime(linha[11].ToString()),
+                    Cpf = linha[9].ToString(),
                     Rank = Convert.ToByte(linha[12].ToString()),
-                    IdEndereco = Convert.ToInt32(linha[13].ToString())
-
+                   
                 };
                 guias.Add(guia);
             }
