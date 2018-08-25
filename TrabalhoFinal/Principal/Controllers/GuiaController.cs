@@ -82,7 +82,7 @@ namespace Principal.Controllers
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
 
-            List<Guia> guias = new GuiaRepository().ObterTodosJSON(start, length);
+            List<Guia> guias = new GuiaRepository().ObterTodosParaJSON(start, length);
 
             return Content(JsonConvert.SerializeObject(new
             {
