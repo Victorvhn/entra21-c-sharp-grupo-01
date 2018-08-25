@@ -10,6 +10,3 @@
         ]
     });
 });
-
-
-$("table-continente").on("click")

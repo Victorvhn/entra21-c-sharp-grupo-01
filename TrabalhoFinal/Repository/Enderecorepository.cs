@@ -38,6 +38,30 @@ namespace Repository
             }
             return enderecos;
         }
+
+        public List<Endereco> ObterTodosParaJSON(string start, string length)
+        {
+            List<Endereco> enderecos = new List<Endereco>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, cep, logradouro, numero FROM enderecos ORDER BY logradouro OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+
+            foreach (DataRow line in table.Rows)
+            {
+                Endereco endereco = new Endereco()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    Cep = line[1].ToString(),
+                    Logradouro = line[2].ToString(),
+                    Numero = Convert.ToInt16(line[3].ToString()),
+                };
+                enderecos.Add(endereco);
+            }
+            return enderecos;
+        }
+
         public int Cadastrar(Endereco endereco)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -51,6 +75,7 @@ namespace Repository
             return id;
 
         }
+
         public bool Alterar(Endereco endereco)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -65,6 +90,7 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
 
         }
+
         public bool Excluir(int Id)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -72,29 +98,30 @@ namespace Repository
             command.Parameters.AddWithValue("@ID", Id);
             return command.ExecuteNonQuery() == 1;
         }
+
         public Endereco ObterPeloId(int id)
         {
             Endereco enderecos = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT cep, logradouro, numero, complemento, referencia FROM enderecos WHERE id = @ID";
+            command.CommandText = "SELECT id, cep, logradouro, numero, complemento, referencia FROM enderecos WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             if (table.Rows.Count == 1)
             {
-                enderecos = new Endereco();
-                enderecos.Id =  id;
-                enderecos.Cep = table.Rows[0][0].ToString();
-                enderecos.Logradouro = table.Rows[0][1].ToString();
-                enderecos.Numero = Convert.ToInt16(table.Rows[0][2].ToString());
-                enderecos.Complemento = table.Rows[0][3].ToString();
-                enderecos.Referencia = table.Rows[0][4].ToString();
 
+                enderecos = new Endereco();
+                enderecos.Id = Convert.ToInt32(table.Rows[0][0].ToString());
+                enderecos.Cep = table.Rows[0][1].ToString();
+                enderecos.Logradouro = table.Rows[0][2].ToString();
+                enderecos.Numero = Convert.ToInt16(table.Rows[0][3].ToString());
+                enderecos.Complemento = table.Rows[0][4].ToString();
+                enderecos.Referencia = table.Rows[0][5].ToString();
+                
             }
             return enderecos;
 
         }
-
 
     }
 }
