@@ -5166,7 +5166,7 @@
     <Compile Include="Controllers\IdiomaController.cs" />
     <Compile Include="Controllers\PacoteController.cs" />
     <Compile Include="Controllers\PacotePontoTuristicoController.cs" />
-    <Compile Include="Controllers\PaisesController.cs" />
+    <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\PontoTuristicoController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\TuristaController.cs" />
@@ -5524,6 +5524,7 @@
     <Content Include="Views\Idioma\Cadastro.cshtml" />
     <Content Include="Views\Pacote\Cadastrar.cshtml" />
     <Content Include="Views\Guia\Tabela.cshtml" />
+    <Content Include="Views\Pais\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5535,9 +5536,7 @@
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Repository\" />
-    <Folder Include="Views\Continentes\" />
     <Folder Include="Views\PacotePontoTuristico\" />
-    <Folder Include="Views\Paises\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">

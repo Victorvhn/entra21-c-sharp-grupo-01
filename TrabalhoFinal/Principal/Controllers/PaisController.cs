@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class PaisesController : Controller
+    public class PaisController : Controller
     {
         // GET: Paises
         public ActionResult Index()
