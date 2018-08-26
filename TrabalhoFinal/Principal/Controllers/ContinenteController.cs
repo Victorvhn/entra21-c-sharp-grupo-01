@@ -73,12 +73,19 @@ namespace Principal.Controllers
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
             
-            List<Continente> continentes = new ContinenteRepository().ObterTodos(start, length);
+            List<Continente> continentes = new ContinenteRepository().ObterTodosParaJSON(start, length);
             
             return Content(JsonConvert.SerializeObject(new
             {
                 data = continentes
             }));
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSONSemStart()
+        {
+            List<Continente> continentes = new ContinenteRepository().ObterTodos();
+            return null;
         }
     }
 }

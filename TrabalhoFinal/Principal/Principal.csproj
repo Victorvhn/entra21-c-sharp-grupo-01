@@ -5152,6 +5152,7 @@
     <Content Include="Scripts\Continente\continente-table.js" />
     <Content Include="Scripts\Endereco\endereco-table.js" />
     <Content Include="Scripts\Guia\guia-table.js" />
+    <Content Include="Scripts\PopularSelects\SelectContinente\popular-select-continente.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
