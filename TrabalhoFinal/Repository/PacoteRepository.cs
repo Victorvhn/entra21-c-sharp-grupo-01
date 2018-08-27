@@ -52,7 +52,7 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
         }
         
-        /*public Pacote ObterPeloId(int id)
+        public Pacote ObterPeloId(int id)
         {
             Pacote pacote = null;
             SqlCommand command = new Conexao().ObterConexao();
@@ -67,10 +67,10 @@ namespace Repository
                 pacote.Nome = table.Rows[0][0].ToString();
                 pacote.Valor = Convert.ToSingle(table.Rows[0][1].ToString());
                 pacote.PercentualMaximoDesconto = Convert.ToByte(table.Rows[0][2].ToString());
-                pacote.PontosTuristicos = new PacoteTuristicoRepository().ObterTodosPontosTuristicosPeloIdPacote(pacote.Id);
+                pacote.PontosTuristicos = new PacotePontosTuristicosRepository().ObterTodosPontosTuristicosPeloIdPacote(pacote.Id);
             }
             return pacote;
-        }*/
+        }
         public bool Alterar(Pacote pacote)
         {
             SqlCommand command = new Conexao().ObterConexao();
