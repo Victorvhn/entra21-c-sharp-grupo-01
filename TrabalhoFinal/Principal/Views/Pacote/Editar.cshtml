@@ -1,22 +1,32 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
 <h2>Editar</h2>
-<form action="" method="post">
-    <input type="hidden" name="pacote.Id" id="edit-pacote-campo-id" />
+<form action="/Pacote/Update" method="post">
+    <input type="hidden" name="pacotes.Id"  value="@ViewBag.Pacote.Id" id="editar-campo-pacote-id" />
     <div class="form-group">
         <label for="cadastro-pacote-campo-nome">
             Nome
         </label>
-        <input type="text" id="editar-campo-pacote-nome" class="form-control" name="Pacote.Nome" />
-
+               <input type="text" id="editar-campo-pacote-nome" class="form-control" value="@ViewBag.Pacote.Nome" name="pacote.Nome" />
     </div>
     <div>
-        <button type="submit" class="btn btn-sucess float-left right ">
-            <i class="fa fa-save">Cadastro</i>
+        <label for="cadastro-pacote-campo-valor">
+            Valor
+        </label>
+        <input type="text" id="editar-campo-pacote-campo-valor" class="form-control" value="@ViewBag.Pacote.Valor" name="pacote.Valor" />
+    </div>
+    <div>
+        <label for="cadastro-pacote-campo-percentual-desconto">
+            Percentual de Desconto
+        </label>
+        <input type="text" id="editar-campo-pacote-campo-percentual-desconto" class="form-control" value="@ViewBag.Pacote.PercentualMaximoDesconto" name="pacote.PercentualMaximoDesconto">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success float-right">
+            <i class="fa fa-save"></i> Salvar
         </button>
     </div>
 </form>
