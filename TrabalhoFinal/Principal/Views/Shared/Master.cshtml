@@ -2342,7 +2342,7 @@
     <script type="text/javascript" src="~/Content/lib/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript" src="~/Content/lib/jquery-i18next/js/jquery-i18next.min.js"></script>
     <!-- Custom js -->
-    
+
     <script type="text/javascript" src="~/Content/assets/js/SmoothScroll.js"></script>
     <script src="~/Content/assets/js/pcoded.min.js"></script>
     <script src="~/Content/assets/js/demo-12.js"></script>
@@ -2352,8 +2352,6 @@
     <script src="~/Content/lib/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
 
-    <script src="~/Scripts/Continente/continente-table.js"></script>
-    <script src="~/Scripts/Guia/guia-table.js"></script>
-    <script src="~/Scripts/Endereco/endereco-table.js"></script>
+    @RenderSection("script", false)
 </body>
 </html>

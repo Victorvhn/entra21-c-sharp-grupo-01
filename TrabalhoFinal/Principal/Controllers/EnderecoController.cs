@@ -62,8 +62,14 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
-            List<Endereco> enderecos = new EnderecoRepository().ObterTodos();
-            return Content(JsonConvert.SerializeObject(enderecos));
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<Endereco> enderecos = new EnderecoRepository().ObterTodosParaJSON(start, length);
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = enderecos
+            }));
         }
     }
 }

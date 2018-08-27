@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Table";
+    ViewBag.Title = "Tabela";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
@@ -25,19 +25,20 @@
                     </tr>
                 </thead>
                 <tbody></tbody>
-                <tfoot>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Sobrenome</th>
-                        <th>Data Nascimento</th>
-                        <th>CPF</th>
-                        <th>Rank</th>
-                        <th>Ação</th>
-                    </tr>
-                </tfoot>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Data Nascimento</th>
+                    <th>CPF</th>
+                    <th>Rank</th>
+                    <th>Ação</th>
+                </tr>
             </table>
         </div>
     </div>
 </div>
 
+@section script{
+    <script src="~/Scripts/Guia/guia-table.js"></script>
+}
