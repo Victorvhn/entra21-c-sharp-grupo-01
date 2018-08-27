@@ -5532,6 +5532,7 @@
     <Content Include="Views\Cidade\Index.cshtml" />
     <Content Include="Views\Pais\Editar.cshtml" />
     <Content Include="Views\Cidade\Cadastro.cshtml" />
+    <Content Include="Views\Pais\Table.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

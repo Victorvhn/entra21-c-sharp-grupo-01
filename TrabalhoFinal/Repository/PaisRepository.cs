@@ -74,7 +74,7 @@ namespace Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT paises.nome, continentes.nome, continentes.id FROM paises JOIN paises ON(paises.id_continente = continentes.id) WHERE id = @ID";
+            command.CommandText = @"SELECT paises.nome, continentes.nome, continentes.id FROM paises JOIN continentes ON(paises.id_continente = continentes.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();
@@ -85,7 +85,7 @@ namespace Repository
                 pais = new Pais();
                 pais.Id = id;
                 pais.Nome = table.Rows[0][0].ToString();
-                pais.IdContinente = Convert.ToInt32(table.Rows[0][1].ToString());
+                pais.IdContinente = Convert.ToInt32(table.Rows[0][1].ToString());               
             }
             return pais;
         }
