@@ -12,7 +12,7 @@ namespace Model
 
         public string  Nome { get; set; }
 
-        public float Valor { get; set; }
+        public double Valor { get; set; }
 
         public byte PercentualMaximoDesconto { get; set; }
 

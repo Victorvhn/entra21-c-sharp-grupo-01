@@ -1,23 +1,23 @@
 ﻿
 @{
     ViewBag.Title = "Tabela";
+    Layout = "~/Views/Shared/Master.cshtml";
 }
 
 <div class="card">
     <div class="card-header">
-        <h5>Tabela Guia</h5>
+        <h5>Tabela Pacote</h5>
         <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li></ul></div>
     </div>
     <div class="card-block">
         <div class="table-responsive">
-            <table class="table table-de" id="guia-tabela">
+            <table class="table table-de" id="pacote-tabela">
                 <thead>
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
-                        <th>Sobrenome</th>
-                        <th>CPF</th>
-                        <th>Rank</th>
+                        <th>Valor</th>
+                        <th>Percentual Desconto</th>                        
                         <th>Ação</th>
                     </tr>
                 </thead>
@@ -26,9 +26,8 @@
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
-                        <th>Sobrenome</th>
-                        <th>CPF</th>
-                        <th>Rank</th>
+                        <th>Valor</th>
+                        <th>Percentual Desconto</th>
                         <th>Ação</th>
                     </tr>
                 </tfoot>
@@ -38,6 +37,7 @@
 </div>
 
 @section script{
-    <script src="~/Scripts/Guia/guia-tabela.js"></script>
+    <script src="~/Scripts/Pacote/pacote-tabela.js"></script>
 }
+
 

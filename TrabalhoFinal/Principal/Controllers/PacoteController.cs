@@ -44,10 +44,13 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(PacoteString pacote)
         {
-            Pacote pacoteModel = new Pacote()
+            Pacote pacoteModel = new Pacote();
             {
-                Nome = pacote.Nome.ToString(),
-            };
+                pacoteModel.Nome = pacote.Nome.ToString();
+                pacoteModel.Valor = Convert.ToDouble(pacote.Valor.ToString());
+                pacoteModel.PercentualMaximoDesconto = Convert.ToByte(pacote.PercentualMaximoDesconto.ToString());
+            }
+
             int identificador = new PacoteRepository().Cadastrar(pacoteModel);
             return null;
         }

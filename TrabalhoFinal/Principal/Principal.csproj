@@ -5152,6 +5152,8 @@
     <Content Include="Scripts\Continente\continente-table.js" />
     <Content Include="Scripts\Endereco\endereco-table.js" />
     <Content Include="Scripts\Guia\guia-tabela.js" />
+    <Content Include="Scripts\HistoricoViagens\historicoViagem-tabela.js" />
+    <Content Include="Scripts\Pacote\pacote-tabela.js" />
     <Content Include="Scripts\Pais\Cadastro\select2-cadastro-pais.js" />
     <Content Include="Scripts\Pais\Table\pais-table.js" />
     <Content Include="Scripts\PopularSelects\SelectContinente\popular-select-continente.js" />

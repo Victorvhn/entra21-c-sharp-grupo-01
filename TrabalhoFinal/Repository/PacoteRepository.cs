@@ -25,7 +25,7 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
                     Nome = line[1].ToString(),
-                    Valor = Convert.ToSingle(line[2].ToString()),
+                    Valor = Convert.ToDouble(line[2].ToString()),
                     PercentualMaximoDesconto = Convert.ToByte(line[3].ToString())
                 };
                 pacotes.Add(pacote);
@@ -48,7 +48,7 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
                     Nome = line[1].ToString(),
-                    Valor = Convert.ToSingle(line[2].ToString()),
+                    Valor = Convert.ToDouble(line[2].ToString()),
                     PercentualMaximoDesconto = Convert.ToByte(line[3].ToString())
                 };
                 pacotes.Add(pacote);
@@ -88,7 +88,7 @@ namespace Repository
                 pacote = new Pacote();
                 pacote.Id = id;
                 pacote.Nome = table.Rows[0][0].ToString();
-                pacote.Valor = Convert.ToSingle(table.Rows[0][1].ToString());
+                pacote.Valor = Convert.ToDouble(table.Rows[0][1].ToString());
                 pacote.PercentualMaximoDesconto = Convert.ToByte(table.Rows[0][2].ToString());
                 pacote.PontosTuristicos = new PacotePontosTuristicosRepository().ObterTodosPontosTuristicosPeloIdPacote(pacote.Id);
             }
