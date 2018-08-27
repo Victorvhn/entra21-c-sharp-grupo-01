@@ -28,7 +28,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            PontoTuristico PontoTuristico = new PontosTuristosRepository().ObterPeloId(id);
+            PontoTuristico PontoTuristico = new PontosTuristicosRepository().ObterPeloId(id);
             ViewBag.PontoTuristico = PontoTuristico;
            
             return View();
@@ -38,7 +38,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new PontosTuristosRepository().Excluir(id);
+            bool apagado = new PontosTuristicosRepository().Excluir(id);
             return null;
         }
 
@@ -49,7 +49,7 @@ namespace Principal.Controllers
             {
                 Nome = pontoTuristico.Nome.ToString()
             };
-            int identificador = new PontosTuristosRepository().Cadastrar(pontoTuristicoModel);
+            int identificador = new PontosTuristicosRepository().Cadastrar(pontoTuristicoModel);
             //return RedirectToAction("Editar", new { id = identificador });
             return null;
             
@@ -57,13 +57,13 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Update(PontoTuristico PontoTuristico)
         {
-            bool alterado = new PontosTuristosRepository().Alterar(PontoTuristico);
+            bool alterado = new PontosTuristicosRepository().Alterar(PontoTuristico);
             return null;
         }
 
         public ActionResult ObterTodosPorJSON()
         {
-            List<PontoTuristico> pontosTuristicos = new PontosTuristosRepository().ObterTodos();
+            List<PontoTuristico> pontosTuristicos = new PontosTuristicosRepository().ObterTodos();
             return Content(JsonConvert.SerializeObject(pontosTuristicos));
         }
     }
