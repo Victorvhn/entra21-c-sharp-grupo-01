@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<h2>Editar</h2>
+<form action="" method="post">
+    <input type="hidden" name="idioma.Id" id="edit-idioma-campo-id" />
+    <div class="form-group">
+        <label for="cadastro-idioma-campo-nome">
+            Nome
+        </label>
+        <input type="text" id="editar-campo-idioma-nome" class="form-control" name="idioma.Nome" />
+
+    </div>
+    <div>
+        <button type="submit" class="btn btn-sucess float-left right">
+            <i class="fa fa-save">Cadastro</i>
+        </button>
+    </div>
+</form>
+

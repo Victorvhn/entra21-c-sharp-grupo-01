@@ -71,5 +71,13 @@ namespace Principal.Controllers
                 data = enderecos
             }));
         }
+
+        public ActionResult Update(Endereco endereco)
+        {
+            bool alterado = new EnderecoRepository().Alterar(endereco);
+            return RedirectToAction("Index"); 
+
+            
+        }
     }
 }
