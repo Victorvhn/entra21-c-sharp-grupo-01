@@ -46,7 +46,7 @@ namespace Principal.Controllers
         public ActionResult Store(PacotePontoTuristico pacotePontosTuristicos)
         {
             int identificador = new PacotePontosTuristicosRepository().Cadastro(pacotePontosTuristicos);
-            return RedirectToAction("Editar", new  { id = identificador });
+            return null;
         }
 
         [HttpPost]

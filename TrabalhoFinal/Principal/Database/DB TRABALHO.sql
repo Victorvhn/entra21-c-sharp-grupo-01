@@ -118,8 +118,8 @@ CREATE TABLE pontos_turisticos (
 
 CREATE TABLE pacotes_pontos_turisticos (
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	id_ponto_turistico INT NOT NULL,
-	id_pacote INT NOT NULL,
+	id_ponto_turistico INT,
+	id_pacote INT ,
 	FOREIGN KEY (id_ponto_turistico) REFERENCES pontos_turisticos(id),
 	FOREIGN KEY (id_pacote) REFERENCES pacotes(id),
 ); --NXN
