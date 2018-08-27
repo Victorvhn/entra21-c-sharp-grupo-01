@@ -44,7 +44,7 @@ namespace Principal.Controllers
             return null;
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Store(HistoricoViagemString historicoViagem)
         {
             HistoricoViagem historicoViagemModel = new HistoricoViagem();
@@ -54,10 +54,10 @@ namespace Principal.Controllers
             }
 
             int identificador = new HistoricoViagemRepository().Cadastrar(historicoViagemModel);
-            return RedirectToAction("Editar", new { id = identificador });
+            return null;
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Update(HistoricoViagem historicoViagem)
         {
             bool altertado = new HistoricoViagemRepository().Alterar(historicoViagem);
@@ -80,23 +80,6 @@ namespace Principal.Controllers
 
         }
 
-        [HttpGet]
-        public ActionResult ObterTodosPorJSONToSelect2()
-        {
-
-            List<HistoricoViagem> historicoViagens = new HistoricoViagemRepository().ObterTodosParaSelect();
-
-            var x = new object[historicoViagens.Count];
-            int i = 0;
-            foreach (var historicoViagem in historicoViagens)
-            {
-                x[i] = new { id = historicoViagem.Id, text = historicoViagem.Data };
-                i++;
-            }
-
-
-            return Content(JsonConvert.SerializeObject(new { results = x }));
-
-        }
+        
     }
 }

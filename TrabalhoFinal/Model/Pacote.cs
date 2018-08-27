@@ -10,14 +10,11 @@ namespace Model
     {
         public int Id { get; set; }
 
-        public string  Nome { get; set; }
+        public string Nome { get; set; }
 
         public double Valor { get; set; }
 
         public byte PercentualMaximoDesconto { get; set; }
 
-        public List<PontoTuristico> PontosTuristicos;
-
-        public List<Guia> Guias { get; set; }
     }
 }

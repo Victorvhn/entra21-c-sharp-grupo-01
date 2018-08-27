@@ -33,6 +33,25 @@ namespace Repository
             return pacotes;
         }
 
+        public List<Pacote> ObterTodosParaSelect()
+        {
+            List<Pacote> pacotes = new List<Pacote>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome FROM pacotes";
+            DataTable tabela = new DataTable();
+            tabela.Load(command.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                Pacote pacote = new Pacote()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Nome = linha[1].ToString()
+                };
+                pacotes.Add(pacote);
+            }
+            return pacotes;
+        }
+
         public List<Pacote> ObterTodosParaJSON(string start, string length)
         {
             List<Pacote> pacotes = new List<Pacote>();
@@ -83,6 +102,7 @@ namespace Repository
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
+
             if(table.Rows.Count == 1)
             {
                 pacote = new Pacote();
@@ -90,7 +110,7 @@ namespace Repository
                 pacote.Nome = table.Rows[0][0].ToString();
                 pacote.Valor = Convert.ToDouble(table.Rows[0][1].ToString());
                 pacote.PercentualMaximoDesconto = Convert.ToByte(table.Rows[0][2].ToString());
-                pacote.PontosTuristicos = new PacotePontosTuristicosRepository().ObterTodosPontosTuristicosPeloIdPacote(pacote.Id);
+                
             }
             return pacote;
         }

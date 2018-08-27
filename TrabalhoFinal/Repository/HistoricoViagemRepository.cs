@@ -17,53 +17,35 @@ namespace Repository
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "SELECT h.id, h.data_, h.id_pacote FROM historico_de_viagens h JOIN pacotes p ON (h.id_pacote = p.id)";
+            command.CommandText = "SELECT p.id, p.id_pacote, p.nome, c.nome FROM pacotes p JOIN historico_de_viagens h ON (p.id_pacote = h.id)";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
             {
                 HistoricoViagem historicoViagem = new HistoricoViagem()
                 {
-                    Id = Convert.ToInt32(line[0].ToString()),
+                    Id = Convert.ToInt32(line[0].ToString()), 
                     IdPacote = Convert.ToInt32(line[1].ToString()),
                     Data = Convert.ToDateTime(line[2].ToString()),
                     Pacote = new Pacote()
                     {
-                        Id = Convert.ToInt32(line["h.id_pacote"].ToString()),
-                        Nome = line["p.nome"].ToString()
+                        Id = Convert.ToInt32(line["p.id_pacote"].ToString()),
+                        Nome = line["h.nome"].ToString()
                     }
-
-
+                    
                 };
                 historicoViagens.Add(historicoViagem);
             }
             return historicoViagens;
         }
 
-        public List<HistoricoViagem> ObterTodosParaSelect()
-        {
-            List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
-            SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, Data_ FROM historico_de_viagens";
-            DataTable tabela = new DataTable();
-            tabela.Load(command.ExecuteReader());
-            foreach (DataRow linha in tabela.Rows)
-            {
-                HistoricoViagem historicoViagem = new HistoricoViagem()
-                {
-                    Id = Convert.ToInt32(linha[0].ToString()),
-                    Data = Convert.ToDateTime(linha[1].ToString())
-                };
-                historicoViagens.Add(historicoViagem);
-            }
-            return historicoViagens;
-        }
+        
 
         public List<HistoricoViagem> ObterTodosParaJSON(string start, string length)
         {
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, id_pacote, data_  FROM guias ORDER BY nome OFFSET " +
+            command.CommandText = @"SELECT id, id_pacote,   FROM guias ORDER BY nome OFFSET " +
                 start + " ROWS FETCH NEXT "
                 + length + " ROWS ONLY  ";
             DataTable tabela = new DataTable();
@@ -74,7 +56,7 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                     IdPacote = Convert.ToInt32(linha[1].ToString()),
-                    Data = Convert.ToDateTime(linha[2].ToString())
+                   
 
                 };
                 historicoViagens.Add(historicoViagem);
@@ -123,8 +105,8 @@ namespace Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT historico_de_viagens.Data, id_pacote, pacotes.nome FROM historico_de_viagens
-            JOIN historico_de_viagens ON (historico_de_viagens.id_pacote = pacotes.id)
+            command.CommandText = command.CommandText = @"SELECT p.id, p.id_pacote, p.nome, c.nome FROM pacotes p 
+            JOIN historico_de_viagens h ON (p.id_pacote = h.id)
             WHERE id =@ID";
             command.Parameters.AddWithValue("@ID", id);
 

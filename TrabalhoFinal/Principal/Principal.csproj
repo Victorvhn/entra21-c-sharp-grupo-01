@@ -5157,6 +5157,7 @@
     <Content Include="Scripts\Pais\Cadastro\select2-cadastro-pais.js" />
     <Content Include="Scripts\Pais\Table\pais-table.js" />
     <Content Include="Scripts\PopularSelects\SelectContinente\popular-select-continente.js" />
+    <Content Include="Scripts\PopularSelects\SelectHistoricoViagem\popular-select-historicoViagem.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5540,6 +5541,7 @@
     <Content Include="Views\PontoTuristico\Editar.cshtml" />
     <Content Include="Views\Pais\Index.cshtml" />
     <Content Include="Views\Pacote\Tabela.cshtml" />
+    <Content Include="Views\HistoricoViagem\Tabela.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
