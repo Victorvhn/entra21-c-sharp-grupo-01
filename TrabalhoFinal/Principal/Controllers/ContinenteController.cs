@@ -82,10 +82,22 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
-        public ActionResult ObterTodosPorJSONSemStart()
+        public ActionResult ObterTodosPorJSONToSelect2()
         {
-            List<Continente> continentes = new ContinenteRepository().ObterTodos();
-            return null;
+
+            List<Continente> continentes = new ContinenteRepository().ObterTodosParaSelect();
+
+            var x = new object[continentes.Count];
+            int i = 0;
+            foreach(var continente in continentes)
+            {
+                x[i] = new {id = continente.Id, text= continente.Nome };
+                i++;
+            }
+
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+
         }
     }
 }
