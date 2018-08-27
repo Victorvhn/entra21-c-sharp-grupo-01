@@ -5533,10 +5533,10 @@
     <Content Include="Views\Cidade\Index.cshtml" />
     <Content Include="Views\Pais\Editar.cshtml" />
     <Content Include="Views\Cidade\Cadastro.cshtml" />
-    <Content Include="Views\Pais\Table.cshtml" />
     <Content Include="Views\PacotePontoTuristico\Cadastro.cshtml" />
     <Content Include="Views\PacotePontoTuristico\Editar.cshtml" />
     <Content Include="Views\PontoTuristico\Editar.cshtml" />
+    <Content Include="Views\Pais\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
