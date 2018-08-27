@@ -17,7 +17,7 @@ namespace Repository
             List<Pais> paises = new List<Pais>();
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "SELECT id, id_continente, nome FROM paises";
+            command.CommandText = "SELECT p.id, p.id_continente, p.nome, c.nome FROM paises p JOIN continentes c ON (p.id_continente = c.id)";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -26,8 +26,12 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
                     Nome = line[1].ToString(),
-                    IdContinente = Convert.ToInt32(line[2].ToString())
-
+                    IdContinente = Convert.ToInt32(line[2].ToString()),
+                    Continente = new Continente()
+                    {
+                        Id = Convert.ToInt32(line["p.id_continente"].ToString()),
+                        Nome = line["c.nome"].ToString()
+                    }
                 };
                 paises.Add(pais);
             }
@@ -38,8 +42,9 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO paises (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
+            command.CommandText = @"INSERT INTO paises (nome, id_continente) OUTPUT INSERTED.ID VALUES (@NOME, @ID_CONTINENTE)";
             command.Parameters.AddWithValue("@NOME", pais.Nome);
+            command.Parameters.AddWithValue("ID_CONTINENTE", pais.IdContinente);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
 
