@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,8 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            //PacotePontoTuristico pacotePontoTuristico = new PacotePontosTuristicosRepository().ObterPeloId(id);
-            //ViewBag.PacotePontoTuristico = pacotePontoTuristico;
+            PacotePontoTuristico pacotePontoTuristico = new PacotePontosTuristicosRepository().ObterPeloId(id);
+            ViewBag.PacotePontoTuristico = pacotePontoTuristico;
           
 
             return View();
@@ -36,7 +37,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            //bool apagado = new PacotePontosTuristicosRepository().Excluir(id);
+            bool apagado = new PacotePontosTuristicosRepository().Excluir(id);
 
             return null;
         }
@@ -44,14 +45,14 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(PacotePontoTuristico pacotePontosTuristicos)
         {
-            //int identificador = new PacotePontosTuristicosRepository().Cadastrar(pacotePontoTuristico);
-            //return RedirectToAction("Editar", new object { id = identificador });
+            int identificador = new PacotePontosTuristicosRepository().Cadastrar(pacotePontoTuristico);
+            return RedirectToAction("Editar", new object { id = identificador });
             return null;
         }
         [HttpPost]
         public ActionResult Update(PacotePontoTuristico pacotePontosTuristicos)
         {
-            //bool alterado = new PacotePontosTuristicosRepository().Alterar(pacotePontosTuristico);
+            bool alterado = new PacotePontosTuristicosRepository().Alterar(pacotePontosTuristico);
 
             return null;
         }
