@@ -40,6 +40,25 @@ namespace Repository
             return historicoViagens;
         }
 
+        public List<HistoricoViagem> ObterTodosParaSelect()
+        {
+            List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, Data_ FROM historico_de_viagens";
+            DataTable tabela = new DataTable();
+            tabela.Load(command.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                HistoricoViagem historicoViagem = new HistoricoViagem()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Data = Convert.ToDateTime(linha[1].ToString())
+                };
+                historicoViagens.Add(historicoViagem);
+            }
+            return historicoViagens;
+        }
+
         public List<HistoricoViagem> ObterTodosParaJSON(string start, string length)
         {
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();

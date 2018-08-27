@@ -79,5 +79,24 @@ namespace Principal.Controllers
             }));
 
         }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSONToSelect2()
+        {
+
+            List<HistoricoViagem> historicoViagens = new HistoricoViagemRepository().ObterTodosParaSelect();
+
+            var x = new object[historicoViagens.Count];
+            int i = 0;
+            foreach (var historicoViagem in historicoViagens)
+            {
+                x[i] = new { id = historicoViagem.Id, text = historicoViagem.Data };
+                i++;
+            }
+
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+
+        }
     }
 }
