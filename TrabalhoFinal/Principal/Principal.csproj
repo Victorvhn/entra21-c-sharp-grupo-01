@@ -5533,6 +5533,9 @@
     <Content Include="Views\Pais\Editar.cshtml" />
     <Content Include="Views\Cidade\Cadastro.cshtml" />
     <Content Include="Views\Pais\Table.cshtml" />
+    <Content Include="Views\PacotePontoTuristico\Cadastro.cshtml" />
+    <Content Include="Views\PacotePontoTuristico\Editar.cshtml" />
+    <Content Include="Views\PontoTuristico\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5544,7 +5547,6 @@
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Repository\" />
-    <Folder Include="Views\PacotePontoTuristico\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
