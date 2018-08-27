@@ -4,9 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -49,9 +46,9 @@ namespace Repository
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome, sobrenome, data_nascimento, cpf, rank_ FROM guias ORDER BY nome OFFSET " +
+            command.CommandText = @"SELECT id, nome, sobrenome, cpf, rank_ FROM guias ORDER BY nome OFFSET " +
                 start + " ROWS FETCH NEXT "
-                + length + " ROWS ONLY ";
+                + length + " ROWS ONLY  ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -60,10 +57,9 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),                    
                     Nome = linha[1].ToString(),
-                    Sobrenome = linha[2].ToString(),
-                    DataNascimento = Convert.ToDateTime(linha[3].ToString()),
-                    Cpf = linha[4].ToString(),
-                    Rank = Convert.ToByte(linha[5].ToString()),
+                    Sobrenome = linha[2].ToString(),                   
+                    Cpf = linha[3].ToString(),
+                    Rank = Convert.ToByte(linha[4].ToString()),
                    
                 };
                 guias.Add(guia);

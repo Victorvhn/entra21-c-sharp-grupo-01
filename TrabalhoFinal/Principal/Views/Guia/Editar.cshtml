@@ -6,69 +6,100 @@
 
 <div>
     <div class="col-md-12">
-        <h5 class="text-primary text-center">Editar</h5>
+        <h1 class="text-primary text-center">Cadastro  Guia</h1>
+        <br />
     </div>
 </div>
 
-<form action="/Guia/Update" method="post">
-    <div>
-        <label for="campo-nome">Nome</label>
-        <input name="Guia.Nome" type="text" id="campo-nome" />
-    </div>
+<form action="/Guia/Store" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="campo-nome">Nome</label>
+            <input name="Guia.Nome" type="text" id="campo-cadastro-guia-nome" class="form-control" value="@ViewBag.Guia.Nome" />
+        </div>
 
-    <div>
-        <label for="campo-sobrenome">Sobrenome</label>
-        <input name="Guia.Sobrenome" type="text" id="campo-sobrenome" />
-    </div>
-
-    <div>
-        <label for="campo-data-nascimento">Data de Nascimento</label>
-        <input name="Guia.DataNascimento" type="date" id="campo-data-nascimento">
-    </div>
-
-    <div>
-        <input name="Guia.Sexo" type="radio" id="campo-sexo" value="true" />
-        <label for="campo-sexo">Homem</label>
+        <div class="form-group col-md-6">
+            <label for="campo-sobrenome">Sobrenome</label>
+            <input name="Guia.Sobrenome" type="text" id="campo-cadastro-guia-sobrenome" class="form-control" value="@ViewBag.Guia.Sobrenome" />
+        </div>
 
 
-        <input name="Guia.Sexo" type="radio" id="campo-sexo" value="false" />
-        <label for="campo-sexo">Mulher</label>
-    </div>
+        <div class="form-group col-sm-4">
+            <label for="campo-rg">RG</label>
+            <input name="Guia.Rg" type="text" id="campo-cadastro-guia-rg" class="form-control" value="@ViewBag.Guia.Rg" />
+        </div>
 
-    <div>
-        <label for="campo-rg">RG</label>
-        <input name="Guia.Rg" type="text" id="campo-rg" />
-    </div>
+        <div class="form-group col-sm-4">
+            <label for="campo-cpf">CPF</label>
+            <input name="Guia.Cpf" type="text" id="campo-cadastro-guia-cpf" class="form-control" value="@ViewBag.Guia.Cpf" />
+        </div>
 
-    <div>
-        <label for="campo-cpf">CPF</label>
-        <input name="Guia.Cpf" type="text" id="campo-cpf" />
-    </div>
+        <div class="form-group col">
+            <label for="campo-data-nascimento">Data de Nascimento</label>
+            <input name="Guia.DataNascimento" type="date" id="campo-cadastro-guia-data-nascimento" class="form-control" value="@ViewBag.Guia.DataNascimento" />
+        </div>
 
-    <div>
-        <label for="campo-numero-carteira-trabalho">Número Carteira de Trabalho</label>
-        <input name="Guia.CarteiraTrabalho" type="text" id="campo-numero-carteira-trabalho" />
-    </div>
+        <div class="form-group col">
+            <label for="campo-sexo">Sexo</label>
+            <select id="campo-cadastro-guia-sexo" name="Guia.Sexo" class="form-control" required="required">
+                <option disabled="disabled" selected="selected">Sexo</option>
+                <option value="Homem">Masculino</option>
+                <option value="Mulher">Feminino</option>
+            </select>
+        </div>
 
-    <div>
-        <label for="campo-salario">Salário</label>
-        <input name="Guia.Salario" type="text" id="campo-salario" />
-    </div>
+        <div class="form-group col-sm-4">
+            <label for="campo-numero-carteira-trabalho">Número Carteira de Trabalho</label>
+            <input name="Guia.CarteiraTrabalho" type="text" id="campo-cadastro-guia-numero-carteira-trabalho"
+                   class="form-control" value="@ViewBag.Guia.CarteiraTrabalho" />
+        </div>
 
-    <div>
-        <label for="campo-categoria-habilitacao">Categoria da Habilitação</label>
-        <input type="text" id="campo-categoria-habilitacao" />
-    </div>
+        <div class="form-group col-sm-4">
+            <label for="campo-salario">Salário</label>
+            <input name="Guia.Salario" type="text" id="campo-cadastro-guia-salario" class="form-control" value="@ViewBag.Guia.Salario" />
+        </div>
 
-    <div>
-        <label for="campo-rank">Rank</label>
-        <input name="Guia.Rank" type="text" id="campo-rank" />
-    </div>
+        <div class="form-group col-md-4">
+            <label for="campo-categoria-habilitacao">Categoria da Habilitação</label>
+            <select id="campo-cadastro-guia-categoria-habilitacao" name="Guia.CategoriaHabilitacao" class="form-control" required="required">
+                <option disabled="disabled" selected="selected">- Selecione uma Categoria -</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="AB">AB</option>
+                <option value="AC">AC</option>
+                <option value="AE">AE</option>
+                <option value="AD">AD</option>
+                <option value="BC">BC</option>
+                <option value="BE">BE</option>
+                <option value="BD">BD</option>
+                <option value="DC">DC</option>
+                <option value="DE">DE</option>
+                <option value="ABC">ABC</option>
+                <option value="ABCD">ABCD</option>
+                <option value="ABCDE">ABCDE</option>
+            </select>
+        </div>
 
-    <div>
-        <button type="submit" class="btn btn-success float-left icomn">Cadastrar</button>
+        <div class="form-group col-sm-4">
+            <label for="campo-rank">Rank</label>
+            <select name="Guia.Rank" type="text" id="campo-cadastro-guia-rank" class="form-control">
+                <option disabled="disabled" selected="selected">- Selecione o Rank -</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-outline-success float-right">
+                <i class="fa fa-save"></i> Cadastrar
+            </button>
+        </div>
     </div>
 </form>
-
-
-

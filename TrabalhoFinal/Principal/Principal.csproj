@@ -5151,7 +5151,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Continente\continente-table.js" />
     <Content Include="Scripts\Endereco\endereco-table.js" />
-    <Content Include="Scripts\Guia\guia-table.js" />
+    <Content Include="Scripts\Guia\guia-tabela.js" />
     <Content Include="Scripts\PopularSelects\SelectContinente\popular-select-continente.js" />
     <Content Include="Web.config" />
   </ItemGroup>

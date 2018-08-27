@@ -5,8 +5,7 @@
         "ajax": "/Continente/ObterTodosPorJSON",
         "columns": [
             { "data": "Id" },
-            { "data": "Nome" },
-            { "data": "Id" }
+            { "data": "Nome" }           
         ]
     });
 });
