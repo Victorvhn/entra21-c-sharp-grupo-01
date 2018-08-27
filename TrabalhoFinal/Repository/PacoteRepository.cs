@@ -36,7 +36,7 @@ namespace Repository
         public int Cadastrar(Pacote pacote)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "INSERT INT pacotes(nome, valor, percentual_max_desconto) OUTPUT INSERTED.ID VALUES(@NOME,@VALOR,@PERCENTUAL_MAX_DESCONTO)";
+            command.CommandText = "INSERT INTO pacotes(nome, valor, percentual_max_desconto) OUTPUT INSERTED.ID VALUES(@NOME,@VALOR,@PERCENTUAL_MAX_DESCONTO)";
             command.Parameters.AddWithValue("@NOME", pacote.Nome);
             command.Parameters.AddWithValue("@VALOR", pacote.Valor);
             command.Parameters.AddWithValue("@PERCENTUAL_MAX_DESCONTO", pacote.PercentualMaximoDesconto);
