@@ -56,5 +56,18 @@ namespace Principal.Controllers
             return null;
         }
 
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<Pais> paises = new PaisRepository().ObterTodosParaJSON(start, length);
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = paises
+            }));
+        }
     }
 }

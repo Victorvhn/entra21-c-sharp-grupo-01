@@ -38,6 +38,32 @@ namespace Repository
             return paises;
         }
 
+        public List<Pais> ObterTodosParaJSON(string start, string length)
+        {
+            List<Pais> paises = new List<Pais>();
+            SqlCommand command = new Conexao().ObterConexao();
+
+            command.CommandText = "SELECT p.id, p.id_continente, p.nome, c.nome FROM paises p JOIN continentes c ON (p.id_continente = c.id) ORDER BY p.nome OFFSET " + start +" ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow line in table.Rows)
+            {
+                Pais pais = new Pais()
+                {
+                    Id = Convert.ToInt32(line["p.id"].ToString()),
+                    Nome = line["p.nome"].ToString(),
+                    IdContinente = Convert.ToInt32(line["p.id_continente"].ToString()),
+                    Continente = new Continente()
+                    {
+                        Id = Convert.ToInt32(line["p.id_continente"].ToString()),
+                        Nome = line["c.nome"].ToString()
+                    }
+                };
+                paises.Add(pais);
+            }
+            return paises;
+        }
+
         public int Cadastrar(Pais pais)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -74,7 +100,7 @@ namespace Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT paises.nome, continentes.nome, continentes.id FROM paises JOIN continentes ON(paises.id_continente = continentes.id) WHERE id = @ID";
+            command.CommandText = @"SELECT p.id, p.id_continente, p.nome, c.nome FROM paises p JOIN continentes c ON (p.id_continente = c.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();
