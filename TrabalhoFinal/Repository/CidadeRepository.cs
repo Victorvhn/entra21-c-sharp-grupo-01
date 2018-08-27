@@ -92,5 +92,27 @@ namespace Repository
             }
             return cidade;
         }
+
+        public List<Cidade> ObterTodosParaJSON(string start, string length)
+        {
+            List<Cidade> cidades = new List<Cidade>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome, FROM cidades ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+
+            foreach (DataRow line in table.Rows)
+            {
+                Cidade cidade = new Cidade()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    Nome = line[1].ToString(),
+                    
+                };
+                cidades.Add(cidade);
+            }
+            return cidades;
+        }
     }
 }

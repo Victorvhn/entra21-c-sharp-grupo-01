@@ -5152,6 +5152,7 @@
     <Content Include="Scripts\Continente\continente-table.js" />
     <Content Include="Scripts\Endereco\endereco-table.js" />
     <Content Include="Scripts\Guia\guia-tabela.js" />
+    <Content Include="Scripts\Pais\Cadastro\select2-cadastro-pais.js" />
     <Content Include="Scripts\PopularSelects\SelectContinente\popular-select-continente.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -5505,7 +5506,6 @@
     <Content Include="Content\lib\lightgallery\fonts\lg.woff" />
     <Content Include="Views\Principal\Index.cshtml" />
     <Content Include="Views\Turista\CadastroTurista.cshtml" />
-    <Content Include="Views\Cidade\Cadastrar.cshtml" />
     <Content Include="Views\Cidade\Editar.cshtml" />
     <Content Include="Views\Continente\Cadastrar.cshtml" />
     <Content Include="Views\Endereco\Editar.cshtml" />
@@ -5530,6 +5530,8 @@
     <Content Include="Views\Idioma\Editar.cshtml" />
     <Content Include="Views\Pacote\Editar.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
+    <Content Include="Views\Pais\Editar.cshtml" />
+    <Content Include="Views\Cidade\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

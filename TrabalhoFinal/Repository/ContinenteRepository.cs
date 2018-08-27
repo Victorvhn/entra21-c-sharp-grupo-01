@@ -31,6 +31,25 @@ namespace Repository
             return continentes;
         }
 
+        public List<Continente> ObterTodosParaSelect()
+        {
+            List<Continente> continentes = new List<Continente>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome FROM continentes";
+            DataTable tabela = new DataTable();
+            tabela.Load(command.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                Continente continente = new Continente()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Nome = linha[1].ToString()
+                };
+                continentes.Add(continente);
+            }
+            return continentes;
+        }
+
         public List<Continente> ObterTodosParaJSON(string start, string length)
         {
             List<Continente> continentes = new List<Continente>();

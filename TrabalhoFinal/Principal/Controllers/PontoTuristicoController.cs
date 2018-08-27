@@ -50,7 +50,8 @@ namespace Principal.Controllers
                 Nome = pontoTuristico.Nome.ToString()
             };
             int identificador = new PontosTuristosRepository().Cadastrar(pontoTuristicoModel);
-            return RedirectToAction("Editar", new { id = identificador });
+            //return RedirectToAction("Editar", new { id = identificador });
+            return null;
             
         }
         [HttpPost]

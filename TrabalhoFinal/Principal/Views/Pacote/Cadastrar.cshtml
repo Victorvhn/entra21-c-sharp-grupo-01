@@ -1,24 +1,31 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Cadastrar";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
 <h2>Cadastrar</h2>
-<div>
-    <div class="col-md-12">
-        <h5 class="text-primary text-center">Cadastro Pacote</h5>
-    </div>
-</div>
-<form>
+<form action="/Pacote/Store" method="post">
     <div class="form-group">
-        <label for=""></label>
-        <input name="" type="text" id="campo-cadastro-pacote" class="form-control"  />
-
+        <label for="cadastro-pacote-campo-nome">
+            Nome
+        </label>
+        <input type="text" id="cadastro-pacote-campo-nome" class="form-control" value="@ViewBag.Pacote.Nome" name="pacote.Nome" />
     </div>
-
-    <div class="form-group">
-        <label for=""></label>
-        <input name="" type="text" id="campo-cadastro-pacote" class="form-control"  />
+    <div>
+        <label for="cadastro-pacote-campo-valor">
+            Valor
+        </label>
+        <input type="text" id="cadastro-pacote-campo-valor" class="form-control" value="@ViewBag.Pacote.Nome" name="pacote.Valor" />
+    </div>
+    <div>
+        <label for="cadastro-pacote-campo-percentual-desconto">
+            Percentual De Desconto
+        </label>
+        <input type="text" id="cadastro-pacote-campo-percentual-desconto" class="form-control" value="@ViewBag.Pacote.PercentualMaximoDesconto" name="pacote.PercentualMaximoDesconto">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success float-right">
+            <i class="fa fa-save"></i> Cadastrar
+        </button>
     </div>
 </form>

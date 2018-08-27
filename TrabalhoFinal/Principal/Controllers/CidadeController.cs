@@ -1,4 +1,6 @@
 ﻿using Model;
+using Newtonsoft.Json;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -27,8 +29,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Cidade cidade = new CidadeRepository().ObterPeloId(id);
-           
+            Cidade cidade = new CidadeRepository().ObterPeloId(id);           
             ViewBag.Cidade = cidade;
             return View();
         }
@@ -42,10 +43,35 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Cidade cidade)
+        public ActionResult Store(CidadeString cidade)
         {
-            int identificador = new CidadeRepository().Cadastrar(cidade);
+            Cidade cidadeModel = new Cidade()
+            {
+                Nome = cidade.Nome.ToString()
+            };
+
+            int identificador = new CidadeRepository().Cadastrar(cidadeModel);
             return RedirectToAction("Editar", new { id = identificador});
+        }
+
+        public ActionResult ObterTodosPorJSON()
+        {
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<Cidade> cidades = new CidadeRepository().ObterTodosParaJSON(start, length);
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = cidades
+            }));
+        }
+
+        public ActionResult Update(Cidade cidade)
+        {
+            bool alterado = new CidadeRepository().Alterar(cidade);
+            return RedirectToAction("Index");
+
+
         }
     }
 }
