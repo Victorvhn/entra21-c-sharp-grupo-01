@@ -5528,6 +5528,7 @@
     <Content Include="Views\Pais\Cadastro.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Idioma\Editar.cshtml" />
+    <Content Include="Views\Pacote\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
