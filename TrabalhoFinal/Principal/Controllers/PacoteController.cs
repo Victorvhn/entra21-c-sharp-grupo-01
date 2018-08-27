@@ -48,7 +48,7 @@ namespace Principal.Controllers
                 Nome = pacote.Nome.ToString(),
             };
             int identificador = new PacoteRepository().Cadastrar(pacoteModel);
-            return null;
+            return RedirectToAction("Editar", new {id = identificador});
         }
     }
 }
