@@ -6,7 +6,7 @@
         "columns": [
             { "data": "Id" },
             { "data": "Nome" },
-            { "data": "Sobrenome" },           
+            { "data": "Sobrenome" },            
             { "data": "Cpf" },
             { "data": "Rank" }
         ]
