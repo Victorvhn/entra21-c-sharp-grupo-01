@@ -50,13 +50,13 @@ namespace Repository
             {
                 Pais pais = new Pais()
                 {
-                    Id = Convert.ToInt32(line["p.id"].ToString()),
-                    Nome = line["p.nome"].ToString(),
-                    IdContinente = Convert.ToInt32(line["p.id_continente"].ToString()),
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    Nome = line[2].ToString(),
+                    IdContinente = Convert.ToInt32(line[1].ToString()),
                     Continente = new Continente()
                     {
-                        Id = Convert.ToInt32(line["p.id_continente"].ToString()),
-                        Nome = line["c.nome"].ToString()
+                        Id = Convert.ToInt32(line[1].ToString()),
+                        Nome = line[3].ToString()
                     }
                 };
                 paises.Add(pais);
@@ -80,8 +80,9 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"UPDATE paises SET nome = @NOME WHERE id = @ID";
+            command.CommandText = @"UPDATE paises SET nome = @NOME, id_continente = @ID_CONTINENTE WHERE id = @ID";
             command.Parameters.AddWithValue("@NOME", pais.Nome);
+            command.Parameters.AddWithValue("@ID_CONTINENTE", pais.IdContinente);
             command.Parameters.AddWithValue("ID", pais.Id);
             return command.ExecuteNonQuery() == 1;
         }
@@ -100,7 +101,7 @@ namespace Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT p.id, p.id_continente, p.nome, c.nome FROM paises p JOIN continentes c ON (p.id_continente = c.id) WHERE id = @ID";
+            command.CommandText = @"SELECT p.id_continente, p.nome, c.nome FROM paises p JOIN continentes c ON (p.id_continente = c.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();
@@ -110,8 +111,13 @@ namespace Repository
             {
                 pais = new Pais();
                 pais.Id = id;
-                pais.Nome = table.Rows[0][0].ToString();
-                pais.IdContinente = Convert.ToInt32(table.Rows[0][1].ToString());               
+                pais.IdContinente = Convert.ToInt32(table.Rows[0][0].ToString());               
+                pais.Nome = table.Rows[0][1].ToString();
+                Continente continente = new Continente()
+                {
+                    Id = Convert.ToInt32(table.Rows[0][0].ToString()),
+                    Nome = table.Rows[0][2].ToString()
+                };
             }
             return pais;
         }

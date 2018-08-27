@@ -5,16 +5,25 @@
 }
 
 <h2>Editar</h2>
-<form action="" method="post">
+<form action="/Pais/Update" method="post">
     <input type="hidden" name="pais.Id" id="editar-pais-campo-id" />
     <div class="form-group">
-        <label for="cadastro-pais">Nome</label>
-        <input type="text" id="editar-campo-pais-nome" class="form-control" name="pais.Nome" />
-
+        <label class="col-md-2">Continente: </label>
+        <div class="col-md-6">
+            <select class="form-control form-control-default" name="pais.IdContinente" id="select-editar-pais-continente" value="@ViewBag.Pais.IdContinente"></select>
+        </div>
     </div>
+
+    <div class="form-group">
+        <label class="col-md-12" for="campo-cadastro-pais-nome">Nome pais:</label>
+        <div class="col-md-6">
+            <input type="text" name="pais.Nome" value="@ViewBag.Pais.Nome" id="campo-editar-pais-nome" />
+        </div>
+    </div>
+
     <div>
-        <button type="submit" class="btn btn-sucess float-left right">
-            <i class="fa fa-save">Cadastro</i>
+        <button type="submit" class="btn btn-success float-right">
+            <i class="fa fa-save"></i> Cadastrar
         </button>
     </div>
 </form>
