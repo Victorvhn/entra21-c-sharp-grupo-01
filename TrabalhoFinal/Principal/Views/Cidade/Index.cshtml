@@ -3,15 +3,31 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
+<div class="card">
+    <div class="card-header">
+        <h5>Tabela Cidades</h5>
+        <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li></ul></div>
     </div>
-</body>
-</html>
+    <div class="card-block">
+        <div class="table-responsive">
+            <table class="table table-de" id="table-endereco">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Nome</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section script{
+    <script src="~/Scripts/Cidade/cidade-table.js"></script>
+}
