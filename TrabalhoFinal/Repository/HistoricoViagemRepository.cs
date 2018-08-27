@@ -17,7 +17,7 @@ namespace Repository
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "SELECT id, data, id_pacote FROM historico_de_viagens";
+            command.CommandText = "SELECT id, data_, id_pacote FROM historico_de_viagens";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -27,19 +27,44 @@ namespace Repository
                     Id = Convert.ToInt32(line[0].ToString()),
                     IdPacote = Convert.ToInt32(line[1].ToString()),
                     Data = Convert.ToDateTime(line[2].ToString())
+
                 };
                 historicoViagens.Add(historicoViagem);
             }
             return historicoViagens;
         }
 
+        public List<HistoricoViagem> ObterTodosParaJSON(string start, string length)
+        {
+            List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT id, id_pacote, data_  FROM guias ORDER BY nome OFFSET " +
+                start + " ROWS FETCH NEXT "
+                + length + " ROWS ONLY  ";
+            DataTable tabela = new DataTable();
+            tabela.Load(command.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                HistoricoViagem historicoViagem = new HistoricoViagem()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    IdPacote = Convert.ToInt32(linha[1].ToString()),
+                    Data = Convert.ToDateTime(linha[2].ToString())
+
+                };
+                historicoViagens.Add(historicoViagem);
+            }
+            return historicoViagens;
+        }
+
+
         public int Cadastrar(HistoricoViagem historicoViagem)
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO historico_de_viagens (data, id_pacote)
+            command.CommandText = @"INSERT INTO historico_de_viagens (data_, id_pacote)
             OUTPUT INSERTED.ID VALUES ()@DATA, @ID_PACOTE";
-            command.Parameters.AddWithValue("@DATA", historicoViagem.Data);
+            command.Parameters.AddWithValue("@DATA_", historicoViagem.Data);
             command.Parameters.AddWithValue("@ID_PACOTE", historicoViagem.IdPacote);
 
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
@@ -50,9 +75,9 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"UPDATE historico_de_viagens SET data = @DATA, id_pacote = @ID_PACOTE 
+            command.CommandText = @"UPDATE historico_de_viagens SET data_ = @DATA_, id_pacote = @ID_PACOTE 
             WHERE id = @ID";
-            command.Parameters.AddWithValue("@DATA", historicoViagem.Data);
+            command.Parameters.AddWithValue("@DATA_", historicoViagem.Data);
             command.Parameters.AddWithValue("@ID_PACOTE", historicoViagem.IdPacote);
             command.Parameters.AddWithValue("@ID", historicoViagem.Id);
             return command.ExecuteNonQuery() == 1;

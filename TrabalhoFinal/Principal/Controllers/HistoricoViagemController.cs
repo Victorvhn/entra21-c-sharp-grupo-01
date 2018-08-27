@@ -1,4 +1,5 @@
-﻿using Model;
+﻿ using Model;
+using Newtonsoft.Json;
 using Principal.Models;
 using Repository;
 using System;
@@ -12,6 +13,11 @@ namespace Principal.Controllers
     public class HistoricoViagemController : Controller
     {
         // GET: HistoricoViagem
+
+        public ActionResult Tabela()
+        {
+            return View();
+        }
 
         [HttpGet]
         public ActionResult Cadastro()
@@ -44,7 +50,7 @@ namespace Principal.Controllers
             HistoricoViagem historicoViagemModel = new HistoricoViagem();
             {
                 historicoViagemModel.IdPacote = Convert.ToInt32(historicoViagem.IdPacote.ToString());
-                historicoViagemModel.Data = Convert.ToDateTime(historicoViagem.Data.ToString());
+                historicoViagemModel.Data = Convert.ToDateTime(historicoViagem.Data.Replace("/", "-").ToString());
             }
 
             int identificador = new HistoricoViagemRepository().Cadastrar(historicoViagemModel);
@@ -56,6 +62,21 @@ namespace Principal.Controllers
         {
             bool altertado = new HistoricoViagemRepository().Alterar(historicoViagem);
             return null;
+
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<HistoricoViagem> historicoViagens = new HistoricoViagemRepository().ObterTodosParaJSON(start, length);
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = historicoViagens
+            }));
 
         }
     }

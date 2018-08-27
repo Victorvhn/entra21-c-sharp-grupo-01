@@ -150,7 +150,7 @@ CREATE TABLE viagens_turistas (
 CREATE TABLE historico_de_viagens (
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	id_pacote INT NOT NULL,
-	data DATE NOT NULL,
+	data_ DATE NOT NULL,
 	FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 );
 
