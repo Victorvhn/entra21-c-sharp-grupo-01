@@ -45,14 +45,14 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(PacotePontoTuristico pacotePontosTuristicos)
         {
-            int identificador = new PacotePontosTuristicosRepository().Cadastrar(pacotePontoTuristico);
-            return RedirectToAction("Editar", new object { id = identificador });
-            return null;
+            int identificador = new PacotePontosTuristicosRepository().Cadastro(pacotePontosTuristicos);
+            return RedirectToAction("Editar", new  { id = identificador });
         }
+
         [HttpPost]
         public ActionResult Update(PacotePontoTuristico pacotePontosTuristicos)
         {
-            bool alterado = new PacotePontosTuristicosRepository().Alterar(pacotePontosTuristico);
+            bool alterado = new PacotePontosTuristicosRepository().Alterar(pacotePontosTuristicos);
 
             return null;
         }
