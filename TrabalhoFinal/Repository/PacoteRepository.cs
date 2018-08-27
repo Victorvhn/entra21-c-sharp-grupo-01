@@ -52,7 +52,7 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
         }
         
-        public Pacote ObterPeloId(int id)
+        /*public Pacote ObterPeloId(int id)
         {
             Pacote pacote = null;
             SqlCommand command = new Conexao().ObterConexao();
@@ -70,7 +70,7 @@ namespace Repository
                 pacote.PontosTuristicos = new PacoteTuristicoRepository().ObterTodosPontosTuristicosPeloIdPacote(pacote.Id);
             }
             return pacote;
-        }
+        }*/
         public bool Alterar(Pacote pacote)
         {
             SqlCommand command = new Conexao().ObterConexao();
