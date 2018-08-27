@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
+using Principal.Models;
 
 namespace Principal.Controllers
 {
@@ -21,7 +22,7 @@ namespace Principal.Controllers
         public ActionResult Cadastro()
         {
 
-            ViewBag.Cidade = new Pais();
+            ViewBag.Pais = new Pais();
             return View();
         }
 
@@ -43,10 +44,17 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Pais paises)
+        public ActionResult Store(PaisString pais)
         {
-            int identificador = new PaisRepository().Cadastrar(paises);
-            return RedirectToAction("Editar", new { id = identificador });
+            Pais paisModel = new Pais()
+            {
+                IdContinente = Convert.ToInt32(pais.IdContinente.ToString()),
+                Nome = pais.Nome.ToString()
+            };
+
+            int identificador = new PaisRepository().Cadastrar(paisModel);
+            //return RedirectToAction("Editar", new { id = identificador });
+            return null;
         }
 
     }
