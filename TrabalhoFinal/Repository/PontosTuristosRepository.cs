@@ -16,7 +16,7 @@ namespace Repository
         {
             List<PontoTuristico> pontosTuristicos = new List<PontoTuristico>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id,id_endereco,nome FROM pontosturisticos";
+            command.CommandText = "SELECT id, id_endereco, nome FROM pontosturisticos";
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());

@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Principal.Models;
 using Repository;
 using System;
@@ -12,7 +13,7 @@ namespace Principal.Controllers
     public class PacoteController : Controller
     {
         // GET: Pacote
-        public ActionResult Index()
+        public ActionResult Tabela()
         {
             return View();
         }
@@ -48,7 +49,22 @@ namespace Principal.Controllers
                 Nome = pacote.Nome.ToString(),
             };
             int identificador = new PacoteRepository().Cadastrar(pacoteModel);
-            return RedirectToAction("Editar", new {id = identificador});
+            return null;
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<Pacote> pacotes = new PacoteRepository().ObterTodosParaJSON(start, length);
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = pacotes
+            }));
+
         }
     }
 }

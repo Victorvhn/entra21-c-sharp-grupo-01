@@ -5537,6 +5537,7 @@
     <Content Include="Views\PacotePontoTuristico\Editar.cshtml" />
     <Content Include="Views\PontoTuristico\Editar.cshtml" />
     <Content Include="Views\Pais\Index.cshtml" />
+    <Content Include="Views\Pacote\Tabela.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

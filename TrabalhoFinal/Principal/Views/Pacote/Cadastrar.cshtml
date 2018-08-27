@@ -3,29 +3,41 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Cadastrar</h2>
+<div>
+    <div class="col-md-12">
+        <h1 class="text-primary text-center">Cadastro  Pacote</h1>
+        <br />
+    </div>
+</div>
+
 <form action="/Pacote/Store" method="post">
-    <div class="form-group">
-        <label for="cadastro-pacote-campo-nome">
-            Nome
-        </label>
-        <input type="text" id="cadastro-pacote-campo-nome" class="form-control" value="@ViewBag.Pacote.Nome" name="pacote.Nome" />
-    </div>
-    <div>
-        <label for="cadastro-pacote-campo-valor">
-            Valor
-        </label>
-        <input type="text" id="cadastro-pacote-campo-valor" class="form-control" value="@ViewBag.Pacote.Nome" name="pacote.Valor" />
-    </div>
-    <div>
-        <label for="cadastro-pacote-campo-percentual-desconto">
-            Percentual De Desconto
-        </label>
-        <input type="text" id="cadastro-pacote-campo-percentual-desconto" class="form-control" value="@ViewBag.Pacote.PercentualMaximoDesconto" name="pacote.PercentualMaximoDesconto">
-    </div>
-    <div>
-        <button type="submit" class="btn btn-success float-right">
-            <i class="fa fa-save"></i> Cadastrar
-        </button>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="cadastro-pacote-campo-nome">
+                Nome
+            </label>
+            <input type="text" id="cadastro-pacote-campo-nome" class="form-control" value="@ViewBag.Pacote.Nome" name="pacote.Nome" />
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="cadastro-pacote-campo-valor">
+                Valor
+            </label>
+            <input type="text" id="cadastro-pacote-campo-valor" class="form-control" value="@ViewBag.Pacote.Nome" name="pacote.Valor" />
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="cadastro-pacote-campo-percentual-desconto">
+                Percentual De Desconto
+            </label>
+            <input type="text" id="cadastro-pacote-campo-percentual-desconto" class="form-control" value="@ViewBag.Pacote.PercentualMaximoDesconto" name="pacote.PercentualMaximoDesconto">
+        </div>
+
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-outline-success float-right">
+                <i class="fa fa-save"></i> Cadastrar
+            </button>
+        </div>
+
     </div>
 </form>
