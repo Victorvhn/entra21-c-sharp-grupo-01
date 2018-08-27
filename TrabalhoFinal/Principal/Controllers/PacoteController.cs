@@ -24,14 +24,14 @@ namespace Principal.Controllers
             return View();
         }
 
-        /*[HttpGet]
+        [HttpGet]
         public ActionResult Editar(int id)
         {
             Pacote pacotes = new PacoteRepository().ObterPeloId(id);
 
             ViewBag.Pacote = pacotes;
             return View();
-        }*/
+        }
 
         [HttpGet]
         public ActionResult Excluir(int id)
