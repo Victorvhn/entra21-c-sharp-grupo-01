@@ -79,5 +79,22 @@ namespace Principal.Controllers
 
             
         }
+
+           public ActionResult ObterTodosPorJSONToSelect2()
+          {
+
+            List<Endereco> enderecos = new EnderecoRepository().ObterTodosParaSelect();
+
+            var x = new object[enderecos.Count];
+            int i = 0;
+            foreach (var endereco in enderecos)
+            {
+                x[i] = new { id = endereco.Id, cep = endereco.Cep, num = endereco.Numero, log = endereco.Logradouro, comp = endereco.Complemento, re = endereco.Referencia };
+                i++;
+            }
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
     }
+    
 }
