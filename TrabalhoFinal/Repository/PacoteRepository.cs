@@ -37,7 +37,7 @@ namespace Repository
         {
             List<Pacote> pacotes = new List<Pacote>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome FROM pacotes";
+            command.CommandText = "SELECT id, nome FROM pacotes ORDER BY nome";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
