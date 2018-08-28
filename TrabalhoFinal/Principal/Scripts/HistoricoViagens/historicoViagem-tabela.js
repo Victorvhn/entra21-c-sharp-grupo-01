@@ -5,8 +5,7 @@
         "ajax": "/HistoricoViagem/ObterTodosPorJSON",
         "columns": [
             { "data": "Id" },
-            { "data": "IdPacote" },
-            { "data": "Data" },
+            { "data": "IdPacote" },            
             { "data": "DataPadraoBR"}
             
         ]
