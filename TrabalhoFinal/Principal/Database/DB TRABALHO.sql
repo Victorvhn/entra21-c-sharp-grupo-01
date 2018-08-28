@@ -160,4 +160,4 @@ CREATE TABLE historico_de_viagens (
 	FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 );
 
-SELECT * FROM guias;
+SELECT * FROM pacotes;
