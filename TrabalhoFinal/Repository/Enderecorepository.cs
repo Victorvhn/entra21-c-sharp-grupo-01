@@ -17,7 +17,7 @@ namespace Repository
         {
             List<Endereco> enderecos = new List<Endereco>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, cep, logradouro, numero, complemento, referencia FROM enderecos";
+            command.CommandText = "SELECT e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome FROM enderecos e JOIN cidades c ON (e.id_cidade = c.id)";
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -25,12 +25,17 @@ namespace Repository
             {
                 Endereco endereco = new Endereco()
                 {
-                    Id = Convert.ToInt32(line[0].ToString()),
-                    Cep = line[1].ToString(),
-                    Logradouro = line[2].ToString(),
-                    Numero = Convert.ToInt16(line[3].ToString()),
-                    Complemento = line[4].ToString(),
-                    Referencia = line[5].ToString()
+                    Id = Convert.ToInt32(line["e.id"].ToString()),
+                    Cep = line["e.cep"].ToString(),
+                    Logradouro = line["e.logradouro"].ToString(),
+                    Numero = Convert.ToInt16(line["e.numero"].ToString()),
+                    Complemento = line["e.complemento"].ToString(),
+                    Referencia = line["e.referencia"].ToString(),
+                    Cidade = new Cidade(){
+
+                        Id = Convert.ToInt32(line["c.id"].ToString()),
+                        Nome = line["c.nome"].ToString()
+                    },
 
 
                 };
@@ -65,12 +70,13 @@ namespace Repository
         public int Cadastrar(Endereco endereco)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "INSERT INTO enderecos(cep, logradouro, numero, complemento, referencia) OUTPUT INSERTED.ID VALUES (@CEP, @LOGRADOURO, @NUMERO, @COMPLEMENTO, @REFERENCIA)";
+            command.CommandText = "INSERT INTO enderecos(cep, logradouro, numero, complemento, referencia, id_cidade) OUTPUT INSERTED.ID VALUES (@CEP, @LOGRADOURO, @NUMERO, @COMPLEMENTO, @REFERENCIA, @ID_CIDADE)";
             command.Parameters.AddWithValue("@CEP", endereco.Cep);
             command.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
             command.Parameters.AddWithValue("@NUMERO", endereco.Numero);
             command.Parameters.AddWithValue("@COMPLEMENTO", endereco.Complemento);
             command.Parameters.AddWithValue("@REFERENCIA", endereco.Referencia);
+            command.Parameters.AddWithValue("@ID_CIDADE", endereco.IdCidade);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
 
@@ -80,12 +86,13 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "UPDATE enderecos SET cep= @CEP,logradouro = @LOGRADOURO,numero = @NUMERO,complemento = @COMPLEMENTO,referencia = @REFERENCIA WHERE id = @ID";
+            command.CommandText = "UPDATE enderecos SET cep= @CEP,logradouro = @LOGRADOURO,numero = @NUMERO,complemento = @COMPLEMENTO,referencia = @REFERENCIA, id_cidade = @ID_CIDADE WHERE id = @ID";
             command.Parameters.AddWithValue("@CEP", endereco.Cep);
             command.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
             command.Parameters.AddWithValue("@NUMERO", endereco.Numero);
             command.Parameters.AddWithValue("@COMPLEMENTO", endereco.Complemento);
             command.Parameters.AddWithValue("@REFERENCIA", endereco.Referencia);
+            command.Parameters.AddWithValue("@ID_CIDADE", endereco.IdCidade);
             command.Parameters.AddWithValue("@ID", endereco.Id);
             return command.ExecuteNonQuery() == 1;
 
