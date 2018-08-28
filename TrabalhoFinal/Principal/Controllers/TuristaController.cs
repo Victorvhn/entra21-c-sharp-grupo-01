@@ -29,6 +29,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
+
             Turista turista = new TuristaRepository().ObterPeloId(id);
             ViewBag.Turista = turista;
        

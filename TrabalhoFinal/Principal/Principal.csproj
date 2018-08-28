@@ -5542,6 +5542,9 @@
     <Content Include="Views\Pacote\Tabela.cshtml" />
     <Content Include="Views\HistoricoViagem\Tabela.cshtml" />
     <Content Include="Views\Pais\Editar.cshtml" />
+    <Content Include="Views\Turista\Editar.cshtml" />
+    <Content Include="Views\Viagem\Editar.cshtml" />
+    <Content Include="Views\ViagemTurista\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
