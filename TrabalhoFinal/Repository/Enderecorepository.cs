@@ -44,6 +44,29 @@ namespace Repository
             return enderecos;
         }
 
+        public List<Endereco> ObterTodosParaSelect()
+        {
+            List<Endereco> enderecos = new List<Endereco>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, cep, logradouro, numero, complemento, referencia FROM enderecos";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow linha in table.Rows)
+            {
+                Endereco endereco = new Endereco()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Cep = linha[1].ToString(),
+                    Logradouro = linha[2].ToString(),
+                    Numero = Convert.ToInt16(linha[3].ToString()),
+                    Complemento = linha[4].ToString(),
+                    Referencia = linha[5].ToString()
+                };
+                enderecos.Add(endereco);
+            }
+            return enderecos;
+        }
+
         public List<Endereco> ObterTodosParaJSON(string start, string length)
         {
             List<Endereco> enderecos = new List<Endereco>();
