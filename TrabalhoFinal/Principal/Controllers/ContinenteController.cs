@@ -24,14 +24,14 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-           
+
             ViewBag.Continente = new Continente();
             return View();
         }
 
         [HttpGet]
         public ActionResult Editar(int id)
-        {                     
+        {
             Continente continente = new ContinenteRepository().ObterPeloId(id);
             ViewBag.Continente = continente;
             return View();
@@ -40,7 +40,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-           bool apagado = new ContinenteRepository().Excluir(id);
+            bool apagado = new ContinenteRepository().Excluir(id);
             return null;
         }
 
@@ -62,7 +62,7 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Update(Continente continente)
         {
-           bool alterado = new ContinenteRepository().Alterar(continente);
+            bool alterado = new ContinenteRepository().Alterar(continente);
 
             return null;
         }
@@ -72,9 +72,9 @@ namespace Principal.Controllers
         {
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
-            
+
             List<Continente> continentes = new ContinenteRepository().ObterTodosParaJSON(start, length);
-            
+
             return Content(JsonConvert.SerializeObject(new
             {
                 data = continentes
@@ -89,9 +89,9 @@ namespace Principal.Controllers
 
             var x = new object[continentes.Count];
             int i = 0;
-            foreach(var continente in continentes)
+            foreach (var continente in continentes)
             {
-                x[i] = new {id = continente.Id, text= continente.Nome };
+                x[i] = new { id = continente.Id, text = continente.Nome };
                 i++;
             }
 

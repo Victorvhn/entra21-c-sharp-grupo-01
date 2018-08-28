@@ -29,9 +29,9 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Pais cidade = new PaisRepository().ObterPeloId(id);
+            Pais pais = new PaisRepository().ObterPeloId(id);
 
-            ViewBag.Cidade = cidade;
+            ViewBag.Pais = pais;
             return View();
         }
 
@@ -53,6 +53,14 @@ namespace Principal.Controllers
 
             int identificador = new PaisRepository().Cadastrar(paisModel);
             //return RedirectToAction("Editar", new { id = identificador });
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult Update(Pais pais)
+        {
+            bool alterado = new PaisRepository().Alterar(pais);
+
             return null;
         }
 
