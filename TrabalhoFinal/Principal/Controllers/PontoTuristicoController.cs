@@ -63,9 +63,8 @@ namespace Principal.Controllers
 
         public ActionResult ObterTodosPorJSON()
         {
-            /*List<PontoTuristico> pontosTuristicos = new PontosTuristicosRepository().ObterTodos();
-            return Content(JsonConvert.SerializeObject(pontosTuristicos));*/
-            return null;
+            List<PontoTuristico> pontosTuristicos = new PontosTuristicosRepository().ObterTodos();
+            return Content(JsonConvert.SerializeObject(pontosTuristicos));
         }
     }
 }

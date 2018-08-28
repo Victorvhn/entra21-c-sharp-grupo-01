@@ -6,10 +6,8 @@
         "columns": [
             { "data": "Id" },
             { "data": "IdPacote" },
-            { "data": "DataPadraoBR"}
-           
-           
-            
+            { "data": "Data" },
+            {"data": "" },
 
         ]
     });

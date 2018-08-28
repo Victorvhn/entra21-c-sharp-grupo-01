@@ -5528,7 +5528,7 @@
     <Content Include="Views\ViagemTurista\Cadastro.cshtml" />
     <Content Include="Views\Idioma\Cadastro.cshtml" />
     <Content Include="Views\Pacote\Cadastrar.cshtml" />
-    <Content Include="Views\Guia\Index.cshtml" />
+    <Content Include="Views\Guia\Tabela.cshtml" />
     <Content Include="Views\Pais\Cadastro.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Idioma\Editar.cshtml" />
@@ -5539,8 +5539,8 @@
     <Content Include="Views\PacotePontoTuristico\Editar.cshtml" />
     <Content Include="Views\PontoTuristico\Editar.cshtml" />
     <Content Include="Views\Pais\Index.cshtml" />
-    <Content Include="Views\Pacote\Index.cshtml" />
-    <Content Include="Views\HistoricoViagem\Index.cshtml" />
+    <Content Include="Views\Pacote\Tabela.cshtml" />
+    <Content Include="Views\HistoricoViagem\Tabela.cshtml" />
     <Content Include="Views\Pais\Editar.cshtml" />
     <Content Include="Views\Turista\Editar.cshtml" />
     <Content Include="Views\Viagem\Editar.cshtml" />
