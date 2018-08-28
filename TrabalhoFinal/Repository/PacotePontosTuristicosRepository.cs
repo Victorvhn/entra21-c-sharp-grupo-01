@@ -12,9 +12,9 @@ namespace Repository
 {
      public class PacotePontosTuristicosRepository
     {
-        public List<PontoTuristico> ObterTodosPontosTuristicosPeloIdPacote(int idPacote)
+        public List<Pacote> ObterTodosPontosTuristicosPeloIdPacote(int idPacote)
         {
-            List<PontoTuristico> pontosTuristicos = new List<PontoTuristico>();
+            List<Pacote> pacotes = new List<Pacote>();
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT pt.id, pt.nome FROM pacotes_pontos_turisticos ppt 
                                 JOIN pontos_turisticos pt ON(pt.id = ppt.id_ponto_turistico)
@@ -23,14 +23,14 @@ namespace Repository
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
             {
-                PontoTuristico pacotePontoturistico = new PontoTuristico()
+                Pacote pacote = new Pacote()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                     Nome = linha[1].ToString()
                 };
-                pontosTuristicos.Add(pacotePontoturistico);
+                pacotes.Add(pacote);
             }
-            return pontosTuristicos;
+            return pacotes;
         }
 
         public int Cadastro(PacotePontoTuristico pacotePontoTuristico)
