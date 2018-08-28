@@ -34,6 +34,25 @@ namespace Repository
             }
             return pontosTuristicos;
         }
+
+        public List<PontoTuristico> ObterTodosParaSelect()
+        {
+            List<PontoTuristico> pontosTuristicos = new List<PontoTuristico>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome FROM pontos_turisticos";
+            DataTable tabela = new DataTable();
+            tabela.Load(command.ExecuteReader());
+            foreach(DataRow linha in tabela.Rows)
+            {
+                PontoTuristico pontoTuristico = new PontoTuristico()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Nome = linha[1].ToString()
+                };
+                pontosTuristicos.Add(pontoTuristico);
+            }
+            return pontosTuristicos;
+        }
         public int Cadastrar(PontoTuristico pontoturistico)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -67,6 +86,8 @@ namespace Repository
                 pontoTuristico.IdEndereco = Convert.ToInt32(table.Rows[0][0].ToString());
                 pontoTuristico.Endereco = new Endereco();
                 pontoTuristico.Endereco.Id = Convert.ToInt32(table.Rows[0][1].ToString());
+                pontoTuristico.Pacotes = new PacotePontosTuristicosRepository().ObterTodosPontosTuristicosPeloIdPacote(pontoTuristico.Id);
+
 
             }
             return pontoTuristico;
