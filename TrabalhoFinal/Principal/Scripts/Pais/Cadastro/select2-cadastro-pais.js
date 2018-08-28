@@ -23,4 +23,13 @@
             }
         }
     });*/
+}); 
+
+$(document).ready(function () {
+    $('#select-editar-pais-continente').select2({
+        ajax: {
+            url: '/Continente/ObterTodosPorJSONToSelect2',
+            dataType: 'json',
+        }
+    });
 });
