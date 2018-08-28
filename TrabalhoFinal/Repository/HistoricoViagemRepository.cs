@@ -45,9 +45,7 @@ namespace Repository
         {
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, id_pacote data_ FROM historico_de_viagens  OFFSET " +
-                start + " ROWS FETCH NEXT "
-                + length + " ROWS ONLY ";
+            command.CommandText = @"SELECT id, id_pacote, data_ FROM historico_de_viagens ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
