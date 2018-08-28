@@ -16,12 +16,13 @@ DROP TABLE enderecos;
 
 CREATE TABLE enderecos (
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	id_cidade INT NOT NULL,
 	cep VARCHAR(8) NOT NULL,
 	logradouro VARCHAR(150) NOT NULL,
 	numero SMALLINT NOT NULL,
 	complemento VARCHAR(20),
 	referencia VARCHAR(400),
-
+	FOREIGN KEY (id_cidade) REFERENCES cidades(id)
 );
 
 
