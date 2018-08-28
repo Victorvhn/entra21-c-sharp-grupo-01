@@ -17,7 +17,7 @@ namespace Repository
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "SELECT p.id, p.id_pacote, p.nome, c.nome FROM pacotes p JOIN historico_de_viagens h ON (p.id_pacote = h.id)";
+            command.CommandText = "SELECT p.id, p.id_pacote, h.data_, h.nome FROM pacotes p JOIN historico_de_viagens h ON (p.id_pacote = h.id)";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -29,8 +29,8 @@ namespace Repository
                     Data = Convert.ToDateTime(line[2].ToString()),
                     Pacote = new Pacote()
                     {
-                        Id = Convert.ToInt32(line["p.id_pacote"].ToString()),
-                        Nome = line["h.nome"].ToString()
+                        Id = Convert.ToInt32(line[1].ToString()),
+                        Nome = line[3].ToString()
                     }
                     
                 };
@@ -105,7 +105,7 @@ namespace Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = command.CommandText = @"SELECT p.id, p.id_pacote, p.nome, c.nome FROM pacotes p 
+            command.CommandText = @"SELECT p.id, p.id_pacote, h.data_, h.nome FROM pacotes p 
             JOIN historico_de_viagens h ON (p.id_pacote = h.id)
             WHERE id =@ID";
             command.Parameters.AddWithValue("@ID", id);

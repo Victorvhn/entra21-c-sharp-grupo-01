@@ -21,6 +21,7 @@ CREATE TABLE enderecos (
 	numero SMALLINT NOT NULL,
 	complemento VARCHAR(20),
 	referencia VARCHAR(400),
+
 );
 
 
