@@ -45,7 +45,7 @@ namespace Repository
         {
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, id_pacote, data_   FROM guias ORDER BY nome OFFSET " +
+            command.CommandText = @"SELECT id, id_pacote, data_ FROM historico_de_viagens ORDER BY nome OFFSET " +
                 start + " ROWS FETCH NEXT "
                 + length + " ROWS ONLY  ";
             DataTable tabela = new DataTable();
@@ -57,8 +57,6 @@ namespace Repository
                     Id = Convert.ToInt32(linha[0].ToString()),
                     IdPacote = Convert.ToInt32(linha[1].ToString()),
                     Data = Convert.ToDateTime(linha[2].ToString())
-                   
-
                 };
                 historicoViagens.Add(historicoViagem);
             }
