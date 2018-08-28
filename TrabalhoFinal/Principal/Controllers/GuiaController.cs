@@ -13,7 +13,7 @@ namespace Principal.Controllers
         // GET: Guia
 
         [HttpGet]
-        public ActionResult Tabela()
+        public ActionResult Index()
         {
             return View();
         }

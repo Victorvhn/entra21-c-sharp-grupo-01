@@ -14,7 +14,7 @@ namespace Principal.Controllers
     {
         // GET: HistoricoViagem
 
-        public ActionResult Tabela()
+        public ActionResult Index()
         {
             return View();
         }

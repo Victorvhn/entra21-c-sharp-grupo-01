@@ -56,7 +56,7 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                     IdPacote = Convert.ToInt32(linha[1].ToString()),
-                    Data = Convert.ToDateTime(linha[2].ToString().Replace("/", "-"))
+                    Data = Convert.ToDateTime(linha[2].ToString())
                    
 
                 };

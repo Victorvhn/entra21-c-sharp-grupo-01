@@ -13,7 +13,7 @@ namespace Principal.Controllers
     public class PacoteController : Controller
     {
         // GET: Pacote
-        public ActionResult Tabela()
+        public ActionResult Index()
         {
             return View();
         }
