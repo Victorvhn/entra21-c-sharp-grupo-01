@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $('#historicoViagem-tabela').DataTable({
+    $('#historico-viagem-tabela').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": "/HistoricoViagem/ObterTodosPorJSON",
