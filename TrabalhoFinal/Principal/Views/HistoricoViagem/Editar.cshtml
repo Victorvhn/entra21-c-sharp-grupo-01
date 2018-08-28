@@ -1,8 +1,21 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Editar";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
 <h2>Editar</h2>
 
+<form action="/HistoricoViagens/Update" method="post">
+    <input type="hidden" name="historicoViagens.Id" value="@ViewBag.HistoricoViagens.Id" id="editar-historico-viagens-campo-id" />
+    <div class="form-group">
+        <label for="cadastro-historico-viagens-campo-nome">Nome</label>
+        <input type="text" id="editar-campo-historico-viagens-campo-nome" class="form-control" value="@ViewBag.HistoricoViagens.Nome" name="historicoViagens.Nome">
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-sucess float-right">
+            <i class="fa fa-save">Cadastrar</i>
+        </button>
+    </div>
+
+</form>
