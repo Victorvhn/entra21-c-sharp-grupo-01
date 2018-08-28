@@ -5528,7 +5528,6 @@
     <Content Include="Views\ViagemTurista\Cadastro.cshtml" />
     <Content Include="Views\Idioma\Cadastro.cshtml" />
     <Content Include="Views\Pacote\Cadastrar.cshtml" />
-    <Content Include="Views\Guia\Tabela.cshtml" />
     <Content Include="Views\Pais\Cadastro.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Idioma\Editar.cshtml" />
@@ -5539,12 +5538,13 @@
     <Content Include="Views\PacotePontoTuristico\Editar.cshtml" />
     <Content Include="Views\PontoTuristico\Editar.cshtml" />
     <Content Include="Views\Pais\Index.cshtml" />
-    <Content Include="Views\Pacote\Tabela.cshtml" />
-    <Content Include="Views\HistoricoViagem\Tabela.cshtml" />
+    <Content Include="Views\HistoricoViagem\Index.cshtml" />
     <Content Include="Views\Pais\Editar.cshtml" />
     <Content Include="Views\Turista\Editar.cshtml" />
     <Content Include="Views\Viagem\Editar.cshtml" />
     <Content Include="Views\ViagemTurista\Editar.cshtml" />
+    <Content Include="Views\Pacote\Index.cshtml" />
+    <Content Include="Views\Guia\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5558,6 +5558,9 @@
     <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{0abf1de9-f0e7-4230-bf5c-57727d0b621d}</Project>
       <Name>Model</Name>
@@ -5566,9 +5569,6 @@
       <Project>{fb9a8283-3cf4-4b44-8574-db03883000dd}</Project>
       <Name>Repository</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
