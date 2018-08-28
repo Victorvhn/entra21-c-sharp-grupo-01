@@ -101,7 +101,7 @@ namespace Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT p.id_continente, p.nome, c.nome FROM paises p JOIN continentes c ON (p.id_continente = c.id) WHERE id = @ID";
+            command.CommandText = @"SELECT p.id_continente, p.nome, c.nome FROM paises p JOIN continentes c ON (p.id_continente = c.id) WHERE p.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();
