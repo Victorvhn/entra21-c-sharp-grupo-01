@@ -88,5 +88,11 @@ namespace Principal.Controllers
             }));
 
         }
+
+        [HttpGet]
+        public ActionResult Modal()
+        {
+            return View();
+        }
     }
 }
