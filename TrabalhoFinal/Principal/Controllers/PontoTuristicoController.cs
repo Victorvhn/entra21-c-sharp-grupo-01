@@ -47,7 +47,8 @@ namespace Principal.Controllers
         {
             PontoTuristico pontoTuristicoModel = new PontoTuristico()
             {
-                Nome = pontoTuristico.Nome.ToString()
+                Nome = pontoTuristico.Nome.ToString(),
+                IdEndereco = Convert.ToInt32(pontoTuristico.IdEndereco)
             };
             int identificador = new PontosTuristicosRepository().Cadastrar(pontoTuristicoModel);
             //return RedirectToAction("Editar", new { id = identificador });
