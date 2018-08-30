@@ -46,8 +46,7 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(GuiaString guia)
         {
-            
-            
+                        
             Guia guiaModel = new Guia();
             {
                 guiaModel.Nome = guia.Nome.ToString();
@@ -63,8 +62,7 @@ namespace Principal.Controllers
             }
 
             int identificador = new GuiaRepository().Cadastrar(guiaModel);
-            return null;
-              
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
         }
 
         [HttpPost]
