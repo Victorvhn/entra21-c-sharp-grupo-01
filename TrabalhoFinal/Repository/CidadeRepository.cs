@@ -57,8 +57,7 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO  cidades (nome, id_estado
-            OUTPUT INSERTED.ID(@NOME, @ID_ESTADO))";
+            command.CommandText = @"INSERT INTO cidades (nome, id_estado) OUTPUT INSERTED.ID VALUES(@NOME, @ID_ESTADO)";
             command.Parameters.AddWithValue("@NOME", cidade.Nome);
             command.Parameters.AddWithValue("@ID_ESTADO", cidade.IdEstado);
 
