@@ -33,6 +33,26 @@ namespace Repository
             return cidades;
         }
 
+        public List<Cidade> ObterTodosParaSelect()
+        {
+            List<Cidade> cidades = new List<Cidade>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome, id_estado FROM cidades";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow line in table.Rows)
+            {
+                Cidade cidade = new Cidade()
+                {
+                    Id = Convert.ToInt32(line["id"].ToString()),
+                    IdEstado = Convert.ToInt32(line["id_estado"].ToString()),
+                    Nome = line["nome"].ToString()
+                };
+                cidades.Add(cidade);
+            }
+            return cidades;
+        }
+
         public int Cadastrar(Cidade cidade)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -97,7 +117,7 @@ namespace Repository
         {
             List<Cidade> cidades = new List<Cidade>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome, FROM cidades ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.CommandText = "SELECT id, nome, id_estado FROM cidades ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -108,6 +128,7 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
                     Nome = line[1].ToString(),
+                    IdEstado = line[2].ToString()
                     
                 };
                 cidades.Add(cidade);
