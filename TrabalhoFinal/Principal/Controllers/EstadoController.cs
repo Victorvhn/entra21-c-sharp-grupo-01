@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Principal.Models;
 using Repository;
 using System;
@@ -54,6 +55,21 @@ namespace Principal.Controllers
         {
             bool alterado = new EstadoRepository().Alterar(estado);
             return null;
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<Estado> estados = new EstadoRepository().ObterTodosParaJSON(start, length);
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+
+                data = estados
+            }));
         }
     }
 }
