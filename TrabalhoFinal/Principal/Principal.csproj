@@ -5149,6 +5149,7 @@
     <Content Include="Content\lib\underscore\js\underscore.js" />
     <Content Include="Database\DB TRABALHO.sql" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Cidade\Cadastro\select2-cadastro-cidade.js" />
     <Content Include="Scripts\Continente\continente-table.js" />
     <Content Include="Scripts\Endereco\endereco-table.js" />
     <Content Include="Scripts\Guia\guia-tabela.js" />
@@ -5156,6 +5157,7 @@
     <Content Include="Scripts\Pacote\pacote-tabela.js" />
     <Content Include="Scripts\Pais\Cadastro\select2-cadastro-pais.js" />
     <Content Include="Scripts\Pais\Table\pais-table.js" />
+    <Content Include="Scripts\PopularSelects\SelectCidade\popular-select-cidade.js" />
     <Content Include="Scripts\PopularSelects\SelectContinente\popular-select-continente.js" />
     <Content Include="Scripts\PopularSelects\SelectHistoricoViagem\popular-select-historicoViagem.js" />
     <Content Include="Web.config" />
@@ -5545,7 +5547,7 @@
     <Content Include="Views\ViagemTurista\Editar.cshtml" />
     <Content Include="Views\Pacote\Index.cshtml" />
     <Content Include="Views\Guia\Index.cshtml" />
-    <Content Include="Views\Guia\ModalCadastro.cshtml" />
+    <Content Include="Views\Guia\Modal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
