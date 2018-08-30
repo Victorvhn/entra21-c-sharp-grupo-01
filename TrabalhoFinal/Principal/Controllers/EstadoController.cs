@@ -71,5 +71,20 @@ namespace Principal.Controllers
                 data = estados
             }));
         }
+
+        public ActionResult ObterTodosPorJSONToSelect2()
+        {
+            List<Estado> estados = new EstadoRepository().ObterTodosParaSelect();
+
+            var x = new object[estados.Count];
+            int i = 0;
+            foreach (var estado in estados)
+            {
+                x[i] = new { id = estado.Id, text = estado.Nome, idpais = estado.IdPais };
+                i++;
+            }
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
     }
 }
