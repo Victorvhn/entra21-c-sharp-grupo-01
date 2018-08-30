@@ -5545,7 +5545,7 @@
     <Content Include="Views\ViagemTurista\Editar.cshtml" />
     <Content Include="Views\Pacote\Index.cshtml" />
     <Content Include="Views\Guia\Index.cshtml" />
-    <Content Include="Views\Guia\Modal.cshtml" />
+    <Content Include="Views\Guia\ModalCadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
