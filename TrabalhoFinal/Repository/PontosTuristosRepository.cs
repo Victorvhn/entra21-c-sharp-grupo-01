@@ -101,6 +101,25 @@ namespace Repository
             command.Parameters.AddWithValue("@ID", pontoturisco.Id);
             return command.ExecuteNonQuery() == 1;
         }
+        public List<PontoTuristico> ObterTodosParaJSON(string start, string length)
+        {
+            List<PontoTuristico> pontosturisticos = new List<PontoTuristico>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id,id_endereco,nome FROM pontos_turisticos ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            DataTable tabela = new DataTable();
+            tabela.Load(command.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                PontoTuristico pontoturistico = new PontoTuristico()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    IdEndereco = Convert.ToInt32(linha[1].ToString()),
+                    Nome = linha[2].ToString()
+                };
+                pontosturisticos.Add(pontoturistico);
+            }
+            return pontosturisticos;
+        }
 
     }
 }

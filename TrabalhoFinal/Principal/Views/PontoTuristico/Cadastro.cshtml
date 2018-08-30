@@ -3,36 +3,28 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-10 offset-md-1">
-        <form action="/PontoTuristico/Store" method="post">
-            <div class="form-horizontal">
-                <div class="card-header">
-                    <h4>Pontos Turísticos</h4>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <div class="col-md-12">
+<h2>Cadastrar Pontos Turisticos</h2>
 
-                                <label for="campo-nome-ponto-turistico">Nome</label>
-                                <input name="pontosTuristicos.Nome" type="text" id="campo-cadastro-ponto-turistico" class="form-control" value="@ViewBag.PontoTuristico.Nome">
-                                </div>
-                            <div class="form-group">
-                                <div class="col-md-12 col-md-10">
-                                    <input type="submit" value="Salvar" class="btn btn-outline-success float-right m-md-1" />
-                                </div>
-                                </div>
-
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+<form action="/PontoTuristico/Store" method="post">
+    <div class="form-group">
+        <label class="col-md-2">Endereco: </label>
+        <div class="col-md-6">
+            <select class="form-control form-control-default" name="endereco.IdEndereco" id="select-cadastro-ponto-turistico-endereco" value="@ViewBag.PontoTuristico.IdEndereco"></select>
+        </div>
     </div>
+    <div class="form-group">
+        <label for="cadastro-ponto-turistico-nome">
+            Nome
+        </label>
+        <input type="text" id="cadastro-ponto-turistico-campo-nome" class="form-control" value="@ViewBag.PontoTuristico.Nome" name="pontoturistico.Nome" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success float-right">
+            <i class="fa fa-save"></i> Cadastrar
+        </button>
+    </div>
+</form>
 
-</div>
-
-
-
+@section script{
+    <script src="~/Scripts/PontoTuristico/Cadastro/select2-cadastro-pontoturistico.js"></script>
+    }
