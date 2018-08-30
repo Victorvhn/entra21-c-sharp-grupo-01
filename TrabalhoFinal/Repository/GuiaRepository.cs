@@ -58,8 +58,8 @@ namespace Repository
                     Id = Convert.ToInt32(linha[0].ToString()),                    
                     Nome = linha[1].ToString(),
                     Sobrenome = linha[2].ToString(),                    
-                    Cpf = linha[4].ToString(),
-                    Rank = Convert.ToByte(linha[5].ToString())
+                    Cpf = linha[3].ToString(),
+                    Rank = Convert.ToByte(linha[4].ToString())
                    
                 };
                 guias.Add(guia);
