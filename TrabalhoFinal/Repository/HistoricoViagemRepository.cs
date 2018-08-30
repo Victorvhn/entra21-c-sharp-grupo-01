@@ -17,7 +17,8 @@ namespace Repository
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "SELECT h.id, p.id, p.id_pacote, h.data_, h.nome FROM pacotes p JOIN historico_de_viagens h ON (p.id_pacote = h.id)";
+            command.CommandText = @"SELECT h.id, p.id, p.id_pacote, h.data_, h.nome FROM pacotes p 
+                                    JOIN historico_de_viagens h ON (p.id_pacote = h.id)";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
