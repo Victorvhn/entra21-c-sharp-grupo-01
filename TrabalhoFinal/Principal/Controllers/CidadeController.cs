@@ -59,7 +59,8 @@ namespace Principal.Controllers
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
 
-            List<Cidade> cidades = new CidadeRepository().ObterTodosParaJSON(start, length);
+            List<Cidade> cidades = new CidadeRepository().
+                (start, length);
             return Content(JsonConvert.SerializeObject(new
             {
                 data = cidades

@@ -33,6 +33,10 @@ namespace Repository
             return idiomas;
         }
 
+        public List<Idioma> ObterTodosParaSelect()
+        {
+
+        }
         public int Cadastrar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -78,6 +82,28 @@ namespace Repository
                 idioma.IdGuia = Convert.ToInt32(table.Rows[0][1].ToString());
             }
             return idioma;
+        }
+
+        public List<Idioma> ObterTodosParaJSON(string start, string length)
+        {
+            List<Idioma> idiomas = new List<Idioma>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome, FROM idiomas ORDER BY nome OFFSET" + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+
+            foreach (DataRow line in table.Rows)
+            {
+                Idioma idioma = new Idioma()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    Nome = line[1].ToString(),
+
+                };
+                idiomas.Add(idioma);
+            }
+            return idiomas;
         }
     }
 }
