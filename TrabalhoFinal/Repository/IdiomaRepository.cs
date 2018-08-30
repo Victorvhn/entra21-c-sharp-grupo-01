@@ -35,7 +35,22 @@ namespace Repository
 
         public List<Idioma> ObterTodosParaSelect()
         {
-
+            List<Idioma> idiomas = new List<Idioma>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome, id_guia FROM idiomas";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow line in table.Rows)
+            {
+                Idioma idioma = new Idioma()
+                {
+                    Id = Convert.ToInt32(line["id"].ToString()),
+                    IdGuia = Convert.ToInt32(line["id_guia"].ToString()),
+                    Nome = line["nome"].ToString()
+                };
+                idiomas.Add(idioma);
+            }
+            return idiomas;
         }
         public int Cadastrar(Idioma idioma)
         {

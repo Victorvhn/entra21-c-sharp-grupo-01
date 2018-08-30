@@ -19,7 +19,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-         
+
             ViewBag.Idioma = new Idioma();
             return View();
         }
@@ -28,11 +28,11 @@ namespace Principal.Controllers
         {
             Idioma idioma = new IdiomaRepository().ObterPeloId(id);
             ViewBag.Idioma = idioma;
-            
+
             return View();
         }
 
-     
+
 
         [HttpPost]
         public ActionResult Store(Idioma idioma)
@@ -68,9 +68,10 @@ namespace Principal.Controllers
             int i = 0;
             foreach (var idioma in idiomas)
             {
-                x[i] = new { id = idioma.Id, text = idioma.Nome, idGuia = idioma.IdGuia};
+                x[i] = new { id = idioma.Id, text = idioma.Nome, idGuia = idioma.IdGuia };
                 i++;
+            }
+            return Content(JsonConvert.SerializeObject(new { results = x }));
         }
-            return Content(JsonConvert.SerializeObject(new { results = x}));
     }
 }
