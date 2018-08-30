@@ -52,6 +52,28 @@ namespace Repository
             }
             return estados;
         }
+
+        public List<Estado> ObterTodosParaJSON(string start, string length)
+        {
+            List<Estado> estados = new List<Estado>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT id, nome, id_pais FROM estados ORDER BY nome OFFSET " +
+                start + "ROWS FETCH NEXT" + length + "ROWS ONLY";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach(DataRow line in table.Rows)
+            {
+                Estado estado = new Estado()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    IdPais = Convert.ToInt32(line[1].ToString()),
+                    Nome = line[2].ToString()
+
+                };
+                estados.Add(estado);
+            }
+            return estados;
+        }
         public int Cadastrar(Estado estado)
         {
             SqlCommand command = new Conexao().ObterConexao();
