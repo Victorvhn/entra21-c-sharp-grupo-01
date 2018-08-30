@@ -14,9 +14,6 @@ DROP TABLE paises;
 DROP TABLE continentes;
 
 
-
-
-
 CREATE TABLE continentes (
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	nome VARCHAR(100) NOT NULL
@@ -113,7 +110,6 @@ CREATE TABLE pacotes (
 	percentual_max_desconto TINYINT,
 );
 
-
 CREATE TABLE pontos_turisticos (
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,	
 	id_endereco INT,
@@ -160,4 +156,14 @@ CREATE TABLE historico_de_viagens (
 	FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 );
 
-SELECT * FROM guias;
+INSERT INTO pacotes (nome, valor, percentual_max_desconto) VALUES
+('Disney', 4000, 20),
+('Amsterdam', 5000, 10),
+('Orlando', 3500, 5),
+('Paris', 4500, 15);
+
+INSERT INTO historico_de_viagens (id_pacote, data_) VALUES
+((SELECT id FROM pacotes WHERE nome = 'Disney'),'07-10-2014'),
+((SELECT id FROM pacotes WHERE nome = 'Amsterdam'),'09-11-2017'),
+((SELECT id FROM pacotes WHERE nome = 'Orlando'),'12-05-2016'),
+((SELECT id FROM pacotes WHERE nome = 'Paris'),'12-10-2014');
