@@ -5,6 +5,7 @@
 }
 
 
+<button type="button" class="btn btn-primary waves-effect" id="botao-modal-cadastrar-guia">Cadastrar</button>
 
 <div class="card">
     <div class="card-header">
@@ -40,8 +41,7 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#large-Modal" id="botao-modal-editar-guia">Editar</button>
-
+@Html.Partial("~/Views/Guia/ModalCadastro.cshtml")
 
 @section script{
     <script src="~/Scripts/Guia/guia-tabela.js"></script>

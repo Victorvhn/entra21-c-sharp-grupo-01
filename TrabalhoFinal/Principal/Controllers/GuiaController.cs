@@ -90,7 +90,7 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
-        public ActionResult Modal()
+        public ActionResult ModalCadastro()
         {
             return View();
         }
