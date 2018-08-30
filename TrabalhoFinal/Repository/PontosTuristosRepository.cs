@@ -56,7 +56,7 @@ namespace Repository
         public int Cadastrar(PontoTuristico pontoturistico)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "INSERT INTO (id_endereco,nome)OUTPUT INSERTED.ID VALUES(@ID_ENDERECO,@NOME)";
+            command.CommandText = "INSERT INTO pontos_turisticos (id_endereco,nome)OUTPUT INSERTED.ID VALUES(@ID_ENDERECO,@NOME)";
             command.Parameters.AddWithValue("@ID_ENDERECO", pontoturistico.IdEndereco);
             command.Parameters.AddWithValue("@NOME", pontoturistico.Nome);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
