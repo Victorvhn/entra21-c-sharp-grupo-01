@@ -73,5 +73,22 @@ namespace Principal.Controllers
 
 
         }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSONSelect2()
+        {
+
+            List<Cidade> cidades = new CidadeRepository().ObterTodosParaSelect();
+
+            var x = new object[cidades.Count];
+            int i = 0;
+            foreach (var cidade in cidades)
+            {
+                x[i] = new { id = cidade.Id, text = cidade.Nome, idEstado = cidade.IdEstado };
+                i++;
+            }
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
     }
 }
