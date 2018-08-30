@@ -5160,6 +5160,7 @@
     <Content Include="Scripts\PopularSelects\SelectCidade\popular-select-cidade.js" />
     <Content Include="Scripts\PopularSelects\SelectContinente\popular-select-continente.js" />
     <Content Include="Scripts\PopularSelects\SelectHistoricoViagem\popular-select-historicoViagem.js" />
+    <Content Include="Scripts\PopularSelects\SelectIdiomas\popular-select-idioma.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
