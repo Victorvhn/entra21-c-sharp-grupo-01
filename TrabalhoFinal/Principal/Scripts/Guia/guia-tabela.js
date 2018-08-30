@@ -6,7 +6,7 @@
         "columns": [
             { "data": "Id" },
             { "data": "Nome" },
-            { "data": "Sobrenome" },            
+            { "data": "Sobrenome" },
             { "data": "Cpf" },
             { "data": "Rank" }
         ]
@@ -14,21 +14,9 @@
 });
 
 
-$("#botao-modal-editar-guia").on("click", function () {
-    if ($("#large-Modal").length === 0) {
-        $.ajax({
-            url: "/Guia/Modal",
-            method: "get",
-            success: function (data) {
-                $("body").append(data);
-                $("#large-Modal").modal('show');
-            }
-        });
-    } else {
-        $("#large-Modal").modal('show');
-        limparCampos();
-    }
-
+$("#botao-modal-cadastrar-guia").on("click", function () {
+    limparCampos();
+    $("#guia-modal-cadastro").modal('show');
 });
 
 $("body").on("click", "#salvar-modal-cadastrar-guia", function () {
