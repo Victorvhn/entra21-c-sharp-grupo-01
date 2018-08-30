@@ -1,3 +1,8 @@
 ﻿$(document).ready(function () {
-    $('#select-cadastro-cidade-estado').select2
-})
+    $('#select-cadastro-cidade-estado').select2({
+        ajax: {
+            url: '/Cidade/ObterTodosPorJSONToSelect2',
+            dataType: 'json',
+        }
+    });
+});
