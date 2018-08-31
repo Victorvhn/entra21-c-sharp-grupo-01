@@ -17,11 +17,11 @@ namespace Principal.Controllers
         {
             return View();
         }
-        
+
         [HttpGet]
         public ActionResult Cadastro()
         {
-           
+
             ViewBag.Guia = new Guia();
             return View();
         }
@@ -31,7 +31,7 @@ namespace Principal.Controllers
         {
             Guia guia = new GuiaRepository().ObterPeloId(id);
             ViewBag.Guia = guia;
-            
+
             return View();
         }
 
@@ -40,18 +40,18 @@ namespace Principal.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new GuiaRepository().Excluir(id);
-            return null;
+            return Content(JsonConvert.SerializeObject(new { id = apagado }));
         }
 
         [HttpPost]
         public ActionResult Store(GuiaString guia)
         {
-                        
+
             Guia guiaModel = new Guia();
             {
                 guiaModel.Nome = guia.Nome.ToString();
                 guiaModel.Sobrenome = guia.Sobrenome.ToString();
-                guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/","-").ToString());
+                guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/", "-").ToString());
                 guiaModel.Sexo = guia.Sexo.ToString();
                 guiaModel.Rg = guia.Rg.ToString();
                 guiaModel.Cpf = guia.Cpf.ToString();

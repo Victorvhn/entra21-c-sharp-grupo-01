@@ -46,9 +46,9 @@ namespace Repository
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome, sobrenome, cpf, rank_ FROM guias ORDER BY nome OFFSET " +
+            command.CommandText = @"SELECT id, nome, sobrenome, cpf, rank_ FROM guias WHERE ativo = 1 ORDER BY nome OFFSET " +
                 start + " ROWS FETCH NEXT "
-                + length + " ROWS ONLY  ";
+                + length + " ROWS ONLY ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -116,7 +116,7 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"DELETE FROM guias WHERE id = @ID";
+            command.CommandText = @"UPDATE guias SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
 
@@ -127,7 +127,7 @@ namespace Repository
             Guia guia = null;
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT (login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_
-            FROM guias JOIN guias ON(guias.id_endereco = enderecos.id WHERE id = @ID";
+            FROM guias JOIN guias ON(guias.id_endereco = enderecos.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());

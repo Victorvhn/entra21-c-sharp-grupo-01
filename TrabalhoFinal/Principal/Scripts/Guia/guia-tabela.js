@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿
+$(function () {
     $('#guia-tabela').DataTable({
         "processing": true,
         "serverSide": true,
@@ -13,13 +14,39 @@
                 data: null,
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-info' value='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' value='" + row.Id + "'>Excluir</a>";
+                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-guia' data-id='" + row.Id + "' href='#' >Excluir</a>";
 
                 }
             }
         ]
     });
 });
+
+$("#botao-excluir-guia").on("click", function () {
+    var idExcluir = $(this).data("id");
+    $a.ajax({
+        url: '/Guia/Excluir?id=' + idExcluir,
+        method: 'get',
+        success: function (data) {
+            if (data == true) {
+                new PNotify({
+                    title: 'Desativado!',
+                    text: 'Usuário desativado com sucesso',
+                    type: 'success'
+                });
+
+                $('#guia-tabela').DataTable().ajax.reload();
+            }
+            else {
+                new PNotify({
+                    title: 'Erro!',
+                    text: 'Erro ao desativar usuário',
+                    type: 'error'
+                });
+            }
+        }
+    })
+})
 
 
 
@@ -29,6 +56,7 @@ $("#botao-modal-cadastrar-guia").on("click", function () {
 });
 
 $("#salvar-modal-cadastrar-guia").on("click", function () {
+    var nomeVar = $("#campo-cadastro-guia-nome").val();
     $.ajax({
         url: '/Guia/Store',
         method: 'post',
@@ -48,12 +76,14 @@ $("#salvar-modal-cadastrar-guia").on("click", function () {
             var resultado = JSON.parse(data);
             limparCampos();
             $("#guia-modal-cadastro").modal('hide');
-            $.pnotify({
-                title: 'Sticky Success',
-                text: 'Sticky success... I\'m not even gonna make a joke.',
-                type: 'success',
-                hide: false
+            $(function () {
+                new PNotify({
+                    title: 'Sucesso!',
+                    text: nomeVar + ' cadastrado com sucesso',
+                    type: 'success'
+                });
             });
+            $('#guia-tabela').DataTable().ajax.reload();
         }
     });
 });
