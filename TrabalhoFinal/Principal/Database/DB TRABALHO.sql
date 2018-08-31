@@ -252,9 +252,15 @@ INSERT INTO pacotes_pontos_turisticos  (id_pacote, id_ponto_turistico) VALUES
 ((SELECT id FROM pacotes WHERE nome = 'Paris'), (SELECT id FROM pontos_turisticos WHERE nome = 'Igreja Matriz'));
 
 INSERT INTO viagens (id_guia, id_pacote, data_compra, data_horario_saida, data_horario_volta) VALUES
-((SELECT id FROM guias WHERE nome = 'Fernanda'), (SELECT id FROM pacotes WHERE nome = 'Disney')),
-((SELECT id FROM guias WHERE nome = 'Eduarda'), (SELECT id FROM pacotes WHERE nome = 'Amsterdam')),
-((SELECT id FROM guias WHERE nome = 'Marcio'), (SELECT id FROM pacotes WHERE nome = 'Orlando')),
-((SELECT id FROM guias WHERE nome = 'Marcos'), (SELECT id FROM pacotes WHERE nome = 'Paris'));
+((SELECT id FROM guias WHERE nome = 'Fernanda'), (SELECT id FROM pacotes WHERE nome = 'Disney'), '10-05-2012', '20120618 10:34:09 AM', '20120625 04:20:00:00 PM'),
+((SELECT id FROM guias WHERE nome = 'Eduarda'), (SELECT id FROM pacotes WHERE nome = 'Amsterdam'), '07-08-2017', '20170907 07:30:00 AM', '20170908 02:15:00 PM' ),
+((SELECT id FROM guias WHERE nome = 'Marcio'), (SELECT id FROM pacotes WHERE nome = 'Orlando'), '10-08-2015', '20151120 10:20:00 AM', '20151201 09:00:00 PM'),
+((SELECT id FROM guias WHERE nome = 'Marcos'), (SELECT id FROM pacotes WHERE nome = 'Paris'), '01-02-2016', '20160225 08:25:00 AM', '20160303 03:35:00 PM');
+
+INSERT INTO viagens_turistas (id_turista, id_viagem, valor) VALUES
+((SELECT id FROM turistas WHERE nome = 'Fernanda'), (SELECT id FROM viagens WHERE data_compra = '10-05-2012'), 4000),
+((SELECT id FROM turistas WHERE nome = 'Eduarda'), (SELECT id FROM viagens WHERE data_compra = '07-08-2017'), 5000),
+((SELECT id FROM turistas WHERE nome = 'Marcio'), (SELECT id FROM viagens WHERE data_compra = '10-08-2015'), 3500),
+((SELECT id FROM turistas WHERE nome = 'Marcos'), (SELECT id FROM viagens WHERE data_compra = '01-02-2016'), 4500);
 
 
