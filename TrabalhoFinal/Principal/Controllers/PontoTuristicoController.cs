@@ -52,8 +52,8 @@ namespace Principal.Controllers
                 IdEndereco = Convert.ToInt32(pontoTuristico.IdEndereco)
             };
             int identificador = new PontosTuristicosRepository().Cadastrar(pontoTuristicoModel);
-            //return RedirectToAction("Editar", new { id = identificador });
-            return null;
+            return RedirectToAction("Editar", new { id = identificador });
+            //return null;
             
         }
         [HttpPost]
