@@ -92,8 +92,8 @@ namespace Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT cidades.id, cidades.nome, cidades.id_estado, estados.nome FROM cidades  
-            JOIN cidades ON (cidades.id_estado = estados.id WHERE id = @ID) ";
+            command.CommandText = @"SELECT cidades.id, cidades.nome, cidades.id_estado, estados.nome FROM cidades 
+JOIN estados ON (cidades.id_estado = estados.id) WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", cidade.Id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
