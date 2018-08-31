@@ -5103,12 +5103,14 @@
     <Content Include="Content\lib\pnotify\css\pnotify.brighttheme.css" />
     <Content Include="Content\lib\pnotify\css\pnotify.buttons.css" />
     <Content Include="Content\lib\pnotify\css\pnotify.css" />
+    <Content Include="Content\lib\pnotify\css\pnotify.custom.min.css" />
     <Content Include="Content\lib\pnotify\css\pnotify.history.css" />
     <Content Include="Content\lib\pnotify\css\pnotify.mobile.css" />
     <Content Include="Content\lib\pnotify\js\pnotify.animate.js" />
     <Content Include="Content\lib\pnotify\js\pnotify.buttons.js" />
     <Content Include="Content\lib\pnotify\js\pnotify.callbacks.js" />
     <Content Include="Content\lib\pnotify\js\pnotify.confirm.js" />
+    <Content Include="Content\lib\pnotify\js\pnotify.custom.min.js" />
     <Content Include="Content\lib\pnotify\js\pnotify.desktop.js" />
     <Content Include="Content\lib\pnotify\js\pnotify.history.js" />
     <Content Include="Content\lib\pnotify\js\pnotify.js" />
