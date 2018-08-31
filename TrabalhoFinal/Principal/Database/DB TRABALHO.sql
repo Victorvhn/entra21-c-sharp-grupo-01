@@ -263,4 +263,3 @@ INSERT INTO viagens_turistas (id_turista, id_viagem, valor) VALUES
 ((SELECT id FROM turistas WHERE nome = 'Marcio'), (SELECT id FROM viagens WHERE data_compra = '10-08-2015'), 3500),
 ((SELECT id FROM turistas WHERE nome = 'Marcos'), (SELECT id FROM viagens WHERE data_compra = '01-02-2016'), 4500);
 
-
