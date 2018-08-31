@@ -126,8 +126,8 @@ namespace Repository
         {
             Guia guia = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT (login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_
-            FROM guias JOIN guias ON(guias.id_endereco = enderecos.id) WHERE id = @ID";
+            command.CommandText = @"SELECT login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_, id_endereco
+            FROM guias JOIN enderecos ON(guias.id_endereco = enderecos.id) WHERE guias.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());

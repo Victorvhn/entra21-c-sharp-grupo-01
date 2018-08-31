@@ -32,9 +32,8 @@ namespace Principal.Controllers
             Guia guia = new GuiaRepository().ObterPeloId(id);
             ViewBag.Guia = guia;
 
-            return View();
+            return Content(JsonConvert.SerializeObject(guia));
         }
-
 
         [HttpGet]
         public ActionResult Excluir(int id)
@@ -47,19 +46,25 @@ namespace Principal.Controllers
         public ActionResult Store(GuiaString guia)
         {
 
-            Guia guiaModel = new Guia();
+           /* Endereco endereco = new Endereco()
             {
-                guiaModel.Nome = guia.Nome.ToString();
-                guiaModel.Sobrenome = guia.Sobrenome.ToString();
-                guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/", "-").ToString());
-                guiaModel.Sexo = guia.Sexo.ToString();
-                guiaModel.Rg = guia.Rg.ToString();
-                guiaModel.Cpf = guia.Cpf.ToString();
-                guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
-                guiaModel.CategoriaHabilitacao = guia.CategoriaHabilitacao.ToString();
-                guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
-                guiaModel.Rank = Convert.ToByte(guia.Rank.ToString());
-            }
+
+            };
+
+            int codigoEndereco = new EnderecoRepository().Cadastrar(endereco);*/
+
+            Guia guiaModel = new Guia();
+            //guiaModel.IdEndereco = codigoEndereco;
+            guiaModel.Nome = guia.Nome.ToString();
+            guiaModel.Sobrenome = guia.Sobrenome.ToString();
+            guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/", "-").ToString());
+            guiaModel.Sexo = guia.Sexo.ToString();
+            guiaModel.Rg = guia.Rg.ToString();
+            guiaModel.Cpf = guia.Cpf.ToString();
+            guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
+            guiaModel.CategoriaHabilitacao = guia.CategoriaHabilitacao.ToString();
+            guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
+            guiaModel.Rank = Convert.ToByte(guia.Rank.ToString());
 
             int identificador = new GuiaRepository().Cadastrar(guiaModel);
             return Content(JsonConvert.SerializeObject(new { id = identificador }));
@@ -69,7 +74,7 @@ namespace Principal.Controllers
         public ActionResult Update(Guia guia)
         {
             bool alterado = new GuiaRepository().Alterar(guia);
-            return null;
+            return Content(JsonConvert.SerializeObject(new {id = alterado }));
         }
 
         [HttpGet]
