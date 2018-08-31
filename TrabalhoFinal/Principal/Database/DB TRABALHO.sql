@@ -16,7 +16,7 @@ DROP TABLE continentes;
 
 CREATE TABLE continentes (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    nome VARCHAR(100) NOT NULL
+    nome VARCHAR(100) NOT NULL,
 );
 
 
@@ -182,7 +182,8 @@ INSERT INTO paises (id_continente,nome) VALUES
 ((SELECT id FROM continentes WHERE nome = 'Europeu'), 'Belgica'),
 ((SELECT id FROM continentes WHERE nome = 'Asiático'), 'China'),
 ((SELECT id FROM continentes WHERE nome = 'Americano'), 'Guatemala'),
-((SELECT id FROM continentes WHERE nome = 'Africano'), 'Angola');
+((SELECT id FROM continentes WHERE nome = 'Africano'), 'Angola'),
+((SELECT id FROM continentes WHERE nome = 'Europeu'), 'Espanha');
 
 
 INSERT INTO estados (id_pais, nome) VALUES
@@ -193,7 +194,8 @@ INSERT INTO estados (id_pais, nome) VALUES
 ((SELECT id FROM paises WHERE nome = 'Belgica'), 'Somuona'),
 ((SELECT id FROM paises WHERE nome = 'China'), 'Chorinchi'),
 ((SELECT id FROM paises WHERE nome = 'Guatemala'), 'Azemara'),
-((SELECT id FROM paises WHERE nome = 'Angola'), 'Tunama');
+((SELECT id FROM paises WHERE nome = 'Angola'), 'Tunama'),
+((SELECT id FROM paises WHERE nome = 'Espanha'), 'Madri');
 
 INSERT INTO cidades (id_estado, nome) VALUES
 ((SELECT id FROM estados WHERE nome = 'Berlim'), 'Hamburgo'),
@@ -203,7 +205,8 @@ INSERT INTO cidades (id_estado, nome) VALUES
 ((SELECT id FROM estados WHERE nome = 'Somuona'), 'Marua'),
 ((SELECT id FROM estados WHERE nome = 'Chorinchi'), 'Kura'),
 ((SELECT id FROM estados WHERE nome = 'Azemara'), 'Balaci'),
-((SELECT id FROM estados WHERE nome = 'Tunama'), 'Muria');
+((SELECT id FROM estados WHERE nome = 'Tunama'), 'Muria'),
+((SELECT id FROM estados WHERE nome = 'Madri'), 'Catalo');
 
 INSERT INTO enderecos (id_cidade, cep, logradouro, numero, complemento, referencia) VALUES
 ((SELECT id FROM cidades WHERE nome = 'Hamburgo'), 14785236, 'rua das flores', 658, 'casa', 'proximo ao mercado de cosmeticos'),
@@ -213,7 +216,8 @@ INSERT INTO enderecos (id_cidade, cep, logradouro, numero, complemento, referenc
 ((SELECT id FROM cidades WHERE nome = 'Marua'), 12345678, 'rua roça', 123, 'casa', 'morro azul'),
 ((SELECT id FROM cidades WHERE nome = 'Kura'), 11234567, 'rua amerua', 321, 'casa de pedra', 'perto das dunas'),
 ((SELECT id FROM cidades WHERE nome = 'Balaci'), 14785236, 'rua ventura', 987, 'casa sem portao', 'ao lado do mercado'),
-((SELECT id FROM cidades WHERE nome = 'Muria'), 96325874, 'rua zerumiru', 357, 'edificio azul', 'proximo a igreja');
+((SELECT id FROM cidades WHERE nome = 'Muria'), 96325874, 'rua zerumiru', 357, 'edificio azul', 'proximo a igreja'),
+((SELECT id FROM cidades WHERE nome = 'Catalo'), 96325777, 'centro', 777, 'centro', 'proximo a capela 3 anjos');
 
 
 INSERT INTO turistas (id_endereco, nome, sobrenome, sexo, cpf, rg, data_nascimento) VALUES
@@ -228,3 +232,17 @@ INSERT INTO guias (id_endereco, nome, sobrenome, data_nascimento, sexo, cpf, rg,
 ((SELECT id FROM enderecos WHERE cep = 01234567 AND numero = 321), 'Marcio', 'Luz', '05-12-1900', 'Masculino',  75325896325, 0147898, 11234567891, 3000, 'B', 4),
 ((SELECT id FROM enderecos WHERE cep = 14785236 AND numero =  987), 'Eduarda', 'Volx', '07-02-1995', 'Feminino',  54896325418, 5789632, 22136547894, 4000, 'A', 2),
 ((SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'Feminino', 47896521478, 4789654, 78987456321, 1500, 'ABC', 1);
+
+INSERT INTO idiomas (id_guia, nome) VALUES
+((SELECT id FROM guias WHERE nome = 'Marcos'), 'Ingles'),
+((SELECT id FROM guias WHERE nome = 'Marcio'), 'Alemão'),
+((SELECT id FROM guias WHERE nome = 'Eduarda'), 'Ingles'),
+((SELECT id FROM guias WHERE nome = 'Fernanda'), 'Alemão');
+
+INSERT INTO pontos_turisticos (id_endereco, nome) VALUES
+((SELECT id FROM enderecos WHERE cep = 96325777 AND numero = 777), 'Praça dos Reis'),
+((SELECT id FROM enderecos WHERE cep = 14785236 AND numero = 658), 'Ponte das Luzes'),
+((SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Castelo Triste'),
+((SELECT id FROM enderecos WHERE cep = 96325777 AND numero = 777), 'Igreja Matriz');
+
+
