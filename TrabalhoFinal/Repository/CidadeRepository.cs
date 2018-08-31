@@ -44,9 +44,9 @@ namespace Repository
             {
                 Cidade cidade = new Cidade()
                 {
-                    Id = Convert.ToInt32(line["id"].ToString()),
-                    IdEstado = Convert.ToInt32(line["id_estado"].ToString()),
-                    Nome = line["nome"].ToString()
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    IdEstado = Convert.ToInt32(line[1].ToString()),
+                    Nome = line[2].ToString()
                 };
                 cidades.Add(cidade);
             }
@@ -93,8 +93,8 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
 
             command.CommandText = @"SELECT cidades.id, cidades.nome, cidades.id_estado, estados.nome FROM cidades 
-JOIN cidades ON (cidades.id_estado = estados.id) WHERE id = @ID";
-            command.Parameters.AddWithValue("@ID", cidade.Id);
+JOIN estados ON (cidades.id_estado = estados.id) WHERE cidades.id = @ID";
+            command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
@@ -105,7 +105,7 @@ JOIN cidades ON (cidades.id_estado = estados.id) WHERE id = @ID";
                 cidade.Nome = table.Rows[0][1].ToString();
                 cidade.IdEstado = Convert.ToInt32(table.Rows[0][2].ToString());
                 cidade.Estado = new Estado();
-                cidade.Estado.Nome = table.Rows[0][4].ToString();
+                cidade.Estado.Nome = table.Rows[0][3].ToString();
                 cidade.Estado.Id = Convert.ToInt32(table.Rows[0][2].ToString());
 
             }
