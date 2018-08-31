@@ -47,6 +47,7 @@ namespace Principal.Controllers
         {
             Cidade cidadeModel = new Cidade()
             {
+                Id = Convert.ToInt32(cidade.Id),
                 Nome = cidade.Nome.ToString(),
                 IdEstado = Convert.ToInt32(cidade.IdEstado)
             };
