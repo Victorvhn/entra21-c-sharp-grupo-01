@@ -92,5 +92,11 @@ namespace Principal.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ModalEditar()
+        {
+            return View();
+        }
     }
 }

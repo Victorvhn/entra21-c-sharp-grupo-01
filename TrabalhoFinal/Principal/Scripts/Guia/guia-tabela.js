@@ -48,8 +48,6 @@ $("#botao-excluir-guia").on("click", function () {
     })
 })
 
-
-
 $("#botao-modal-cadastrar-guia").on("click", function () {
     limparCampos();
     $("#guia-modal-cadastro").modal('show');
