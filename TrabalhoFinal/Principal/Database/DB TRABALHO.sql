@@ -129,7 +129,7 @@ CREATE TABLE pacotes_pontos_turisticos (
 
 CREATE TABLE viagens (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    data DATE NOT NULL,
+    data_compra DATE NOT NULL,
     id_pacote INT,
     id_guia INT,
     data_horario_saida DATETIME,
@@ -244,5 +244,17 @@ INSERT INTO pontos_turisticos (id_endereco, nome) VALUES
 ((SELECT id FROM enderecos WHERE cep = 14785236 AND numero = 658), 'Ponte das Luzes'),
 ((SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Castelo Triste'),
 ((SELECT id FROM enderecos WHERE cep = 96325777 AND numero = 777), 'Igreja Matriz');
+
+INSERT INTO pacotes_pontos_turisticos  (id_pacote, id_ponto_turistico) VALUES
+((SELECT id FROM pacotes WHERE nome = 'Disney'), (SELECT id FROM pontos_turisticos WHERE nome = 'Praça dos Reis')),
+((SELECT id FROM pacotes WHERE nome = 'Amsterdam'), (SELECT id FROM pontos_turisticos WHERE nome = 'Ponte das Luzes')),
+((SELECT id FROM pacotes WHERE nome = 'Orlando'), (SELECT id FROM pontos_turisticos WHERE nome = 'Castelo triste')),
+((SELECT id FROM pacotes WHERE nome = 'Paris'), (SELECT id FROM pontos_turisticos WHERE nome = 'Igreja Matriz'));
+
+INSERT INTO viagens (id_guia, id_pacote, data_compra, data_horario_saida, data_horario_volta) VALUES
+((SELECT id FROM guias WHERE nome = 'Fernanda'), (SELECT id FROM pacotes WHERE nome = 'Disney')),
+((SELECT id FROM guias WHERE nome = 'Eduarda'), (SELECT id FROM pacotes WHERE nome = 'Amsterdam')),
+((SELECT id FROM guias WHERE nome = 'Marcio'), (SELECT id FROM pacotes WHERE nome = 'Orlando')),
+((SELECT id FROM guias WHERE nome = 'Marcos'), (SELECT id FROM pacotes WHERE nome = 'Paris'));
 
 
