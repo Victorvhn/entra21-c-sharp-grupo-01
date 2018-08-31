@@ -47,6 +47,7 @@ namespace Principal.Controllers
         {
             PontoTuristico pontoTuristicoModel = new PontoTuristico()
             {
+                Id =Convert.ToInt32(pontoTuristico.Id),
                 Nome = pontoTuristico.Nome.ToString(),
                 IdEndereco = Convert.ToInt32(pontoTuristico.IdEndereco)
             };

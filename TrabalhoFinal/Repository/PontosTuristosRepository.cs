@@ -53,12 +53,12 @@ namespace Repository
             }
             return pontosTuristicos;
         }
-        public int Cadastrar(PontoTuristico pontoturistico)
+        public int Cadastrar(PontoTuristico pontosturisticos)
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = "INSERT INTO pontos_turisticos (id_endereco,nome)OUTPUT INSERTED.ID VALUES(@ID_ENDERECO,@NOME)";
-            command.Parameters.AddWithValue("@NOME", pontoturistico.Nome);
-            command.Parameters.AddWithValue("@ID_ENDERECO", pontoturistico.IdEndereco);
+            command.Parameters.AddWithValue("@ID_ENDERECO", pontosturisticos.IdEndereco);
+            command.Parameters.AddWithValue("@NOME", pontosturisticos.Nome);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
