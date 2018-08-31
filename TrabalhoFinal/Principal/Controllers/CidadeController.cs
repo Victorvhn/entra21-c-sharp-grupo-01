@@ -48,7 +48,7 @@ namespace Principal.Controllers
             Cidade cidadeModel = new Cidade()
             {
                 Nome = cidade.Nome.ToString(),
-                IdEstado = Convert.ToInt32(ToString())
+                IdEstado = Convert.ToInt32(cidade.IdEstado)
             };
 
             int identificador = new CidadeRepository().Cadastrar(cidadeModel);
