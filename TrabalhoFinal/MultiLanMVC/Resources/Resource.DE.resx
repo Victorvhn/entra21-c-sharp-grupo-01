@@ -138,4 +138,7 @@
   <data name="Pais" xml:space="preserve">
     <value>Land</value>
   </data>
+  <data name="Valor" xml:space="preserve">
+    <value>Wert</value>
+  </data>
 </root>
