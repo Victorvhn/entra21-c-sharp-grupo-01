@@ -1,15 +1,15 @@
 ﻿
 $(function () {
     $('#guia-tabela').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": "/Guia/ObterTodosPorJSON",
-        "columns": [
-            { "data": "Id" },
-            { "data": "Nome" },
-            { "data": "Sobrenome" },
-            { "data": "Cpf" },
-            { "data": "Rank" },
+        processing: true,
+        serverSide: true,
+        ajax: "/Guia/ObterTodosPorJSON",
+        columns: [
+            { data: "Id" },
+            { data: "Nome" },
+            { data: "Sobrenome" },
+            { data: "Cpf" },
+            { data: "Rank" },
             {
                 data: null,
                 render: function (data, type, row) {
@@ -22,13 +22,14 @@ $(function () {
     });
 });
 
-$("#botao-excluir-guia").on("click", function () {
-    var idExcluir = $(this).data("id");
-    $a.ajax({
-        url: '/Guia/Excluir?id=' + idExcluir,
+
+$('table').on('click', '#botao-excluir-guia', function () {
+    var id = $(this).data('id');
+    $.ajax({
+        ulr: 'Guia/Excluir?id=' + id,
         method: 'get',
-        success: function (data) {
-            if (data == true) {
+        success: function (result) {
+            if (result === 1) {
                 new PNotify({
                     title: 'Desativado!',
                     text: 'Usuário desativado com sucesso',
@@ -36,8 +37,8 @@ $("#botao-excluir-guia").on("click", function () {
                 });
 
                 $('#guia-tabela').DataTable().ajax.reload();
-            }
-            else {
+
+            } else {
                 new PNotify({
                     title: 'Erro!',
                     text: 'Erro ao desativar usuário',
@@ -45,7 +46,7 @@ $("#botao-excluir-guia").on("click", function () {
                 });
             }
         }
-    });
+        });
 });
 
 $("#botao-modal-cadastrar-guia").on("click", function () {
@@ -76,7 +77,7 @@ $('table').on("click", "#botao-editar-guia", function () {
 });
 
 $("#botao-acao-editar-guia").on("click", function () {
-   
+
     $.ajax({
         url: '/Guia/Update',
         method: 'post',

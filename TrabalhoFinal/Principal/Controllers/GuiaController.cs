@@ -39,7 +39,7 @@ namespace Principal.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new GuiaRepository().Excluir(id);
-            return Content(JsonConvert.SerializeObject(new { id = apagado }));
+            return Content(JsonConvert.SerializeObject(apagado));
         }
 
         [HttpPost]
