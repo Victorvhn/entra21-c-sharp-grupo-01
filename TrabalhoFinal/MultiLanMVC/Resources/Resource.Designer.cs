@@ -59,5 +59,14 @@ namespace MultiLanMVC.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continente.
+        /// </summary>
+        internal static string Continente {
+            get {
+                return ResourceManager.GetString("Continente", resourceCulture);
+            }
+        }
     }
 }
