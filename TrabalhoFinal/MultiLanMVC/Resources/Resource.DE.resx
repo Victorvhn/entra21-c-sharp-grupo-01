@@ -123,8 +123,17 @@
   <data name="Continente" xml:space="preserve">
     <value>Kontinent</value>
   </data>
+  <data name="DataNascimento" xml:space="preserve">
+    <value>Geburtsdatum</value>
+  </data>
   <data name="Estado" xml:space="preserve">
     <value>Staat</value>
+  </data>
+  <data name="Idade" xml:space="preserve">
+    <value>Alter</value>
+  </data>
+  <data name="Nome" xml:space="preserve">
+    <value>Name</value>
   </data>
   <data name="Pais" xml:space="preserve">
     <value>Land</value>
