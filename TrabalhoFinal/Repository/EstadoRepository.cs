@@ -78,12 +78,11 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO estados (nome, id_pais 
+            command.CommandText = @"INSERT INTO estados (nome)
             OUTPUT INSERTED.ID 
-            VALUES(@NOME, @ID_PAIS))";
+            VALUES(@NOME)";
 
             command.Parameters.AddWithValue("@NOME", estado.Nome);
-            command.Parameters.AddWithValue("@ID_PAIS", estado.IdPais);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }

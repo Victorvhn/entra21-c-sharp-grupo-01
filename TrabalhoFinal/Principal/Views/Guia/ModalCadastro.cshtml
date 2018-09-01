@@ -13,6 +13,17 @@
             </div>
             <div class="modal-body">
 
+                <label for="campo-cadastro-endereco-cep">Cep</label>
+                <input name="endereco.Cep" type="text" id="campo-cadastro-endereco-cep" size="10" maxlength="8" class="form-control form-control-default" />
+                <label for="campo-cadastro-endereco-logradouro">Logradouro</label>
+                <input name="endereco.Logradouro" type="text" id="campo-cadastro-endereco-logradouro" size="150" class="form-control form-control-default" />
+                <label for="campo-cadastro-endereco-numero">Número</label>
+                <input id="campo-cadastro-endereco-numero" name="endereco.Numero" type="text" class="form-control autonumber" data-a-sep="." data-a-dec=",">
+                <label for="campo-cadastro-endereco-complemento">Complemento</label>
+                <input id="campo-cadastro-endereco-complemento" name="endereco.Complemento" type="text" class="form-control">
+                <label for="campo-cadastro-endereco-referencia">Referência</label>
+                <input id="campo-cadastro-endereco-referencia" name="endereco.Referencia" class="form-control">
+
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="campo-nome">Nome</label>
@@ -86,6 +97,9 @@
                             <option value="5">5</option>
                         </select>
                     </div>
+
+
+
                 </div>
 
             </div>

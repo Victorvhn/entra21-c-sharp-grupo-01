@@ -43,7 +43,7 @@ namespace Principal.Controllers
         {
             Estado estadoModel = new Estado()
             {
-
+                Nome = estado.Nome.ToString()
             };
 
             int identificador = new EstadoRepository().Cadastrar(estadoModel);

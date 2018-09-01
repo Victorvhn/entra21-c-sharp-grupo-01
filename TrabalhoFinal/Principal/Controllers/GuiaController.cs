@@ -43,18 +43,22 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(GuiaString guia)
+        public ActionResult Store(GuiaString guia, EnderecoString endereco)
         {
 
-           /* Endereco endereco = new Endereco()
+            Endereco enderecoModel = new Endereco()
             {
-
+                Cep = endereco.Cep.ToString(),
+                Logradouro = endereco.Logradouro.ToString(),
+                Numero = Convert.ToInt16(endereco.Numero.ToString()),
+                Referencia = endereco.Referencia.ToString(),
+                Complemento = endereco.Complemento.ToString()
             };
 
-            int codigoEndereco = new EnderecoRepository().Cadastrar(endereco);*/
+            int codigoEndereco = new EnderecoRepository().Cadastrar(enderecoModel);
 
             Guia guiaModel = new Guia();
-            //guiaModel.IdEndereco = codigoEndereco;
+            guiaModel.IdEndereco = codigoEndereco;
             guiaModel.Nome = guia.Nome.ToString();
             guiaModel.Sobrenome = guia.Sobrenome.ToString();
             guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/", "-").ToString());

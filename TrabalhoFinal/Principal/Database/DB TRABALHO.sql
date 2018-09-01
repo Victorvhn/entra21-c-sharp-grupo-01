@@ -10,28 +10,11 @@ DROP TABLE turistas;
 DROP TABLE enderecos;
 DROP TABLE cidades;
 DROP TABLE estados;
-DROP TABLE paises;
-DROP TABLE continentes;
 
-
-CREATE TABLE continentes (
-    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    nome VARCHAR(100) NOT NULL,
-);
-
-
-CREATE TABLE paises (
-    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    id_continente INT,
-    nome VARCHAR(100) NOT NULL,
-    FOREIGN KEY (id_continente) REFERENCES continentes(id)
-);
 
 CREATE TABLE estados (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    id_pais INT NOT NULL,
     nome VARCHAR(100) NOT NULL,
-    FOREIGN KEY (id_pais) REFERENCES paises(id)
 );
 
 
