@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="CidadeRepository.cs" />
     <Compile Include="Conexao.cs" />
-    <Compile Include="ContinenteRepository.cs" />
     <Compile Include="EnderecoRepository.cs" />
     <Compile Include="EstadoRepository.cs" />
     <Compile Include="GuiaRepository.cs" />
@@ -50,7 +49,6 @@
     <Compile Include="IdiomaRepository.cs" />
     <Compile Include="PacotePontosTuristicosRepository.cs" />
     <Compile Include="PacoteRepository.cs" />
-    <Compile Include="PaisRepository.cs" />
     <Compile Include="PontosTuristosRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TuristaRepository.cs" />

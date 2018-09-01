@@ -80,7 +80,7 @@ namespace Principal.Controllers
             int i = 0;
             foreach (var estado in estados)
             {
-                x[i] = new { id = estado.Id, text = estado.Nome, idpais = estado.IdPais };
+                x[i] = new { id = estado.Id, text = estado.Nome };
                 i++;
             }
 

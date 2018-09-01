@@ -1,16 +1,4 @@
-﻿﻿DROP TABLE historico_de_viagens;
-DROP TABLE viagens_turistas;
-DROP TABLE viagens;
-DROP TABLE pacotes_pontos_turisticos;
-DROP TABLE pontos_turisticos;
-DROP TABLE pacotes;
-DROP TABLE idiomas;
-DROP TABLE guias;
-DROP TABLE turistas;
-DROP TABLE enderecos;
-DROP TABLE cidades;
-DROP TABLE estados;
-
+﻿
 
 CREATE TABLE estados (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -151,34 +139,16 @@ INSERT INTO historico_de_viagens (id_pacote, data_) VALUES
 ((SELECT id FROM pacotes WHERE nome = 'Orlando'),'12-05-2016'),
 ((SELECT id FROM pacotes WHERE nome = 'Paris'),'12-10-2014');
 
-INSERT INTO continentes (nome) VALUES
-('Europeu'),
-('Asiático'),
-('Americano'),
-('Africano');
-
-INSERT INTO paises (id_continente,nome) VALUES
-((SELECT id FROM continentes WHERE nome = 'Europeu'), 'Alemanha'),
-((SELECT id FROM continentes WHERE nome = 'Asiático'), 'Japão'),
-((SELECT id FROM continentes WHERE nome = 'Americano'), 'Brasil'),
-((SELECT id FROM continentes WHERE nome = 'Africano'), 'Egito'),
-((SELECT id FROM continentes WHERE nome = 'Europeu'), 'Belgica'),
-((SELECT id FROM continentes WHERE nome = 'Asiático'), 'China'),
-((SELECT id FROM continentes WHERE nome = 'Americano'), 'Guatemala'),
-((SELECT id FROM continentes WHERE nome = 'Africano'), 'Angola'),
-((SELECT id FROM continentes WHERE nome = 'Europeu'), 'Espanha');
-
-
-INSERT INTO estados (id_pais, nome) VALUES
-((SELECT id FROM paises WHERE nome = 'Alemanha'), 'Berlim'),
-((SELECT id FROM paises WHERE nome = 'Japão'), 'Fukuoka'),
-((SELECT id FROM paises WHERE nome = 'Brasil'), 'Santa Catarina'),
-((SELECT id FROM paises WHERE nome = 'Egito'), 'siwa'),
-((SELECT id FROM paises WHERE nome = 'Belgica'), 'Somuona'),
-((SELECT id FROM paises WHERE nome = 'China'), 'Chorinchi'),
-((SELECT id FROM paises WHERE nome = 'Guatemala'), 'Azemara'),
-((SELECT id FROM paises WHERE nome = 'Angola'), 'Tunama'),
-((SELECT id FROM paises WHERE nome = 'Espanha'), 'Madri');
+INSERT INTO estados (nome) VALUES
+('Berlim'),
+('Fukuoka'),
+('Santa Catarina'),
+('siwa'),
+('Somuona'),
+('Chorinchi'),
+('Azemara'),
+('Tunama'),
+('Madri');
 
 INSERT INTO cidades (id_estado, nome) VALUES
 ((SELECT id FROM estados WHERE nome = 'Berlim'), 'Hamburgo'),

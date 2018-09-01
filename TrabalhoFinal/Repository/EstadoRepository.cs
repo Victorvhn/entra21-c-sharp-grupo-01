@@ -17,7 +17,7 @@ namespace Repository
             List<Estado> estados = new List<Estado>();
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "SELECT id, nome, id_pais FROM estados";
+            command.CommandText = "SELECT id, nome FROM estados";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -25,7 +25,6 @@ namespace Repository
                 Estado estado = new Estado()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
-                    IdPais = Convert.ToInt32(line[1].ToString()),
                     Nome = line[2].ToString()
                 };
                 estados.Add(estado);
@@ -37,7 +36,7 @@ namespace Repository
         {
             List<Estado> estados = new List<Estado>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome, id_pais FROM estados ORDER BY nome";
+            command.CommandText = "SELECT id, nome FROM estados ORDER BY nome";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -46,7 +45,6 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
                     Nome = line[1].ToString(),
-                    IdPais = Convert.ToInt32(line[2].ToString())
                 };
                 estados.Add(estado);
             }
@@ -57,7 +55,7 @@ namespace Repository
         {
             List<Estado> estados = new List<Estado>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome, id_pais FROM estados ORDER BY nome OFFSET " +
+            command.CommandText = @"SELECT id, nome FROM estados ORDER BY nome OFFSET " +
                 start + "ROWS FETCH NEXT" + length + "ROWS ONLY";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -66,7 +64,6 @@ namespace Repository
                 Estado estado = new Estado()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
-                    IdPais = Convert.ToInt32(line[1].ToString()),
                     Nome = line[2].ToString()
 
                 };
@@ -91,10 +88,9 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"UPDATE estados SET nome = @Nome, id_pais = @ID_PAIS WHERE id = @ID";
+            command.CommandText = @"UPDATE estados SET nome = @Nome WHERE id = @ID";
 
             command.Parameters.AddWithValue("@NOME", estado.Nome);
-            command.Parameters.AddWithValue("@ID_PAIS", estado.IdPais);
             command.Parameters.AddWithValue("@ID", estado.Id);
             return command.ExecuteNonQuery() == 1;
         }
@@ -114,7 +110,7 @@ namespace Repository
             Estado estado = null;
 
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT estados.nome, id_pais, pais.nome FROM estados 
+            command.CommandText = @"SELECT estados.nome FROM estados 
             JOIN estados ON (estados.id_pais = estados.id
             WHERE id =@ID)";
             command.Parameters.AddWithValue("@ID", id);
@@ -127,10 +123,6 @@ namespace Repository
                 estado = new Estado();
                 estado.Id = id;
                 estado.Nome = table.Rows[0][0].ToString();
-                estado.IdPais = Convert.ToInt32(table.Rows[0][1].ToString());
-                estado.Pais = new Pais();
-                estado.Pais.Nome = table.Rows[0][2].ToString();
-                estado.Pais.Id = Convert.ToInt32(table.Rows[0][3].ToString());
             }
             return estado;
         }
