@@ -80,6 +80,17 @@ namespace Principal.Controllers
 
         }
 
-        
+        [HttpGet]
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ModalEditar()
+        {
+            return View();
+        }
+
     }
 }

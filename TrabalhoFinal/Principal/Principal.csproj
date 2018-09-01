@@ -5556,6 +5556,8 @@
     <Content Include="Views\Guia\Index.cshtml" />
     <Content Include="Views\Guia\ModalCadastro.cshtml" />
     <Content Include="Views\Guia\ModalEditar.cshtml" />
+    <Content Include="Views\Pacote\ModalCadastro.cshtml" />
+    <Content Include="Views\Pacote\ModalEditar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

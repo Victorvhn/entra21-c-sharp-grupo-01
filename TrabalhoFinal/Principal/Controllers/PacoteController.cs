@@ -86,5 +86,17 @@ namespace Principal.Controllers
             return Content(JsonConvert.SerializeObject(new { results = x }));
 
         }
+
+        [HttpGet]
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ModalEditar()
+        {
+            return View();
+        }
     }
 }
