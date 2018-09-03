@@ -46,14 +46,12 @@ namespace Principal.Controllers
         public ActionResult Store(GuiaString guia, EnderecoString endereco)
         {
 
-            Endereco enderecoModel = new Endereco()
-            {
-                Cep = endereco.Cep.ToString(),
-                Logradouro = endereco.Logradouro.ToString(),
-                Numero = Convert.ToInt16(endereco.Numero.ToString()),
-                Referencia = endereco.Referencia.ToString(),
-                Complemento = endereco.Complemento.ToString()
-            };
+            Endereco enderecoModel = new Endereco();
+            enderecoModel.Cep = endereco.Cep.ToString();
+            enderecoModel.Logradouro = endereco.Logradouro.ToString();
+            enderecoModel.Numero = Convert.ToInt16(endereco.Numero.ToString());
+            enderecoModel.Referencia = endereco.Referencia.ToString();
+            enderecoModel.Complemento = endereco.Complemento.ToString();
 
             int codigoEndereco = new EnderecoRepository().Cadastrar(enderecoModel);
 

@@ -98,7 +98,7 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"DELETE FROM estado WHERE id = @ID";
+            command.CommandText = @"UPDATE FROM estado SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
 
@@ -110,9 +110,7 @@ namespace Repository
             Estado estado = null;
 
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT estados.nome FROM estados 
-            JOIN estados ON (estados.id_pais = estados.id
-            WHERE id =@ID)";
+            command.CommandText = "SELECT nome FROM estados WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();

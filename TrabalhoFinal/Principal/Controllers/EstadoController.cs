@@ -41,13 +41,11 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Store(EstadoString estado)
         {
-            Estado estadoModel = new Estado()
-            {
-                Nome = estado.Nome.ToString()
-            };
+            Estado estadoModel = new Estado();
+            estadoModel.Nome = estado.Nome.ToString();
 
             int identificador = new EstadoRepository().Cadastrar(estadoModel);
-            return RedirectToAction("Editar", new { id = identificador });
+            return null;
         }
 
         [HttpGet]
