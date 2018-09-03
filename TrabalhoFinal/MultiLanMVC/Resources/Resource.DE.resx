@@ -141,7 +141,7 @@
   <data name="DataNascimento" xml:space="preserve">
     <value>Geburtsdatum</value>
   </data>
-  <data name="Endereço" xml:space="preserve">
+  <data name="Endereco" xml:space="preserve">
     <value>Adresse</value>
   </data>
   <data name="Estado" xml:space="preserve">
