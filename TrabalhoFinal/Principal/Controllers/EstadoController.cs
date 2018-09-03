@@ -13,6 +13,11 @@ namespace Principal.Controllers
     public class EstadoController : Controller
     {
         // GET: Estados        
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         [HttpGet]
         public ActionResult Cadastro()
@@ -38,17 +43,19 @@ namespace Principal.Controllers
             return null;
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Store(EstadoString estado)
         {
-            Estado estadoModel = new Estado();
-            estadoModel.Nome = estado.Nome.ToString();
+            Estado estadoModel = new Estado()
+            {
+                Nome = estado.Nome.ToString()
+            };
 
             int identificador = new EstadoRepository().Cadastrar(estadoModel);
-            return null;
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Update(Estado estado)
         {
             bool alterado = new EstadoRepository().Alterar(estado);
@@ -70,6 +77,7 @@ namespace Principal.Controllers
             }));
         }
 
+        [HttpGet]
         public ActionResult ObterTodosPorJSONToSelect2()
         {
             List<Estado> estados = new EstadoRepository().ObterTodosParaSelect();
@@ -83,6 +91,18 @@ namespace Principal.Controllers
             }
 
             return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
+
+        [HttpGet]
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ModalEditar()
+        {
+            return View();
         }
     }
 }

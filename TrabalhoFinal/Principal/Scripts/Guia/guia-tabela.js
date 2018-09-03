@@ -22,7 +22,6 @@ $(function () {
     });
 });
 
-
 $('table').on('click', '#botao-excluir-guia', function () {
     var id = $(this).data('id');
     $.ajax({

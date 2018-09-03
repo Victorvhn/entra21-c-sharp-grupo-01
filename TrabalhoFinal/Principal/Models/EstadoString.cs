@@ -10,10 +10,6 @@ namespace Principal.Models
 
         public string Id { get; set; }
 
-        public string Pais { get; set; }
-
-        public string IdPais { get; set; }
-
         public string Nome { get; set; }
 
     }

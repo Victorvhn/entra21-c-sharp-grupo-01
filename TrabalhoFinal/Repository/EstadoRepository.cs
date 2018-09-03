@@ -55,8 +55,8 @@ namespace Repository
         {
             List<Estado> estados = new List<Estado>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome FROM estados ORDER BY nome OFFSET " +
-                start + "ROWS FETCH NEXT" + length + "ROWS ONLY";
+            command.CommandText = @"SELECT id, nome FROM estados WHERE ativo = 1 ORDER BY nome OFFSET " +
+                start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach(DataRow line in table.Rows)
@@ -64,13 +64,14 @@ namespace Repository
                 Estado estado = new Estado()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
-                    Nome = line[2].ToString()
+                    Nome = line[1].ToString()
 
                 };
                 estados.Add(estado);
             }
             return estados;
         }
+
         public int Cadastrar(Estado estado)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -81,6 +82,7 @@ namespace Repository
 
             command.Parameters.AddWithValue("@NOME", estado.Nome);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
+            
             return id;
         }
 
@@ -98,12 +100,11 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"UPDATE FROM estado SET ativo = 0 WHERE id = @ID";
+            command.CommandText = @"UPDATE FROM estados SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
 
         }
-
 
         public Estado ObterPeloId(int id)
         {
