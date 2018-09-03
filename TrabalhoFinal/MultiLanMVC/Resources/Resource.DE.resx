@@ -117,17 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CarteiraDeTrabalho" xml:space="preserve">
+    <value>Arbeitserlaubnis</value>
+  </data>
   <data name="Cidade" xml:space="preserve">
     <value>Stadt</value>
+  </data>
+  <data name="Classificacao" xml:space="preserve">
+    <value>Rang</value>
+  </data>
+  <data name="Complemento" xml:space="preserve">
+    <value>Ergänzen</value>
   </data>
   <data name="Continente" xml:space="preserve">
     <value>Kontinent</value>
   </data>
+  <data name="Cpf" xml:space="preserve">
+    <value>CPF</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Datum</value>
+  </data>
   <data name="DataNascimento" xml:space="preserve">
     <value>Geburtsdatum</value>
   </data>
+  <data name="Endereço" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
   <data name="Estado" xml:space="preserve">
     <value>Staat</value>
+  </data>
+  <data name="Genero" xml:space="preserve">
+    <value>Genre</value>
   </data>
   <data name="Idade" xml:space="preserve">
     <value>Alter</value>
@@ -135,8 +156,29 @@
   <data name="Nome" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Numero" xml:space="preserve">
+    <value>Nummer</value>
+  </data>
+  <data name="Pacote" xml:space="preserve">
+    <value>Paket</value>
+  </data>
   <data name="Pais" xml:space="preserve">
     <value>Land</value>
+  </data>
+  <data name="Referencia" xml:space="preserve">
+    <value>Referenz</value>
+  </data>
+  <data name="Salario" xml:space="preserve">
+    <value>Gehalt</value>
+  </data>
+  <data name="Senha" xml:space="preserve">
+    <value>Passwort</value>
+  </data>
+  <data name="Sobrenome" xml:space="preserve">
+    <value>Familienname</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>Benutzer</value>
   </data>
   <data name="Valor" xml:space="preserve">
     <value>Wert</value>
