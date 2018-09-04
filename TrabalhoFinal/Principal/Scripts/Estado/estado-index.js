@@ -77,7 +77,7 @@ $('#botao-salvar-modal-editar-estado').on('click', function () {
                     new PNotify({
                         title: 'Sucesso!',
                         text: 'Alterado com sucesso',
-                        type: 'success'
+                        type: 'info'
                     });
                 });
                 $('#estado-modal-editar').modal('hide');

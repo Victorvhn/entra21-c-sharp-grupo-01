@@ -17,3 +17,38 @@
         ]
     });
 });
+
+$('#botao-modal-cadastrar-cidade').on('click', function () {
+    limparCampos();
+    $('#cidade-modal-cadastro').modal('show');
+});
+
+$('#botao-salvar-modal-cadastrar-cidade').on('click', function () {
+    var nomeVar = $('#campo-cadastro-cidade-nome').val();
+    $.ajax({
+        url: 'Cidade/Store',
+        method: 'post',
+        data: {
+            idEstado: $('#select-modal-cadastro-cidade').val(),
+            nome: $('#campo-cadastro-cidade-nome').val()
+        },
+        success: function (data) {
+            var resultado = JSON.parse(data);
+            limparCampos();
+            $('#cidade-modal-cadastro').modal('hide');
+            $('#table-cidade').DataTable().ajax.reload();
+            $(function () {
+                new PNotify({
+                    title: 'Sucesso!',
+                    text: nomeVar + ' cadastrado com sucesso',
+                    type: 'success'
+                });
+            });
+        }
+    });
+});
+
+function limparCampos() {
+    $('#select-modal-cadastro-cidade').prop('selectedIndex', -1);
+    $('#cadastro-cidade-campo-nome').val('');
+}

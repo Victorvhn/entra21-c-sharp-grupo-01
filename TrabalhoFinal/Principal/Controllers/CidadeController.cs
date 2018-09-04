@@ -48,12 +48,13 @@ namespace Principal.Controllers
             Cidade cidadeModel = new Cidade()
             {
                 Id = Convert.ToInt32(cidade.Id),
-                Nome = cidade.Nome.ToString(),
-                IdEstado = Convert.ToInt32(cidade.IdEstado)
+                IdEstado = Convert.ToInt32(cidade.IdEstado),
+                Nome = cidade.Nome.ToString()
             };
 
             int identificador = new CidadeRepository().Cadastrar(cidadeModel);
-            return RedirectToAction("Editar", new { id = identificador});
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
+
         }
 
         [HttpPost]
