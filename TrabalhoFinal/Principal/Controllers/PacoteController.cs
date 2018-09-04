@@ -31,14 +31,26 @@ namespace Principal.Controllers
             Pacote pacotes = new PacoteRepository().ObterPeloId(id);
 
             ViewBag.Pacote = pacotes;
-            return View();
+            return Content(JsonConvert.SerializeObject(pacotes));
         }
 
         [HttpGet]
         public ActionResult Excluir(int id)
         {
             bool apagado = new PacoteRepository().Excluir(id);
-            return null;
+
+            int sucesso = 0;
+
+            if (apagado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpPost]
@@ -52,7 +64,25 @@ namespace Principal.Controllers
             }
 
             int identificador = new PacoteRepository().Cadastrar(pacoteModel);
-            return null;
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
+        }
+
+        [HttpPost]
+        public ActionResult Update(Pacote pacote)
+        {
+            bool alterado = new PacoteRepository().Alterar(pacote);
+
+            int sucesso = 0;
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpGet]

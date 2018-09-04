@@ -33,7 +33,7 @@ namespace Principal.Controllers
             HistoricoViagem historicoViagem = new HistoricoViagemRepository().ObterPeloId(id);
             ViewBag.HistoricoViagem = historicoViagem;
            
-            return View();
+            return Content(JsonConvert.SerializeObject(historicoViagem));
           
         }
 
@@ -41,7 +41,19 @@ namespace Principal.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new HistoricoViagemRepository().Excluir(id);
-            return null;
+
+            int sucesso = 0;
+
+            if (apagado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso)); 
         }
 
         [HttpPost]
@@ -54,16 +66,28 @@ namespace Principal.Controllers
             }
 
             int identificador = new HistoricoViagemRepository().Cadastrar(historicoViagemModel);
-            return null;
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
         }
 
         [HttpPost]
         public ActionResult Update(HistoricoViagem historicoViagem)
         {
-            bool altertado = new HistoricoViagemRepository().Alterar(historicoViagem);
-            return null;
+            bool alterado = new HistoricoViagemRepository().Alterar(historicoViagem);
 
+            int sucesso = 0;
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
+
+    
 
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
