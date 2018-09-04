@@ -11,7 +11,7 @@
                 data: null,
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-warning' id='botao-editar-historico-viagem' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-historico-viagem' data-id='" + row.Id + "' href='#' >Excluir</a>";
+                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-historico-viagem' data-id='" + row.Id + "' href='#' >Desativar</a>";
                 }
             }
         ]
@@ -19,19 +19,20 @@
 });
 
 
-$('#botao-modal-cadastrar-historico-viagens').on("click", function () {
+$('#botao-modal-cadastrar-historico-viagem').on("click", function () {
     limparCampos();
     $("historico-viagem-modal-cadastro").modal('show');
 });
 
 
-$('#botao-salvar-modal-cadastrar-estado').on('click', function () {
+$('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
     var idPacoteVar = $("#select-cadastro-historico-viagem-idPacote").val();
     $.ajax({
-        url: '/Estado/Store',
+        url: '/HistoricoViagem/Store',
         method: 'post',
         data: {
-            nome: $('#campo-cadastro-estado-nome').val()
+            idPacote: $('#select-cadastro-historico-viagem-idPacote').val(),
+            data: $('#campo-cadastro-historico-viagem-data').val()
         },
         success: function (data) {
             var resultado = JSON.parse(data);
@@ -58,7 +59,7 @@ $('table').on('click', '#botao-editar-historico-viagem', function () {
             var data = JSON.parse(resultado);
             $('#campo-editar-historico-viagem-id').val(data.Id);
             $('#select-editar-historico-viagem-idPacote').val(data.idPacote);
-            $('#select-editar-historico-viagem-idPacote').val(data.DateTime);
+            $('#campo-editar-historico-viagem-idPacote').val(data.DateTime);
 
             $('#historico-viagem-modal-editar').modal('show');
         }
