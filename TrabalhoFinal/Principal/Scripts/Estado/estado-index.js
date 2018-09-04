@@ -60,6 +60,39 @@ $('table').on('click', '#botao-editar-estado', function () {
     });
 });
 
+$('#botao-salvar-modal-editar-estado').on('click', function () {
+    $.ajax({
+        url: 'Estado/Update',
+        method: 'post',
+        dataType: 'json',
+        data: {
+            id: $('#campo-editar-estado-id').val(),
+            nome: $('#campo-editar-estado-nome').val()
+        },
+        success: function (data) {
+            var resultado = JSON.parse(data);
+            if (resultado == 1) {
+                $('#table-estados').DataTable().ajax.reload();
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso!',
+                        text: 'Alterado com sucesso',
+                        type: 'success'
+                    });
+                });
+                $('#estado-modal-editar').modal('hide');
+                limparCampos();
+            } else {
+                new PNotify({
+                    title: 'Erro!',
+                    text: 'Erro ao alterar',
+                    type: 'error'
+                });
+            }
+        }
+    });
+});
+
 $('table').on('click', '#botao-excluir-estado', function () {
     var id = $(this).data('id');
     var nome = $(this).data('nome');
@@ -89,4 +122,6 @@ $('table').on('click', '#botao-excluir-estado', function () {
 
 function limparCampos() {
     $('#campo-cadastro-estado-nome').val('');
+    $('#campo-editar-estado-id').val('');
+    $('#campo-editar-estado-nome').val('');
 }

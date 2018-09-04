@@ -52,17 +52,6 @@ namespace Principal.Controllers
             }
 
             return Content(JsonConvert.SerializeObject(sucesso));
-
-            /*if (apagado == true)
-            {
-                sucesso = 1;
-                return View(sucesso);
-            }
-            else
-            {
-                sucesso = 0;
-                return View(sucesso);
-            }*/
         }
 
         [HttpPost]
@@ -81,7 +70,18 @@ namespace Principal.Controllers
         public ActionResult Update(Estado estado)
         {
             bool alterado = new EstadoRepository().Alterar(estado);
-            return null;
+
+            int sucesso = 0;
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpGet]

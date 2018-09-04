@@ -79,7 +79,7 @@ $('table').on("click", "#botao-editar-guia", function () {
 });
 
 $("#botao-acao-editar-guia").on("click", function () {
-
+    var nomeVar = $("#campo-editar-guia-nome").val();
     $.ajax({
         url: '/Guia/Update',
         method: 'post',
