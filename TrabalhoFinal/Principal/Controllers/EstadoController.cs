@@ -32,15 +32,37 @@ namespace Principal.Controllers
         {
             Estado estado = new EstadoRepository().ObterPeloId(id);
             ViewBag.Estado = estado;
-           
-            return View();
+
+            return Content(JsonConvert.SerializeObject(estado));
         }
 
         [HttpGet]
         public ActionResult Excluir(int id)
         {
             bool apagado = new EstadoRepository().Excluir(id);
-            return null;
+
+            int sucesso = 0;
+            if (apagado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
+
+            /*if (apagado == true)
+            {
+                sucesso = 1;
+                return View(sucesso);
+            }
+            else
+            {
+                sucesso = 0;
+                return View(sucesso);
+            }*/
         }
 
         [HttpPost]

@@ -9,8 +9,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info' id='botao-editar-guia' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-guia' data-id='" + row.Id + "' href='#' >Excluir</a>";
+                    return "<a class='btn btn-outline-info' id='botao-editar-estado' data-id='" + row.Id + "'>Editar</a>" +
+                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-estado' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
                 }
             }
         ]
@@ -34,6 +34,7 @@ $('#botao-salvar-modal-cadastrar-estado').on('click', function () {
             var resultado = JSON.parse(data);
             limparCampos();
             $('#estado-modal-cadastro').modal('hide');
+            $('#table-estados').DataTable().ajax.reload();
             $(function () {
                 new PNotify({
                     title: 'Sucesso!',
@@ -41,11 +42,51 @@ $('#botao-salvar-modal-cadastrar-estado').on('click', function () {
                     type: 'success'
                 });
             });
-            $('#estado-modal-cadastro').DataTable().ajax.reload();
+        }
+    });
+});
+
+$('table').on('click', '#botao-editar-estado', function () {
+    var id = $(this).data('id');
+    $.ajax({
+        url: 'Estado/Editar?id=' + id,
+        success: function (resultado) {
+            var data = JSON.parse(resultado);
+            $('#campo-editar-estado-id').val(data.Id);
+            $('#campo-editar-estado-nome').val(data.Nome);
+
+            $('#estado-modal-editar').modal('show');
+        }
+    });
+});
+
+$('table').on('click', '#botao-excluir-estado', function () {
+    var id = $(this).data('id');
+    var nome = $(this).data('nome');
+    $.ajax({
+        url: 'Estado/Excluir?id=' + id,
+        method: 'get',
+        success: function (resultado) {
+            if (resultado == 1) {
+                new PNotify({
+                    title: 'Desativado!',
+                    text: nome + ' desativado com sucesso',
+                    type: 'success'
+                });
+
+                $('#table-estados').DataTable().ajax.reload();
+
+            } else {
+                new PNotify({
+                    title: 'Erro!',
+                    text: 'Erro ao desativar ' + nome,
+                    type: 'error'
+                });
+            }
         }
     });
 });
 
 function limparCampos() {
-    $('#campo-cadastro-estado-nome')
+    $('#campo-cadastro-estado-nome').val('');
 }

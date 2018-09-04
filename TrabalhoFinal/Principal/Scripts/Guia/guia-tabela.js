@@ -28,7 +28,9 @@ $('table').on('click', '#botao-excluir-guia', function () {
         ulr: 'Guia/Excluir?id=' + id,
         method: 'get',
         success: function (result) {
-            if (result === 1) {
+            var apagado = JSON.parse(result)
+            if (apagado == 1) {
+
                 new PNotify({
                     title: 'Desativado!',
                     text: 'Usuário desativado com sucesso',
@@ -36,8 +38,9 @@ $('table').on('click', '#botao-excluir-guia', function () {
                 });
 
                 $('#guia-tabela').DataTable().ajax.reload();
-
+                
             } else {
+                
                 new PNotify({
                     title: 'Erro!',
                     text: 'Erro ao desativar usuário',
@@ -45,7 +48,7 @@ $('table').on('click', '#botao-excluir-guia', function () {
                 });
             }
         }
-        });
+    });
 });
 
 $("#botao-modal-cadastrar-guia").on("click", function () {
@@ -131,6 +134,7 @@ $("#botao-salvar-modal-cadastrar-guia").on("click", function () {
             var resultado = JSON.parse(data);
             limparCampos();
             $("#guia-modal-cadastro").modal('hide');
+            $('#guia-tabela').DataTable().ajax.reload();
             $(function () {
                 new PNotify({
                     title: 'Sucesso!',
@@ -138,7 +142,6 @@ $("#botao-salvar-modal-cadastrar-guia").on("click", function () {
                     type: 'success'
                 });
             });
-            $('#guia-tabela').DataTable().ajax.reload();
         }
     });
 });

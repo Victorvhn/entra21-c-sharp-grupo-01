@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="estado-modal-editar" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <input type="hidden" id="campo-editar-estado-id" name="estado.Id">
+
+                <div class="form-group">
+                    <label for="editar-estado-campo-nome">Nome</label>
+                    <input type="text" id="campo-editar-estado-nome" class="form-control" name="estado.Nome" />
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-editar-estado">Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-editar-estado">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>

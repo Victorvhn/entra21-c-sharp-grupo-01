@@ -100,7 +100,7 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"UPDATE FROM estados SET ativo = 0 WHERE id = @ID";
+            command.CommandText = @"UPDATE estados SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
 
