@@ -130,6 +130,8 @@ $('table').on('click', '#botao-excluir-historico-viagem', function () {
 });
 
 function limparCampos() {
-    $("#select-cadastro-historicoViagens-idPacote").val(- 1);
+    $("#select-cadastro-historico-viagem-idPacote").prop('selectedIndex', - 1);  
     $("#campo-cadastro-historicoViagens-data").val("");
+    $("#select-editar-historicoViagens-idPacote").prop('selectedIndex', - 1);
+    $("#campo-editar-historicoViagens-data").val("");
 }

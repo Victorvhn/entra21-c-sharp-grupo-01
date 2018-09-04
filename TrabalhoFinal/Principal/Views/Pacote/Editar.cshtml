@@ -3,26 +3,33 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Editar</h2>
+
+<div>
+    <div class="col-md-12">
+        <h1 class="text-primary text-center">Editar  Pacote</h1>
+        <br />
+    </div>
+</div>
+
 <form action="/Pacote/Update" method="post">
-    <input type="hidden" name="pacotes.Id"  value="@ViewBag.Pacote.Id" id="editar-campo-pacote-id" />
+    <input type="hidden" name="pacotes.Id"   id="editar-campo-pacote-id" />
     <div class="form-group">
         <label for="cadastro-pacote-campo-nome">
             Nome
         </label>
-               <input type="text" id="editar-campo-pacote-nome" class="form-control" value="@ViewBag.Pacote.Nome" name="pacote.Nome" />
+               <input type="text" id="editar-campo-pacote-nome" class="form-control"  name="pacote.Nome" />
     </div>
     <div>
         <label for="cadastro-pacote-campo-valor">
             Valor
         </label>
-        <input type="text" id="editar-campo-pacote-campo-valor" class="form-control" value="@ViewBag.Pacote.Valor" name="pacote.Valor" />
+        <input type="text" id="editar-campo-pacote-campo-valor" class="form-control"  name="pacote.Valor" />
     </div>
     <div>
         <label for="cadastro-pacote-campo-percentual-desconto">
             Percentual de Desconto
         </label>
-        <input type="text" id="editar-campo-pacote-campo-percentual-desconto" class="form-control" value="@ViewBag.Pacote.PercentualMaximoDesconto" name="pacote.PercentualMaximoDesconto">
+        <input type="text" id="editar-campo-pacote-campo-percentual-desconto" class="form-control"  name="pacote.PercentualMaximoDesconto">
     </div>
     <div>
         <button type="submit" class="btn btn-success float-right">

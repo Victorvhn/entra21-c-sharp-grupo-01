@@ -5,6 +5,7 @@
 }
 
 
+<button type="button" class="btn btn-primary waves-effect" id="botao-modal-cadastrar-pacote">Cadastrar</button>
 
 <div class="card">
     <div class="card-header">
@@ -13,7 +14,7 @@
     </div>
     <div class="card-block">
         <div class="table-responsive">
-            <table class="table table-de"  id="pacote-tabela">
+            <table class="table table-de" id="pacote-tabela">
                 <thead>
                     <tr>
                         <th>Código</th>
@@ -26,17 +27,20 @@
                 <tbody></tbody>
                 <tfoot>
                     <tr>
-                    <th>Código</th>
-                    <th>Nome</th>
-                    <th>Valor</th>                     
-                    <th>Desconto</th>                    
-                    <th>Ação</th>
-                </tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Desconto</th>
+                        <th>Ação</th>
+                    </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
+
+@Html.Partial("~/Views/Pacote/ModalCadastro.cshtml")
+@Html.Partial("~/Views/Pacote/ModalEditar.cshtml")
 
 @section script{
     <script src="~/Scripts/Pacote/pacote-tabela.js"></script>
