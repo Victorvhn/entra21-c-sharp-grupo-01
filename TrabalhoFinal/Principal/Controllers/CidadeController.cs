@@ -32,14 +32,25 @@ namespace Principal.Controllers
         {
             Cidade cidade = new CidadeRepository().ObterPeloId(id);           
             ViewBag.Cidade = cidade;
-            return View();
+            return Content(JsonConvert.SerializeObject(cidade));
         }
 
         [HttpGet]
         public ActionResult Excluir(int id)
         {
             bool apagado = new CidadeRepository().Excluir(id);
-            return null;
+
+            int sucesso = 0;
+            if (apagado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpPost]
@@ -61,7 +72,18 @@ namespace Principal.Controllers
         public ActionResult Update(Cidade cidade)
         {
             bool alterado = new CidadeRepository().Alterar(cidade);
-            return RedirectToAction("Index");
+
+            int sucesso = 0;
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
 
 
         }

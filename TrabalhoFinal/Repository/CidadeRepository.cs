@@ -37,7 +37,7 @@ namespace Repository
         {
             List<Cidade> cidades = new List<Cidade>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT c.id, e.nome, c.nome, e.id FROM cidades c INNER JOIN estados e ON (e.id = c.id_estado) ORDER BY c.nome 
+            command.CommandText = @"SELECT c.id, e.nome, c.nome, e.id FROM cidades c INNER JOIN estados e ON (e.id = c.id_estado) WHERE c.ativo = 1 ORDER BY c.nome 
                                     OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
             DataTable table = new DataTable();
@@ -108,7 +108,7 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"DELETE FROM cidades WHERE id = @ID";
+            command.CommandText = @"UPDATE cidades SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
 
