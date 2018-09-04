@@ -13,6 +13,7 @@ namespace Principal.Controllers
     public class CidadeController : Controller
     {
         // GET: Cidade
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -33,7 +34,6 @@ namespace Principal.Controllers
             ViewBag.Cidade = cidade;
             return View();
         }
-
 
         [HttpGet]
         public ActionResult Excluir(int id)
@@ -56,6 +56,16 @@ namespace Principal.Controllers
             return RedirectToAction("Editar", new { id = identificador});
         }
 
+        [HttpPost]
+        public ActionResult Update(Cidade cidade)
+        {
+            bool alterado = new CidadeRepository().Alterar(cidade);
+            return RedirectToAction("Index");
+
+
+        }
+
+        [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
             string start = Request.QueryString["start"];
@@ -66,14 +76,6 @@ namespace Principal.Controllers
             {
                 data = cidades
             }));
-        }
-
-        public ActionResult Update(Cidade cidade)
-        {
-            bool alterado = new CidadeRepository().Alterar(cidade);
-            return RedirectToAction("Index");
-
-
         }
 
         [HttpGet]
@@ -91,6 +93,18 @@ namespace Principal.Controllers
             }
 
             return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
+
+        [HttpGet]
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ModalEditar()
+        {
+            return View();
         }
     }
 }
