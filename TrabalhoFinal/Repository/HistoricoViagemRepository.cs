@@ -38,9 +38,7 @@ namespace Repository
                 historicoViagens.Add(historicoViagem);
             }
             return historicoViagens;
-        }
-
-        
+        }        
 
         public List<HistoricoViagem> ObterTodosParaJSON(string start, string length)
         {

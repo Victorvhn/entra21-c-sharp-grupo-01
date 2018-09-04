@@ -94,7 +94,6 @@ namespace Principal.Controllers
 
             return Content(JsonConvert.SerializeObject(new
             {
-
                 data = estados
             }));
         }

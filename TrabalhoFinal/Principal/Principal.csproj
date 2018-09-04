@@ -5152,6 +5152,7 @@
     <Content Include="Database\DB TRABALHO.sql" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Cidade\Cadastro\select2-cadastro-cidade.js" />
+    <Content Include="Scripts\Cidade\cidade-index.js" />
     <Content Include="Scripts\Continente\continente-table.js" />
     <Content Include="Scripts\Endereco\endereco-table.js" />
     <Content Include="Scripts\Estado\Cadastro\select2-cadastro-estado.js" />
