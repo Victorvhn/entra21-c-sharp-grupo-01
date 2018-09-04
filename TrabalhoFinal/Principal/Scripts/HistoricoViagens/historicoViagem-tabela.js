@@ -41,7 +41,7 @@ $('table').on('click', '#botao-excluir-historico-viagem', function () {
                 });
             }
         }
-        });
+    });
 });
 
 
