@@ -26,7 +26,7 @@ $('#botao-modal-cadastrar-cidade').on('click', function () {
 $('#botao-salvar-modal-cadastrar-cidade').on('click', function () {
     var nomeVar = $('#campo-cadastro-cidade-nome').val();
     $.ajax({
-        url: 'Cidade/Store',
+        url: '/Cidade/Store',
         method: 'post',
         data: {
             idEstado: $('#select-modal-cadastro-cidade').val(),
@@ -66,8 +66,8 @@ $('table').on('click', '#botao-editar-cidade', function () {
 
 $('#botao-salvar-modal-editar-cidade').on('click', function () {
     $.ajax({
-        ulr: '/Cidade/Update',
-        method: 'post',
+        url: '/Cidade/Update',
+        method: 'Post',
         dataType: 'json',
         data: {
             id: $('#campo-editar-cidade-id').val(),
@@ -77,7 +77,6 @@ $('#botao-salvar-modal-editar-cidade').on('click', function () {
         success: function (data) {
             var resultado = JSON.parse(data);
             if (resultado == 1) {
-                $('#table-cidade').DataTable.ajax.reload();
                 $(function () {
                     new PNotify({
                         title: 'Sucesso!',
@@ -85,6 +84,7 @@ $('#botao-salvar-modal-editar-cidade').on('click', function () {
                         type: 'info'
                     });
                 });
+                $('#table-cidade').DataTable().ajax.reload();
                 $('#cidade-modal-editar').modal('hide');
                 limparCamposCidadeEditar();
             } else {
