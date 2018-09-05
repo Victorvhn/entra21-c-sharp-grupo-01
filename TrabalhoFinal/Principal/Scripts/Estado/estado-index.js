@@ -99,7 +99,8 @@ $('table').on('click', '#botao-excluir-estado', function () {
     $.ajax({
         url: 'Estado/Excluir?id=' + id,
         method: 'get',
-        success: function (resultado) {
+        success: function (data) {
+            var resultado = JSON.parse(data);
             if (resultado == 1) {
                 new PNotify({
                     title: 'Desativado!',

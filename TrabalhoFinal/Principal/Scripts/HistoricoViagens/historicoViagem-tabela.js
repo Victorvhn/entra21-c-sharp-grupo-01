@@ -102,8 +102,9 @@ $('table').on('click', '#botao-excluir-historico-viagem', function () {
     $.ajax({
         url: 'HistoricoViagem/Excluir?id=' + id,
         method: 'get',
-        success: function (resultado) {
+        success: function (data) {
             if (resultado == 1) {
+                var resultado = JSON.parse(data);
                 new PNotify({
                     title: 'Desativado!',
                     text: 'Viagem desativada com sucesso',

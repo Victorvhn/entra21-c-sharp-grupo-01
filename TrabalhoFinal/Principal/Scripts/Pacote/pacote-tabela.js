@@ -107,7 +107,8 @@ $('table').on('click', '#botao-excluir-pacote', function () {
     $.ajax({
         url: 'Pacote/Excluir?id=' + id,
         method: 'get',
-        success: function (resultado) {
+        success: function (data) {
+            var resultado = JSON.parse(data);
             if (resultado == 1) {
                 new PNotify({
                     title: 'Desativado!',
