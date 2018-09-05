@@ -11,7 +11,7 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-warning' id='botao-editar-pacote' data-id='" + row.Id + "'>Editar</a>" +
+                    return "<a class='btn btn-outline-warning' id='botao-editar-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1' id='botao-excluir-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
                 }
             }
@@ -19,12 +19,10 @@
     });
 });
 
-
 $('#botao-modal-cadastrar-pacote').on('click', function () {
     limparCampos();
     $('#pacote-modal-cadastro').modal('show');
 });
-
 
 $('#botao-salvar-modal-cadastrar-pacote').on('click', function () {
     var nomeVar = $("#campo-cadastro-pacote-nome").val();
@@ -52,7 +50,6 @@ $('#botao-salvar-modal-cadastrar-pacote').on('click', function () {
     });
 });
 
-
 $('table').on('click', '#botao-editar-pacote', function () {
     var id = $(this).data('id');
     $.ajax({
@@ -68,7 +65,6 @@ $('table').on('click', '#botao-editar-pacote', function () {
         }
     });
 });
-
 
 $('#botao-salvar-modal-editar-pacote').on('click', function () {
     $.ajax({
@@ -105,7 +101,6 @@ $('#botao-salvar-modal-editar-pacote').on('click', function () {
     });
 });
 
-
 $('table').on('click', '#botao-excluir-pacote', function () {
     var id = $(this).data('id');
     var nome = $(this).data('nome');
@@ -116,7 +111,7 @@ $('table').on('click', '#botao-excluir-pacote', function () {
             if (resultado == 1) {
                 new PNotify({
                     title: 'Desativado!',
-                    text: idPacote + ' desativado com sucesso',
+                    text: nome + ' desativado com sucesso',
                     type: 'success'
                 });
 

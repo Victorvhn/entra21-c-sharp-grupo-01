@@ -37,7 +37,7 @@ namespace Repository
         {
             List<Pacote> pacotes = new List<Pacote>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome FROM pacotes  WHERE ativo = 1 ORDER BY nome";
+            command.CommandText = "SELECT id, nome FROM pacotes WHERE ativo = 1 ORDER BY nome";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -56,7 +56,7 @@ namespace Repository
         {
             List<Pacote> pacotes = new List<Pacote>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome, valor, percentual_max_desconto FROM pacotes ORDER BY nome OFFSET " +
+            command.CommandText = @"SELECT id, nome, valor, percentual_max_desconto FROM pacotes WHERE ativo = 1 ORDER BY nome OFFSET " +
                start + " ROWS FETCH NEXT "
                + length + " ROWS ONLY  ";
             DataTable table = new DataTable();
@@ -114,6 +114,7 @@ namespace Repository
             }
             return pacote;
         }
+
         public bool Alterar(Pacote pacote)
         {
             SqlCommand command = new Conexao().ObterConexao();

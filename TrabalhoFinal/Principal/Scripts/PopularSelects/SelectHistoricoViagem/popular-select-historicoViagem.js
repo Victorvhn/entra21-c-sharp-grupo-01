@@ -2,8 +2,7 @@
     $('#select-cadastro-historico-viagem-idpacote').select2({
         ajax: {
             url: '/Pacote/ObterTodosPorJSONToSelect2',
-            dataType: 'json',
+            dataType: 'json'
         }
     });
-
 });

@@ -110,7 +110,8 @@ namespace Principal.Controllers
             int i = 0;
             foreach (var pacote in pacotes)
             {
-                x[i++] = new { id = pacote.Id, text = pacote.Nome };
+                x[i] = new { id = pacote.Id, text = pacote.Nome };
+                i++;
             }
 
             return Content(JsonConvert.SerializeObject(new { results = x }));

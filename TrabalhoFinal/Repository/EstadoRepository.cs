@@ -36,7 +36,7 @@ namespace Repository
         {
             List<Estado> estados = new List<Estado>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome FROM estados ORDER BY nome";
+            command.CommandText = "SELECT id, nome FROM estados WHERE ativo = 1 ORDER BY nome";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)

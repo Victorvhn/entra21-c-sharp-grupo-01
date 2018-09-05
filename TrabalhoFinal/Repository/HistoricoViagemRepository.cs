@@ -44,8 +44,8 @@ namespace Repository
         {
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT hv.id, p.id, hv.id_pacote, hv.data_, p.nome FROM historico_de_viagens hv  WHERE ativo = 1
-            INNER JOIN pacotes p ON (p.id = hv.id_pacote)";
+            command.CommandText = @"SELECT hv.id, p.id, hv.id_pacote, hv.data_, p.nome FROM historico_de_viagens hv
+            INNER JOIN pacotes p ON (p.id = hv.id_pacote) WHERE hv.ativo = 1";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -67,7 +67,6 @@ namespace Repository
             }
             return historicoViagens;
         }
-
 
         public int Cadastrar(HistoricoViagem historicoViagem)
         {

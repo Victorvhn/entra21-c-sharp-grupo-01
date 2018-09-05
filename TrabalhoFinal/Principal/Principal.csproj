@@ -5165,7 +5165,6 @@
     <Content Include="Scripts\PontoTuristico\Cadastro\select2-cadastro-pontoturistico.js" />
     <Content Include="Scripts\PontoTuristico\Table\pontoturistico-table.js" />
     <Content Include="Scripts\PopularSelects\SelectCidade\popular-select-cidade.js" />
-    <Content Include="Scripts\PopularSelects\SelectContinente\popular-select-continente.js" />
     <Content Include="Scripts\PopularSelects\SelectEstado\popular-select-estado.js" />
     <Content Include="Scripts\PopularSelects\SelectHistoricoViagem\popular-select-historicoViagem.js" />
     <Content Include="Scripts\PopularSelects\SelectPontoTuristico\popular-select-pontoturistico.js" />

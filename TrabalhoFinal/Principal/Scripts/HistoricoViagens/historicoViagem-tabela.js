@@ -10,7 +10,7 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-warning' id='botao-editar-historico-viagem' data-id='" + row.Id + "'>Editar</a>" +
+                    return "<a class='btn btn-outline-warning' id='botao-editar-historico-viagem' >Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1' id='botao-excluir-historico-viagem' data-id='" + row.Id + "' href='#' >Desativar</a>";
                 }
             }
@@ -18,12 +18,10 @@
     });
 });
 
-
 $('#botao-modal-cadastrar-historico-viagem').on("click", function () {
     limparCampos();
-    $("historico-viagem-modal-cadastro").modal('show');
+    $("#historico-viagem-modal-cadastro").modal('show');
 });
-
 
 $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
     var idPacoteVar = $("#select-cadastro-historico-viagem-idPacote").val();
@@ -50,7 +48,6 @@ $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
     });
 });
 
-
 $('table').on('click', '#botao-editar-historico-viagem', function () {
     var id = $(this).data('id');
     $.ajax({
@@ -65,7 +62,6 @@ $('table').on('click', '#botao-editar-historico-viagem', function () {
         }
     });
 });
-
 
 $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
     $.ajax({
@@ -101,10 +97,8 @@ $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
     });
 });
 
-
 $('table').on('click', '#botao-excluir-historico-viagem', function () {
     var id = $(this).data('id');
-    var idPacote = $(this).data('idPacote');
     $.ajax({
         url: 'HistoricoViagem/Excluir?id=' + id,
         method: 'get',
@@ -112,7 +106,7 @@ $('table').on('click', '#botao-excluir-historico-viagem', function () {
             if (resultado == 1) {
                 new PNotify({
                     title: 'Desativado!',
-                    text: idPacote + ' desativado com sucesso',
+                    text: 'Viagem desativada com sucesso',
                     type: 'success'
                 });
 
@@ -121,7 +115,7 @@ $('table').on('click', '#botao-excluir-historico-viagem', function () {
             } else {
                 new PNotify({
                     title: 'Erro!',
-                    text: 'Erro ao desativar ' + nome,
+                    text: 'Erro ao desativar viagem',
                     type: 'error'
                 });
             }
