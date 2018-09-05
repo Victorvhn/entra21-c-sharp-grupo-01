@@ -37,7 +37,7 @@ namespace Repository
         {
             List<Pacote> pacotes = new List<Pacote>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome FROM pacotes ORDER BY nome";
+            command.CommandText = "SELECT id, nome FROM pacotes  WHERE ativo = 1 ORDER BY nome";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -89,7 +89,7 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "DELETE FROM pacotes WHERE id = @ID";
+            command.CommandText = @"UPDATE pacotes SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
         }

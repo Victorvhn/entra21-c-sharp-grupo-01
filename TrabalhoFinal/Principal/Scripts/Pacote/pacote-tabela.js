@@ -116,7 +116,7 @@ $('table').on('click', '#botao-excluir-pacote', function () {
             if (resultado == 1) {
                 new PNotify({
                     title: 'Desativado!',
-                    text: nome + ' desativado com sucesso',
+                    text: idPacote + ' desativado com sucesso',
                     type: 'success'
                 });
 
@@ -132,6 +132,7 @@ $('table').on('click', '#botao-excluir-pacote', function () {
         }
     });
 });
+
 
 function limparCampos() {
     $('#campo-cadastro-pacote-nome').val('');

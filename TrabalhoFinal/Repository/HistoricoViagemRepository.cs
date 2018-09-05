@@ -44,7 +44,7 @@ namespace Repository
         {
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT hv.id, p.id, hv.id_pacote, hv.data_, p.nome FROM historico_de_viagens hv
+            command.CommandText = @"SELECT hv.id, p.id, hv.id_pacote, hv.data_, p.nome FROM historico_de_viagens hv  WHERE ativo = 1
             INNER JOIN pacotes p ON (p.id = hv.id_pacote)";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
@@ -97,7 +97,7 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"DELETE FROM historico_de_viagens WHERE id = @ID";
+            command.CommandText = @"UPDATE historico_de_viagens SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
 
