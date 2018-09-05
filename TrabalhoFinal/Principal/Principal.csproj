@@ -5568,7 +5568,6 @@
   <ItemGroup>
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
