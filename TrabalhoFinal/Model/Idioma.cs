@@ -10,10 +10,6 @@ namespace Model
     {
         public int Id { get; set; }
 
-        public Guia Guia { get; set; }
-
-        public int IdGuia{ get; set; }
-
         public string Nome { get; set; }
     }
 }
