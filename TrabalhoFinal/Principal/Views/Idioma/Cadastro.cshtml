@@ -4,26 +4,29 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Cadastro</h2>
-<form action="/Idioma/Store" method="post">
-    <div class="form-group">
-       
+<div>
+    <div class="col-md-12">
+        <h1 class="text-priamry text-center">Cadastro Idioma</h1>
+        <br />
     </div>
-    <div class="form-group">
+</div>
+<form action="/Idioma/Store" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <labe for="campo-idioma"> Idioma</labe>
         <label for="cadastro-idioma-campo-nome">Nome</label>
         <input type="text" id="cadastro-idioma-campo-nome" class="form-control" value="@ViewBag.Idioma.Nome" name="idioma.Nome" />
-
+        </div>
     </div>
-    <div>
-        <button type="submit" class="btn btn-success float-right">
-            <i class="fa fa-save"></i>Cadastrar
+    <div class="col-md-12">
+        <button type="submit" class="brighttheme-icon-notice brn-outline-success float-right">
+            <i class="fa fa-save"></i> Cadastrar
         </button>
+
     </div>
 </form>
 
-@section script{
-    <script scr="~/Scripts/Idioma/Cadastro/select2-cadastro-idioma.js"></script>
-}
+
 
 
 
