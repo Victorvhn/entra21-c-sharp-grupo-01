@@ -5555,7 +5555,6 @@
     <Content Include="Views\HistoricoViagem\ModalEditar.cshtml" />
     <Content Include="Views\Cidade\ModalCadastro.cshtml" />
     <Content Include="Views\Cidade\ModalEditar.cshtml" />
-    <Content Include="Views\Idioma\ModalCadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
