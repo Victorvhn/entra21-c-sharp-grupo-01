@@ -32,7 +32,7 @@ $('#botao-salvar-modal-cadastrar-pacote').on('click', function () {
         data: {
             nome: $('#campo-cadastro-pacote-nome').val(),
             valor: $('#campo-cadastro-pacote-valor').val(),
-            percentualMaximoDesconto: $('#campo-cadastro-percentualMaximoDesconto')
+            percentualMaximoDesconto: $('#campo-cadastro-percentualMaximoDesconto').val()
         },
         success: function (data) {
             var resultado = JSON.parse(data);

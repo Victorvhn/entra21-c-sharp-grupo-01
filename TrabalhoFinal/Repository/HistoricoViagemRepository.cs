@@ -25,7 +25,7 @@ namespace Repository
             {
                 HistoricoViagem historicoViagem = new HistoricoViagem()
                 {
-                    Id = Convert.ToInt32(line[0].ToString()), 
+                    Id = Convert.ToInt32(line[0].ToString()),
                     IdPacote = Convert.ToInt32(line[2].ToString()),
                     Data = Convert.ToDateTime(line[3].ToString()),
                     Pacote = new Pacote()
@@ -33,12 +33,12 @@ namespace Repository
                         Id = Convert.ToInt32(line[1].ToString()),
                         Nome = line[4].ToString()
                     }
-                    
+
                 };
                 historicoViagens.Add(historicoViagem);
             }
             return historicoViagens;
-        }        
+        }
 
         public List<HistoricoViagem> ObterTodosParaJSON(string start, string length)
         {
@@ -118,13 +118,17 @@ namespace Repository
 
             if (table.Rows.Count == 1)
             {
-                historicoViagem = new HistoricoViagem();
-                historicoViagem.Id = id;
-                historicoViagem.Data = Convert.ToDateTime(table.Rows[0][0].ToString());
-                historicoViagem.IdPacote = Convert.ToInt32(table.Rows[0][1].ToString());
-                historicoViagem.Pacote = new Pacote();
-                historicoViagem.Pacote.Nome = table.Rows[0][2].ToString();
-                historicoViagem.Pacote.Id = Convert.ToInt32(table.Rows[0][3].ToString());
+                historicoViagem = new HistoricoViagem()
+                {
+                    Id = id,
+                    Data = Convert.ToDateTime(table.Rows[0][0].ToString()),
+                    IdPacote = Convert.ToInt32(table.Rows[0][1].ToString()),
+                    Pacote = new Pacote()
+                    {
+                        Nome = table.Rows[0][2].ToString(),
+                        Id = Convert.ToInt32(table.Rows[0][3].ToString()),
+                    }
+                };
             }
             return historicoViagem;
         }
