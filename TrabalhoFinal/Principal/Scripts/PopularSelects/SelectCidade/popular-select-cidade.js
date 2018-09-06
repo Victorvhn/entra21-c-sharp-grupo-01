@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     $('#select-modal-cadastro-cidade').select2({
         ajax: {
-            url: '/Estado/ObterTodosPorJSONToSelect2',
+            url: '/Cidade/ObterTodosPorJSONParaSelect2',
             dataType: 'json'
         }
     });

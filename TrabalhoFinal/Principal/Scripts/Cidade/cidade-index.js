@@ -56,7 +56,7 @@ $('table').on('click', '#botao-editar-cidade', function () {
         success: function (resultado) {
             var data = JSON.parse(resultado);
             $('#campo-editar-cidade-id').val(data.Id);
-            $('#select-modal-editar-cidade').val(data.idEstado);
+            $('#select-modal-editar-cidade :selected').text(data.idEstado);
             $('#campo-editar-cidade-nome').val(data.Nome);
 
             $('#cidade-modal-editar').modal('show');            
@@ -127,7 +127,7 @@ $('table').on('click', '#botao-excluir-cidade', function () {
 });
 
 function limparCamposCidadeCadastro() {
-    $('#select-modal-cadastro-cidade').val('-1');
+    $('#select-modal-cadastro-cidade').val('');
     $('#campo-cadastro-cidade-nome').val('');
 }
 

@@ -102,7 +102,7 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
-        public ActionResult ObterTodosPorJSONSelect2()
+        public ActionResult ObterTodosPorJSONParaSelect2()
         {
 
             List<Cidade> cidades = new CidadeRepository().ObterTodosParaSelect();

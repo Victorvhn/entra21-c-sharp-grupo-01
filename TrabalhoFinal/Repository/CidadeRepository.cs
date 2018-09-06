@@ -65,7 +65,7 @@ namespace Repository
         {
             List<Cidade> cidades = new List<Cidade>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome, id_estado FROM cidades";
+            command.CommandText = "SELECT id, nome, id_estado FROM cidades WHERE ativo = 1 ORDER BY nome";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -73,8 +73,8 @@ namespace Repository
                 Cidade cidade = new Cidade()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
-                    IdEstado = Convert.ToInt32(line[1].ToString()),
-                    Nome = line[2].ToString()
+                    Nome = line[1].ToString(),
+                    IdEstado = Convert.ToInt32(line[2].ToString())
                 };
                 cidades.Add(cidade);
             }
