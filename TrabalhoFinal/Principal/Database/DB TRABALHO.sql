@@ -4,12 +4,18 @@ DROP TABLE viagens;
 DROP TABLE pacotes_pontos_turisticos;
 DROP TABLE pontos_turisticos;
 DROP TABLE pacotes;
-DROP TABLE idiomas;
 DROP TABLE guias;
 DROP TABLE turistas;
 DROP TABLE enderecos;
 DROP TABLE cidades;
 DROP TABLE estados;
+DROP TABLE idiomas;
+
+CREATE TABLE idiomas (
+    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    nome VARCHAR(100),
+	ativo BIT DEFAULT '1',
+);
 
 CREATE TABLE estados (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -77,17 +83,6 @@ CREATE TABLE guias (
     rank_ SMALLINT, 
     FOREIGN KEY (id_endereco) REFERENCES enderecos(id)
 );
-
-
-CREATE TABLE idiomas (
-    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    id_guia INT,
-    nome VARCHAR(100),
-	ativo BIT DEFAULT '1',
-    FOREIGN KEY (id_guia) REFERENCES guias(id)
-);
-
-
 
 CREATE TABLE pacotes (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -207,11 +202,11 @@ INSERT INTO guias (id_endereco, nome, sobrenome, data_nascimento, sexo, cpf, rg,
 ((SELECT id FROM enderecos WHERE cep = 14785236 AND numero =  987), 'Eduarda', 'Volx', '07-02-1995', 'Feminino',  54896325418, 5789632, 22136547894, 4000, 'A', 2),
 ((SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'Feminino', 47896521478, 4789654, 78987456321, 1500, 'ABC', 1);
 
-INSERT INTO idiomas (id_guia, nome) VALUES
-((SELECT id FROM guias WHERE nome = 'Marcos'), 'Ingles'),
-((SELECT id FROM guias WHERE nome = 'Marcio'), 'Alemão'),
-((SELECT id FROM guias WHERE nome = 'Eduarda'), 'Ingles'),
-((SELECT id FROM guias WHERE nome = 'Fernanda'), 'Alemão');
+INSERT INTO idiomas (nome) VALUES
+('Ingles'),
+('Alemão'),
+('Ingles'),
+('Alemão');
 
 INSERT INTO pontos_turisticos (id_endereco, nome) VALUES
 ((SELECT id FROM enderecos WHERE cep = 96325777 AND numero = 777), 'Praça dos Reis'),
