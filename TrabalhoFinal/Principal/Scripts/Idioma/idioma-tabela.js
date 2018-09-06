@@ -93,7 +93,33 @@ $('#botao-salvar-modal-editar-idioma').on('click', function () {
     });
 });
 
+$('table').on('click', '#botao-excluir-idioma', function () {
+    var id = $(this).data('id');
+    var nome = $(this).data('nome');
+    $.ajax({
+        url: 'Idioma/Excluir?id=' + id,
+        method: 'get',
+        success: function (data) {
+            var resultado = JSON.parse(data);
+            if (resultado == 1) {
+                new PNotify({
+                    title: 'Desativado!',
+                    text: nome + 'desativado com sucesso',
+                    type: 'success'
+                });
 
+                $('#table-idiomas').DataTable().ajax.reload();
+            }
+            else {
+                new PNotify({
+                    title: 'Erro!',
+                    text: 'Erro ao servidos' + nome,
+                    type: 'error'
+                });
+            }
+        }
+    });
+});
 
 function limparCampos() {
     $("#select-cadastro-idioma").prop('selectIndex', -1);
