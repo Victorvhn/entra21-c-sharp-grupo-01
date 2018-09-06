@@ -17,7 +17,7 @@ namespace Repository
         {
             List<Idioma> idiomas = new List<Idioma>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome, id_guia FROM idiomas";
+            command.CommandText = "SELECT id, nome FROM idiomas";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -25,7 +25,6 @@ namespace Repository
                 Idioma idioma = new Idioma()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
-                    IdGuia = Convert.ToInt32(line[1].ToString()),
                     Nome = line[2].ToString(),
                 };
                 idiomas.Add(idioma);
@@ -37,7 +36,7 @@ namespace Repository
         {
             List<Idioma> idiomas = new List<Idioma>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome, id_guia FROM idiomas";
+            command.CommandText = "SELECT id, nome FROM idiomas";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -45,7 +44,6 @@ namespace Repository
                 Idioma idioma = new Idioma()
                 {
                     Id = Convert.ToInt32(line["id"].ToString()),
-                    IdGuia = Convert.ToInt32(line["id_guia"].ToString()),
                     Nome = line["nome"].ToString()
                 };
                 idiomas.Add(idioma);
@@ -55,9 +53,8 @@ namespace Repository
         public int Cadastrar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"INSERT INTO idiomas(nome, id_guia) OUTPUT INSERTED.ID VALUES (@NOME, @ID_GUIA)";
+            command.CommandText = @"INSERT INTO idiomas(nome) OUTPUT INSERTED.ID VALUES (@NOME)";
             command.Parameters.AddWithValue("@NOME", idioma.Nome);
-            command.Parameters.AddWithValue("@ID_GUIA", idioma.IdGuia);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
@@ -65,10 +62,9 @@ namespace Repository
         public bool Alterar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"UPDATE idiomas SET nome = @NOME, id_guia = @ID_GUIA WHERE id = @ID";
+            command.CommandText = @"UPDATE idiomas SET nome = @NOME WHERE id = @ID";
             
             command.Parameters.AddWithValue("@NOME", idioma.Nome);
-            command.Parameters.AddWithValue("@ID_GUIA", idioma.IdGuia);
             command.Parameters.AddWithValue("@ID", idioma.Id);
             return command.ExecuteNonQuery() == 1;
         }
@@ -85,7 +81,7 @@ namespace Repository
         {
             Idioma idioma = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT guia.nome, idioma.nome, id_guia FROM idiomas JOIN idiomas ON(idiomas.id_guia = guias.id) WHERE id = @ID";
+            command.CommandText = @"SELECT nome, FROM idiomas WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -94,7 +90,6 @@ namespace Repository
                 idioma = new Idioma();
                 idioma.Id = id;
                 idioma.Nome = table.Rows[0][0].ToString();
-                idioma.IdGuia = Convert.ToInt32(table.Rows[0][1].ToString());
             }
             return idioma;
         }
