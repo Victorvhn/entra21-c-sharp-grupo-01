@@ -53,7 +53,7 @@ namespace Repository
         public int Cadastrar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"INSERT INTO idiomas(nome) OUTPUT INSERTED.ID VALUES (@NOME)";
+            command.CommandText = @"INSERT INTO idiomas (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
             command.Parameters.AddWithValue("@NOME", idioma.Nome);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;

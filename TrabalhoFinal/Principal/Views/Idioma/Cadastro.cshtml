@@ -10,9 +10,23 @@
        
     </div>
     <div class="form-group">
-        <label for="cadastro-idioma-campo-nome">Nome</label>
-        <input type="text" id="cadastro-idioma-campo-nome" class="form-control" value="@ViewBag.Idioma.Nome" name="idioma.Nome" />
-
+        <label for="select-cadastro-idioma">Nome</label>
+        <select name="idimao.Nome" type="text" id="select-cadastro-idioma" required="required">
+            <option disabled="disabled" selected="selected">- Selecione o Idioma</option>
+            <option value="Alemão">Alemão</option>
+            <option value="Árabe">Árabe</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Chinês">Chinês</option>
+            <option value="Espanhol">Espanhol</option>
+            <option value="Francês">Francês</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Inglês">Inglês</option>
+            <option value="Italiano">Italiano</option>
+            <option value="Japonês">Japonês</option>
+            <option value="Português">Português</option>
+            <option value="Punjabi">Punjabi</option>
+            <option value="Russo">Russo</option>
+        </select>
     </div>
     <div>
         <button type="submit" class="btn btn-success float-right">
@@ -21,9 +35,7 @@
     </div>
 </form>
 
-@section script{
-    <script scr="~/Scripts/Idioma/Cadastro/select2-cadastro-idioma.js"></script>
-}
+
 
 
 
