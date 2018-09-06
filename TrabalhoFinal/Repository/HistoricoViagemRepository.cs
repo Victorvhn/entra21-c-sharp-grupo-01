@@ -50,19 +50,19 @@ namespace Repository
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
             {
-                HistoricoViagem historicoViagem = new HistoricoViagem()
+                HistoricoViagem historicoViagem = new HistoricoViagem();
+
+
+                historicoViagem.Id = Convert.ToInt32(linha[0].ToString());
+                historicoViagem.IdPacote = Convert.ToInt32(linha[1].ToString());
+                historicoViagem.Data = Convert.ToDateTime(linha[3].ToString());
+                historicoViagem.Pacote = new Pacote()
                 {
-                    Id = Convert.ToInt32(linha[0].ToString()),
-                    IdPacote = Convert.ToInt32(linha[2].ToString()),
-                    Data = Convert.ToDateTime(linha[3].ToString()),
-                    Pacote = new Pacote()
-                    {
-                        Id = Convert.ToInt32(linha[1].ToString()),
-                        Nome = linha[4].ToString()
-                    }
-
-
+                    Id = Convert.ToInt32(linha[1].ToString()),
+                    Nome = linha[4].ToString()
                 };
+
+                
                 historicoViagens.Add(historicoViagem);
             }
             return historicoViagens;
@@ -108,8 +108,8 @@ namespace Repository
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT p.id, p.id_pacote, h.data_, h.nome FROM pacotes p 
-            JOIN historico_de_viagens h ON (p.id_pacote = h.id)
+            command.CommandText = @"SELECT p.id, h.id_pacote, h.data_, p.nome FROM historico_de_viagens h 
+            JOIN pacotes p ON (h.id_pacote = p.id)
             WHERE h.id =@ID";
             command.Parameters.AddWithValue("@ID", id);
 
@@ -121,12 +121,12 @@ namespace Repository
                 historicoViagem = new HistoricoViagem()
                 {
                     Id = id,
-                    Data = Convert.ToDateTime(table.Rows[0][0].ToString()),
+                    Data = Convert.ToDateTime(table.Rows[0][2].ToString()),
                     IdPacote = Convert.ToInt32(table.Rows[0][1].ToString()),
                     Pacote = new Pacote()
                     {
-                        Nome = table.Rows[0][2].ToString(),
-                        Id = Convert.ToInt32(table.Rows[0][3].ToString()),
+                        Nome = table.Rows[0][3].ToString(),
+                        Id = Convert.ToInt32(table.Rows[0][1].ToString()),
                     }
                 };
             }

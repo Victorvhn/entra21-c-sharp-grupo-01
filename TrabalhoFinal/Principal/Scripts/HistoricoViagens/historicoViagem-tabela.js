@@ -52,11 +52,12 @@ $('table').on('click', '#botao-editar-historico-viagem', function () {
     var id = $(this).data('id');
     $.ajax({
         url: 'HistoricoViagem/Editar?id=' + id,
+        method: 'get',
         success: function (resultado) {
             var data = JSON.parse(resultado);
             $('#campo-editar-historico-viagem-id').val(data.Id);
             $('#select-editar-historico-viagem-idPacote').val(data.idPacote);
-            $('#campo-editar-historico-viagem-idPacote').val(data.DateTime);
+            $('#campo-editar-historico-viagem-data').val(data.DateTime);
 
             $('#historico-viagem-modal-editar').modal('show');
         }
@@ -69,7 +70,7 @@ $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
         method: 'post',
         dataType: 'json',
         data: {
-            id: $('#campo-editar-estado-id').val(),
+            id: $('#campo-editar-historico-viagem-id').val(),
             idPacote: $('#select-editar-historico-viagem-idPacote :select').html(),
             data: $('#campo-editar-historico-viagem-data').val()
         },

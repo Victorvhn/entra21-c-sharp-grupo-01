@@ -11,8 +11,6 @@ namespace Model
     {
         public int Id { get; set; }
 
-        [DataType(DataType.Date)]
-
         public DateTime Data { get; set; }
 
         public string DataPadraoBR { get { return string.Format("{0:dd/MM/yyyy}", Data); } }

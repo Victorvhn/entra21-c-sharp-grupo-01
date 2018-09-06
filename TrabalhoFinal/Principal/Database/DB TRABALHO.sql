@@ -138,7 +138,7 @@ CREATE TABLE viagens_turistas (
 CREATE TABLE historico_de_viagens (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     id_pacote INT NOT NULL,
-    data_ DATE NOT NULL,
+    data_ DATETIME NOT NULL,
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 );
@@ -232,3 +232,4 @@ INSERT INTO viagens_turistas (id_turista, id_viagem, valor) VALUES
 ((SELECT id FROM turistas WHERE nome = 'Marcio'), (SELECT id FROM viagens WHERE data_compra = '10-08-2015'), 3500),
 ((SELECT id FROM turistas WHERE nome = 'Marcos'), (SELECT id FROM viagens WHERE data_compra = '01-02-2016'), 4500);
 
+SELECT * FROM historico_de_viagens;
