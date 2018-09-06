@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="idioma-modal-editar" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-header">
+            <h4 class="modal-title"> IDIOMA</h4>
+            <button type="button" class="close" data-dissmiss="modal" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" id="campo-editar-idioma-id" name="idioma.Id" />
+
+            <div class="form-group">
+                <label for="editar-idioma-campo-nome">Idioma</label>
+                <input type="text" id="campo-editar-idioma-nome" class="form-control" name="idioma.Nome" />
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dissmiss="modal" id="botao-fechar-modal-editar-idioma">Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-effect light-blue-colors " id="botao-salvar-modal-editar-idioma">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
