@@ -32,13 +32,30 @@ namespace Principal.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Excluir(int id)
+        {
+            bool apagado = new IdiomaRepository().Excluir(id);
+
+            int sucesso = 0;
+            if (apagado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
+        }
 
 
         [HttpPost]
         public ActionResult Store(Idioma idioma)
         {
             int identificador = new IdiomaRepository().Cadastrar(idioma);
-            return null;
+            return Content(JsonConvert.SerializeObject(new {id = identificador}));
         }
 
         public ActionResult ObterTodosPorJSON()
@@ -68,10 +85,22 @@ namespace Principal.Controllers
             int i = 0;
             foreach (var idioma in idiomas)
             {
-                x[i] = new { id = idioma.Id, text = idioma.Nome, idGuia = idioma.IdGuia };
+                x[i] = new { id = idioma.Id, text = idioma.Nome,  };
                 i++;
             }
             return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
+
+        [HttpGet]
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ModalEditar()
+        {
+            return View();
         }
     }
 }
