@@ -29,7 +29,7 @@ $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
         url: '/HistoricoViagem/Store',
         method: 'post',
         data: {
-            idPacote: $('#select-cadastro-historico-viagem-idPacote').val(),
+            idPacote: $('#select-cadastro-historico-viagem-idpacote :selected').val(),
             data: $('#campo-cadastro-historico-viagem-data').val()
         },
         success: function (data) {
@@ -70,7 +70,7 @@ $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
         dataType: 'json',
         data: {
             id: $('#campo-editar-estado-id').val(),
-            idPacote: $('#select-editar-historico-viagem-idPacote').val(),
+            idPacote: $('#select-editar-historico-viagem-idPacote :select').html(),
             data: $('#campo-editar-historico-viagem-data').val()
         },
         success: function (data) {
@@ -103,8 +103,8 @@ $('table').on('click', '#botao-excluir-historico-viagem', function () {
         url: 'HistoricoViagem/Excluir?id=' + id,
         method: 'get',
         success: function (data) {
+            var resultado = JSON.parse(data);
             if (resultado == 1) {
-                var resultado = JSON.parse(data);
                 new PNotify({
                     title: 'Desativado!',
                     text: 'Viagem desativada com sucesso',
@@ -125,7 +125,7 @@ $('table').on('click', '#botao-excluir-historico-viagem', function () {
 });
 
 function limparCampos() {
-    $("#select-cadastro-historico-viagem-idPacote").prop('selectedIndex', - 1);  
+    $("#select-cadastro-historico-viagem-idPacote").prop('selectedIndex', - 1);
     $("#campo-cadastro-historicoViagens-data").val("");
     $("#select-editar-historicoViagens-idPacote").prop('selectedIndex', - 1);
     $("#campo-editar-historicoViagens-data").val("");

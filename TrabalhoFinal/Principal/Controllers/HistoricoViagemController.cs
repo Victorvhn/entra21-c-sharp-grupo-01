@@ -61,7 +61,7 @@ namespace Principal.Controllers
         {
             HistoricoViagem historicoViagemModel = new HistoricoViagem();
             {
-                historicoViagemModel.IdPacote = Convert.ToInt32(historicoViagem.IdPacote.ToString());
+                historicoViagemModel.IdPacote = Convert.ToInt32(historicoViagem.IdPacote);
                 historicoViagemModel.Data = Convert.ToDateTime(historicoViagem.Data.Replace("/", "-").ToString());
             }
 
