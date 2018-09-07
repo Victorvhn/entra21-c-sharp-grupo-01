@@ -30,12 +30,12 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             {
                 Viagem viagem = new Viagem();
                 viagem.Id = Convert.ToInt32(line[0].ToString());
-                Pacote pacote = new Pacote();
-                pacote.Id = Convert.ToInt32(line[1].ToString());
-                pacote.Nome = line[2].ToString();
-                Guia guia = new Guia();
-                guia.Id = Convert.ToInt32(line[3].ToString());
-                guia.Nome = line[4].ToString();
+                viagem.Pacote = new Pacote();
+                viagem.Pacote.Id = Convert.ToInt32(line[1].ToString());
+                viagem.Pacote.Nome = line[2].ToString();
+                viagem.Guia = new Guia();
+                viagem.Guia.Id = Convert.ToInt32(line[3].ToString());
+                viagem.Guia.Nome = line[4].ToString();
                 viagem.DataHorarioSaida = Convert.ToDateTime(line[5].ToString());
                 viagem.DataHorarioVolta = Convert.ToDateTime(line[6].ToString());
                 viagem.IdPacote = Convert.ToInt32(line[7].ToString());

@@ -7,8 +7,8 @@
             { data: 'Id' },
             { data: 'Pacote.Nome' },
             { data: 'Guia.Nome' },
-            { data: 'DataHorarioSaida' },
-            { data: 'DataHorarioVolta' },
+            { data: 'DataHoraSaidaPadraoBR' },
+            { data: 'DataHoraVoltaPadraoBR' },
             {
                 data: null,
                 render: function (data, type, row) {
@@ -19,3 +19,4 @@
         ]
     });
 });
+
