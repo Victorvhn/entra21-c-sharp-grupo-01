@@ -38,7 +38,18 @@ namespace Principal.Content
         public ActionResult Excluir(int id)
         {
             bool apagar = new ViagensRepository().Excluir(id);
-            return View();
+
+            int sucesso = 0;
+            if (apagar == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpGet]

@@ -76,7 +76,7 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"DELETE FROM viagem WHERE id = @ID";
+            command.CommandText = @"UPDATE viagens SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
         }
