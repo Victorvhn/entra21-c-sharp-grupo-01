@@ -5168,6 +5168,7 @@
     <Content Include="Scripts\PopularSelects\SelectGuia\popular-select-guia.js" />
     <Content Include="Scripts\PopularSelects\SelectHistoricoViagem\popular-select-historicoViagem.js" />
     <Content Include="Scripts\PopularSelects\SelectPontoTuristico\popular-select-pontoturistico.js" />
+    <Content Include="Scripts\Viagem\index-viagem.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5564,6 +5565,8 @@
     </Content>
     <Content Include="Views\Idioma\Index.cshtml" />
     <Content Include="Views\Viagem\Index.cshtml" />
+    <Content Include="Views\Viagem\ModalCadastro.cshtml" />
+    <Content Include="Views\Viagem\ModalEditar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -6,3 +6,46 @@
 
 <h2>Index</h2>
 
+<button type="button" class="btn btn-primary waves-effect" id="botao-modal-cadastrar-viagem">Cadastrar</button>
+
+
+<div class="card">
+    <div class="card-header">
+        <h5>Tabela Endereços</h5>
+        <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li></ul></div>
+    </div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <table class="table table-de" id="table-viagens">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Pacote</th>
+                        <th>Guia</th>
+                        <th>Saida</th>
+                        <th>Volta</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Código</th>
+                        <th>Pacote</th>
+                        <th>Guia</th>
+                        <th>Saida</th>
+                        <th>Volta</th>
+                        <th>Ação</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/Viagem/ModalCadastro.cshtml")
+@Html.Partial("~/Views/Viagem/ModalEditar.cshtml")
+
+@section script{
+    <script src="~/Scripts/Viagem/index-viagem.js"></script>
+}

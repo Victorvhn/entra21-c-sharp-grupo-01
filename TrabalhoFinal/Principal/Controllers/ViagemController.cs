@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Principal.Content
     public class ViagemController : Controller
     {
         // GET: Viagem
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -44,6 +46,32 @@ namespace Principal.Content
         {
             int identificador = new ViagensRepository().Cadastrar(viagens);
             return RedirectToAction("Editar", new { id = identificador });
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<Viagem> viagens = new ViagensRepository().ObterTodosPorJSON(start, length);
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = viagens
+            }));
+        }
+
+        [HttpGet]
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ModalEditar()
+        {
+            return View();
         }
     }
 }
