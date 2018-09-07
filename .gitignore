@@ -219,3 +219,4 @@ project.lock.json
 TrabalhoFinal/Repository/Repository.csproj
 TrabalhoFinal/Repository/Repository.csproj
 
+TrabalhoFinal/Principal/App_Data/Database.mdf
