@@ -12,10 +12,12 @@ namespace Principal.Controllers
     public class IdiomaController : Controller
     {
         // GET: Idioma
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult Cadastro()
         {
@@ -23,13 +25,14 @@ namespace Principal.Controllers
             ViewBag.Idioma = new Idioma();
             return View();
         }
+
         [HttpGet]
         public ActionResult Editar(int id)
         {
             Idioma idioma = new IdiomaRepository().ObterPeloId(id);
             ViewBag.Idioma = idioma;
 
-            return View();
+            return Content(JsonConvert.SerializeObject(idioma));
         }
 
         [HttpGet]
@@ -50,7 +53,6 @@ namespace Principal.Controllers
             return Content(JsonConvert.SerializeObject(sucesso));
         }
 
-
         [HttpPost]
         public ActionResult Store(Idioma idioma)
         {
@@ -58,6 +60,7 @@ namespace Principal.Controllers
             return Content(JsonConvert.SerializeObject(new {id = identificador}));
         }
 
+        [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
             string start = Request.QueryString["start"];
@@ -69,11 +72,23 @@ namespace Principal.Controllers
                 data = idiomas
             }));
         }
+
         [HttpPost]
         public ActionResult Update(Idioma idioma)
         {
             bool alterado = new IdiomaRepository().Alterar(idioma);
-            return null;
+            int sucesso = 0;
+
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpGet]

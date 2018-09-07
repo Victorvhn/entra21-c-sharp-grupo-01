@@ -32,6 +32,28 @@ namespace Repository
             return idiomas;
         }
 
+        public List<Idioma> ObterTodosParaJSON(string start, string length)
+        {
+            List<Idioma> idiomas = new List<Idioma>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome FROM idiomas WHERE ativo = 1 ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+
+            foreach (DataRow line in table.Rows)
+            {
+                Idioma idioma = new Idioma()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    Nome = line[1].ToString(),
+
+                };
+                idiomas.Add(idioma);
+            }
+            return idiomas;
+        }
+
         public List<Idioma> ObterTodosParaSelect()
         {
             List<Idioma> idiomas = new List<Idioma>();
@@ -50,6 +72,7 @@ namespace Repository
             }
             return idiomas;
         }
+
         public int Cadastrar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -81,7 +104,7 @@ namespace Repository
         {
             Idioma idioma = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT nome, FROM idiomas WHERE id = @ID";
+            command.CommandText = @"SELECT nome FROM idiomas WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -92,28 +115,6 @@ namespace Repository
                 idioma.Nome = table.Rows[0][0].ToString();
             }
             return idioma;
-        }
-
-        public List<Idioma> ObterTodosParaJSON(string start, string length)
-        {
-            List<Idioma> idiomas = new List<Idioma>();
-            SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome, FROM idiomas ORDER BY nome OFFSET" + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
-
-            DataTable table = new DataTable();
-            table.Load(command.ExecuteReader());
-
-            foreach (DataRow line in table.Rows)
-            {
-                Idioma idioma = new Idioma()
-                {
-                    Id = Convert.ToInt32(line[0].ToString()),
-                    Nome = line[1].ToString(),
-
-                };
-                idiomas.Add(idioma);
-            }
-            return idiomas;
         }
     }
 }

@@ -5,38 +5,26 @@
 
 <div class="modal fade" id="idioma-modal-editar" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-header">
-            <h4 class="modal-title"> IDIOMA</h4>
-            <button type="button" class="close" data-dissmiss="modal" aria-label="Close">
-                <span aria-hidden="true">x</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <input type="hidden" id="campo-editar-idioma-id" name="idioma.Id" />
-
-            <div class="form-group">
-                <label for="editar-idioma-campo-nome">Idioma</label>
-                <select name="idimao.Nome" type="text" id="select-cadastro-idioma" required="required">
-                    <option disabled="disabled" selected="selected">- Selecione o Idioma</option>
-                    <option value="Alemão">Alemão</option>
-                    <option value="Árabe">Árabe</option>
-                    <option value="Bengali">Bengali</option>
-                    <option value="Chinês">Chinês</option>
-                    <option value="Espanhol">Espanhol</option>
-                    <option value="Francês">Francês</option>
-                    <option value="Hindi">Hindi</option>
-                    <option value="Inglês">Inglês</option>
-                    <option value="Italiano">Italiano</option>
-                    <option value="Japonês">Japonês</option>
-                    <option value="Português">Português</option>
-                    <option value="Punjabi">Punjabi</option>
-                    <option value="Russo">Russo</option>
-                </select>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
+            <div class="modal-body">
 
+                <input type="hidden" name="idioma.Id" id="campo-id-editar-idioma"/>
+
+                <div class="form-group col-md-6">
+                    <label for="campo-idioma">Idioma</label>
+                    <input type="text" name="idioma.Nome" id="campo-editar-idioma" />
+                </div>
+
+            </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default waves-effect" data-dissmiss="modal" id="botao-fechar-modal-editar-idioma">Fechar</button>
-                <button type="button" class="btn btn-primary waves-effect waves-effect light-blue-colors " id="botao-salvar-modal-editar-idioma">Cadastrar</button>
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-editar-idioma">Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-editar-idioma">Cadastrar</button>
             </div>
         </div>
     </div>

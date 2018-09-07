@@ -5159,6 +5159,7 @@
     <Content Include="Scripts\Guia\guia-tabela.js" />
     <Content Include="Scripts\Guia\selects.js" />
     <Content Include="Scripts\HistoricoViagens\historicoViagem-tabela.js" />
+    <Content Include="Scripts\Idioma\idioma-tabela.js" />
     <Content Include="Scripts\Pacote\pacote-tabela.js" />
     <Content Include="Scripts\PontoTuristico\Cadastro\select2-cadastro-pontoturistico.js" />
     <Content Include="Scripts\PontoTuristico\Table\pontoturistico-table.js" />
@@ -5561,6 +5562,8 @@
     <Content Include="Views\Idioma\ModalEditar.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Idioma\Index.cshtml" />
+    <Content Include="Views\Viagem\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
