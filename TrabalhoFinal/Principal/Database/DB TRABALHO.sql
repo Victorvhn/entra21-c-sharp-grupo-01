@@ -66,7 +66,7 @@ CREATE TABLE turistas (
 
 CREATE TABLE guias (
     login_ VARCHAR(100),
-    sexo VARCHAR(10),
+    sexo CHAR(1),
     senha VARCHAR(100),
     ativo BIT DEFAULT '1',
     perfil VARCHAR(15) DEFAULT 'ADMIN',
@@ -197,10 +197,10 @@ INSERT INTO turistas (id_endereco, nome, sobrenome, sexo, cpf, rg, data_nascimen
 
    
 INSERT INTO guias (id_endereco, nome, sobrenome, data_nascimento, sexo, cpf, rg, numero_carteira_trabalho, salario, categoria_habilitacao, rank_) VALUES
-((SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Marcos', 'Antonio', '04-10-1990', 'Masculino', 35789654123, 7532147, 12345678912, 2000, 'AB', 3),
-((SELECT id FROM enderecos WHERE cep = 01234567 AND numero = 321), 'Marcio', 'Luz', '05-12-1900', 'Masculino',  75325896325, 0147898, 11234567891, 3000, 'B', 4),
-((SELECT id FROM enderecos WHERE cep = 14785236 AND numero =  987), 'Eduarda', 'Volx', '07-02-1995', 'Feminino',  54896325418, 5789632, 22136547894, 4000, 'A', 2),
-((SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'Feminino', 47896521478, 4789654, 78987456321, 1500, 'ABC', 1);
+((SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Marcos', 'Antonio', '04-10-1990', 'M', 35789654123, 7532147, 12345678912, 2000, 'AB', 3),
+((SELECT id FROM enderecos WHERE cep = 01234567 AND numero = 321), 'Marcio', 'Luz', '05-12-1900', 'M',  75325896325, 0147898, 11234567891, 3000, 'B', 4),
+((SELECT id FROM enderecos WHERE cep = 14785236 AND numero =  987), 'Eduarda', 'Volx', '07-02-1995', 'F',  54896325418, 5789632, 22136547894, 4000, 'A', 2),
+((SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'F', 47896521478, 4789654, 78987456321, 1500, 'ABC', 1);
 
 INSERT INTO idiomas (nome) VALUES
 ('Ingles'),

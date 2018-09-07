@@ -5157,6 +5157,7 @@
     <Content Include="Scripts\Estado\Cadastro\select2-cadastro-estado.js" />
     <Content Include="Scripts\Estado\estado-index.js" />
     <Content Include="Scripts\Guia\guia-tabela.js" />
+    <Content Include="Scripts\Guia\selects.js" />
     <Content Include="Scripts\HistoricoViagens\historicoViagem-tabela.js" />
     <Content Include="Scripts\Pacote\pacote-tabela.js" />
     <Content Include="Scripts\PontoTuristico\Cadastro\select2-cadastro-pontoturistico.js" />
