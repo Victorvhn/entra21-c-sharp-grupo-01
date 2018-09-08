@@ -67,6 +67,23 @@ namespace Repository
             return guias;
         }
 
+        public List<Guia> ObterTodosParaSelect()
+        {
+            List<Guia> guias = new List<Guia>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome FROM guias WHERE ativo = 1 ORDER BY nome";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow line in table.Rows)
+            {
+                Guia guia = new Guia();
+                guia.Id = Convert.ToInt32(line[0].ToString());
+                guia.Nome = line[1].ToString();
+                guias.Add(guia);
+            }
+            return guias;
+        }
+
         public int Cadastrar(Guia guia)
         {
             SqlCommand command = new Conexao().ObterConexao();

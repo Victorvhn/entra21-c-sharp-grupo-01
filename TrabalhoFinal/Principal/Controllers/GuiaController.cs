@@ -95,6 +95,22 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
+        public ActionResult ObterTodosParaSelect2()
+        {
+            List<Guia> guias = new GuiaRepository().ObterTodosParaSelect();
+
+            var x = new object[guias.Count];
+            int i = 0;
+            foreach (var guia in guias)
+            {
+                x[i] = new { id = guia.Id, text = guia.Nome };
+                i++;
+            }
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
+
+        [HttpGet]
         public ActionResult ModalCadastro()
         {
             return View();

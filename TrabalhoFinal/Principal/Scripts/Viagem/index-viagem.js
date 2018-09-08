@@ -22,7 +22,7 @@
 
 $('#botao-modal-cadastrar-viagem').on('click', function () {
     limparCampos();
-    $('viagem-modal-cadastro').modal('show');
+    $('#viagem-modal-cadastro').modal('show');
 });
 
 $('table').on('click', '#botao-excluir-viagem', function () {
