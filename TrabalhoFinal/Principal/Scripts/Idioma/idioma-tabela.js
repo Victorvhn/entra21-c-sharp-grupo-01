@@ -23,12 +23,12 @@ $('#botao-modal-cadastrar-idioma').on("click", function () {
 });
 
 $("#botao-salvar-modal-cadastrar-idioma").on('click', function () {
-    var nomeVar = $("#campo-cadastro-idioma").val();
+    var nomeVar = $("#select-cadastro-idioma").val();
     $.ajax({
         url: '/Idioma/Store',
         method: 'post',
         data: {
-            nome: $('#campo-cadastro-idioma').val()
+            nome: $('#select-cadastro-idioma').val()
         },
         success: function (data) {
             var resultado = JSON.parse(data);
@@ -54,7 +54,7 @@ $('table').on('click', '#botao-editar-idioma', function () {
         success: function (resultado) {
             var data = JSON.parse(resultado);
             $('#campo-id-editar-idioma').val(data.Id);
-            $('#campo-editar-idioma').val(data.Nome);
+            $('#select-editar-idioma').val(data.Nome);
             $('#idioma-modal-editar').modal('show');
         }
     });
@@ -67,12 +67,13 @@ $('#botao-salvar-modal-editar-idioma').on('click', function () {
         dataType: 'json',
         data: {
             id: $('#campo-id-editar-idioma').val(),
-            nome: $('#campo-editar-idioma').val()
+            nome: $('#select-editar-idioma').val()
         },
         success: function (data) {
             var resultado = JSON.parse(data);
             if (resultado == 1) {
-                $('#table-idiomas').DataTable().ajax.reload();
+                limparCampos();
+                $('#idioma-modal-editar').modal('hide');
                 $(function () {
                     new PNotify({
                         title: 'Sucesso!',
@@ -80,8 +81,8 @@ $('#botao-salvar-modal-editar-idioma').on('click', function () {
                         type: 'info'
                     });
                 });
-                $('#idioma-modal-editar').modal('hide');
-                limparCampos();
+                $('#table-idiomas').DataTable().ajax.reload();
+
             }
             else {
                 new PNotify({
