@@ -18,10 +18,24 @@
 
                 <div class="form-group col-md-6">
                     <label for="campo-idioma">Idioma</label>
-                    <input type="text" name="idioma.Nome" id="campo-editar-idioma" />
-                </div>
+                    <select name="idioma.Nome" type="text" id="select-editar-idioma" required="required" class="form-control">
+                        <option disabled="disabled" selected="selected">- Selecione o Idioma</option>
+                        <option value="Alemão">Alemão</option>
+                        <option value="Árabe">Árabe</option>
+                        <option value="Bengali">Bengali</option>
+                        <option value="Chinês">Chinês</option>
+                        <option value="Espanhol">Espanhol</option>
+                        <option value="Francês">Francês</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Inglês">Inglês</option>
+                        <option value="Italiano">Italiano</option>
+                        <option value="Japonês">Japonês</option>
+                        <option value="Português">Português</option>
+                        <option value="Punjabi">Punjabi</option>
+                        <option value="Russo">Russo</option>
+                    </select>
 
-            </div>
+                </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-editar-idioma">Fechar</button>
                 <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-editar-idioma">Cadastrar</button>
