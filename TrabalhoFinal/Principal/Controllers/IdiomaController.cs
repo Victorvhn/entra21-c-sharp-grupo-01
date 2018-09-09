@@ -56,8 +56,8 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(Idioma idioma)
         {
-            int identificador = new IdiomaRepository().Cadastrar(idioma);
-            return Content(JsonConvert.SerializeObject(new {id = identificador}));
+            return RedirectToAction("Index");
+
         }
 
         [HttpGet]
