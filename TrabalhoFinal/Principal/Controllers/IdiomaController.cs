@@ -56,8 +56,10 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(Idioma idioma)
         {
+            Idioma idiomaModel = new Idioma();
+            idiomaModel.Nome = idioma.Nome.ToString();
+            int identificador = new IdiomaRepository().Cadastrar(idiomaModel);            
             return RedirectToAction("Index");
-
         }
 
         [HttpGet]

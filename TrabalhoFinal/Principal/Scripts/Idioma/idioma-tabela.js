@@ -38,10 +38,11 @@ $("#botao-salvar-modal-cadastrar-idioma").on('click', function () {
             $(function () {
                 new PNotify({
                     title: 'Sucesso!',
-                    text: nomeVar + ' cadastro com sucesso',
+                    text: nomeVar + ' cadastrado com sucesso',
                     type: 'success'
                 });
             });
+
 
         }
     });
@@ -124,6 +125,5 @@ $('table').on('click', '#botao-excluir-idioma', function () {
 });
 
 function limparCampos() {
-    $("#campo-cadastro-idioma").prop('');
-    $("#campo-editar-idioma").val('');    
+    $("#campo-cadastro-idioma").prop('');    
 }
