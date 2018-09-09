@@ -58,8 +58,8 @@ namespace Principal.Controllers
         {
             Idioma idiomaModel = new Idioma();
             idiomaModel.Nome = idioma.Nome.ToString();
-            int identificador = new IdiomaRepository().Cadastrar(idiomaModel);            
-            return RedirectToAction("Index");
+            int identificador = new IdiomaRepository().Cadastrar(idiomaModel);
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
         }
 
         [HttpGet]
