@@ -96,6 +96,7 @@ CREATE TABLE pontos_turisticos (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,  
     id_endereco INT,
     nome VARCHAR(100) NOT NULL,
+	valor FLOAT,
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_endereco) REFERENCES enderecos(id)
 );
@@ -118,6 +119,7 @@ CREATE TABLE viagens (
     id_guia INT,
     data_horario_saida DATETIME,
     data_horario_volta DATETIME,
+	valor FLOAT,
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_pacote) REFERENCES pacotes(id),
     FOREIGN KEY (id_guia) REFERENCES guias(id)
