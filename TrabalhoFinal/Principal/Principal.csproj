@@ -5568,6 +5568,9 @@
     <Content Include="Views\Viagem\Index.cshtml" />
     <Content Include="Views\Viagem\ModalCadastro.cshtml" />
     <Content Include="Views\Viagem\ModalEditar.cshtml" />
+    <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
