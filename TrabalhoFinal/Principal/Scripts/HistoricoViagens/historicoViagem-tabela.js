@@ -29,8 +29,8 @@ $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
         url: '/HistoricoViagem/Store',
         method: 'post',
         data: {
-            idPacote: $('#select-cadastro-historico-viagem-idpacote :selected').val(),
-            data: $('#campo-cadastro-historico-viagem-data').val()
+            data: $('#campo-cadastro-historico-viagem-data').val(),
+            idPacote: $('#select-cadastro-historico-viagem-idPacote :selected').val()
         },
         success: function (data) {
             var resultado = JSON.parse(data);
