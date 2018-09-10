@@ -5176,6 +5176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CriarPacoteController.cs" />
     <Compile Include="Controllers\HistoricoViagemController.cs" />
     <Compile Include="Controllers\ViagemController.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
@@ -5573,6 +5574,7 @@
     <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\CriarPacote\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
