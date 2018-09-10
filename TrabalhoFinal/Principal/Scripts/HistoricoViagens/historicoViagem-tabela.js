@@ -24,7 +24,7 @@ $('#botao-modal-cadastrar-historico-viagem').on("click", function () {
 });
 
 $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
-    var idPacoteVar = $("#select-cadastro-historico-viagem-idPacote").val();
+    var PacoteVar = $("#select-cadastro-historico-viagem-idPacote").text();
     $.ajax({
         url: '/HistoricoViagem/Store',
         method: 'post',
@@ -40,7 +40,7 @@ $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
             $(function () {
                 new PNotify({
                     title: 'Sucesso!',
-                    text: idPacoteVar + ' cadastrado com sucesso',
+                    text: PacoteVar + ' cadastrado com sucesso',
                     type: 'success'
                 });
             });
