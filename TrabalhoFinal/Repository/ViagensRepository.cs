@@ -87,8 +87,10 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"SELECT guias.nome, pacotes.nome, pacotes.id, guias.id, data,data_horario_saida,data_horario_volta FROM viagens JOIN pacotes ON viagens(viagens.id_pacote = pacotes.id)
-            JOIN guias ON viagens(viagens.id_guia = guias.id) WHERE id = @ID";
+            command.CommandText = @"SELECT v.id_pacote, v.id_guia, v.data_horario_saida, v.data_horario_volta 
+FROM viagens v 
+INNER JOIN pacotes p ON (p.id = v.id_pacote)
+INNER JOIN guias g ON (g.id = v.id_guia) WHERE v.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -96,11 +98,10 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             {
                 viagem = new Viagem();
                 viagem.Id = id;
-                viagem.Data = Convert.ToDateTime(table.Rows[0][0].ToString());
-                viagem.DataHorarioSaida = Convert.ToDateTime(table.Rows[0][1].ToString());
-                viagem.DataHorarioVolta = Convert.ToDateTime(table.Rows[0][2].ToString());
-                viagem.IdGuia = Convert.ToInt32(table.Rows[0][3].ToString());
-                viagem.IdPacote = Convert.ToInt32(table.Rows[0][4].ToString());
+                viagem.DataHorarioSaida = DateTime.Parse(table.Rows[0][0].ToString());
+                viagem.DataHorarioVolta = DateTime.Parse(table.Rows[0][1].ToString());
+                viagem.IdGuia = Convert.ToInt32(table.Rows[0][2].ToString());
+                viagem.IdPacote = Convert.ToInt32(table.Rows[0][3].ToString());
 
             }
             return viagem;
