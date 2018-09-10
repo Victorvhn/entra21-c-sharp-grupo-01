@@ -5172,6 +5172,17 @@
     <Content Include="Scripts\PopularSelects\SelectViagem\popular-select-viagem.js" />
     <Content Include="Scripts\Turista\Cadastro\select2-cadastro-turista.js" />
     <Content Include="Scripts\Turista\turista-index.js" />
+    <Content Include="Scripts\Validacao\validation-cidade.js" />
+    <Content Include="Scripts\Validacao\validation-endereco.js" />
+    <Content Include="Scripts\Validacao\validation-estado.js" />
+    <Content Include="Scripts\Validacao\validation-guia.js" />
+    <Content Include="Scripts\Validacao\validation-idioma.js" />
+    <Content Include="Scripts\Validacao\validation-pacote-ponto-turistico.js" />
+    <Content Include="Scripts\Validacao\validation-pacote.js" />
+    <Content Include="Scripts\Validacao\validation-ponto-turistico.js" />
+    <Content Include="Scripts\Validacao\validation-historico-viagem.js" />
+    <Content Include="Scripts\Validacao\validation-viagem-turista.js" />
+    <Content Include="Scripts\Validacao\validation-viagem.js" />
     <Content Include="Scripts\Viagem\index-viagem.js" />
     <Content Include="Web.config" />
   </ItemGroup>
