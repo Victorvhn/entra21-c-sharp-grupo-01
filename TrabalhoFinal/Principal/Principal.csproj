@@ -5153,6 +5153,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Cidade\Cadastro\select2-cadastro-cidade.js" />
     <Content Include="Scripts\Cidade\cidade-index.js" />
+    <Content Include="Scripts\CriarPacote\criar-pacote-user.js" />
     <Content Include="Scripts\Endereco\endereco-table.js" />
     <Content Include="Scripts\Estado\Cadastro\select2-cadastro-estado.js" />
     <Content Include="Scripts\Estado\estado-index.js" />
