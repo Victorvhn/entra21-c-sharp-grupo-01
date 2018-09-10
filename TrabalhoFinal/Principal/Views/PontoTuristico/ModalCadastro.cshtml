@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="pontoTuristico-modal-cadastro" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+
+                    <label class="col-md-2">
+                        Ponto Turistico
+                    </label>
+                    <div class="col-md-6">
+                        <select class="form-control form-control-default" name="pontoTuristico.IdEndereco" id="select-modal-cadastro-pontoTuristico"></select>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="cadastro-pontoTuristico-campo-nome">
+                        Nome
+                    </label>
+                    <input type="text" id="campo-cadastro-pontoTuristico-nome" class="form-control" name="pontoTuristico.Nome">
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-cadastro-pontoTuristico">Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-cadastrar-pontoTuristico">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

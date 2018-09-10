@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="pontoturistico-modal-editar" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <input type="hidden" name="pontoturistico.Id" id="campo-editar-pontoturistico-id" />
+
+                <div class="form-group">
+
+                    <label class="col-md-2">
+                        Ponto Turistico
+                    </label>
+                    <div class="col-md-6">
+                        <select class="form-control form-control-default" name="pontoturistico.IdEndereco" id="select-modal-editar-pontoturistico"></select>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="cadastro-pontoturistico-campo-nome">
+                        Nome
+                    </label>
+                    <input type="text" id="campo-editar-pontoturistico-nome" class="form-control" name="pontoturistico.Nome">
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-editar-pontoturistico">Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-editar-pontoturistico">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

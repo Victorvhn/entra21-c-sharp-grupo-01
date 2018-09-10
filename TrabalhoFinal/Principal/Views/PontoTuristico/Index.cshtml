@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<button type="button" class="btn btn-primary waves-effect" id="botao-modal-cadastrar-pontoturistico">Cadastrar</button>
+
+<div class="card">
+    <div class="card-header">
+        <h5>Tabela Pontos Turisticos</h5>
+        <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li></ul></div>
+    </div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <table class="table table-de" id="table-pontoturistico">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Estado</th>
+                        <th>Nome</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Código</th>
+                        <th>Estado</th>
+                        <th>Nome</th>
+                        <th>Ação</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("~/Views/PontoTuristico/ModalCadastro.cshtml")
+@Html.Partial("~/Views/PontoTuristico/ModalEditar.cshtml")
+
+
+@section script{
+    <script src="~/Scripts/PontoTuristico/Cadastro/select2-cadastro-pontoturistico.js"></script>
+    <script src="~/Scripts/PontoTuristico/pontoTuristico-index.js"></script>
+}
