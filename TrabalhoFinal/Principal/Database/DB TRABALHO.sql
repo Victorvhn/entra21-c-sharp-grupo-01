@@ -136,9 +136,9 @@ CREATE TABLE viagens_turistas (
 
 
 CREATE TABLE historico_de_viagens (
-    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    id_pacote INT NOT NULL,
-    data_ DATETIME NOT NULL,
+    id INT IDENTITY(1,1) PRIMARY KEY ,
+    id_pacote INT ,
+    data_ DATETIME,
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 );
