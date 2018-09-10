@@ -15,5 +15,4 @@
             required: 'Por favor insira uma data válida'
         },
     }
-
 });
