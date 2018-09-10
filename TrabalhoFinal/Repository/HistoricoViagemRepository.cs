@@ -73,7 +73,7 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
 
             command.CommandText = @"INSERT INTO historico_de_viagens (data_, id_pacote)
-            OUTPUT INSERTED.ID VALUES (@DATA_, @ID_PACOTE)";
+            OUTPUT INSERTED.ID VALUES(@DATA_, @ID_PACOTE)";
             command.Parameters.AddWithValue("@DATA_", historicoViagem.Data);
             command.Parameters.AddWithValue("@ID_PACOTE", historicoViagem.IdPacote);
 

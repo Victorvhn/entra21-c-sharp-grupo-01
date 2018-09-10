@@ -71,7 +71,7 @@ $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
         dataType: 'json',
         data: {
             id: $('#campo-editar-historico-viagem-id').val(),
-            idPacote: $('#select-editar-historico-viagem-idPacote :select').html(),
+            idPacote: $('#select-editar-historico-viagem-idPacote').val(),
             data: $('#campo-editar-historico-viagem-data').val()
         },
         success: function (data) {
