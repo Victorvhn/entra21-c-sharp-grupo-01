@@ -98,10 +98,10 @@ INNER JOIN guias g ON (g.id = v.id_guia) WHERE v.id = @ID";
             {
                 viagem = new Viagem();
                 viagem.Id = id;
-                viagem.DataHorarioSaida = DateTime.Parse(table.Rows[0][0].ToString());
-                viagem.DataHorarioVolta = DateTime.Parse(table.Rows[0][1].ToString());
-                viagem.IdGuia = Convert.ToInt32(table.Rows[0][2].ToString());
-                viagem.IdPacote = Convert.ToInt32(table.Rows[0][3].ToString());
+                viagem.DataHorarioSaida = Convert.ToDateTime(table.Rows[0][2].ToString());
+                viagem.DataHorarioVolta = Convert.ToDateTime(table.Rows[0][3].ToString());
+                viagem.IdGuia = Convert.ToInt32(table.Rows[0][1].ToString());
+                viagem.IdPacote = Convert.ToInt32(table.Rows[0][0].ToString());
 
             }
             return viagem;

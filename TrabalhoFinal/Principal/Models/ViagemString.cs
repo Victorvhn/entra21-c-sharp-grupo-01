@@ -16,9 +16,11 @@ namespace Principal.Models
 
         public string IdGuia { get; set; }
 
-        public string DataHorarioSaida { get; set; }
+        public string DataHoraSaidaPadraoBR { get; set; }
 
-        public string DataHorarioVolta { get; set; }
+        public string DataHoraVoltaPadraoBR { get; set; }
+
+
 
         public List<Turista> Turistas { get; set; }
     }
