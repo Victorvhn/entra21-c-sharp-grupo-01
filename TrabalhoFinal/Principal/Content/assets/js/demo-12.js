@@ -7,8 +7,8 @@ $(document).ready(function () {
         SubMenuTrigger: 'click', // click / hover
         activeMenuClass: 'active',
         ThemeBackgroundPattern: 'pattern4',  // pattern1, pattern2, pattern3, pattern4, pattern5, pattern6
-        HeaderBackground: 'theme1',  // theme1, theme2, theme3, theme4, theme5  header color
-        LHeaderBackground: 'theme1', // theme1, theme2, theme3, theme4, theme5, theme6   brand color
+        HeaderBackground: '#949494',  // theme1, theme2, theme3, theme4, theme5  header color
+        LHeaderBackground: '#949494', // theme1, theme2, theme3, theme4, theme5, theme6   brand color
         NavbarBackground: 'themelight1', // themelight1, theme1  // light  and dark sidebar
         ActiveItemBackground: 'theme4', // theme1, theme2, theme3, theme4, theme5, theme6, theme7, theme8, theme9, theme10, theme11, theme12  mennu active item color
         SubItemBackground: 'theme2',
@@ -20,8 +20,8 @@ $(document).ready(function () {
         menutype: 'st2', // Value should be st1, st2, st3, st4, st5 menu icon style
         freamtype: "theme1",
         layouttype:'light', // Value should be light / dark
-        FixedNavbarPosition: true,  // Value should be true / false  header postion
-        FixedHeaderPosition: true,  // Value should be true / false  sidebar menu postion
+        FixedNavbarPosition: false,  // Value should be true / false  header postion
+        FixedHeaderPosition: false,  // Value should be true / false  sidebar menu postion
         collapseVerticalLeftHeader: true,
         VerticalSubMenuItemIconStyle: 'style6', // value should be style1, style2, style3, style4, style5, style6
         VerticalNavigationView: 'view1',

@@ -5172,6 +5172,7 @@
     <Content Include="Scripts\Turista\Cadastro\select2-cadastro-turista.js" />
     <Content Include="Scripts\Turista\turista-index.js" />
     <Content Include="Scripts\Validacao\validation-cidade.js" />
+    <Content Include="Scripts\Validacao\validation-config.js" />
     <Content Include="Scripts\Validacao\validation-endereco.js" />
     <Content Include="Scripts\Validacao\validation-estado.js" />
     <Content Include="Scripts\Validacao\validation-guia.js" />

@@ -19,10 +19,7 @@
 
 $('#div-modal-cadastro-historico-viagem').validate({
     rules: {
-        'select-cadastro-historico-viagem-idPacote': "This field is required.",
-        dependes: function () {
-            $('#select-cadastro-historico-viagem-idPacote').css("border", "2px red solid");
-        }
+        'select-cadastro-historico-viagem-idPacote': "This field is required."
 
     }
 });

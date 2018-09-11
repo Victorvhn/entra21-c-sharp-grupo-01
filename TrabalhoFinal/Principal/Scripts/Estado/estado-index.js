@@ -22,28 +22,51 @@ $('#botao-modal-cadastrar-estado').on('click', function () {
     $('#estado-modal-cadastro').modal('show');
 });
 
-$('#botao-salvar-modal-cadastrar-estado').on('click', function () {
-    var nomeVar = $("#campo-cadastro-estado-nome").val();
-    $.ajax({
-        url: '/Estado/Store',
-        method: 'post',
-        data: {
-            nome: $('#campo-cadastro-estado-nome').val()
-        },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            limparCampos();
-            $('#estado-modal-cadastro').modal('hide');
-            $('#table-estados').DataTable().ajax.reload();
-            $(function () {
-                new PNotify({
-                    title: 'Sucesso!',
-                    text: nomeVar + ' cadastrado com sucesso',
-                    type: 'success'
-                });
-            });
+$('#formulario-estado').validate({
+
+
+    errorClass: "form-control-danger",
+    validClass: "form-control-success",
+    rules: {
+        'estado-Nome': {
+            required: true,
+            rangelength: [2, 30]
         }
-    });
+
+    },
+    messages: {
+        'estado-Nome': {
+            required: 'Número apólice deve ser preenchida.',
+            rangelength: 'Número da apólice deve conter de {0} a {1} caracteres.'
+        }
+    }
+});
+
+
+$('#botao-salvar-modal-cadastrar-estado').on('click', function () {
+    if ($('#formulario-estado').valid()) {
+        var nomeVar = $("#campo-cadastro-estado-nome").val();
+        $.ajax({
+            url: '/Estado/Store',
+            method: 'post',
+            data: {
+                nome: $('#campo-cadastro-estado-nome').val()
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                limparCampos();
+                $('#estado-modal-cadastro').modal('hide');
+                $('#table-estados').DataTable().ajax.reload();
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso!',
+                        text: nomeVar + ' cadastrado com sucesso',
+                        type: 'success'
+                    });
+                });
+            }
+        });
+    } 
 });
 
 $('table').on('click', '#botao-editar-estado', function () {
