@@ -12,7 +12,7 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info' id='botao-editar-viagem' data-id='" + row.Id + "'>Editar</a>" +
+                    return '<a class="btn btn-outline-info" id="botao-editar-viagem" data-id="' + row.Id + '" data-toggle="modal" data-target="#viagem-modal-editar">Editar</a>' +
                         "<a class='btn btn-outline-danger ml-1' id='botao-excluir-viagem' data-id='" + row.Id + "'>Desativar</a>";
                 }
             }
@@ -64,6 +64,7 @@ $('table').on('click', '#botao-editar-viagem', function () {
             $('#select-editar-viagem-pacote :selected').text(data.idPacote);
             $('#campo-editar-data-saida-viagem').val(data.dataHoraSaidaPadraoBR);
             $('#campo-editar-data-volta-viagem').val(data.dataHoraVoltaPadraoBR);
+
             $('#viagem-modal-editar').modal('show');
 
 
@@ -134,5 +135,7 @@ $('table').on('click', '#botao-excluir-viagem', function () {
 });
 
 function limparCampos() {
-    $('.form-control').val();
-}
+    $('campo-cadastro-data-saida-viagem').val();
+} $('#campo-cadastro-data-volta-viagem').val();
+$('#select-cadastro-viagem-guia').val();
+$('#select-cadastro-viagem-pacote').val();
