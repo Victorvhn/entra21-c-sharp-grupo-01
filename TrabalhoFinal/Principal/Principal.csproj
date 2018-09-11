@@ -5183,6 +5183,7 @@
     <Content Include="Scripts\Validacao\validation-historico-viagem.js" />
     <Content Include="Scripts\Validacao\validation-viagem-turista.js" />
     <Content Include="Scripts\Validacao\validation-viagem.js" />
+    <Content Include="Scripts\Viagem\Cadastro\select2-cadastro-viagem.js" />
     <Content Include="Scripts\Viagem\index-viagem.js" />
     <Content Include="Web.config" />
   </ItemGroup>
