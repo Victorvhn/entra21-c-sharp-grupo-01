@@ -85,10 +85,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database.mdf" />
-    <Content Include="App_Data\Database_log.ldf">
-      <DependentUpon>Database.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\ionicons.css" />
@@ -5581,10 +5577,12 @@
     <Content Include="Views\Viagem\ModalCadastro.cshtml" />
     <Content Include="Views\Viagem\ModalEditar.cshtml" />
     <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\LuvTour - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\CriarPacote\Index.cshtml" />
     <Content Include="Views\CriarPacote\ModalCadastro.cshtml" />
+    <None Include="Properties\PublishProfiles\LuvTour - Web Deploy1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5593,6 +5591,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Scripts\PontoTuristico\Table\" />
