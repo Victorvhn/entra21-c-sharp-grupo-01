@@ -5546,7 +5546,6 @@
     <Content Include="Views\HistoricoViagem\Editar.cshtml" />
     <Content Include="Views\Endereco\Index.cshtml" />
     <Content Include="Views\PontoTuristico\Cadastro.cshtml" />
-    <Content Include="Views\Viagem\Cadastro.cshtml" />
     <Content Include="Views\ViagemTurista\Cadastro.cshtml" />
     <Content Include="Views\Idioma\Cadastro.cshtml" />
     <Content Include="Views\Pacote\Cadastrar.cshtml" />
@@ -5560,7 +5559,6 @@
     <Content Include="Views\PontoTuristico\Editar.cshtml" />
     <Content Include="Views\HistoricoViagem\Index.cshtml" />
     <Content Include="Views\Turista\Editar.cshtml" />
-    <Content Include="Views\Viagem\Editar.cshtml" />
     <Content Include="Views\ViagemTurista\Editar.cshtml" />
     <Content Include="Views\Pacote\Index.cshtml" />
     <Content Include="Views\Guia\Index.cshtml" />
