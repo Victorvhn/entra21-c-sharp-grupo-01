@@ -59,10 +59,11 @@ $('table').on('click', '#botao-editar-viagem', function () {
         method: 'get',
         success: function (resultado) {
             var data = JSON.parse(resultado);
-            $('#select-cadastro-viagem-guia').val(data.idGuia);
-            $('#select-cadastro-viagem-pacote').val(data.idPacote);
-            $('#campo-cadastro-data-saida-viagem').val(data.dataHoraSaidaPadraoBR);
-            $('#campo-cadastro-data-volta-viagem').val(data.dataHoraVoltaPadraoBR);
+            $('#campo-editar-viagem-id').val(data.Id);
+            $('#select-editar-viagem-guia :selected').text(data.idGuia);
+            $('#select-editar-viagem-pacote :selected').text(data.idPacote);
+            $('#campo-editar-data-saida-viagem').val(data.dataHoraSaidaPadraoBR);
+            $('#campo-editar-data-volta-viagem').val(data.dataHoraVoltaPadraoBR);
             $('#viagem-modal-editar').modal('show');
 
 
