@@ -1,18 +1,28 @@
-﻿$('#div-modal-cadastro-historico-viagem').validate({
+﻿//$('#div-modal-cadastro-historico-viagem').validate({
+//    rules: {
+//        'historicoViagem.IdPacote': {
+//            required: true
+//        },
+//        'historicoViagem.Data': {
+//            required: true
+//        },
+//    },
+//    messages: {
+//        'historicoViagem.IdPacote': {
+//            required: 'Este campo é obrigatório'
+//        },
+//        'historicoViagem.Data': {
+//            required: 'Por favor insira uma data válida'
+//        },
+//    }
+//});
+
+$('#div-modal-cadastro-historico-viagem').validate({
     rules: {
-        'historicoViagem.IdPacote': {
-            required: true
-        },
-        'historicoViagem.Data': {
-            required: true
-        },
-    },
-    messages: {
-        'historicoViagem.IdPacote': {
-            required: 'Este campo é obrigatório'
-        },
-        'historicoViagem.Data': {
-            required: 'Por favor insira uma data válida'
-        },
+        'select-cadastro-historico-viagem-idPacote': "This field is required.",
+        dependes: function () {
+            $('#select-cadastro-historico-viagem-idPacote').css("border", "2px red solid");
+        }
+
     }
 });
