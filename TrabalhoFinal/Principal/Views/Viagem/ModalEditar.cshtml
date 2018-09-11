@@ -1,20 +1,20 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
-
 <div class="modal fade" id="viagem-modal-editar" tabindex="-1" role="dialog" style="z-index: 1050; display:none;" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-header">
-            <h4 class="modal-title">Modal Title</h4>
-            <button type="button" class="close" data-dissmiss="modal" aria-label="Close">
-                <span aria-hidden="true">x</span>
-            </button>
-        </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Title</h4>
+                <button type="button" class="close" data-dissmiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+        
         <div class="modal-body">
             <input type="hidden" name="viagem.Id" id="campo-editar-pacote-id" />
             <input type="hidden" name="viagem.IdPacote" id="campo-editar-guia-id"/>
-            <div class="col-md-6">
+            <div class="form">
                 <label id="select-editar-viagem-pacote">Pacote</label>
                 <select id="select-editar-viagem-pacote" name="viagem.IdPacote" class="form-control"></select>
             </div>
@@ -39,6 +39,7 @@
             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" id="botao-fechar-modal-cadastro-viagem">Fechar</button>
             <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-cadastrar-viagem">Cadastrar</button>
         </div>
+            </div>
     </div>
 </div>
 
