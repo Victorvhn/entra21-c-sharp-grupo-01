@@ -60,13 +60,12 @@ $('table').on('click', '#botao-editar-viagem', function () {
         success: function (resultado) {
             var data = JSON.parse(resultado);
             $('#campo-editar-viagem-id').val(data.Id);
-            $('#select-editar-viagem-guia :selected').text(data.idGuia);
-            $('#select-editar-viagem-pacote :selected').text(data.idPacote);
+            $('#select-modal-editar-guia :selected').text(data.idGuia);
+            $('#select-modal-editar-pacote :selected').text(data.idPacote);
             $('#campo-editar-data-saida-viagem').val(data.dataHoraSaidaPadraoBR);
             $('#campo-editar-data-volta-viagem').val(data.dataHoraVoltaPadraoBR);
 
             $('#viagem-modal-editar').modal('show');
-
 
         }
     });
@@ -78,8 +77,8 @@ $('#botao-salvar-modal-editar-viagem').on('click', function () {
         method: 'post',
         dataType: 'json',
         data: {
-            idGuia: $('#select-editar-viagem-guia').val(),
-            idPacote: $('#select-editar-viagem-pacote').val(),
+            idGuia: $('#select-modal-editar-guia').val(),
+            idPacote: $('#select-modal-editar-pacote').val(),
             dataHoraSaidaPadraoBR: $('#campo-editar-data-saida-viagem').val(),
             dataHoraVoltaPadraoBR: $('#campo-editar-data-volta-viagem').val()
         },
