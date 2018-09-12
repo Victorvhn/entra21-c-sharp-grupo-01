@@ -102,6 +102,20 @@ namespace Principal.Content
             }));
         }
 
+        public ActionResult ObterTodosPorJSONParaSelect2()
+        {
+            List<Viagem> viagens = new ViagensRepository().ObterTodosParaSelect();
+
+            var x = new object[viagens.Count];
+            int i = 0;
+            foreach (var viagem in viagens)
+            {
+                x[i] = new { id = viagem.Id, dataS = viagem.DataHorarioSaida, dataV = viagem.DataHorarioVolta, idGuia = viagem.IdGuia, idPacote = viagem.IdPacote };
+                i++;
+            }
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
+
         [HttpGet]
         public ActionResult ModalCadastro()
         {
@@ -113,5 +127,7 @@ namespace Principal.Content
         {
             return View();
         }
+
+
     }
 }
