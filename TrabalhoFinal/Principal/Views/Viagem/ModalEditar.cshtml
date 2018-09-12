@@ -11,34 +11,36 @@
                 </button>
             </div>
         
-        <div class="modal-body">
-            <input type="hidden" name="viagem.Id" id="campo-editar-pacote-id" />
-            <input type="hidden" name="viagem.IdPacote" id="campo-editar-guia-id"/>
-            <div class="form">
-                <label id="select-editar-viagem-pacote">Pacote</label>
-                <select id="select-editar-viagem-pacote" name="viagem.IdPacote" class="form-control"></select>
-            </div>
-            <div class="col-md-6">
-                <label for="select-editar-viagem-guia">Guia</label>
-                <select id="select-editar-viagem-guia" name="viagem.IdGuia" class="form-control"></select>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="campo-editar-data-saida-viagem">Data e Horario Saida</label>
-                    <input type="datetime-local" class="form-control" name="viagem.DataHorarioSaida" id="campo-editar-data-saida-viagem">
-                </div>
-                <div class="col-md-6">
-                    <label for="campo-editar-data-volta-viagem">Data e Horario Volta</label>
-                    <input type="datetime-local" class="form-control" name="viagem.DataHorarioVolta" id="campo-editar-data-volta-viagem">
-                </div>
-            </div>
+            <div class="modal-body">
 
-        </div>
+                <div class="row mb-md-3">
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" id="botao-fechar-modal-cadastro-viagem">Fechar</button>
-            <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-cadastrar-viagem">Cadastrar</button>
-        </div>
+                    <input type="hidden" name="viagem.Id" id="campo-editar-pacote-id" />
+                    <input type="hidden" name="viagem.IdPacote" id="campo-editar-guia-id" />
+                    <div class="col-md-6">
+                        <label id="select-editar-viagem-pacote">Pacote</label>
+                        <select id="select-modal-editar-viagem" name="viagem.IdPacote" class="form-control"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="select-editar-viagem-guia">Guia</label>
+                        <select id="select-modal-editar-viagem" name="viagem.IdGuia" class="form-control"></select>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="campo-editar-data-saida-viagem">Data e Horario Saida</label>
+                            <input type="datetime-local" class="form-control" name="viagem.DataHorarioSaida" id="campo-editar-data-saida-viagem">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="campo-editar-data-volta-viagem">Data e Horario Volta</label>
+                            <input type="datetime-local" class="form-control" name="viagem.DataHorarioVolta" id="campo-editar-data-volta-viagem">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" id="botao-fechar-modal-cadastro-viagem">Fechar</button>
+                    <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-cadastrar-viagem">Cadastrar</button>
+                </div>
             </div>
     </div>
 </div>
