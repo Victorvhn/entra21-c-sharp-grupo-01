@@ -10,6 +10,15 @@ DROP TABLE enderecos;
 DROP TABLE cidades;
 DROP TABLE estados;
 DROP TABLE idiomas;
+DROP TABLE logins;
+
+CREATE TABLE logins (
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	privilegio VARCHAR(15),
+	email VARCHAR(150),
+    senha VARCHAR(100),
+	ativo BIT DEFAULT '1'
+);
 
 CREATE TABLE idiomas (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -19,15 +28,15 @@ CREATE TABLE idiomas (
 
 CREATE TABLE estados (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    nome VARCHAR(100) NOT NULL,
+    nome VARCHAR(100),
 	ativo BIT DEFAULT '1'
 );
 
 
 CREATE TABLE cidades (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    id_estado INT NOT NULL,
-    nome VARCHAR(100) NOT NULL,
+    id_estado INT,
+    nome VARCHAR(100),
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_estado) REFERENCES estados(id)
 );
@@ -35,10 +44,10 @@ CREATE TABLE cidades (
 
 CREATE TABLE enderecos (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    id_cidade INT NOT NULL,
-    cep VARCHAR(8) NOT NULL,
-    logradouro VARCHAR(150) NOT NULL,
-    numero SMALLINT NOT NULL,
+    id_cidade INT,
+    cep VARCHAR(8),
+    logradouro VARCHAR(150),
+    numero SMALLINT,
     complemento VARCHAR(20),
     referencia VARCHAR(400),
 	ativo BIT DEFAULT '1',
@@ -47,41 +56,38 @@ CREATE TABLE enderecos (
 
 
 CREATE TABLE turistas ( 
-    login_ VARCHAR(100),
-    sexo CHAR(10),
-    senha VARCHAR(100),
-    ativo BIT DEFAULT '1',
-    perfil VARCHAR(15) DEFAULT 'USER',
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    id_login INT,
     id_endereco INT,
-    nome VARCHAR(100) NOT NULL,
-    sobrenome VARCHAR(100) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
-    rg VARCHAR(20) NOT NULL,
-    data_nascimento DATE NOT NULL,  
-    premium BIT DEFAULT 0,
-    FOREIGN KEY (id_endereco) REFERENCES enderecos(id)
+    ativo BIT DEFAULT '1',
+    nome VARCHAR(100),
+    sobrenome VARCHAR(100),
+    cpf VARCHAR(11),
+    rg VARCHAR(20),
+    sexo CHAR(10),
+    data_nascimento DATE,  
+    FOREIGN KEY (id_endereco) REFERENCES enderecos(id),
+    FOREIGN KEY (id_login) REFERENCES logins(id)
 );
 
 
 CREATE TABLE guias (
-    login_ VARCHAR(100),
-    sexo CHAR(1),
-    senha VARCHAR(100),
+    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL, 
+    id_login INT,
     ativo BIT DEFAULT '1',
-    perfil VARCHAR(15) DEFAULT 'ADMIN',
-    id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     id_endereco INT,
-    nome VARCHAR(100) NOT NULL,
-    sobrenome VARCHAR(100) NOT NULL,
-    numero_carteira_trabalho VARCHAR(11) NOT NULL,
-    categoria_habilitacao VARCHAR(10) NOT NULL, 
-    salario FLOAT NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
-    rg VARCHAR(20) NOT NULL,
-    data_nascimento DATE NOT NULL,  
+    nome VARCHAR(100),
+    sobrenome VARCHAR(100),
+    numero_carteira_trabalho VARCHAR(11),
+    categoria_habilitacao VARCHAR(10), 
+    salario FLOAT,
+    cpf VARCHAR(11),
+    rg VARCHAR(20),
+    sexo CHAR(1),
+    data_nascimento DATE,  
     rank_ SMALLINT, 
-    FOREIGN KEY (id_endereco) REFERENCES enderecos(id)
+    FOREIGN KEY (id_endereco) REFERENCES enderecos(id),
+    FOREIGN KEY (id_login) REFERENCES logins(id)
 );
 
 CREATE TABLE pacotes (
@@ -105,7 +111,7 @@ CREATE TABLE pontos_turisticos (
 CREATE TABLE pacotes_pontos_turisticos (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     id_ponto_turistico INT,
-    id_pacote INT ,
+    id_pacote INT,
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_ponto_turistico) REFERENCES pontos_turisticos(id),
     FOREIGN KEY (id_pacote) REFERENCES pacotes(id),
@@ -114,7 +120,7 @@ CREATE TABLE pacotes_pontos_turisticos (
 
 CREATE TABLE viagens (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-    data_compra DATE NOT NULL,
+    data_compra DATE,
     id_pacote INT,
     id_guia INT,
     data_horario_saida DATETIME,
@@ -130,7 +136,7 @@ CREATE TABLE viagens_turistas (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     id_turista INT,
     id_viagem INT,
-    valor FLOAT NOT NULL,
+    valor FLOAT,
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_turista) REFERENCES turistas(id),
     FOREIGN KEY (id_viagem) REFERENCES viagens(id)  
@@ -144,6 +150,16 @@ CREATE TABLE historico_de_viagens (
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 );
+
+INSERT INTO logins(email, senha, privilegio) VALUES
+('admin@admin.com', 'admin', 'Admin'),
+('user@user.com', 'user', 'User'),
+('user@user.com1', 'user1', 'User'),
+('user@user.com2', 'user2', 'User'),
+('user@user.com3', 'user3', 'User'),
+('funcionario@funcionario.com', 'funcionario', 'Funct'),
+('funcionario@funcionario.com2', 'funcionario2', 'Funct'),
+('funcionario@funcionario.com3', 'funcionario3', 'Funct');
 
 INSERT INTO pacotes (nome, valor, percentual_max_desconto) VALUES
 ('Disney', 4000, 20),
@@ -233,5 +249,3 @@ INSERT INTO viagens_turistas (id_turista, id_viagem, valor) VALUES
 ((SELECT id FROM turistas WHERE nome = 'Eduarda'), (SELECT id FROM viagens WHERE data_compra = '07-08-2017'), 5000),
 ((SELECT id FROM turistas WHERE nome = 'Marcio'), (SELECT id FROM viagens WHERE data_compra = '10-08-2015'), 3500),
 ((SELECT id FROM turistas WHERE nome = 'Marcos'), (SELECT id FROM viagens WHERE data_compra = '01-02-2016'), 4500);
-
-SELECT * FROM historico_de_viagens;
