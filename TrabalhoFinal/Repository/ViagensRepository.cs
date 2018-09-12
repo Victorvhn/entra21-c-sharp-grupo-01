@@ -45,6 +45,28 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             return viagens;
         }
 
+        public List<Viagem> ObterTodosParaSelect()
+        {
+            List<Viagem> viagens = new List<Viagem>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, data_horario_saida, data_horario_volta, id_guia, id_pacote FROM viagens WHERE ativo = 1";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow line in table.Rows)
+            {
+                Viagem viagem = new Viagem()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    DataHorarioSaida = Convert.ToDateTime(line[1].ToString()),
+                    DataHorarioVolta = Convert.ToDateTime(line[2].ToString()),
+                    IdGuia = Convert.ToInt32(line[3].ToString()),
+                    IdPacote = Convert.ToInt32(line[4].ToString())
+                };
+                viagens.Add(viagem);
+            }
+            return viagens;
+        }
+
         public int Cadastrar(Viagem viagem)
         {
             SqlCommand command = new Conexao().ObterConexao();
