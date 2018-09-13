@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿﻿$(document).ready(function () {
     $('#select-modal-cadastro-cidade').select2({
         placeholder: "Selecione um Estado",
         ajax: {

@@ -5151,25 +5151,20 @@
     <Content Include="Content\lib\underscore\js\underscore.js" />
     <Content Include="Database\Estrutura SQL.sql" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Cidade\Cadastro\select2-cadastro-cidade.js" />
     <Content Include="Scripts\Cidade\cidade-index.js" />
     <Content Include="Scripts\CriarPacote\criar-pacote-user.js" />
     <Content Include="Scripts\Endereco\endereco-table.js" />
-    <Content Include="Scripts\Estado\Cadastro\select2-cadastro-estado.js" />
     <Content Include="Scripts\Estado\estado-index.js" />
     <Content Include="Scripts\Guia\guia-tabela.js" />
-    <Content Include="Scripts\Guia\selects.js" />
     <Content Include="Scripts\HistoricoViagens\historicoViagem-tabela.js" />
     <Content Include="Scripts\Idioma\idioma-tabela.js" />
     <Content Include="Scripts\Pacote\pacote-tabela.js" />
-    <Content Include="Scripts\PontoTuristico\Cadastro\select2-cadastro-pontoturistico.js" />
     <Content Include="Scripts\PopularSelects\SelectCidade\popular-select-cidade.js" />
     <Content Include="Scripts\PopularSelects\SelectEstado\popular-select-estado.js" />
     <Content Include="Scripts\PopularSelects\SelectGuia\popular-select-guia.js" />
     <Content Include="Scripts\PopularSelects\SelectHistoricoViagem\popular-select-historicoViagem.js" />
     <Content Include="Scripts\PopularSelects\SelectPontoTuristico\popular-select-pontoturistico.js" />
     <Content Include="Scripts\PopularSelects\SelectViagem\popular-select-viagem.js" />
-    <Content Include="Scripts\Turista\Cadastro\select2-cadastro-turista.js" />
     <Content Include="Scripts\Turista\turista-index.js" />
     <Content Include="Scripts\Viagem\Cadastro\select2-cadastro-viagem.js" />
     <Content Include="Scripts\Viagem\index-viagem.js" />
@@ -5525,7 +5520,6 @@
     <Content Include="Content\lib\lightgallery\fonts\lg.woff" />
     <Content Include="Views\Principal\Index.cshtml" />
     <Content Include="Views\Turista\CadastroTurista.cshtml" />
-    <Content Include="Views\Cidade\Editar.cshtml" />
     <Content Include="Views\Endereco\Editar.cshtml" />
     <Content Include="Views\Endereco\Cadastrar.cshtml" />
     <Content Include="Views\Guia\Cadastro.cshtml" />
@@ -5543,7 +5537,6 @@
     <Content Include="Views\Idioma\Editar.cshtml" />
     <Content Include="Views\Pacote\Editar.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
-    <Content Include="Views\Cidade\Cadastro.cshtml" />
     <Content Include="Views\PacotePontoTuristico\Cadastro.cshtml" />
     <Content Include="Views\PacotePontoTuristico\Editar.cshtml" />
     <Content Include="Views\PontoTuristico\Editar.cshtml" />
@@ -5593,7 +5586,7 @@
   <ItemGroup>
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
-    <Folder Include="Scripts\PontoTuristico\Table\" />
+    <Folder Include="Scripts\PontoTuristico\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
