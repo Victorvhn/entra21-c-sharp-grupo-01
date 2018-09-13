@@ -17,7 +17,6 @@
         ]
     });
 
-
     $('#botao-modal-cadastrar-cidade').on('click', function () {
         limparCamposCidadeCadastro();
         $('#cidade-modal-cadastro').modal('show');
@@ -91,7 +90,7 @@
             success: function (resultado) {
                 var data = JSON.parse(resultado);
                 $('#campo-editar-cidade-id').val(data.Id);
-                $('#select-modal-editar-cidade :selected').text(data.idEstado);
+                $('#select-modal-editar-cidade').append(new Option(data.Estado.Nome, data.IdEstado, false, false)).val(data.IdEstado).trigger('change');
                 $('#campo-editar-cidade-nome').val(data.Nome);
 
                 $('#cidade-modal-editar').modal('show');
@@ -162,12 +161,12 @@
     });
 
     function limparCamposCidadeCadastro() {
-        $('#select-modal-cadastro-cidade').val('');
+        $('#select-modal-cadastro-cidade').val('').trigger('change');
         $('#campo-cadastro-cidade-nome').val('');
     }
 
     function limparCamposCidadeEditar() {
-
+        $('#campo-editar-cidade-id').val('');
+        $('#select-modal-editar-cidade').val('').trigger('change');
     }
-
 });
