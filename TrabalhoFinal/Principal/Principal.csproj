@@ -5173,6 +5173,7 @@
     <Content Include="Scripts\Turista\turista-index.js" />
     <Content Include="Scripts\Viagem\Cadastro\select2-cadastro-viagem.js" />
     <Content Include="Scripts\Viagem\index-viagem.js" />
+    <Content Include="Scripts\_Configurations\datatable-configuration.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

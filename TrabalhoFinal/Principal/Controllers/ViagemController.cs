@@ -30,9 +30,10 @@ namespace Principal.Content
         public ActionResult Editar(int id)
         {
 
-            Viagem viajens = new ViagensRepository().ObterPeloId(id);
-            ViewBag.Viagem = viajens;
-            return View();
+            Viagem viagem = new ViagensRepository().ObterPeloId(id);
+
+
+            return Content(JsonConvert.SerializeObject(viagem));
         }
 
         [HttpGet]

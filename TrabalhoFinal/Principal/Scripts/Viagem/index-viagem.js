@@ -1,7 +1,5 @@
 ﻿$(function () {
     $('#table-viagens').DataTable({
-        processing: true,
-        serverSide: true,
         ajax: '/Viagem/ObterTodosPorJSON',
         columns: [
             { data: 'Id' },
