@@ -15,5 +15,7 @@ $(document).ready(function () {
             url: '/Estado/ObterTodosPorJSONToSelect2',
             dataType: 'json'
         }
+    }).on('change', function (e) {
+        $('#form-modal-cadastro-cidade').valid()
     });
 });
