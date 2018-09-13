@@ -28,7 +28,7 @@ $('#botao-salvar-modal-cadastrar-viagem').on('click', function () {
         url: '/Viagem/Store',
         method: 'post',
         data: {
-            idGuia: $('#select-cadastro-viagem-pacote').val(),
+            idGuia: $('#select-cadastro-viagem-guia').val(),
             idPacote: $('#select-cadastro-viagem-pacote').val(),
             dataHoraSaidaPadraoBR: $('#campo-cadastro-data-saida-viagem').val(),
             dataHoraVoltaPadraoBR: $('#campo-cadastro-data-volta-viagem').val()
@@ -57,8 +57,8 @@ $('table').on('click', '#botao-editar-viagem', function () {
         success: function (resultado) {
             var data = JSON.parse(resultado);
             $('#campo-editar-viagem-id').val(data.Id);
-            $('#select-modal-editar-guia :selected').text(data.idGuia);
-            $('#select-modal-editar-pacote :selected').text(data.idPacote);
+            $('#select-modal-editar-viagem-guia :selected').text(data.idGuia);
+            $('#select-modal-editar-viagem-pacote :selected').text(data.idPacote);
             $('#campo-editar-data-saida-viagem').val(data.dataHoraSaidaPadraoBR);
             $('#campo-editar-data-volta-viagem').val(data.dataHoraVoltaPadraoBR);
 
@@ -74,8 +74,8 @@ $('#botao-salvar-modal-editar-viagem').on('click', function () {
         method: 'post',
         dataType: 'json',
         data: {
-            idGuia: $('#select-modal-editar-guia').val(),
-            idPacote: $('#select-modal-editar-pacote').val(),
+            idGuia: $('#select-modal-editar-viagem-guia').val(),
+            idPacote: $('#select-modal-editar-viagem-pacote').val(),
             dataHoraSaidaPadraoBR: $('#campo-editar-data-saida-viagem').val(),
             dataHoraVoltaPadraoBR: $('#campo-editar-data-volta-viagem').val()
         },
@@ -83,15 +83,15 @@ $('#botao-salvar-modal-editar-viagem').on('click', function () {
             var resultado = JSON.parse(data);
             if (resultado == 1) {
                 $(function () {
+                $('#table-viagens').DataTable().ajax.reload();
                     new PNotify({
                         title: 'Sucesso!',
                         text: 'Alterado com sucesso',
                         type: 'info'
                     });
                 });
-                $('#table-viagem').DataTable().ajax.reload();
                 $('#viagem-modal-editar').modal('hide');
-                limparCampos();
+                limparCampoEditar();
             } else {
                 new PNotify({
                     title: 'Erro!',
@@ -135,4 +135,10 @@ function limparCampos() {
     $('#campo-cadastro-data-volta-viagem').val();
     $('#select-cadastro-viagem-guia').val();
     $('#select-cadastro-viagem-pacote').val();
+}
+function limparCampoEditar() {
+    $('#select-modal-editar-viagem-guia').val(),
+    $('#select-modal-editar-viagem-pacote').val(),
+    $('#campo-editar-data-saida-viagem').val(),
+    $('#campo-editar-data-volta-viagem').val()
 }

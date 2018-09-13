@@ -84,12 +84,11 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
         public bool Alterar(Viagem viagens)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "UPDATE viagens SET data = @DATA, data_horario_saida = @DATA_HORARIO_SAIDA, data_horario_volta = @DATA_HORARIO_VOLTA,id_guia = @ID_GUIA,id_pacotes = @ID_PACOTES WHERE id = @ID";
-            command.Parameters.AddWithValue("@DATA", viagens.Data);
+            command.CommandText = "UPDATE viagens SET data_horario_saida = @DATA_HORARIO_SAIDA, data_horario_volta = @DATA_HORARIO_VOLTA, id_guia = @ID_GUIA, id_pacote = @ID_PACOTE WHERE id = @ID";
             command.Parameters.AddWithValue("@DATA_HORARIO_SAIDA", viagens.DataHorarioSaida);
             command.Parameters.AddWithValue("@DATA_HORARIO_VOLTA", viagens.DataHorarioVolta);
             command.Parameters.AddWithValue("@ID_GUIA", viagens.IdGuia);
-            command.Parameters.AddWithValue("@ID_PACOTES", viagens.IdPacote);
+            command.Parameters.AddWithValue("@ID_PACOTE", viagens.IdPacote);
             command.Parameters.AddWithValue("@ID", viagens.Id);
 
             return command.ExecuteNonQuery() == 1;

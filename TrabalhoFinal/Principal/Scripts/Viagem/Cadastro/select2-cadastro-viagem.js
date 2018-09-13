@@ -12,18 +12,4 @@
             dataType: 'json'
         }
     });
-
-    $('#select-modal-editar-pacote').select2({
-        ajax: {
-            url: '/Viagem/ObterTodosPorJSONToSelect2',
-            dataType: 'json'
-        }
-    });
-
-    $('#select-modal-editar-guia').select2({
-        ajax: {
-            url: '/Viagem/ObterTodosPorJSONToSelect2',
-            dataType: 'json'
-        }
-    });
 });

@@ -31,8 +31,7 @@ namespace Principal.Content
         {
 
             Viagem viagem = new ViagensRepository().ObterPeloId(id);
-
-
+            ViewBag.Viagem = viagem;
             return Content(JsonConvert.SerializeObject(viagem));
         }
 
