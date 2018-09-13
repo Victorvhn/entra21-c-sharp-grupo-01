@@ -22,31 +22,51 @@ $('#botao-modal-cadastrar-idioma').on("click", function () {
     $("#idioma-modal-cadastro").modal('show');
 });
 
-$("#botao-salvar-modal-cadastrar-idioma").on('click', function () {
-    var nomeVar = $("#campo-cadastro-idioma").val();
-    $.ajax({
-        url: '/Idioma/Store',
-        method: 'post',
-        data: {
-            nome: $('#campo-cadastro-idioma').val()
-        },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            limparCampos();
-            $('#idioma-modal-cadastro').modal('hide');
-            $(function () {
-                new PNotify({
-                    title: 'Sucesso!',
-                    text: nomeVar + ' cadastrado com sucesso',
-                    type: 'success'
-                });
-            });
-            $('#table-idiomas').DataTable().ajax.reload();
-
-
+$('#form-modal-cadastro-idioma').validate({
+    errorClass: 'form-control-danger',
+    validClass: 'form-control-success',
+    rules: {
+        'idioma.Nome': {
+            required: true,
+            rangelength: [4, 20]
+        }
+    },
+    messages: {
+        'idioma.Nome': {
+            required: 'Idioma deve ser preenchido,',
+            rangelength: 'Idioma deve conter de {0} a {1}'
 
         }
-    });
+    }
+});
+
+$("#botao-salvar-modal-cadastrar-idioma").on('click', function () {
+    if ($('#form-modal-cadastro-idioma').valid()) {
+        var nomeVar = $("#campo-cadastro-idioma").val();
+        $.ajax({
+            url: '/Idioma/Store',
+            method: 'post',
+            data: {
+                nome: $('#campo-cadastro-idioma').val()
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                limparCampos();
+                $('#idioma-modal-cadastro').modal('hide');
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso!',
+                        text: nomeVar + ' cadastrado com sucesso',
+                        type: 'success'
+                    });
+                });
+                $('#table-idiomas').DataTable().ajax.reload();
+
+
+
+            }
+        });
+    }
 });
 
 $('table').on('click', '#botao-editar-idioma', function () {
@@ -126,5 +146,5 @@ $('table').on('click', '#botao-excluir-idioma', function () {
 });
 
 function limparCampos() {
-    $("#campo-cadastro-idioma").prop('');    
+    $("#campo-cadastro-idioma").prop('');
 }
