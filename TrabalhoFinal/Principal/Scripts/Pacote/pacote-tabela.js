@@ -24,30 +24,69 @@ $('#botao-modal-cadastrar-pacote').on('click', function () {
     $('#pacote-modal-cadastro').modal('show');
 });
 
-$('#botao-salvar-modal-cadastrar-pacote').on('click', function () {
-    var nomeVar = $("#campo-cadastro-pacote-nome").val();
-    $.ajax({
-        url: '/Pacote/Store',
-        method: 'post',
-        data: {
-            nome: $('#campo-cadastro-pacote-nome').val(),
-            valor: $('#campo-cadastro-pacote-valor').val(),
-            percentualMaximoDesconto: $('#campo-cadastro-percentualMaximoDesconto').val()
+$('#form-modal-cadastro-pacote').validate({
+    errorClass: "form-control-danger",
+    validClass: "form-control-success",
+    rules: {
+        'Pacote.Nome': {
+            required: true,
+            rangelength: [3, 30]
         },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            limparCampos();
-            $('#pacote-modal-cadastro').modal('hide');
-            $('#pacote-tabela').DataTable().ajax.reload();
-            $(function () {
-                new PNotify({
-                    title: 'Sucesso!',
-                    text: nomeVar + ' cadastrado com sucesso',
-                    type: 'success'
-                });
-            });
+        'Pacote.Valor': {
+            required: true,
+            range: [500, 12000],
+            number: true
+        },
+        'Pacote.PercentualMaximoDesconto': {
+            required: true,
+            range: [1, 100],
+            number: true
         }
-    });
+    },
+    messages: {
+        'Pacote.Nome': {
+            required: 'Pacote deve ser preenchido.',
+            rangelength: 'Pacote deve conter de {0} a {1} caracteres.'
+        },
+        'Pacote.Valor': {
+            required: 'Valor deve ser preenchido.',
+            range: 'Valor deve ser de {0} a {1}.',
+            number: 'Valor deve conter números inteiros ou decimais'
+        },
+        'Pacote.PercentualMaximoDesconto': {
+            required: 'Percentual maximo de desconto deve ser preenchido.',
+            range: 'Percentual maximo de desconto deve ser de {0} a {1}.',
+            number: 'Percentual maximo de desconto deve conter números inteiros ou decimais.'
+        }
+    }
+});
+
+$('#botao-salvar-modal-cadastrar-pacote').on('click', function () {
+    if ($('#form-modal-cadastro-pacote').valid()) {
+        var nomeVar = $("#campo-cadastro-pacote-nome").val();
+        $.ajax({
+            url: '/Pacote/Store',
+            method: 'post',
+            data: {
+                nome: $('#campo-cadastro-pacote-nome').val(),
+                valor: $('#campo-cadastro-pacote-valor').val(),
+                percentualMaximoDesconto: $('#campo-cadastro-percentualMaximoDesconto').val()
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                limparCampos();
+                $('#pacote-modal-cadastro').modal('hide');
+                $('#pacote-tabela').DataTable().ajax.reload();
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso!',
+                        text: nomeVar + ' cadastrado com sucesso',
+                        type: 'success'
+                    });
+                });
+            }
+        });
+    }
 });
 
 $('table').on('click', '#botao-editar-pacote', function () {
