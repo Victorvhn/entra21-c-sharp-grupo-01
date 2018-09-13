@@ -12,25 +12,32 @@ namespace Repository
 {
      public class PacotePontosTuristicosRepository
     {
-        public List<Pacote> ObterTodosPontosTuristicosPeloIdPacote(int idPacote)
+        public List<PacotePontoTuristico> ObterTodosPorJSON(string start, string length)
         {
-            List<Pacote> pacotes = new List<Pacote>();
+            List<PacotePontoTuristico> pacotePontoTuristicos = new List<PacotePontoTuristico>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT pt.id, pt.nome FROM pacotes_pontos_turisticos ppt 
-                                JOIN pontos_turisticos pt ON(pt.id = ppt.id_ponto_turistico)
-                                WHERE ppt.id_pacote = @ID_PACOTE";
+            command.CommandText = @"SELECT ppt.id, p.id,p.nome, pt.id, pt.nome
+            FROM pacotes_pontos_turisticos ppt
+            INNER JOIN pacotes p ON (p.id = ppt.id_pacote)
+            INNER JOIN pontos_turisticos pt ON (pt.id = ppt.id_ponto_turistico)
+            WHERE ppt.ativo = 1
+            ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
             {
-                Pacote pacote = new Pacote()
-                {
-                    Id = Convert.ToInt32(linha[0].ToString()),
-                    Nome = linha[1].ToString()
-                };
-                pacotes.Add(pacote);
+                PacotePontoTuristico pacotePontoTuristico = new PacotePontoTuristico();
+                pacotePontoTuristico.Id = Convert.ToInt32(linha[0].ToString());
+                pacotePontoTuristico.Pacote = new Pacote();
+                pacotePontoTuristico.Pacote.Id = Convert.ToInt32(linha[1].ToString());
+                pacotePontoTuristico.Pacote.Nome = linha[2].ToString();
+                pacotePontoTuristico.PontoTuristico = new PontoTuristico();
+                pacotePontoTuristico.PontoTuristico.Id = Convert.ToInt32(linha[3].ToString());
+                pacotePontoTuristico.PontoTuristico.Nome = linha[4].ToString();
+                pacotePontoTuristicos.Add(pacotePontoTuristico);
             }
-            return pacotes;
+            return pacotePontoTuristicos;
         }
 
         public int Cadastro(PacotePontoTuristico pacotePontoTuristico)
@@ -84,5 +91,30 @@ namespace Repository
             }
             return pacoteTuristico;
         }
+
+
+        public List<PacotePontoTuristico> ObterTodosParaSelect()
+        {
+            List<PacotePontoTuristico> pacotePontoTuristicos = new List<PacotePontoTuristico>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, id_pacote, id_ponto_turistico FROM pacotes_pontos_turisticos WHERE ativo = 1";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow line in table.Rows)
+            {
+                PacotePontoTuristico pacotePontoTuristico = new PacotePontoTuristico()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    IdPacote = Convert.ToInt32(line[1].ToString()),
+                    IdPontoTuristico = Convert.ToInt32(line[2].ToString())
+                };
+                pacotePontoTuristicos.Add(pacotePontoTuristico);
+            }
+            return pacotePontoTuristicos;
+        } 
+        
+
+        
+
     }
 }
