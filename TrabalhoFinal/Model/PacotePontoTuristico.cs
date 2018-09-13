@@ -14,6 +14,10 @@ namespace Model
         public int IdPontoTuristico { get; set; }
 
         public int IdPacote { get; set; }
-        
+
+        public Pacote Pacote { get; set; }
+
+        public PontoTuristico PontoTuristico{ get; set; }
+
     }
 }
