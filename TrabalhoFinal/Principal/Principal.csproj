@@ -5524,22 +5524,12 @@
     <Content Include="Views\Endereco\Cadastrar.cshtml" />
     <Content Include="Views\Guia\Cadastro.cshtml" />
     <Content Include="Views\Guia\Editar.cshtml" />
-    <Content Include="Views\Estado\Cadastro.cshtml" />
-    <Content Include="Views\Estado\Editar.cshtml" />
-    <Content Include="Views\HistoricoViagem\Cadastro.cshtml" />
-    <Content Include="Views\HistoricoViagem\Editar.cshtml" />
     <Content Include="Views\Endereco\Index.cshtml" />
-    <Content Include="Views\PontoTuristico\Cadastro.cshtml" />
     <Content Include="Views\ViagemTurista\Cadastro.cshtml" />
-    <Content Include="Views\Idioma\Cadastro.cshtml" />
-    <Content Include="Views\Pacote\Cadastrar.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Idioma\Editar.cshtml" />
-    <Content Include="Views\Pacote\Editar.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
     <Content Include="Views\PacotePontoTuristico\Cadastro.cshtml" />
     <Content Include="Views\PacotePontoTuristico\Editar.cshtml" />
-    <Content Include="Views\PontoTuristico\Editar.cshtml" />
     <Content Include="Views\HistoricoViagem\Index.cshtml" />
     <Content Include="Views\Turista\Editar.cshtml" />
     <Content Include="Views\ViagemTurista\Editar.cshtml" />
@@ -5586,7 +5576,6 @@
   <ItemGroup>
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
-    <Folder Include="Scripts\PontoTuristico\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
