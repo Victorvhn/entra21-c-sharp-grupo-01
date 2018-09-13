@@ -20,7 +20,9 @@ namespace Principal.Models
 
         public string DataHoraVoltaPadraoBR { get; set; }
 
+        public string DataHoraSaida { get; set; }
 
+        public string DataHoraVolta { get; set; }
 
         public List<Turista> Turistas { get; set; }
     }

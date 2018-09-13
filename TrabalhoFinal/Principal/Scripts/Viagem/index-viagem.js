@@ -26,12 +26,11 @@ $('#botao-modal-cadastrar-viagem').on('click', function () {
 });
 
 $('#botao-salvar-modal-cadastrar-viagem').on('click', function () {
-    var nomeVar = $('#campo-cadastro-viagem').val();
     $.ajax({
         url: '/Viagem/Store',
         method: 'post',
         data: {
-            idGuia: $('#select-cadastro-viagem-guia').val(),
+            idGuia: $('#select-cadastro-viagem-pacote').val(),
             idPacote: $('#select-cadastro-viagem-pacote').val(),
             dataHoraSaidaPadraoBR: $('#campo-cadastro-data-saida-viagem').val(),
             dataHoraVoltaPadraoBR: $('#campo-cadastro-data-volta-viagem').val()
@@ -40,11 +39,11 @@ $('#botao-salvar-modal-cadastrar-viagem').on('click', function () {
             var resultado = JSON.parse(data);
             limparCampos();
             $('#viagem-modal-cadastro').modal('hide');
-            $('#table-viagem').DataTable().ajax.reload();
+            $('#table-viagens').DataTable().ajax.reload();
             $(function () {
                 new PNotify({
                     title: 'Sucesso!',
-                    text: nomeVar + 'cadastrado com sucesso',
+                    text: 'Viagem cadastrada com sucesso',
                     type: 'success'
                 });
             });
@@ -135,6 +134,7 @@ $('table').on('click', '#botao-excluir-viagem', function () {
 
 function limparCampos() {
     $('campo-cadastro-data-saida-viagem').val();
-} $('#campo-cadastro-data-volta-viagem').val();
-$('#select-cadastro-viagem-guia').val();
-$('#select-cadastro-viagem-pacote').val();
+    $('#campo-cadastro-data-volta-viagem').val();
+    $('#select-cadastro-viagem-guia').val();
+    $('#select-cadastro-viagem-pacote').val();
+}

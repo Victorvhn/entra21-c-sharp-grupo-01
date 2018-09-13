@@ -53,36 +53,15 @@ namespace Principal.Content
             return Content(JsonConvert.SerializeObject(sucesso));
         }
 
-        [HttpGet]
-        public ActionResult Store(ViagemString viagem, GuiaString guia, PacoteString pacote)
+        [HttpPost]
+        public ActionResult Store(ViagemString viagem)
         {
-            Pacote pacoteModel = new Pacote();
-            pacoteModel.Nome = pacote.Nome.ToString();
-            pacoteModel.Valor = Convert.ToDouble(pacote.Valor.ToString());
-
-            int codigoPacote = new PacoteRepository().Cadastrar(pacoteModel);
-
-            Guia guiaModel = new Guia();
-            guiaModel.IdEndereco =Convert.ToInt32(guia.IdEndereco.ToString());
-            guiaModel.Nome = guia.Nome.ToString();
-            guiaModel.Sobrenome = guia.Sobrenome.ToString();
-            guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/", "-").ToString());
-            guiaModel.Sexo = guia.Sexo.ToString();
-            guiaModel.Rg = guia.Rg.ToString();
-            guiaModel.Cpf = guia.Cpf.ToString();
-            guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
-            guiaModel.CategoriaHabilitacao = guia.CategoriaHabilitacao.ToString();
-            guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
-            guiaModel.Rank = Convert.ToByte(guia.Rank.ToString());
-
-            int codigoGuia = new GuiaRepository().Cadastrar(guiaModel);
 
             Viagem viagemModel = new Viagem();
-            viagemModel.Data = Convert.ToDateTime(viagem.DataHoraSaidaPadraoBR.Replace("/", "-").ToString());
-            viagemModel.Data = Convert.ToDateTime(viagem.DataHoraVoltaPadraoBR.Replace("/", "-").ToString());
-            viagemModel.IdGuia = codigoGuia;
-            viagemModel.IdPacote = codigoPacote;
-
+            viagemModel.IdPacote = Convert.ToInt32(viagem.IdPacote.ToString());
+            viagemModel.IdGuia = Convert.ToInt32(viagem.IdGuia.ToString());
+            viagemModel.DataHorarioSaida = Convert.ToDateTime(viagem.DataHoraSaidaPadraoBR.Replace("/", "-").ToString());
+            viagemModel.DataHorarioVolta = Convert.ToDateTime(viagem.DataHoraVoltaPadraoBR.Replace("/", "-").ToString());
 
             int identificador = new ViagensRepository().Cadastrar(viagemModel);
             return Content(JsonConvert.SerializeObject(new { id = identificador }));
