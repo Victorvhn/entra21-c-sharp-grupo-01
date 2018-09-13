@@ -23,29 +23,65 @@ $('#botao-modal-cadastrar-historico-viagem').on("click", function () {
     $("#historico-viagem-modal-cadastro").modal('show');
 });
 
-$('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
-    var PacoteVar = $("#select-cadastro-historico-viagem-idPacote").text();
-    $.ajax({
-        url: '/HistoricoViagem/Store',
-        method: 'post',
-        data: {
-            data: $('#campo-cadastro-historico-viagem-data').val(),
-            idPacote: $('#select-cadastro-historico-viagem-idPacote :selected').val()
+$('#form-modal-cadastro-historico-viagem').validate({
+    errorClass: 'form-control-danger',
+    validClass: 'form-control-sucess',
+    highlight: function (element) {
+        jQuery(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function (element) {
+        jQuery(element).closest('.form-group').removeClass('has-error');
+    },
+    errorPlacement: function (error, element) {
+        $(element).parent().append(error[0])
+    },
+
+    rules: {
+        'historicoViagem.IdPacote': {
+            required: true
         },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            limparCampos();
-            $('#historico-viagem-modal-cadastro').modal('hide');
-            $('#historico-viagem-tabela').DataTable().ajax.reload();
-            $(function () {
-                new PNotify({
-                    title: 'Sucesso!',
-                    text: PacoteVar + ' cadastrado com sucesso',
-                    type: 'success'
-                });
-            });
+        'historicoViagem.Data': {
+            required: true,
+            date: true
         }
-    });
+    },
+    messages: {
+        'historicoViagem.IdPacote': {
+            required: 'Selecione um pacote.'
+        },
+        'historicoViagem.Data': {
+            required: 'Informe a data.',
+            date: 'A data não é valida.'
+        }
+    }
+     
+});
+
+$('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
+    if ($('#form-modal-cadastro-historico-viagem').valid()) {
+        var PacoteVar = $("#select-cadastro-historico-viagem-idPacote").text();
+        $.ajax({
+            url: '/HistoricoViagem/Store',
+            method: 'post',
+            data: {
+                data: $('#campo-cadastro-historico-viagem-data').val(),
+                idPacote: $('#select-cadastro-historico-viagem-idPacote :selected').val()
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                limparCampos();
+                $('#historico-viagem-modal-cadastro').modal('hide');
+                $('#historico-viagem-tabela').DataTable().ajax.reload();
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso!',
+                        text: PacoteVar + ' cadastrado com sucesso',
+                        type: 'success'
+                    });
+                });
+            }
+        });
+    }
 });
 
 $('table').on('click', '#botao-editar-historico-viagem', function () {
