@@ -23,29 +23,54 @@ $('#botao-modal-cadastrar-cidade').on('click', function () {
     $('#cidade-modal-cadastro').modal('show');
 });
 
-$('#botao-salvar-modal-cadastrar-cidade').on('click', function () {
-    var nomeVar = $('#campo-cadastro-cidade-nome').val();
-    $.ajax({
-        url: '/Cidade/Store',
-        method: 'post',
-        data: {
-            idEstado: $('#select-modal-cadastro-cidade').val(),
-            nome: $('#campo-cadastro-cidade-nome').val()
+$('#form-modal-cadastro-cidade')({
+    errorClass: "form-control-danger",
+    validClass: "form-control-success",
+    rules: {
+        'cidade.IdEstado': {
+            required: true
         },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            limparCamposCidadeCadastro();
-            $('#cidade-modal-cadastro').modal('hide');
-            $('#table-cidade').DataTable().ajax.reload();
-            $(function () {
-                new PNotify({
-                    title: 'Sucesso!',
-                    text: nomeVar + ' cadastrado com sucesso',
-                    type: 'success'
-                });
-            });
+        'cidade.Nome': {
+            required: true,
+            rangelength: [3, 30]
         }
-    });
+    },
+    messages: {
+        'cidade.IdEstado': {
+            required: 'Selecione um Estado'
+        },
+        'cidade.Nome': {
+            required: 'Cidade deve ser preenchido.',
+            rangelength: 'Cidade deve conter de {0} a {1} caracteres'
+        }
+    }
+});
+
+$('#botao-salvar-modal-cadastrar-cidade').on('click', function () {
+    if ($('#form-modal-cadastro-cidade').valid()) {
+        var nomeVar = $('#campo-cadastro-cidade-nome').val();
+        $.ajax({
+            url: '/Cidade/Store',
+            method: 'post',
+            data: {
+                idEstado: $('#select-modal-cadastro-cidade').val(),
+                nome: $('#campo-cadastro-cidade-nome').val()
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                limparCamposCidadeCadastro();
+                $('#cidade-modal-cadastro').modal('hide');
+                $('#table-cidade').DataTable().ajax.reload();
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso!',
+                        text: nomeVar + ' cadastrado com sucesso',
+                        type: 'success'
+                    });
+                });
+            }
+        });
+    }
 });
 
 $('table').on('click', '#botao-editar-cidade', function () {

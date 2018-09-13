@@ -5149,7 +5149,7 @@
     <Content Include="Content\lib\typeahead.js\js\typeahead.bundle.min.js" />
     <Content Include="Content\lib\underscore\js\underscore-min.js" />
     <Content Include="Content\lib\underscore\js\underscore.js" />
-    <Content Include="Database\DB TRABALHO.sql" />
+    <Content Include="Database\Estrutura SQL.sql" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Cidade\Cadastro\select2-cadastro-cidade.js" />
     <Content Include="Scripts\Cidade\cidade-index.js" />

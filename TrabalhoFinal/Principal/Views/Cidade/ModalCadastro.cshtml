@@ -14,20 +14,19 @@
             </div>
             <div class="modal-body">
 
-                <div class="row">
+                <form id="form-modal-cadastro-cidade" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Estado</label>
+                            <select class="form-control form-control-default" name="cidade.IdEstado" id="select-modal-cadastro-cidade" required></select>
+                        </div>
 
-
-                    <div class="col-md-6">
-                        <label>Estado</label>
-                        <select class="form-control form-control-default" name="cidade.IdEstado" id="select-modal-cadastro-cidade"></select>
+                        <div class="col-md-6">
+                            <label for="cadastro-cidade-campo-nome">Cidade</label>
+                            <input type="text" id="campo-cadastro-cidade-nome" class="form-control" name="cidade.Nome" required>
+                        </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <label for="cadastro-cidade-campo-nome">Cidade</label>
-                        <input type="text" id="campo-cadastro-cidade-nome" class="form-control" name="cidade.Nome">
-                    </div>
-
-                </div>
+                </form>
 
             </div>
             <div class="modal-footer">
