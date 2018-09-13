@@ -50,12 +50,12 @@ $('#form-modal-cadastro-pacote').validate({
         },
         'Pacote.Valor': {
             required: 'Valor deve ser preenchido.',
-            range: 'Valor deve ser de {0} a {1}.',
+            range: 'Valor deve ser de R$ {0} a R$ {1}.',
             number: 'Valor deve conter números inteiros ou decimais'
         },
         'Pacote.PercentualMaximoDesconto': {
             required: 'Percentual maximo de desconto deve ser preenchido.',
-            range: 'Percentual maximo de desconto deve ser de {0} a {1}.',
+            range: 'Percentual maximo de desconto deve ser de {0}% a {1}%.',
             number: 'Percentual maximo de desconto deve conter números inteiros ou decimais.'
         }
     }
