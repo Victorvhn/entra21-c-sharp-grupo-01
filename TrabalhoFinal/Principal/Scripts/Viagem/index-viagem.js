@@ -74,10 +74,11 @@ $('#botao-salvar-modal-editar-viagem').on('click', function () {
         method: 'post',
         dataType: 'json',
         data: {
+            id: $('#campo-editar-viagem-id').val(),
             idGuia: $('#select-modal-editar-viagem-guia').val(),
             idPacote: $('#select-modal-editar-viagem-pacote').val(),
-            dataHoraSaidaPadraoBR: $('#campo-editar-data-saida-viagem').val(),
-            dataHoraVoltaPadraoBR: $('#campo-editar-data-volta-viagem').val()
+            DataHorarioSaida: $('#campo-editar-data-saida-viagem').val(),
+            DataHorarioVolta: $('#campo-editar-data-volta-viagem').val()
         },
         success: function (data) {
             var resultado = JSON.parse(data);

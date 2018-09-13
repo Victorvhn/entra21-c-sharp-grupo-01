@@ -107,6 +107,24 @@ namespace Principal.Content
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Update(Viagem viagem)
+        {
+            bool alterado = new ViagensRepository().Alterar(viagem);
+
+            int sucesso = 0;
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+            return Content(JsonConvert.SerializeObject(sucesso));
+
+        }
+
 
     }
 }
