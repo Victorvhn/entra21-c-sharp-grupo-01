@@ -36,8 +36,8 @@ $('#formulario-estado').validate({
     },
     messages: {
         'estado-Nome': {
-            required: 'Número apólice deve ser preenchida.',
-            rangelength: 'Número da apólice deve conter de {0} a {1} caracteres.'
+            required: 'Estado deve ser preenchido.',
+            rangelength: 'Estado deve conter de {0} a {1} caracteres.'
         }
     }
 });
