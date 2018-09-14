@@ -5161,6 +5161,7 @@
     <Content Include="Scripts\Idioma\idioma-tabela.js" />
     <Content Include="Scripts\PacotePontoTuristico\index-pacote-ponto-turistico.js" />
     <Content Include="Scripts\Pacote\pacote-tabela.js" />
+    <Content Include="Scripts\PontoTuristico\pontoturistico-index.js" />
     <Content Include="Scripts\PopularSelects\CriarPacoteUser\popular-selects-guia-ponto-turistico.js" />
     <Content Include="Scripts\PopularSelects\SelectCidade\popular-select-cidade.js" />
     <Content Include="Scripts\PopularSelects\SelectEstado\popular-select-estado.js" />
@@ -5577,7 +5578,6 @@
   <ItemGroup>
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
-    <Folder Include="Scripts\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
