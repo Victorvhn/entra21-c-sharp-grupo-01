@@ -1,4 +1,5 @@
 ﻿$(function () {
+    //Preenche DataTable
     $('#table-estados').DataTable({
         processing: true,
         serverSide: true,
@@ -15,137 +16,142 @@
             }
         ]
     });
-});
 
-$('#botao-modal-cadastrar-estado').on('click', function () {
-    limparCampos();
-    $('#estado-modal-cadastro').modal('show');
-});
+    //Abre modal de cadastro
+    $('#botao-modal-cadastrar-estado').on('click', function () {
+        limparCampos();
+        $('#estado-modal-cadastro').modal('show');
+    });
 
-$('#formulario-estado').validate({
+    //Validacao modal cadastro
+    $('#formulario-estado').validate({
 
 
-    errorClass: "form-control-danger",
-    validClass: "form-control-success",
-    rules: {
-        'estado-Nome': {
-            required: true,
-            rangelength: [2, 30]
+        errorClass: "form-control-danger",
+        validClass: "form-control-success",
+        rules: {
+            'estado-Nome': {
+                required: true,
+                rangelength: [2, 30]
+            }
+
+        },
+        messages: {
+            'estado-Nome': {
+                required: 'Estado deve ser preenchido.',
+                rangelength: 'Estado deve conter de {0} a {1} caracteres.'
+            }
         }
+    });
 
-    },
-    messages: {
-        'estado-Nome': {
-            required: 'Estado deve ser preenchido.',
-            rangelength: 'Estado deve conter de {0} a {1} caracteres.'
+    //Salvar modal cadastro
+    $('#botao-salvar-modal-cadastrar-estado').on('click', function () {
+        if ($('#formulario-estado').valid()) {
+            var nomeVar = $("#campo-cadastro-estado-nome").val();
+            $.ajax({
+                url: '/Estado/Store',
+                method: 'post',
+                data: {
+                    nome: $('#campo-cadastro-estado-nome').val()
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    limparCampos();
+                    $('#estado-modal-cadastro').modal('hide');
+                    $('#table-estados').DataTable().ajax.reload();
+                    $(function () {
+                        new PNotify({
+                            title: 'Sucesso!',
+                            text: nomeVar + ' cadastrado com sucesso',
+                            type: 'success'
+                        });
+                    });
+                }
+            });
         }
-    }
-});
+    });
 
-
-$('#botao-salvar-modal-cadastrar-estado').on('click', function () {
-    if ($('#formulario-estado').valid()) {
-        var nomeVar = $("#campo-cadastro-estado-nome").val();
+    //Botao editar
+    $('table').on('click', '#botao-editar-estado', function () {
+        var id = $(this).data('id');
         $.ajax({
-            url: '/Estado/Store',
+            url: 'Estado/Editar?id=' + id,
+            success: function (resultado) {
+                var data = JSON.parse(resultado);
+                $('#campo-editar-estado-id').val(data.Id);
+                $('#campo-editar-estado-nome').val(data.Nome);
+
+                $('#estado-modal-editar').modal('show');
+            }
+        });
+    });
+
+    //Update modal editar
+    $('#botao-salvar-modal-editar-estado').on('click', function () {
+        $.ajax({
+            url: 'Estado/Update',
             method: 'post',
+            dataType: 'json',
             data: {
-                nome: $('#campo-cadastro-estado-nome').val()
+                id: $('#campo-editar-estado-id').val(),
+                nome: $('#campo-editar-estado-nome').val()
             },
             success: function (data) {
                 var resultado = JSON.parse(data);
-                limparCampos();
-                $('#estado-modal-cadastro').modal('hide');
-                $('#table-estados').DataTable().ajax.reload();
-                $(function () {
-                    new PNotify({
-                        title: 'Sucesso!',
-                        text: nomeVar + ' cadastrado com sucesso',
-                        type: 'success'
+                if (resultado == 1) {
+                    $('#table-estados').DataTable().ajax.reload();
+                    $(function () {
+                        new PNotify({
+                            title: 'Sucesso!',
+                            text: 'Alterado com sucesso',
+                            type: 'info'
+                        });
                     });
-                });
+                    $('#estado-modal-editar').modal('hide');
+                    limparCampos();
+                } else {
+                    new PNotify({
+                        title: 'Erro!',
+                        text: 'Erro ao alterar',
+                        type: 'error'
+                    });
+                }
             }
         });
-    } 
-});
-
-$('table').on('click', '#botao-editar-estado', function () {
-    var id = $(this).data('id');
-    $.ajax({
-        url: 'Estado/Editar?id=' + id,
-        success: function (resultado) {
-            var data = JSON.parse(resultado);
-            $('#campo-editar-estado-id').val(data.Id);
-            $('#campo-editar-estado-nome').val(data.Nome);
-
-            $('#estado-modal-editar').modal('show');
-        }
     });
-});
 
-$('#botao-salvar-modal-editar-estado').on('click', function () {
-    $.ajax({
-        url: 'Estado/Update',
-        method: 'post',
-        dataType: 'json',
-        data: {
-            id: $('#campo-editar-estado-id').val(),
-            nome: $('#campo-editar-estado-nome').val()
-        },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            if (resultado == 1) {
-                $('#table-estados').DataTable().ajax.reload();
-                $(function () {
+    //Desativar
+    $('table').on('click', '#botao-excluir-estado', function () {
+        var id = $(this).data('id');
+        var nome = $(this).data('nome');
+        $.ajax({
+            url: 'Estado/Excluir?id=' + id,
+            method: 'get',
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                if (resultado == 1) {
                     new PNotify({
-                        title: 'Sucesso!',
-                        text: 'Alterado com sucesso',
-                        type: 'info'
+                        title: 'Desativado!',
+                        text: nome + ' desativado com sucesso',
+                        type: 'success'
                     });
-                });
-                $('#estado-modal-editar').modal('hide');
-                limparCampos();
-            } else {
-                new PNotify({
-                    title: 'Erro!',
-                    text: 'Erro ao alterar',
-                    type: 'error'
-                });
+
+                    $('#table-estados').DataTable().ajax.reload();
+
+                } else {
+                    new PNotify({
+                        title: 'Erro!',
+                        text: 'Erro ao desativar ' + nome,
+                        type: 'error'
+                    });
+                }
             }
-        }
+        });
     });
+
+    function limparCampos() {
+        $('#campo-cadastro-estado-nome').val('');
+        $('#campo-editar-estado-id').val('');
+        $('#campo-editar-estado-nome').val('');
+    }
 });
-
-$('table').on('click', '#botao-excluir-estado', function () {
-    var id = $(this).data('id');
-    var nome = $(this).data('nome');
-    $.ajax({
-        url: 'Estado/Excluir?id=' + id,
-        method: 'get',
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            if (resultado == 1) {
-                new PNotify({
-                    title: 'Desativado!',
-                    text: nome + ' desativado com sucesso',
-                    type: 'success'
-                });
-
-                $('#table-estados').DataTable().ajax.reload();
-
-            } else {
-                new PNotify({
-                    title: 'Erro!',
-                    text: 'Erro ao desativar ' + nome,
-                    type: 'error'
-                });
-            }
-        }
-    });
-});
-
-function limparCampos() {
-    $('#campo-cadastro-estado-nome').val('');
-    $('#campo-editar-estado-id').val('');
-    $('#campo-editar-estado-nome').val('');
-}

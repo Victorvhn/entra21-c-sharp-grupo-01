@@ -1,4 +1,5 @@
 ﻿$(function () {
+    //Preenche DataTable
     $('#table-cidade').DataTable({
         processing: true,
         serverSide: true,
@@ -17,11 +18,13 @@
         ]
     });
 
+    //Abre modal de cadastro
     $('#botao-modal-cadastrar-cidade').on('click', function () {
         limparCamposCidadeCadastro();
         $('#cidade-modal-cadastro').modal('show');
     });
 
+    //Validacao modal cadastro
     $('#form-modal-cadastro-cidade').validate({
         errorClass: "form-control-danger",
         validClass: "form-control-success",
@@ -55,6 +58,7 @@
         }
     });
 
+    //Salvar modal cadastro
     $('#botao-salvar-modal-cadastrar-cidade').on('click', function () {
         if ($('#form-modal-cadastro-cidade').valid()) {
             var nomeVar = $('#campo-cadastro-cidade-nome').val();
@@ -82,6 +86,7 @@
         }
     });
 
+    //Botao editar
     $('table').on('click', '#botao-editar-cidade', function () {
         var id = $(this).data('id');
         $.ajax({
@@ -98,6 +103,7 @@
         });
     });
 
+    //Update modal editar
     $('#botao-salvar-modal-editar-cidade').on('click', function () {
         $.ajax({
             url: '/Cidade/Update',
@@ -132,6 +138,7 @@
         });
     });
 
+    //Desativar
     $('table').on('click', '#botao-excluir-cidade', function () {
         var id = $(this).data('id');
         var nome = $(this).data('nome');
