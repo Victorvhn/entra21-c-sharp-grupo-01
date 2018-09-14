@@ -23,6 +23,8 @@ $('#botao-modal-cadastrar-viagem').on('click', function () {
     $('#viagem-modal-cadastro').modal('show');
 });
 
+
+
 $('#botao-salvar-modal-cadastrar-viagem').on('click', function () {
     $.ajax({
         url: '/Viagem/Store',
