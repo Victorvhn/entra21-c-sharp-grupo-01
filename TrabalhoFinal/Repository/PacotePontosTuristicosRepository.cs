@@ -77,17 +77,23 @@ namespace Repository
         {
             PacotePontoTuristico pacoteTuristico = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT pontos_turisticos.nome, pontos_turisticos.nome, pacotes.nome, pacotes.id, id_ponto_turistico,id_pacote FROM pacotes_pontos_turisticos JOIN pontos_turisticos ON pacotes_pontos_turisticos(pacotes_pontos_turisticos.id_ponto_turistico = pontos_turisticos.id)
-            JOIN pacotes_pontos_turisticos ON(pacotes_pontos_turisticos.id_pacote = pacotes.id ) WHERE id = @ID"; 
+            command.CommandText = @"SELECT ppt.id, p.id, p.nome, pt.id, pt.nome
+            FROM pacotes_pontos_turisticos ppt
+            JOIN pacotes p ON (p.id = ppt.id_pacote)
+            JOIN pontos_turisticos pt ON (pt.id = ppt.id ) WHERE ppt.id = @ID"; 
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             if (table.Rows.Count == 1)
             {
-                pacoteTuristico = new PacotePontoTuristico();
-                pacoteTuristico.Id = id;
-                pacoteTuristico.IdPontoTuristico = Convert.ToInt32(table.Rows[0][0]);
-                pacoteTuristico.IdPacote = Convert.ToInt32(table.Rows[0][1]);
+                PacotePontoTuristico pacotePontoTuristico = new PacotePontoTuristico();
+                pacotePontoTuristico.Id = Convert.ToInt32(table.Rows[0][0].ToString());
+                pacotePontoTuristico.Pacote = new Pacote();
+                pacotePontoTuristico.Pacote.Id = Convert.ToInt32(table.Rows[0][1].ToString());
+                pacotePontoTuristico.Pacote.Nome = table.Rows[0][2].ToString();
+                pacotePontoTuristico.PontoTuristico = new PontoTuristico();
+                pacotePontoTuristico.PontoTuristico.Id = Convert.ToInt32(table.Rows[0][3].ToString());
+                pacotePontoTuristico.PontoTuristico.Nome = table.Rows[0][4].ToString();
             }
             return pacoteTuristico;
         }
