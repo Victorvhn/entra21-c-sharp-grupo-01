@@ -22,29 +22,66 @@
                     <div class="form-group col-md-8">
 
                         <label>Nome Pacote</label>
-                        <input type="text" name="pacote.Nome" id="cadastro-pacote-nome-user" class="form-control"/>
+                        <input type="text" name="pacote.Nome" id="cadastro-pacote-nome-user" class="form-control" />
 
                     </div>
 
                     <div class="form-group col-md-4">
 
                         <label>Destino</label>
-                        <select id="select-destino-pacote-user"></select>
+                        <select id="select-destino-pacote-user" class="form-control" name="guia.Id"></select>
 
                     </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+
+                        <label>Data e Horário de Ida</label>
+                        <input type="datetime-local" id="campo-data-horario-saida-cadastro-user" name="" class="form-control" />
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+
+                        <label>Data e Horário de Volta</label>
+                        <input type="datetime-local" id="campo-data-horario-saida-cadastro-user" name="" class="form-control" />
+
+                    </div>
+
                 </div>
 
                 <div class="row">
                     <div class="form-group col-md-6">
 
                         <label>Guia</label>
-                        <select id="select-guia-pacote-user" name="viagens.id_guia"></select>
+                        <select id="select-guia-pacote-user" name="viagens.id_guia" class="form-control"></select>
 
                     </div>
 
-                    <div>
+                    <div class="form-group col-md-6">
+
+                        <label>Pontos Turísticos</label>
+                        <select id="select-pontos-turisticos" name="" class="form-control"></select>
 
                     </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group col-md-2">
+
+                        <label>Valor Total: R$</label>
+
+                    </div>
+
+                    <div class="form-group col-md-10">
+
+                        <label></label>
+
+                    </div>
+
                 </div>
                 <!-- cadastro pacote -->
                 <!-- select viagem -->
