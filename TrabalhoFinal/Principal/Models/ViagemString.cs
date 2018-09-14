@@ -10,7 +10,7 @@ namespace Principal.Models
     {
         public string Id { get; set; }
 
-        public string Data { get; set; }
+        public string DataCompra { get; set; }
 
         public string IdPacote { get; set; }
 

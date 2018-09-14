@@ -10,7 +10,7 @@ namespace Model
     {
         public int Id { get; set; }
 
-        public DateTime Data { get; set; }
+        public DateTime DataCompra { get; set; }
 
         public Pacote Pacote { get; set; }
 
