@@ -16,9 +16,9 @@
     });
 });
 
-$('botao-modal-cadastrar-pacote-ponto-turistico').on('click', function () {
+$('#botao-modal-cadastrar-pacote-ponto-turistico').on('click', function () {
     limparCampos();
-    $('pacote-ponto-turistico-modal-cadastro').modal('show');
+    $('#pacote-ponto-turistico-modal-cadastro').modal('show');
 });
 
 $('#botao-salvar-modal-cadastrar-pacote-ponto-turistico').on('click', function () {
