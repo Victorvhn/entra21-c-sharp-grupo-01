@@ -15,5 +15,19 @@
         }
     });
 });
+$(document).ready(function () {
+    $('select-editar-pacote-ponto-turistico-pacote').select2({
+        ajax: {
+            url: '/Pacote/ObterTodosPorJSONtoSelect2',
+            dataType: 'json'
+        }
+    });
 
+    $('select-editar-pacote-ponto-turisto-ponto-turistico').select2({
+        ajax: {
+            url: '/PontoTuristico/ObterTodosPorJSONSelect2',
+            dataType: 'json'
+        }
+    });
+});
 
