@@ -47,7 +47,7 @@ namespace Principal.Controllers
         public ActionResult Store(PacotePontoTuristico pacotePontosTuristicos)
         {
             int identificador = new PacotePontosTuristicosRepository().Cadastro(pacotePontosTuristicos);
-            return null;
+            return Content(JsonConvert.SerializeObject(new {id = identificador}));
         }
 
         [HttpPost]
