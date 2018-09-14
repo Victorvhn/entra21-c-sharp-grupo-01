@@ -5186,7 +5186,7 @@
     <Compile Include="Controllers\PacoteController.cs" />
     <Compile Include="Controllers\PacotePontoTuristicoController.cs" />
     <Compile Include="Controllers\PontoTuristicoController.cs" />
-    <Compile Include="Controllers\PrincipalController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TuristaController.cs" />
     <Compile Include="Controllers\ViagemTuristaController.cs" />
     <Compile Include="Database\Conexao.cs" />
