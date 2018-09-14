@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "ModalEditar";
+}
+<div class="modal fade" id="viagemTurista-modal-editar" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Title</h4>
+                <button type="button" class="close" data-dissmiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-md-3">
+                    <input type="hidden" name="viagemTurista.Id" id="campo-editar-viagemTurista-id" />
+                    <input type="hidden" name="viagemTurista.IdTurista" id="select-modal-editar-turista" />
+                    <input type="hidden" name="viagemTurista.IdViagem" id="select-modal-editar-viagem" />
+
+                    <div class="col-md-6">
+                        <label id="select-editar-viagemTurista-turista">Turista</label>
+                        <select id="select-modal-editar-viagemTurista" name="viagemTurista.IdTurista" class="form-control"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="select-editar-viagemTurista-viagem">Viagem</label>
+                        <select id="select-modal-editar-viagemTurista" name="viagemTurista.IdViagem" class="form-control"></select>
+                    </div>
+                </div>
+                
+                    </div>
+            
+            </div>
+                </div>
+            </div>
+        </div>
+
