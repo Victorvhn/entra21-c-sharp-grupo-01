@@ -16,35 +16,73 @@
     });
 });
 
+ //Abre modal de cadastro
 $('#botao-modal-cadastrar-pacote-ponto-turistico').on('click', function () {
     limparCampos();
     $('#pacote-ponto-turistico-modal-cadastro').modal('show');
 });
 
-$('#botao-salvar-modal-cadastrar-pacote-ponto-turistico').on('click', function () {
-    $.ajax({
-        url: '/PacotePontoTuristico/Store',
-        method: 'post',
-        data: {
-            idPacote: $('#select-cadastro-pacote-ponto-turistico-pacote').val(),
-            idPontoTuristico: $('#select-cadastro-pacote-ponto-turistico-ponto-turistico').val(),
+//Validação modal cadastro
+$('#form-modal-cadastro-pacote-ponto-turistico').validate({
+    errorClass: 'form-control-danger',
+    validClass: 'form-control-success',
+    highlight: function (element) {
+        jQuery(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function (element) {
+        jQuery(element).closest('.form-group').removeClass('has-error');
+    },
+    errorPlacement: function (error, element) {
+        $(element).parent().append(error[0])
+    },
+
+    rules: {
+        'pacotePontoTuristo.IdPacote': {
+            required: true
         },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            limparCampos();
-            $('#pacote-ponto-turistico-modal-cadastro').modal('hide');
-            $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
-            $(function () {
-                new PNotify({
-                    title: 'Sucesso!',
-                    text: 'Pacote Ponto Turistico Cadastrado com sucesso',
-                    type: 'success'
-                });
-            });
+        'pacotePontoTuristico.IdPontoTuristico': {
+            required: true
         }
-    });
+    },
+    messages: {
+        'pacotePontoTuristo.IdPacote': {
+            required: 'Selecione um pacote'
+        },
+        'pacotePontoTuristico.IdPontoTuristico': {
+            required: 'Selecione um ponto turistico'
+        }
+    }
 });
 
+//Salvar modal cadastro
+$('#botao-salvar-modal-cadastrar-pacote-ponto-turistico').on('click', function () {
+    if ($('#form-modal-cadastro-pacote-ponto-turistico').valid()) {
+        $.ajax({
+            url: '/PacotePontoTuristico/Store',
+            method: 'post',
+            data: {
+                idPacote: $('#select-cadastro-pacote-ponto-turistico-pacote').val(),
+                idPontoTuristico: $('#select-cadastro-pacote-ponto-turistico-ponto-turistico').val(),
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                limparCampos();
+                $('#pacote-ponto-turistico-modal-cadastro').modal('hide');
+                $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso!',
+                        text: 'Pacote Ponto Turistico Cadastrado com sucesso',
+                        type: 'success'
+                    });
+                });
+            }
+        });
+    }
+});
+
+
+//Botao editar
 $('table').on('click', '#botao-editar-pacote-ponto-turistico', function () {
     var id = $(this).data('id');
     $.ajax({
@@ -61,6 +99,11 @@ $('table').on('click', '#botao-editar-pacote-ponto-turistico', function () {
     });
 });
 
+
+ // Validação editar
+
+
+//Update modal editar
 $('#botao-salvar-modal-editar-pacote-ponto-turistico').on('click', function () {
     $.ajax({
         url: '/PacotePontoTuristico/Update',
@@ -95,10 +138,12 @@ $('#botao-salvar-modal-editar-pacote-ponto-turistico').on('click', function () {
     });
 });
 
+
+//Desativar
 $('table').on('click', '#botao-excluir-pacote-ponto-turistico', function () {
     var id = $(this).data('id');
     $.ajax({
-        url: 'PacotePontoTuristico/Excluir?id=' + id,
+        url: '/PacotePontoTuristico/Excluir?id=' + id,
         method: 'get',
         success: function (data) {
             var result = JSON.parse(data);

@@ -13,20 +13,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row mb-md-3">
-                    <input type="hidden" name="pacotePontoTuristico.Id" id="campo-editar-pacote-ponto-turistico-id" />
-                    <input type="hidden" name="pacotePontoTuristico.IdPacote" id="select-editar-pacote-ponto-turistico-pacote" />
-                    <input type="hidden" name="pacotePontoTuristico.IdPontoTuristico" id="select-editar-pacote-ponto-turistco-ponto-turistico" />
 
-                    <div class="col-md-12">
-                        <label id="select-editar-pacote-ponto-turistico-pacote">Pacote</label>
-                        <select id="select-editar-pacote-ponto-turistico-pacote" name="pacotePontoTuristico.IdPacote" class="form-control"></select>
+                <form id="form-modal-editar-pacote-ponto-turistico" method="post">
+                    <div class="row mb-md-3">
+                        <input type="hidden" name="pacotePontoTuristico.Id" id="campo-editar-pacote-ponto-turistico-id" />
+                        <input type="hidden" name="pacotePontoTuristico.IdPacote" id="select-editar-pacote-ponto-turistico-pacote" />
+                        <input type="hidden" name="pacotePontoTuristico.IdPontoTuristico" id="select-editar-pacote-ponto-turistco-ponto-turistico" />
+
+                        <div class="col-md-12">
+                            <label id="select-editar-pacote-ponto-turistico-pacote">Pacote</label>
+                            <select id="select-editar-pacote-ponto-turistico-pacote" name="pacotePontoTuristico.IdPacote" class="form-control"></select>
+                        </div>
+                        <div class="col-md-12">
+                            <label id="select-editar-pacote-ponto-turistco-ponto-turistico">Ponto Turistico</label>
+                            <select id="select-editar-pacote-ponto-turisto-ponto-turistico" name="pacotePontoTuristico.IdPontoTuristico" class="form-control"></select>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <label id="select-editar-pacote-ponto-turistco-ponto-turistico">Ponto Turistico</label>
-                        <select id="select-editar-pacote-ponto-turisto-ponto-turistico" name="pacotePontoTuristico.IdPontoTuristico" class="form-control"></select>
-                    </div>
-                </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" id="botao-fechar-modal-cadastro-pacote-ponto-turistico">Fechar</button>

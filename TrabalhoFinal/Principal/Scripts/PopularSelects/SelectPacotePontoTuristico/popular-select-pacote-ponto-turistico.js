@@ -4,7 +4,8 @@
             url: '/Pacote/ObterTodosPorJSONToSelect2',
             dataType: 'json'
         }
-        }).on('change', function () {
+    }).on('change', function () {
+        $('#form-modal-cadastro-pacote-ponto-turistico').valid();
             $('select-cadastro-pacote-ponto-turistico-ponto-turistico').select2('open');
         });
 
@@ -13,6 +14,8 @@
             url: '/PontoTuristico/ObterTodosPorJSONSelect2',
             dataType: 'json'
         }
+    }).on('change', function () {
+        $('#form-modal-cadastro-pacote-ponto-turistico').valid();
     });
 });
 $(document).ready(function () {
@@ -21,6 +24,8 @@ $(document).ready(function () {
             url: '/Pacote/ObterTodosPorJSONtoSelect2',
             dataType: 'json'
         }
+    }).on('change', function () {
+        $('#form-modal-editar-pacote-ponto-turistico').valid();
     });
 
     $('select-editar-pacote-ponto-turisto-ponto-turistico').select2({
@@ -28,6 +33,8 @@ $(document).ready(function () {
             url: '/PontoTuristico/ObterTodosPorJSONSelect2',
             dataType: 'json'
         }
+    }).on('change', function () {
+        $('#form-modal-editar-pacote-ponto-turistico').valid();
     });
 });
 
