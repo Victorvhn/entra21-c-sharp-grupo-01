@@ -86,38 +86,62 @@
         });
     });
 
+    //Vaçidação Editar
+    $('#form-modal-editar-estado').validate({
+
+
+        errorClass: "form-control-danger",
+        validClass: "form-control-success",
+        rules: {
+            'estado.Nome': {
+                required: true,
+                rangelength: [2, 30]
+            }
+
+        },
+        messages: {
+            'estado.Nome': {
+                required: 'Estado deve ser preenchido.',
+                rangelength: 'Estado deve conter de {0} a {1} caracteres.'
+            }
+        }
+    });
+
+
     //Update modal editar
     $('#botao-salvar-modal-editar-estado').on('click', function () {
-        $.ajax({
-            url: 'Estado/Update',
-            method: 'post',
-            dataType: 'json',
-            data: {
-                id: $('#campo-editar-estado-id').val(),
-                nome: $('#campo-editar-estado-nome').val()
-            },
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    $('#table-estados').DataTable().ajax.reload();
-                    $(function () {
-                        new PNotify({
-                            title: 'Sucesso!',
-                            text: 'Alterado com sucesso',
-                            type: 'info'
+        if ($('#form-modal-editar-estado').valid()) {
+            $.ajax({
+                url: 'Estado/Update',
+                method: 'post',
+                dataType: 'json',
+                data: {
+                    id: $('#campo-editar-estado-id').val(),
+                    nome: $('#campo-editar-estado-nome').val()
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    if (resultado == 1) {
+                        $('#table-estados').DataTable().ajax.reload();
+                        $(function () {
+                            new PNotify({
+                                title: 'Sucesso!',
+                                text: 'Alterado com sucesso',
+                                type: 'info'
+                            });
                         });
-                    });
-                    $('#estado-modal-editar').modal('hide');
-                    limparCampos();
-                } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao alterar',
-                        type: 'error'
-                    });
+                        $('#estado-modal-editar').modal('hide');
+                        limparCampos();
+                    } else {
+                        new PNotify({
+                            title: 'Erro!',
+                            text: 'Erro ao alterar',
+                            type: 'error'
+                        });
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
     //Desativar
