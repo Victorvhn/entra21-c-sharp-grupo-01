@@ -154,7 +154,7 @@ $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
                         new PNotify({
                             title: 'Sucesso!',
                             text: 'Alterado com sucesso',
-                            type: 'success'
+                            type: 'info'
                         });
                     });
                     $('#historico-viagem-modal-editar').modal('hide');

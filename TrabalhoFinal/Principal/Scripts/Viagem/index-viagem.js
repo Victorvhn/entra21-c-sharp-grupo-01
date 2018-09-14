@@ -120,40 +120,92 @@ $('table').on('click', '#botao-editar-viagem', function () {
     });
 });
 
-$('#botao-salvar-modal-editar-viagem').on('click', function () {
-    $.ajax({
-        url: '/Viagem/Update',
-        method: 'post',
-        dataType: 'json',
-        data: {
-            id: $('#campo-editar-viagem-id').val(),
-            idGuia: $('#select-modal-editar-viagem-guia').val(),
-            idPacote: $('#select-modal-editar-viagem-pacote').val(),
-            DataHorarioSaida: $('#campo-editar-data-saida-viagem').val(),
-            DataHorarioVolta: $('#campo-editar-data-volta-viagem').val()
+$('#form-modal-editar-viagem').validate({
+    errorClass: 'form-control-danger',
+    validClass: 'form-control-sucess',
+    highlight: function (element) {
+        jQuery(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function (element) {
+        jQuery(element).closest('.form-group').removeClass('has-error');
+    },
+    errorPlacement: function (error, element) {
+        $(element).parent().append(error[0])
+    },
+
+    rules: {
+        'viagem.IdPacote': {
+            required: true
         },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            if (resultado == 1) {
-                $(function () {
-                    $('#table-viagens').DataTable().ajax.reload();
-                    new PNotify({
-                        title: 'Sucesso!',
-                        text: 'Alterado com sucesso',
-                        type: 'info'
-                    });
-                });
-                $('#viagem-modal-editar').modal('hide');
-                limparCampoEditar();
-            } else {
-                new PNotify({
-                    title: 'Erro!',
-                    text: 'Erro ao alterar',
-                    type: 'error'
-                });
-            }
+        'viagem.IdGuia': {
+            required: true
+
+        },
+        'viagem.DataHorarioSaida': {
+            required: true
+        },
+        'viagem.DataHorarioVolta': {
+            required: true
+
         }
-    });
+    },
+    messages: {
+        'viagem.IdPacote': {
+            required: 'Selecione um pacote.'
+        },
+        'viagem.IdGuia': {
+            required: 'Selecione um Guia.'
+
+        },
+        'viagem.DataHorarioSaida': {
+            required: 'Informe data de saida.',
+            date: true
+        },
+        'viagem.DataHorarioVolta': {
+            required: 'Informe a data da volta.',
+            date: true
+
+        }
+    }
+
+});
+
+$('#botao-salvar-modal-editar-viagem').on('click', function () {
+    if ($('#form-modal-editar-viagem').valid()) {
+        $.ajax({
+            url: '/Viagem/Update',
+            method: 'post',
+            dataType: 'json',
+            data: {
+                id: $('#campo-editar-viagem-id').val(),
+                idGuia: $('#select-modal-editar-viagem-guia').val(),
+                idPacote: $('#select-modal-editar-viagem-pacote').val(),
+                DataHorarioSaida: $('#campo-editar-data-saida-viagem').val(),
+                DataHorarioVolta: $('#campo-editar-data-volta-viagem').val()
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                if (resultado == 1) {
+                    $(function () {
+                        $('#table-viagens').DataTable().ajax.reload();
+                        new PNotify({
+                            title: 'Sucesso!',
+                            text: 'Alterado com sucesso',
+                            type: 'info'
+                        });
+                    });
+                    $('#viagem-modal-editar').modal('hide');
+                    limparCampoEditar();
+                } else {
+                    new PNotify({
+                        title: 'Erro!',
+                        text: 'Erro ao alterar',
+                        type: 'error'
+                    });
+                }
+            }
+        });
+    }
 });
 
 $('table').on('click', '#botao-excluir-viagem', function () {

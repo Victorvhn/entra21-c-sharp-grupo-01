@@ -10,24 +10,25 @@
                     <span aria-hidden="true">x</span>
                 </button>
             </div>
-        
+
             <div class="modal-body">
 
-                <div class="row mb-md-3">
+                <form id="form-modal-editar-viagem" method="post">
+                    <div class="row mb-md-3">
 
-                    <input type="hidden" name="viagem.Id" id="campo-editar-viagem-id" />
-                    <input type="hidden" name="viagem.IdPacote" id="select-modal-editar-pacote" />
-                    <input type="hidden" name="viagem.IdGuia" id="select-modal-editar-guia" />
+                        <input type="hidden" name="viagem.Id" id="campo-editar-viagem-id" />
+                        <input type="hidden" name="viagem.IdPacote" id="select-modal-editar-pacote" />
+                        <input type="hidden" name="viagem.IdGuia" id="select-modal-editar-guia" />
 
-                    <div class="col-md-6">
-                        <label for="select-modal-editar-viagem-pacote">Pacote</label>
-                        <select id="select-modal-editar-viagem-pacote" name="viagem.IdPacote" class="form-control"></select>
+                        <div class="col-md-6">
+                            <label for="select-modal-editar-viagem-pacote">Pacote</label>
+                            <select id="select-modal-editar-viagem-pacote" name="viagem.IdPacote" class="form-control"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="select-editar-viagem-guia">Guia</label>
+                            <select id="select-modal-editar-viagem-guia" name="viagem.IdGuia" class="form-control"></select>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="select-editar-viagem-guia">Guia</label>
-                        <select id="select-modal-editar-viagem-guia" name="viagem.IdGuia" class="form-control"></select>
-                    </div>
-                </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="campo-editar-data-saida-viagem">Data e Horario Saida</label>
@@ -38,12 +39,13 @@
                             <input type="datetime-local" class="form-control" name="viagem.DataHorarioVolta" id="campo-editar-data-volta-viagem">
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" id="botao-fechar-modal-cadastro-viagem">Fechar</button>
-                    <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-editar-viagem">Cadastrar</button>
-                </div>
+                </form>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" id="botao-fechar-modal-cadastro-viagem">Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-editar-viagem">Cadastrar</button>
+            </div>
+        </div>
     </div>
 </div>
 

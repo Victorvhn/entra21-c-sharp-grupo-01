@@ -26,6 +26,8 @@ $(document).ready(function () {
             url: '/Pacote/ObterTodosPorJSONToSelect2',
             dataType: 'json'
         }
+    }).on('change', function () {
+        $('#form-modal-editar-viagem').valid();
     });
 
     $('#select-modal-editar-viagem-guia').select2({
@@ -33,5 +35,7 @@ $(document).ready(function () {
             url: '/Guia/ObterTodosParaSelect2',
             dataType: 'json'
         }
+    }).on('change', function () {
+        $('#form-modal-editar-viagem').valid();
     });
 });
