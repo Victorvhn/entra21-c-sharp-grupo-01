@@ -87,7 +87,7 @@
     });
 
     //Botao editar
-    $('table').on('click', '#botao-editar-cidade', function () {
+    $('table').on('click', '.botao-editar-cidade', function () {
         var id = $(this).data('id');
         $.ajax({
             url: '/Cidade/Editar?id=' + id,
@@ -176,42 +176,42 @@
         }
     });
 
-//Desativar
-$('table').on('click', '#botao-excluir-cidade', function () {
-    var id = $(this).data('id');
-    var nome = $(this).data('nome');
-    $.ajax({
-        url: 'Cidade/Excluir?id=' + id,
-        method: 'get',
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            if (resultado == 1) {
-                new PNotify({
-                    title: 'Desativado!',
-                    text: nome + ' desativado com sucesso',
-                    type: 'success'
-                });
+    //Desativar
+    $('table').on('click', '.botao-excluir-cidade', function () {
+        var id = $(this).data('id');
+        var nome = $(this).data('nome');
+        $.ajax({
+            url: 'Cidade/Excluir?id=' + id,
+            method: 'get',
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                if (resultado == 1) {
+                    new PNotify({
+                        title: 'Desativado!',
+                        text: nome + ' desativado com sucesso',
+                        type: 'success'
+                    });
 
-                $('#table-cidade').DataTable().ajax.reload();
+                    $('#table-cidade').DataTable().ajax.reload();
 
-            } else {
-                new PNotify({
-                    title: 'Erro!',
-                    text: 'Erro ao desativar ' + nome,
-                    type: 'error'
-                });
+                } else {
+                    new PNotify({
+                        title: 'Erro!',
+                        text: 'Erro ao desativar ' + nome,
+                        type: 'error'
+                    });
+                }
             }
-        }
+        });
     });
-});
 
-function limparCamposCidadeCadastro() {
-    $('#select-modal-cadastro-cidade').val('').trigger('change');
-    $('#campo-cadastro-cidade-nome').val('');
-}
+    function limparCamposCidadeCadastro() {
+        $('#select-modal-cadastro-cidade').val('').trigger('change');
+        $('#campo-cadastro-cidade-nome').val('');
+    }
 
-function limparCamposCidadeEditar() {
-    $('#campo-editar-cidade-id').val('');
-    $('#select-modal-editar-cidade').val('').trigger('change');
-}
+    function limparCamposCidadeEditar() {
+        $('#campo-editar-cidade-id').val('');
+        $('#select-modal-editar-cidade').val('').trigger('change');
+    }
 });
