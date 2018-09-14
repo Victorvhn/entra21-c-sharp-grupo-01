@@ -1,4 +1,5 @@
 ﻿$(function () {
+    //Preenche DataTable
     $('#table-viagens').DataTable({
         ajax: '/Viagem/ObterTodosPorJSON',
         columns: [

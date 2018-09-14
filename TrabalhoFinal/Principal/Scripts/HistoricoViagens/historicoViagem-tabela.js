@@ -1,4 +1,5 @@
 ﻿$(function () {
+    //Preenche DataTable
     $('#historico-viagem-tabela').DataTable({
         "processing": true,
         "serverSide": true,
@@ -16,199 +17,200 @@
             }
         ]
     });
-});
 
-//Abre modal de cadastro
-$('#botao-modal-cadastrar-historico-viagem').on("click", function () {
-    limparCampos();
-    $("#historico-viagem-modal-cadastro").modal('show');
-});
 
-//Validação modal cadastro
-$('#form-modal-cadastro-historico-viagem').validate({
-    errorClass: 'form-control-danger',
-    validClass: 'form-control-sucess',
-    highlight: function (element) {
-        jQuery(element).closest('.form-group').addClass('has-error');
-    },
-    unhighlight: function (element) {
-        jQuery(element).closest('.form-group').removeClass('has-error');
-    },
-    errorPlacement: function (error, element) {
-        $(element).parent().append(error[0])
-    },
-
-    rules: {
-        'historicoViagem.IdPacote': {
-            required: true
-        },
-        'historicoViagem.Data': {
-            required: true,
-            date: true
-        }
-    },
-    messages: {
-        'historicoViagem.IdPacote': {
-            required: 'Selecione um pacote.'
-        },
-        'historicoViagem.Data': {
-            required: 'Informe a data.',
-            date: 'A data não é valida.'
-        }
-    }
-
-});
-
-//Salvar modal cadastro
-$('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
-    if ($('#form-modal-cadastro-historico-viagem').valid()) {
-        var PacoteVar = $("#select-cadastro-historico-viagem-idPacote").text();
-        $.ajax({
-            url: '/HistoricoViagem/Store',
-            method: 'post',
-            data: {
-                data: $('#campo-cadastro-historico-viagem-data').val(),
-                idPacote: $('#select-cadastro-historico-viagem-idPacote :selected').val()
-            },
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                limparCampos();
-                $('#historico-viagem-modal-cadastro').modal('hide');
-                $('#historico-viagem-tabela').DataTable().ajax.reload();
-                $(function () {
-                    new PNotify({
-                        title: 'Sucesso!',
-                        text: PacoteVar + ' cadastrado com sucesso',
-                        type: 'success'
-                    });
-                });
-            }
-        });
-    }
-});
-
-//Botao editar
-$('table').on('click', '#botao-editar-historico-viagem', function () {
-    var id = $(this).data('id');
-    $.ajax({
-        url: '/HistoricoViagem/Editar?id=' + id,
-        method: 'get',
-        success: function (resultado) {
-            var data = JSON.parse(resultado);
-            $('#campo-editar-historico-viagem-id').val(data.Id);
-            console.log(resultado);
-            $('#select-editar-historico-viagem-idPacote').append(new Option(data.Pacote.Nome, data.IdPacote, false, false)).val(data.IdPacote).trigger('change');
-            $('#campo-editar-historico-viagem-data').val(data.DataPadraoBR);
-
-            $('#historico-viagem-modal-editar').modal('show');
-        }
+    //Abre modal de cadastro
+    $('#botao-modal-cadastrar-historico-viagem').on("click", function () {
+        limparCampos();
+        $("#historico-viagem-modal-cadastro").modal('show');
     });
-});
 
-// Validação editar
-$('#form-modal-ediatar-historico-viagem').validate({
-    errorClass: 'form-control-danger',
-    validClass: 'form-control-sucess',
-    highlight: function (element) {
-        jQuery(element).closest('.form-group').addClass('has-error');
-    },
-    unhighlight: function (element) {
-        jQuery(element).closest('.form-group').removeClass('has-error');
-    },
-    errorPlacement: function (error, element) {
-        $(element).parent().append(error[0])
-    },
-
-    rules: {
-        'HistoricoViagem.IdPacote': {
-            required: true
+    //Validação modal cadastro
+    $('#form-modal-cadastro-historico-viagem').validate({
+        errorClass: 'form-control-danger',
+        validClass: 'form-control-sucess',
+        highlight: function (element) {
+            jQuery(element).closest('.form-group').addClass('has-error');
         },
-        'HistoricoViagem.Data': {
-            required: true,
-            date: true
-        }
-    },
-    messages: {
-        'HistoricoViagem.IdPacote': {
-            required: 'Selecione um pacote.'
+        unhighlight: function (element) {
+            jQuery(element).closest('.form-group').removeClass('has-error');
         },
-        'HistoricoViagem.Data': {
-            required: 'Informe a data.',
-            date: 'A data não é valida.'
-        }
-    }
+        errorPlacement: function (error, element) {
+            $(element).parent().append(error[0])
+        },
 
-});
-
-//Update modal editar
-$('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
-    if ($('#form-modal-ediatar-historico-viagem').valid()) {
-        $.ajax({
-            url: '/HistoricoViagem/Update',
-            method: 'post',
-            dataType: 'json',
-            data: {
-                id: $('#campo-editar-historico-viagem-id').val(),
-                idPacote: $('#select-editar-historico-viagem-idPacote').val(),
-                data: $('#campo-editar-historico-viagem-data').val()
+        rules: {
+            'historicoViagem.IdPacote': {
+                required: true
             },
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
+            'historicoViagem.Data': {
+                required: true,
+                date: true
+            }
+        },
+        messages: {
+            'historicoViagem.IdPacote': {
+                required: 'Selecione um pacote.'
+            },
+            'historicoViagem.Data': {
+                required: 'Informe a data.',
+                date: 'A data não é valida.'
+            }
+        }
+
+    });
+
+    //Salvar modal cadastro
+    $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
+        if ($('#form-modal-cadastro-historico-viagem').valid()) {
+            var PacoteVar = $("#select-cadastro-historico-viagem-idPacote").text();
+            $.ajax({
+                url: '/HistoricoViagem/Store',
+                method: 'post',
+                data: {
+                    data: $('#campo-cadastro-historico-viagem-data').val(),
+                    idPacote: $('#select-cadastro-historico-viagem-idPacote :selected').val()
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    limparCampos();
+                    $('#historico-viagem-modal-cadastro').modal('hide');
                     $('#historico-viagem-tabela').DataTable().ajax.reload();
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: 'Alterado com sucesso',
-                            type: 'info'
+                            text: PacoteVar + ' cadastrado com sucesso',
+                            type: 'success'
                         });
                     });
-                    $('#historico-viagem-modal-editar').modal('hide');
-                    limparCampos();
+                }
+            });
+        }
+    });
+
+    //Botao editar
+    $('table').on('click', '#botao-editar-historico-viagem', function () {
+        var id = $(this).data('id');
+        $.ajax({
+            url: '/HistoricoViagem/Editar?id=' + id,
+            method: 'get',
+            success: function (resultado) {
+                var data = JSON.parse(resultado);
+                $('#campo-editar-historico-viagem-id').val(data.Id);
+                console.log(resultado);
+                $('#select-editar-historico-viagem-idPacote').append(new Option(data.Pacote.Nome, data.IdPacote, false, false)).val(data.IdPacote).trigger('change');
+                $('#campo-editar-historico-viagem-data').val(data.DataPadraoBR);
+
+                $('#historico-viagem-modal-editar').modal('show');
+            }
+        });
+    });
+
+    // Validação editar
+    $('#form-modal-ediatar-historico-viagem').validate({
+        errorClass: 'form-control-danger',
+        validClass: 'form-control-sucess',
+        highlight: function (element) {
+            jQuery(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            jQuery(element).closest('.form-group').removeClass('has-error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parent().append(error[0])
+        },
+
+        rules: {
+            'HistoricoViagem.IdPacote': {
+                required: true
+            },
+            'HistoricoViagem.Data': {
+                required: true,
+                date: true
+            }
+        },
+        messages: {
+            'HistoricoViagem.IdPacote': {
+                required: 'Selecione um pacote.'
+            },
+            'HistoricoViagem.Data': {
+                required: 'Informe a data.',
+                date: 'A data não é valida.'
+            }
+        }
+
+    });
+
+    //Update modal editar
+    $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
+        if ($('#form-modal-ediatar-historico-viagem').valid()) {
+            $.ajax({
+                url: '/HistoricoViagem/Update',
+                method: 'post',
+                dataType: 'json',
+                data: {
+                    id: $('#campo-editar-historico-viagem-id').val(),
+                    idPacote: $('#select-editar-historico-viagem-idPacote').val(),
+                    data: $('#campo-editar-historico-viagem-data').val()
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    if (resultado == 1) {
+                        $('#historico-viagem-tabela').DataTable().ajax.reload();
+                        $(function () {
+                            new PNotify({
+                                title: 'Sucesso!',
+                                text: 'Alterado com sucesso',
+                                type: 'info'
+                            });
+                        });
+                        $('#historico-viagem-modal-editar').modal('hide');
+                        limparCampos();
+                    } else {
+                        new PNotify({
+                            title: 'Erro!',
+                            text: 'Erro ao alterar',
+                            type: 'error'
+                        });
+                    }
+                }
+            });
+        }
+    });
+
+    //Desativar
+    $('table').on('click', '#botao-excluir-historico-viagem', function () {
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'HistoricoViagem/Excluir?id=' + id,
+            method: 'get',
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                if (resultado == 1) {
+                    new PNotify({
+                        title: 'Desativado!',
+                        text: 'Viagem desativada com sucesso',
+                        type: 'success'
+                    });
+
+                    $('#historico-viagem-tabela').DataTable().ajax.reload();
+
                 } else {
                     new PNotify({
                         title: 'Erro!',
-                        text: 'Erro ao alterar',
+                        text: 'Erro ao desativar viagem',
                         type: 'error'
                     });
                 }
             }
         });
+    });
+
+
+    function limparCampos() {
+        $("#select-cadastro-historico-viagem-idPacote").prop('selectedIndex', - 1);
+        $("#campo-cadastro-historicoViagens-data").val("");
+        $("#select-editar-historicoViagens-idPacote").prop('selectedIndex', - 1);
+        $("#campo-editar-historicoViagens-data").val("");
     }
 });
-
-//Desativar
-$('table').on('click', '#botao-excluir-historico-viagem', function () {
-    var id = $(this).data('id');
-    $.ajax({
-        url: 'HistoricoViagem/Excluir?id=' + id,
-        method: 'get',
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            if (resultado == 1) {
-                new PNotify({
-                    title: 'Desativado!',
-                    text: 'Viagem desativada com sucesso',
-                    type: 'success'
-                });
-
-                $('#historico-viagem-tabela').DataTable().ajax.reload();
-
-            } else {
-                new PNotify({
-                    title: 'Erro!',
-                    text: 'Erro ao desativar viagem',
-                    type: 'error'
-                });
-            }
-        }
-    });
-});
-
-
-function limparCampos() {
-    $("#select-cadastro-historico-viagem-idPacote").prop('selectedIndex', - 1);
-    $("#campo-cadastro-historicoViagens-data").val("");
-    $("#select-editar-historicoViagens-idPacote").prop('selectedIndex', - 1);
-    $("#campo-editar-historicoViagens-data").val("");
-}

@@ -1,4 +1,5 @@
 ﻿$(function () {
+    //Preenche DataTable
     $('#table-endereco').DataTable({
         "processing": true,
         "serverSide": true,
