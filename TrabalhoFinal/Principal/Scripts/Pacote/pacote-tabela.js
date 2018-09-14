@@ -93,7 +93,7 @@
     });
 
      //Botao editar
-    $('table').on('click', '#botao-editar-pacote', function () {
+    $('table').on('click', '.botao-editar-pacote', function () {
         var id = $(this).data('id');
         $.ajax({
             url: 'Pacote/Editar?id=' + id,
@@ -187,7 +187,7 @@
     });
 
     //Desativar
-    $('table').on('click', '#botao-excluir-pacote', function () {
+    $('table').on('click', '.botao-excluir-pacote', function () {
         var id = $(this).data('id');
         var nome = $(this).data('nome');
         $.ajax({
