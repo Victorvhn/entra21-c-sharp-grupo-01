@@ -18,11 +18,13 @@
     });
 });
 
+//Abre modal de cadastro
 $('#botao-modal-cadastrar-viagem').on('click', function () {
     limparCampos();
     $('#viagem-modal-cadastro').modal('show');
 });
 
+//Validação modal cadastro
 $('#form-modal-cadastro-viagem').validate({
     errorClass: 'form-control-danger',
     validClass: 'form-control-sucess',
@@ -73,6 +75,7 @@ $('#form-modal-cadastro-viagem').validate({
 
 });
 
+//Salvar modal cadastro
 $('#botao-salvar-modal-cadastrar-viagem').on('click', function () {
     if ($('#form-modal-cadastro-viagem').valid()) {
         $.ajax({
@@ -101,6 +104,7 @@ $('#botao-salvar-modal-cadastrar-viagem').on('click', function () {
     }
 });
 
+//Botao editar
 $('table').on('click', '#botao-editar-viagem', function () {
     var id = $(this).data('id');
     $.ajax({
@@ -120,6 +124,7 @@ $('table').on('click', '#botao-editar-viagem', function () {
     });
 });
 
+// Validação editar
 $('#form-modal-editar-viagem').validate({
     errorClass: 'form-control-danger',
     validClass: 'form-control-sucess',
@@ -170,6 +175,7 @@ $('#form-modal-editar-viagem').validate({
 
 });
 
+//Update modal editar
 $('#botao-salvar-modal-editar-viagem').on('click', function () {
     if ($('#form-modal-editar-viagem').valid()) {
         $.ajax({
@@ -208,6 +214,7 @@ $('#botao-salvar-modal-editar-viagem').on('click', function () {
     }
 });
 
+//Desativar
 $('table').on('click', '#botao-excluir-viagem', function () {
     var id = $(this).data('id');
     $.ajax({

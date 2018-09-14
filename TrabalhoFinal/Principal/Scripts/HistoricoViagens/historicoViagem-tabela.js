@@ -18,11 +18,13 @@
     });
 });
 
+//Abre modal de cadastro
 $('#botao-modal-cadastrar-historico-viagem').on("click", function () {
     limparCampos();
     $("#historico-viagem-modal-cadastro").modal('show');
 });
 
+//Validação modal cadastro
 $('#form-modal-cadastro-historico-viagem').validate({
     errorClass: 'form-control-danger',
     validClass: 'form-control-sucess',
@@ -57,6 +59,7 @@ $('#form-modal-cadastro-historico-viagem').validate({
 
 });
 
+//Salvar modal cadastro
 $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
     if ($('#form-modal-cadastro-historico-viagem').valid()) {
         var PacoteVar = $("#select-cadastro-historico-viagem-idPacote").text();
@@ -84,6 +87,7 @@ $('#botao-salvar-modal-cadastrar-historico-viagem').on('click', function () {
     }
 });
 
+//Botao editar
 $('table').on('click', '#botao-editar-historico-viagem', function () {
     var id = $(this).data('id');
     $.ajax({
@@ -100,6 +104,7 @@ $('table').on('click', '#botao-editar-historico-viagem', function () {
     });
 });
 
+// Validação editar
 $('#form-modal-ediatar-historico-viagem').validate({
     errorClass: 'form-control-danger',
     validClass: 'form-control-sucess',
@@ -134,7 +139,7 @@ $('#form-modal-ediatar-historico-viagem').validate({
 
 });
 
-
+//Update modal editar
 $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
     if ($('#form-modal-ediatar-historico-viagem').valid()) {
         $.ajax({
@@ -171,6 +176,7 @@ $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
     }
 });
 
+//Desativar
 $('table').on('click', '#botao-excluir-historico-viagem', function () {
     var id = $(this).data('id');
     $.ajax({
