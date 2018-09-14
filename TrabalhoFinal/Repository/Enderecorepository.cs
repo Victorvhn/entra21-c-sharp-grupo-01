@@ -67,6 +67,31 @@ namespace Repository
             return enderecos;
         }
 
+        public List<Endereco> ObterTodosParaSelect2EmLine()
+        {
+            List<Endereco> enderecos = new List<Endereco>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT pontos_turisticos.nome, cidades.nome, enderecos.logradouro ,enderecos.numero FROM enderecos 
+INNER JOIN pontos_turisticos ON pontos_turisticos.id = enderecos.id 
+INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow linha in table.Rows)
+            {
+                PontoTuristico pontoTuristico = new PontoTuristico();
+                pontoTuristico.Nome = linha[0].ToString();
+
+                Cidade cidade = new Cidade();
+                cidade.Nome = linha[1].ToString();
+
+                Endereco endereco = new Endereco();
+                endereco.Logradouro = linha[2].ToString();
+                endereco.Numero =  Convert.ToByte(linha[3].ToString());
+            }
+            return enderecos;
+        }
+
+
         public List<Endereco> ObterTodosParaJSON(string start, string length)
         {
             List<Endereco> enderecos = new List<Endereco>();

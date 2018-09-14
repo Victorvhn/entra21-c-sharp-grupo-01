@@ -25,7 +25,7 @@ namespace Repository
                 Viagem viagensTuristas = new Viagem()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
-                    Data = Convert.ToDateTime(line[1].ToString()),
+                    //Data = Convert.ToDateTime(line[1].ToString()),
 
                 };
                 viagens.Add(viagensTuristas);

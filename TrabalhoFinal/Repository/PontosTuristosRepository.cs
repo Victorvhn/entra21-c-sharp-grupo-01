@@ -94,7 +94,7 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
 
             command.CommandText = "UPDATE pontos_turisticos SET id_endereco = @ID_ENDERECO,nome = @NOME WHERE id = @ID";
-            command.Parameters.AddWithValue("@iD_ENDERECO",pontoturisco.IdEndereco);
+            command.Parameters.AddWithValue("@ID_ENDERECO",pontoturisco.IdEndereco);
             command.Parameters.AddWithValue("@NOME", pontoturisco.Nome);
             command.Parameters.AddWithValue("@ID", pontoturisco.Id);
             return command.ExecuteNonQuery() == 1;
