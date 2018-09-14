@@ -67,7 +67,7 @@ namespace Repository
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"DELETE FROM pacotes_pontos_turisticos WHERE id = @ID";
+            command.CommandText = @"UPDATE pacotes_pontos_turisticos SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
 

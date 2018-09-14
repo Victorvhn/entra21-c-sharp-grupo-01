@@ -38,9 +38,17 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new PacotePontosTuristicosRepository().Excluir(id);
-
-            return null;
+            bool apagar = new PacotePontosTuristicosRepository().Excluir(id);
+            int sucesso = 0;
+            if (apagar == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpPost]
