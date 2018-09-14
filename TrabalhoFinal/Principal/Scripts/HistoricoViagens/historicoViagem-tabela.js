@@ -96,8 +96,9 @@ $('table').on('click', '#botao-editar-historico-viagem', function () {
         success: function (resultado) {
             var data = JSON.parse(resultado);
             $('#campo-editar-historico-viagem-id').val(data.Id);
+            console.log(resultado);
             $('#select-editar-historico-viagem-idPacote').append(new Option(data.Pacote.Nome, data.IdPacote, false, false)).val(data.IdPacote).trigger('change');
-            $('#campo-editar-historico-viagem-data').val(data.DateTime);
+            $('#campo-editar-historico-viagem-data').val(data.DataPadraoBR);
 
             $('#historico-viagem-modal-editar').modal('show');
         }

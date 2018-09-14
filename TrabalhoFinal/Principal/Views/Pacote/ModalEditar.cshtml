@@ -15,28 +15,30 @@
             </div>
             <div class="modal-body">
 
-                <input type="hidden" id="campo-editar-pacote-id" value="" />
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="cadastro-pacote-campo-nome">Pacote </label>
-                        <input name="Pacote.Nome" type="text" id="campo-editar-pacote-nome" class="form-control" value="" />
-                    </div>
+                <form id="form-modal-editar-pacote" method="post">
+                    <input type="hidden" id="campo-editar-pacote-id" value="" />
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="cadastro-pacote-campo-nome">Pacote </label>
+                            <input name="Pacote.Nome" type="text" id="campo-editar-pacote-nome" class="form-control" value="" />
+                        </div>
 
-                    <div class="form-group col-md-4">
-                        <label for="cadastro-pacote-campo-valor">
-                            Valor
-                        </label>
-                        <input name="Pacote.Valor" type="text" id="campo-editar-pacote-valor" class="form-control" value="" />
-                    </div>
+                        <div class="form-group col-md-4">
+                            <label for="cadastro-pacote-campo-valor">
+                                Valor
+                            </label>
+                            <input name="Pacote.Valor" type="text" id="campo-editar-pacote-valor" class="form-control" value="" />
+                        </div>
 
-                    <div class="form-group col-md-4">
-                        <label for="cadastro-pacote-campo-percentual-desconto">
-                            Percentual De Desconto
-                        </label>
-                        <input name="Pacote.PercentualMaximoDesconto" type="text" id="campo-editar-pacote-percentualMaximoDesconto" 
-                               class="form-control" value="">
+                        <div class="form-group col-md-4">
+                            <label for="cadastro-pacote-campo-percentual-desconto">
+                                Percentual De Desconto
+                            </label>
+                            <input name="Pacote.PercentualMaximoDesconto" type="text" id="campo-editar-pacote-percentualMaximoDesconto"
+                                   class="form-control" value="">
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
 
             <div class="modal-footer">
