@@ -23,32 +23,82 @@ $('#botao-modal-cadastrar-viagem').on('click', function () {
     $('#viagem-modal-cadastro').modal('show');
 });
 
+$('#form-modal-cadastro-viagem').validate({
+    errorClass: 'form-control-danger',
+    validClass: 'form-control-sucess',
+    highlight: function (element) {
+        jQuery(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function (element) {
+        jQuery(element).closest('.form-group').removeClass('has-error');
+    },
+    errorPlacement: function (error, element) {
+        $(element).parent().append(error[0])
+    },
 
+    rules: {
+        'viagem.IdPacote': {
+            required: true
+        },
+        'viagem.IdGuia': {
+            required: true
+
+        },
+        'viagem.DataHorarioSaida': {
+            required: true
+        },
+        'viagem.DataHorarioVolta': {
+            required: true
+
+        }
+    },
+    messages: {
+        'viagem.IdPacote': {
+            required: 'Selecione um pacote.'
+        },
+        'viagem.IdGuia': {
+            required: 'Selecione um Guia.'
+
+        },
+        'viagem.DataHorarioSaida': {
+            required: 'Informe data de saida.',
+            date: true
+        },
+        'viagem.DataHorarioVolta': {
+            required: 'Informe a data da volta.',
+            date: true
+
+        }
+    }
+
+});
 
 $('#botao-salvar-modal-cadastrar-viagem').on('click', function () {
-    $.ajax({
-        url: '/Viagem/Store',
-        method: 'post',
-        data: {
-            idGuia: $('#select-cadastro-viagem-guia').val(),
-            idPacote: $('#select-cadastro-viagem-pacote').val(),
-            dataHoraSaidaPadraoBR: $('#campo-cadastro-data-saida-viagem').val(),
-            dataHoraVoltaPadraoBR: $('#campo-cadastro-data-volta-viagem').val()
-        },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            limparCampos();
-            $('#viagem-modal-cadastro').modal('hide');
-            $('#table-viagens').DataTable().ajax.reload();
-            $(function () {
-                new PNotify({
-                    title: 'Sucesso!',
-                    text: 'Viagem cadastrada com sucesso',
-                    type: 'success'
+    if ($('#form-modal-cadastro-viagem').valid()) {
+        $.ajax({
+            url: '/Viagem/Store',
+            method: 'post',
+            data: {
+                idGuia: $('#select-cadastro-viagem-guia').val(),
+                idPacote: $('#select-cadastro-viagem-pacote').val(),
+                dataHoraSaidaPadraoBR: $('#campo-cadastro-data-saida-viagem').val(),
+                dataHoraVoltaPadraoBR: $('#campo-cadastro-data-volta-viagem').val()
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                limparCampos();
+                $('#viagem-modal-cadastro').modal('hide');
+                $('#table-viagens').DataTable().ajax.reload();
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso!',
+                        text: 'Viagem cadastrada com sucesso',
+                        type: 'success'
+                    });
                 });
-            });
-        }
-    });
+            }
+        });
+    }
 });
 
 $('table').on('click', '#botao-editar-viagem', function () {
@@ -86,7 +136,7 @@ $('#botao-salvar-modal-editar-viagem').on('click', function () {
             var resultado = JSON.parse(data);
             if (resultado == 1) {
                 $(function () {
-                $('#table-viagens').DataTable().ajax.reload();
+                    $('#table-viagens').DataTable().ajax.reload();
                     new PNotify({
                         title: 'Sucesso!',
                         text: 'Alterado com sucesso',
@@ -141,7 +191,7 @@ function limparCampos() {
 }
 function limparCampoEditar() {
     $('#select-modal-editar-viagem-guia').val(),
-    $('#select-modal-editar-viagem-pacote').val(),
-    $('#campo-editar-data-saida-viagem').val(),
-    $('#campo-editar-data-volta-viagem').val()
+        $('#select-modal-editar-viagem-pacote').val(),
+        $('#campo-editar-data-saida-viagem').val(),
+        $('#campo-editar-data-volta-viagem').val()
 }
