@@ -5159,6 +5159,7 @@
     <Content Include="Scripts\Guia\guia-tabela.js" />
     <Content Include="Scripts\HistoricoViagens\historicoViagem-tabela.js" />
     <Content Include="Scripts\Idioma\idioma-tabela.js" />
+    <Content Include="Scripts\PacotePontoTuristico\index-pacote-ponto-turistico.js" />
     <Content Include="Scripts\Pacote\pacote-tabela.js" />
     <Content Include="Scripts\PopularSelects\SelectCidade\popular-select-cidade.js" />
     <Content Include="Scripts\PopularSelects\SelectEstado\popular-select-estado.js" />
