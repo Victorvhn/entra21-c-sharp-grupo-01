@@ -14,17 +14,19 @@
             </div>
             <div class="modal-body">
 
-                <input type="hidden" name="idioma.Id" id="campo-id-editar-idioma"/>
+                <form id="form-modal-editar-idioma" method="post">
+                    <input type="hidden" name="idioma.Id" id="campo-id-editar-idioma" />
 
-                <div class="form-group col-md-6">
-                    <label for="campo-idioma">Idioma</label>
-                    <input name="idioma.Nome" type="text" id="campo-editar-idioma" required="required" class="form-control"/>
+                    <div class="form-group col-md-6">
+                        <label for="campo-idioma">Idioma</label>
+                        <input name="idioma.Nome" type="text" id="campo-editar-idioma" required="required" class="form-control" />
 
-                </div>
+                    </div>
+                </form>
+        </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-editar-idioma">Fechar</button>
                 <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-editar-idioma">Cadastrar</button>
             </div>
-        </div>
     </div>
 </div>

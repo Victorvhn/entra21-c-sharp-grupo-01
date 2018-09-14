@@ -17,11 +17,13 @@
     });
 });
 
+//Abre modal de cadastro
 $('#botao-modal-cadastrar-idioma').on("click", function () {
     limparCampos();
     $("#idioma-modal-cadastro").modal('show');
 });
 
+//Validação modal cadastro
 $('#form-modal-cadastro-idioma').validate({
     errorClass: 'form-control-danger',
     validClass: 'form-control-success',
@@ -40,6 +42,7 @@ $('#form-modal-cadastro-idioma').validate({
     }
 });
 
+//Salvar modal cadastro
 $("#botao-salvar-modal-cadastrar-idioma").on('click', function () {
     if ($('#form-modal-cadastro-idioma').valid()) {
         var nomeVar = $("#campo-cadastro-idioma").val();
@@ -69,6 +72,7 @@ $("#botao-salvar-modal-cadastrar-idioma").on('click', function () {
     }
 });
 
+//Botao editar
 $('table').on('click', '#botao-editar-idioma', function () {
     var id = $(this).data('id');
     $.ajax({
@@ -82,41 +86,65 @@ $('table').on('click', '#botao-editar-idioma', function () {
     });
 });
 
-$('#botao-salvar-modal-editar-idioma').on('click', function () {
-    $.ajax({
-        url: '/Idioma/Update',
-        method: 'post',
-        dataType: 'json',
-        data: {
-            id: $('#campo-id-editar-idioma').val(),
-            nome: $('#campo-editar-idioma').val()
-        },
-        success: function (data) {
-            var resultado = JSON.parse(data);
-            if (resultado == 1) {
-                limparCampos();
-                $('#idioma-modal-editar').modal('hide');
-                $(function () {
-                    new PNotify({
-                        title: 'Sucesso!',
-                        text: 'Alterado com sucesso',
-                        type: 'info'
-                    });
-                });
-                $('#table-idiomas').DataTable().ajax.reload();
-
-            }
-            else {
-                new PNotify({
-                    title: 'Erro!',
-                    text: 'Erro ao alterar',
-                    type: 'error'
-                });
-            }
+// Validação editar
+$('#form-modal-editar-idioma').validate({
+    errorClass: 'form-control-danger',
+    validClass: 'form-control-success',
+    rules: {
+        'idioma.Nome': {
+            required: true,
+            rangelength: [4, 20]
         }
-    });
+    },
+    messages: {
+        'idioma.Nome': {
+            required: 'Idioma deve ser preenchido,',
+            rangelength: 'Idioma deve conter de {0} a {1}'
+
+        }
+    }
 });
 
+
+//Update modal editar
+$('#botao-salvar-modal-editar-idioma').on('click', function () {
+    if ($('#form-modal-editar-idioma').valid()) {
+        $.ajax({
+            url: '/Idioma/Update',
+            method: 'post',
+            dataType: 'json',
+            data: {
+                id: $('#campo-id-editar-idioma').val(),
+                nome: $('#campo-editar-idioma').val()
+            },
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                if (resultado == 1) {
+                    limparCampos();
+                    $('#idioma-modal-editar').modal('hide');
+                    $(function () {
+                        new PNotify({
+                            title: 'Sucesso!',
+                            text: 'Alterado com sucesso',
+                            type: 'info'
+                        });
+                    });
+                    $('#table-idiomas').DataTable().ajax.reload();
+
+                }
+                else {
+                    new PNotify({
+                        title: 'Erro!',
+                        text: 'Erro ao alterar',
+                        type: 'error'
+                    });
+                }
+            }
+        });
+    }
+});
+
+//Desativar
 $('table').on('click', '#botao-excluir-idioma', function () {
     var id = $(this).data('id');
     var nome = $(this).data('nome');
