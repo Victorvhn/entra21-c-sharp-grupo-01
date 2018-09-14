@@ -11,8 +11,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info' id='botao-editar-cidade' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-cidade' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
+                    return "<a class='btn btn-outline-info botao-editar-cidade' data-id='" + row.Id + "'>Editar</a>" +
+                        "<a class='btn btn-outline-danger ml-1 botao-excluir-cidade' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
                 }
             }
         ]
