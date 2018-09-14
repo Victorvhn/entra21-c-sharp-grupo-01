@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -54,7 +55,56 @@ namespace Principal.Controllers
         {
             bool alterado = new PacotePontosTuristicosRepository().Alterar(pacotePontosTuristicos);
 
-            return null;
+            int sucesso = 0;
+
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+            return Content(JsonConvert.SerializeObject(sucesso));
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+
+            List<PacotePontoTuristico> pacotePontoTuristicos = new PacotePontosTuristicosRepository().ObterTodosPorJSON(start, length);
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = pacotePontoTuristicos
+            }));
+        }
+
+        public ActionResult ObterTodosPorJSONParaSelect2()
+        {
+            List<PacotePontoTuristico> pacotePontoTuristicos = new PacotePontosTuristicosRepository().ObterTodosParaSelect();
+
+            var x = new object[pacotePontoTuristicos.Count];
+            int i = 0;
+            foreach (var pacotePontoTuristico in pacotePontoTuristicos)
+            {
+                x[i] = new { id = pacotePontoTuristico.Id, idP = pacotePontoTuristico.IdPacote, idPT = pacotePontoTuristico.IdPontoTuristico };
+                i++;
+            }
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
+
+        [HttpGet]
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        public ActionResult ModalEditar()
+        {
+            return View();
         }
     }
 }
