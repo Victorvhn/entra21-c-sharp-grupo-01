@@ -5565,6 +5565,7 @@
     <Content Include="Views\PacotePontoTuristico\ModalCadastro.cshtml" />
     <Content Include="Views\PacotePontoTuristico\ModalEditar.cshtml" />
     <Content Include="Views\PacotePontoTuristico\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
