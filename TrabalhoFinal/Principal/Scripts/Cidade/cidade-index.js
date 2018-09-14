@@ -103,77 +103,115 @@
         });
     });
 
+
+    // Validação editar
+    $('#form-modal-editar-cidade').validate({
+        errorClass: "form-control-danger",
+        validClass: "form-control-success",
+        highlight: function (element) {
+            jQuery(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            jQuery(element).closest('.form-group').removeClass('has-error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parent().append(error[0])
+        },
+
+        rules: {
+            'cidade.IdEstado': {
+                required: true
+            },
+            'cidade.Nome': {
+                required: true,
+                rangelength: [3, 30]
+            }
+        },
+        messages: {
+            'cidade.IdEstado': {
+                required: 'Selecione um Estado'
+            },
+            'cidade.Nome': {
+                required: 'Cidade deve ser preenchido.',
+                rangelength: 'Cidade deve conter de {0} a {1} caracteres'
+            }
+        }
+    });
+
+
     //Update modal editar
     $('#botao-salvar-modal-editar-cidade').on('click', function () {
-        $.ajax({
-            url: '/Cidade/Update',
-            method: 'Post',
-            dataType: 'json',
-            data: {
-                id: $('#campo-editar-cidade-id').val(),
-                idEstado: $('#select-modal-editar-cidade').val(),
-                nome: $('#campo-editar-cidade-nome').val()
-            },
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    $(function () {
-                        new PNotify({
-                            title: 'Sucesso!',
-                            text: 'Alterado com sucesso',
-                            type: 'info'
+        if ($('#form-modal-editar-cidade').valid()) {
+            $.ajax({
+                url: '/Cidade/Update',
+                method: 'Post',
+                dataType: 'json',
+                data: {
+                    id: $('#campo-editar-cidade-id').val(),
+                    idEstado: $('#select-modal-editar-cidade').val(),
+                    nome: $('#campo-editar-cidade-nome').val()
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    if (resultado == 1) {
+                        $(function () {
+                            new PNotify({
+                                title: 'Sucesso!',
+                                text: 'Alterado com sucesso',
+                                type: 'info'
+                            });
                         });
-                    });
-                    $('#table-cidade').DataTable().ajax.reload();
-                    $('#cidade-modal-editar').modal('hide');
-                    limparCamposCidadeEditar();
-                } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao alterar',
-                        type: 'error'
-                    });
+                        $('#table-cidade').DataTable().ajax.reload();
+                        $('#cidade-modal-editar').modal('hide');
+                        limparCamposCidadeEditar();
+                    } else {
+                        new PNotify({
+                            title: 'Erro!',
+                            text: 'Erro ao alterar',
+                            type: 'error'
+                        });
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
-    //Desativar
-    $('table').on('click', '#botao-excluir-cidade', function () {
-        var id = $(this).data('id');
-        var nome = $(this).data('nome');
-        $.ajax({
-            url: 'Cidade/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    new PNotify({
-                        title: 'Desativado!',
-                        text: nome + ' desativado com sucesso',
-                        type: 'success'
-                    });
+//Desativar
+$('table').on('click', '#botao-excluir-cidade', function () {
+    var id = $(this).data('id');
+    var nome = $(this).data('nome');
+    $.ajax({
+        url: 'Cidade/Excluir?id=' + id,
+        method: 'get',
+        success: function (data) {
+            var resultado = JSON.parse(data);
+            if (resultado == 1) {
+                new PNotify({
+                    title: 'Desativado!',
+                    text: nome + ' desativado com sucesso',
+                    type: 'success'
+                });
 
-                    $('#table-cidade').DataTable().ajax.reload();
+                $('#table-cidade').DataTable().ajax.reload();
 
-                } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar ' + nome,
-                        type: 'error'
-                    });
-                }
+            } else {
+                new PNotify({
+                    title: 'Erro!',
+                    text: 'Erro ao desativar ' + nome,
+                    type: 'error'
+                });
             }
-        });
+        }
     });
+});
 
-    function limparCamposCidadeCadastro() {
-        $('#select-modal-cadastro-cidade').val('').trigger('change');
-        $('#campo-cadastro-cidade-nome').val('');
-    }
+function limparCamposCidadeCadastro() {
+    $('#select-modal-cadastro-cidade').val('').trigger('change');
+    $('#campo-cadastro-cidade-nome').val('');
+}
 
-    function limparCamposCidadeEditar() {
-        $('#campo-editar-cidade-id').val('');
-        $('#select-modal-editar-cidade').val('').trigger('change');
-    }
+function limparCamposCidadeEditar() {
+    $('#campo-editar-cidade-id').val('');
+    $('#select-modal-editar-cidade').val('').trigger('change');
+}
 });

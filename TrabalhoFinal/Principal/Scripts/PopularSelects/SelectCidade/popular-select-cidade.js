@@ -18,6 +18,6 @@ $(document).ready(function () {
             dataType: 'json'
         }
     }).on('change', function (e) {
-        $('#form-modal-cadastro-cidade').valid()
+        $('#form-modal-editar-cidade').valid()
     });
 });
