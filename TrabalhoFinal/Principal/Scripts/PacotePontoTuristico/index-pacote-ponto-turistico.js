@@ -9,8 +9,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return '<a class="btn btn-outline-info id="botao-editar-pacote-ponto-turistico" data-id="' + row.Id + '" data-toggle="modal" data-target="#pacote-ponto-turistico-modal-editar">Editar</a>' +
-                        '<a class="btn btn-outline-danger ml-1 id="botao-excluir-pacote-ponto-turistico" data-id="' + row.Id + '">Desativar</a>';
+                    return '<a class="btn btn-outline-info botao-editar-pacote-ponto-turistico data-id="' + row.Id + '" data-toggle="modal" data-target="#pacote-ponto-turistico-modal-editar">Editar</a>' +
+                        '<a class="btn btn-outline-danger ml-1 botao-excluir-pacote-ponto-turistico data-id="' + row.Id + '">Desativar</a>';
                 }
             }
         ]
@@ -84,7 +84,7 @@
 
 
     //Botao editar
-    $('table').on('click', '#botao-editar-pacote-ponto-turistico', function () {
+    $('table').on('click', '.botao-editar-pacote-ponto-turistico', function () {
         var id = $(this).data('id');
         $.ajax({
             url: '/PacotePontoTuristico/Editar?id=' + id,
@@ -93,7 +93,7 @@
                 var data = JSON.parse(resultado);
                 $('#campo-editar-pacote-ponto-turistico-id').val(data.Id);
                 $('#select-editar-pacote-ponto-turistico-pacote').append(new Option(data.Pacote.Nome, data.IdPacote, false, false)).val(data.idPacote).trigger('change');
-                $('#select-editar-pacote-ponto-turistco-ponto-turistico').append(new Option(data.PontoTuristico.Nome, data.idPontoTuristico, false, false)).val(data.idPontoTuristico).trigger('change');
+                $('#select-editar-pacote-ponto-turistico-ponto-turistico').append(new Option(data.PontoTuristico.Nome, data.idPontoTuristico, false, false)).val(data.idPontoTuristico).trigger('change');
 
                 $('#pacote-ponto-turistico-modal-editar').modal('show');
             }
@@ -143,7 +143,7 @@
                 data: {
                     id: $('#campo-editar-pacote-ponto-turistico-id').val(),
                     idPacote: $('#select-editar-pacote-ponto-turistico-pacote').val(),
-                    idPontoTuristico: $('#select-editar-pacote-ponto-turistco-ponto-turistico').val()
+                    idPontoTuristico: $('#select-editar-pacote-ponto-turistico-ponto-turistico').val()
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
@@ -172,7 +172,7 @@
 
 
     //Desativar
-    $('table').on('click', '#botao-excluir-pacote-ponto-turistico', function () {
+    $('table').on('click', '.botao-excluir-pacote-ponto-turistico', function () {
         var id = $(this).data('id');
         $.ajax({
             url: '/PacotePontoTuristico/Excluir?id=' + id,
