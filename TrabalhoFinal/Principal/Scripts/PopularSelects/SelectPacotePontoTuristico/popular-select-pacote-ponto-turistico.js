@@ -21,7 +21,7 @@
 $(document).ready(function () {
     $('select-editar-pacote-ponto-turistico-pacote').select2({
         ajax: {
-            url: '/Pacote/ObterTodosPorJSONtoSelect2',
+            url: '/Pacote/ObterTodosPorJSONToSelect2',
             dataType: 'json'
         }
     }).on('change', function () {
