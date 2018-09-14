@@ -18,6 +18,34 @@
         ]
     });
 
+    
+    
+    $.ajax({
+        url: '/Cidade/ObterTodosPorJSON',
+        success: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                $("#pai").append('<div class="card widget-statstic-card">\
+                < div class= "card-header" >\
+                <div class="card-header-left">\
+                    <h5>Statistics</h5>\
+                    <p class="p-t-10 m-b-0 text-c-blue">' + '</p>\
+                </div>\
+                                                    </div >\
+                <div class="card-block">\
+                    <i class="icofont icofont-presentation-alt st-icon bg-c-blue"></i>\
+
+                    < div class= "text-left" >\
+                    <h3 class="d-inline-block">5,456</h3>\
+                    <i class="icofont icofont-long-arrow-up f-30 text-c-green"></i>\
+                    <span class="f-right">23%</span>\
+                    </div >\
+                </div >\
+                                                </div > ');
+                                                }
+        }
+
+    });
+
     //Abre modal de cadastro
     $('#botao-modal-cadastrar-cidade').on('click', function () {
         limparCamposCidadeCadastro();
