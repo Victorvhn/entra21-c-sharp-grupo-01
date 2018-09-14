@@ -92,7 +92,7 @@ $('table').on('click', '#botao-editar-historico-viagem', function () {
         success: function (resultado) {
             var data = JSON.parse(resultado);
             $('#campo-editar-historico-viagem-id').val(data.Id);
-            $('#select-editar-historico-viagem-idPacote').val(data.idPacote);
+            $('#select-editar-historico-viagem-idPacote').append(new Option(data.Pacote.Nome, data.IdPacote, false, false)).val(data.IdPacote).trigger('change');
             $('#campo-editar-historico-viagem-data').val(data.DateTime);
 
             $('#historico-viagem-modal-editar').modal('show');
@@ -138,7 +138,7 @@ $('#form-modal-ediatar-historico-viagem').validate({
 $('#botao-salvar-modal-editar-historico-viagem').on('click', function () {
     if ($('#form-modal-ediatar-historico-viagem').valid()) {
         $.ajax({
-            url: 'HistoricoViagem/Update',
+            url: '/HistoricoViagem/Update',
             method: 'post',
             dataType: 'json',
             data: {
