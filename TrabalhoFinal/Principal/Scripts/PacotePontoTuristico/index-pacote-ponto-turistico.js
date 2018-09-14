@@ -9,8 +9,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return '<a class="btn btn-outline-info botao-editar-pacote-ponto-turistico data-id="' + row.Id + '" data-toggle="modal" data-target="#pacote-ponto-turistico-modal-editar">Editar</a>' +
-                        '<a class="btn btn-outline-danger ml-1 botao-excluir-pacote-ponto-turistico data-id="' + row.Id + '">Desativar</a>';
+                    return '<a class="btn btn-outline-info botao-editar-pacote-ponto-turistico" data-id="' + row.Id + '" data-toggle="modal" data-target="#pacote-ponto-turistico-modal-editar">Editar</a>' +
+                        '<a class="btn btn-outline-danger ml-1 botao-excluir-pacote-ponto-turistico" data-id="' + row.Id + '">Desativar</a>';
                 }
             }
         ]
@@ -185,7 +185,7 @@
                         text: 'Pacote Ponto Turistico Desativado com sucesso',
                         type: 'success'
                     });
-                    $('table-pacote-ponto-turistico').DataTable().ajax.reload();
+                    $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                 } else {
                     new PNotify({
                         title: 'Erro!',
