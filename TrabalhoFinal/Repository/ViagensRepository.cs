@@ -72,7 +72,7 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             SqlCommand command = new Conexao().ObterConexao();
 
             command.CommandText = @"INSERT INTO viagens (id_pacote, id_guia, data_horario_saida, data_horario_volta)
-            OUTPUT INSERTED.ID VALUES (@ID_PACOTES, @ID_GUIA, @DATA_HORARIO_VOLTA, @DATA_HORARIO_SAIDA)";
+            OUTPUT INSERTED.ID VALUES (@ID_PACOTES, @ID_GUIA, @DATA_HORARIO_SAIDA, @DATA_HORARIO_VOLTA)";
             command.Parameters.AddWithValue("@ID_PACOTES", viagem.IdPacote);
             command.Parameters.AddWithValue("@ID_GUIA", viagem.IdGuia);
             command.Parameters.AddWithValue("@DATA_HORARIO_SAIDA", viagem.DataHorarioSaida);

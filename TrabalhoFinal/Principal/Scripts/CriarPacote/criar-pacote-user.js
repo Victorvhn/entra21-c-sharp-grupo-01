@@ -7,6 +7,7 @@
         $('#modal-cadastro-pacote-user').modal('show');
     });
 
+    //Store 
     $("#botao-salvar-pacote-user").on("click", function () {
         $.ajax({
             "url": "/CriarPacote/Store",
