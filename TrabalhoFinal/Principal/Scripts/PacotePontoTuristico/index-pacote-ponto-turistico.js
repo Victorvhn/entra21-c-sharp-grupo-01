@@ -16,7 +16,7 @@
         ]
     });
 
-
+});
     //Abre modal de cadastro
     $('#botao-modal-cadastrar-pacote-ponto-turistico').on('click', function () {
         limparCampos();
@@ -94,7 +94,6 @@
                 $('#campo-editar-pacote-ponto-turistico-id').val(data.Id);
                 $('#select-editar-pacote-ponto-turistico-pacote').append(new Option(data.Pacote.Nome, data.IdPacote, false, false)).val(data.idPacote).trigger('change');
                 $('#select-editar-pacote-ponto-turistico-ponto-turistico').append(new Option(data.PontoTuristico.Nome, data.idPontoTuristico, false, false)).val(data.idPontoTuristico).trigger('change');
-
                 $('#pacote-ponto-turistico-modal-editar').modal('show');
             }
         });
@@ -206,4 +205,3 @@
         $('#select-editar-pacote-ponto-turistico-pacote').val();
         $('#select-editar-pacote-ponto-turistco-ponto-turistico').val();
     }
-});
