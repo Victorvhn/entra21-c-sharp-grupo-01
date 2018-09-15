@@ -1,13 +1,4 @@
 ﻿﻿$(document).ready(function () {
-     //SELECT ESTADOS
-    $('#select-destino-pacote-user').select2({
-        placeholder: "Selecione um Destino",
-        ajax: {
-            url: '/Estado/ObterTodosPorJSONToSelect2',
-            dataType: 'json'
-        }
-    });
-
      //SELECT GUIAS
     $('#select-guia-pacote-user').select2({
         placeholder: "Selecione um Guia",
