@@ -4,13 +4,13 @@
         ajax: '/PontoTuristico/ObterTodosPorJSON',
         columns: [
             { data: 'Id' },
-            { data: 'Endereco.Nome' },
+            { data: 'Endereco.Nome' }, //Aqui vai ser outro nome
             { data: 'Nome' },
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info' id='botao-editar-pontoturistico' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-pontoturistico' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
+                    return "<a class='btn btn-outline-info' botao-editar-pontoturistico' data-id='" + row.Id + "'>Editar</a>" +
+                        "<a class='btn btn-outline-danger ml-1' botao-excluir-pontoturistico' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
                 }
             }
         ]
@@ -85,7 +85,7 @@ $('#botao-salvar-modal-cadastrar-pontoturistico').on('click', function () {
     }
 });
 //Botao editar
-$('table').on('click', '#botao-editar-pontoturistico', function () {
+$('table').on('click', '.botao-editar-pontoturistico', function () {
     var id = $(this).data('id');
     $.ajax({
         url: '/PontoTuristico/Editar?id=' + id,
@@ -136,9 +136,8 @@ $('#botao-salvar-modal-editar-pontoturistico').on('click', function () {
 });
 
 //Desativar
-$('table').on('click', '#botao-excluir-pontoturistico', function () {
+$('table').on('click', '.botao-excluir-pontoturistico', function () {
     var id = $(this).data('id');
-    var nome = $(this).data('nome');
     $.ajax({
         url: 'PontoTuristico/Excluir?id=' + id,
         method: 'get',
@@ -150,9 +149,7 @@ $('table').on('click', '#botao-excluir-pontoturistico', function () {
                     text: nome + ' desativado com sucesso',
                     type: 'success'
                 });
-
                 $('#table-pontoturistico').DataTable().ajax.reload();
-
             } else {
                 new PNotify({
                     title: 'Erro!',
