@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class TuristaPacote
+    public class TuristaPacote
     {
 
         public int Id { get; set; }
 
+        public Turista Turista { get; set; }
+
         public int IdTurista { get; set; }
+
+        public Pacote Pacote { get; set; }
 
         public int IdPacote { get; set; }
 

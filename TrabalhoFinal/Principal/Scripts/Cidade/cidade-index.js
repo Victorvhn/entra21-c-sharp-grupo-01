@@ -1,8 +1,6 @@
 ﻿$(function () {
     //Preenche DataTable
     $('#table-cidade').DataTable({
-        processing: true,
-        serverSide: true,
         ajax: '/Cidade/ObterTodosPorJSON',
         columns: [
             { data: 'Id' },

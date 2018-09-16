@@ -99,7 +99,8 @@ CREATE TABLE turistas_pacotes(
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	id_turista INT,
 	id_pacote INT,
-	status_do_pedido CHAR(3)
+	status_do_pedido CHAR(3),
+	data_requisicao DATE
 ); --NXN
 
 CREATE TABLE pontos_turisticos (
@@ -247,3 +248,8 @@ INSERT INTO viagens_turistas (id_turista, id_viagem, valor) VALUES
 ((SELECT id FROM turistas WHERE nome = 'Eduarda'), (SELECT id FROM viagens WHERE data_compra = '07-08-2017'), 5000),
 ((SELECT id FROM turistas WHERE nome = 'Marcio'), (SELECT id FROM viagens WHERE data_compra = '10-08-2015'), 3500),
 ((SELECT id FROM turistas WHERE nome = 'Marcos'), (SELECT id FROM viagens WHERE data_compra = '01-02-2016'), 4500);
+
+INSERT INTO turistas_pacotes (id_turista, id_pacote, status_do_pedido, data_requisicao) VALUES
+((SELECT id FROM turistas WHERE nome = 'João'), (SELECT id FROM pacotes WHERE nome = 'Disney'), '1', '2018-09-16'),
+((SELECT id FROM turistas WHERE nome = 'Maria'), (SELECT id FROM pacotes WHERE nome = 'Amsterdam'), '1', '2018-09-16'),
+((SELECT id FROM turistas WHERE nome = 'Eduarda'), (SELECT id FROM pacotes WHERE nome = 'Paris'), '1', '2018-09-16');

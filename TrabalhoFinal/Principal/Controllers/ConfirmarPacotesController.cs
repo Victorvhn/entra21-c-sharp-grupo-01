@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Model;
+using Newtonsoft.Json;
+using Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +12,20 @@ namespace Principal.Controllers
     public class ConfirmarPacotesController : Controller
     {
         // GET: ConfirmarPacotes
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            string start = Request.QueryString["start"];
+            string lengh = Request.QueryString["length"];
+
+            List<TuristaPacote> turistasPacotes = new TuristaPacoteRepository().ObterTodosPorJSON(start, lengh);
+            return Content(JsonConvert.SerializeObject(new { data = turistasPacotes }));
         }
     }
 }
