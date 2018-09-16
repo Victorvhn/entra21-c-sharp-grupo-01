@@ -51,6 +51,7 @@
     <Compile Include="PontoTuristico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Turista.cs" />
+    <Compile Include="TuristaPacote.cs" />
     <Compile Include="Viagem.cs" />
     <Compile Include="ViagemTurista.cs" />
   </ItemGroup>
