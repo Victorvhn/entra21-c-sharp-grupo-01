@@ -20,10 +20,11 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(PacotePontoTuristicoString pacotePontoTuristicoString)
+        public ActionResult Store(PacotePontoTuristicoString pacotePontoTuristicoString, PacoteString pacoteString)
         {
             Pacote pacoteModel = new Pacote();
             pacoteModel.Nome = pacotePontoTuristicoString.Nome.ToString();
+            pacoteModel.Valor = Convert.ToDouble(pacoteString.Valor.ToString());
 
             int codigoPacote = new PacoteRepository().Cadastrar(pacoteModel);
 

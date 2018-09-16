@@ -13,7 +13,7 @@ namespace Repository
     public class TuristaPacoteRepository
     {
 
-        public List<TuristaPacote> ObterTodosPorJSON(string start, string length)
+        public List<TuristaPacote> ObterTodosPorJSON(string start, string length, string search)
         {
             List<TuristaPacote> turistasPacotes = new List<TuristaPacote>();
             SqlCommand command = new Conexao().ObterConexao();
@@ -21,7 +21,7 @@ namespace Repository
 FROM turistas_pacotes tp 
 INNER JOIN turistas t ON (t.id = tp.id_turista)
 INNER JOIN pacotes p ON (p.id = tp.id_pacote)
-ORDER BY tp.data_requisicao ASC OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY";
+WHERE (tp.id LIKE '%" + search + "%') OR (t.nome LIKE '%" + search + "%') OR (p.nome LIKE '%" + search + "%') OR (p.valor LIKE '%" + search + "%') OR (tp.status_do_pedido LIKE '%" + search + "%') ORDER BY tp.data_requisicao OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -30,7 +30,9 @@ ORDER BY tp.data_requisicao ASC OFFSET " + start + " ROWS FETCH NEXT " + length 
             {
                 TuristaPacote turistaPacote = new TuristaPacote();
                 turistaPacote.Id = Convert.ToInt32(line[0].ToString());
+                turistaPacote.Turista = new Turista();
                 turistaPacote.Turista.Nome = line[1].ToString();
+                turistaPacote.Pacote = new Pacote();
                 turistaPacote.Pacote.Nome = line[2].ToString();
                 turistaPacote.Pacote.Valor = Convert.ToDouble(line[3].ToString());
                 turistaPacote.StatusPedido = line[4].ToString();

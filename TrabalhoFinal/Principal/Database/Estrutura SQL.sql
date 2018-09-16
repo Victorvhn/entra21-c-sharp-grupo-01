@@ -99,7 +99,7 @@ CREATE TABLE turistas_pacotes(
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	id_turista INT,
 	id_pacote INT,
-	status_do_pedido CHAR(3),
+	status_do_pedido VARCHAR(20),
 	data_requisicao DATE
 ); --NXN
 

@@ -15,19 +15,31 @@
                 DataHorarioSaida: $("#campo-data-horario-saida-cadastro-user").val(),
                 DataHorarioVolta: $("#campo-data-horario-retorno-cadastro-user").val(),
                 IdGuia: $("#select-guia-pacote-user").val(),
-                IdsPontosTuristicos: $("#select-pontos-turisticos-cadastro-user").val()
+                IdsPontosTuristicos: $("#select-pontos-turisticos-cadastro-user").val(),
+                Valor: $("#campo-valor-total-pacote-user").val()
             },
             success: function (data) {
                 var resultado = JSON.parse(data);
                 limparCamposCidadeCadastro();
                 $('#modal-cadastro-pacote-user').modal('hide');
-                $(function () {
-                    new PNotify({
-                        title: 'Sucesso!',
-                        text: 'Pacote cadastrado com sucesso',
-                        type: 'success'
+                if (resultado == 1) {
+                    $(function () {
+                        new PNotify({
+                            title: 'Sucesso!',
+                            text: 'Pacote cadastrado com sucesso',
+                            type: 'success'
+                        });
                     });
-                });
+                } else {
+                    $('#modal-cadastro-pacote-user').modal('hide');
+                    $(function () {
+                        new PNotify({
+                            title: 'Sucesso!',
+                            text: 'Erro ao cadastrar pacote',
+                            type: 'erro'
+                        });
+                    });
+                }
             }
         });
     });
