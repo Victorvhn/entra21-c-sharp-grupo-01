@@ -20,7 +20,7 @@
 
     
     
-    $.ajax({
+    /*$.ajax({
         url: '/Cidade/ObterTodosPorJSON',
         success: function (data) {
             for (var i = 0; i < data.length; i++) {
@@ -44,7 +44,7 @@
                                                 }
         }
 
-    });
+    });*/
 
     //Abre modal de cadastro
     $('#botao-modal-cadastrar-cidade').on('click', function () {
