@@ -3,7 +3,7 @@ DROP TABLE viagens_turistas;
 DROP TABLE viagens;
 DROP TABLE pacotes_pontos_turisticos;
 DROP TABLE pontos_turisticos;
-DROP TABLE turistar_pacotes;
+DROP TABLE turistas_pacotes;
 DROP TABLE pacotes;
 DROP TABLE guias;
 DROP TABLE turistas;
@@ -95,7 +95,7 @@ CREATE TABLE pacotes (
     percentual_max_desconto TINYINT,
 );
 
-CREATE TABLE turistar_pacotes(
+CREATE TABLE turistas_pacotes(
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	id_turista INT,
 	id_pacote INT,
