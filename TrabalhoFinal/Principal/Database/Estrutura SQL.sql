@@ -3,6 +3,7 @@ DROP TABLE viagens_turistas;
 DROP TABLE viagens;
 DROP TABLE pacotes_pontos_turisticos;
 DROP TABLE pontos_turisticos;
+DROP TABLE turistar_pacotes;
 DROP TABLE pacotes;
 DROP TABLE guias;
 DROP TABLE turistas;
@@ -32,7 +33,6 @@ CREATE TABLE estados (
 	ativo BIT DEFAULT '1'
 );
 
-
 CREATE TABLE cidades (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     id_estado INT,
@@ -40,7 +40,6 @@ CREATE TABLE cidades (
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_estado) REFERENCES estados(id)
 );
-
 
 CREATE TABLE enderecos (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -53,7 +52,6 @@ CREATE TABLE enderecos (
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_cidade) REFERENCES cidades(id)
 );
-
 
 CREATE TABLE turistas ( 
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -69,7 +67,6 @@ CREATE TABLE turistas (
     FOREIGN KEY (id_endereco) REFERENCES enderecos(id),
     FOREIGN KEY (id_login) REFERENCES logins(id)
 );
-
 
 CREATE TABLE guias (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL, 
@@ -98,6 +95,13 @@ CREATE TABLE pacotes (
     percentual_max_desconto TINYINT,
 );
 
+CREATE TABLE turistar_pacotes(
+	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	id_turista INT,
+	id_pacote INT,
+	status_do_pedido CHAR(3)
+); --NXN
+
 CREATE TABLE pontos_turisticos (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,  
     id_endereco INT,
@@ -107,7 +111,6 @@ CREATE TABLE pontos_turisticos (
     FOREIGN KEY (id_endereco) REFERENCES enderecos(id)
 );
 
-
 CREATE TABLE pacotes_pontos_turisticos (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     id_ponto_turistico INT,
@@ -116,7 +119,6 @@ CREATE TABLE pacotes_pontos_turisticos (
     FOREIGN KEY (id_ponto_turistico) REFERENCES pontos_turisticos(id),
     FOREIGN KEY (id_pacote) REFERENCES pacotes(id),
 ); --NXN
-
 
 CREATE TABLE viagens (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
@@ -131,7 +133,6 @@ CREATE TABLE viagens (
     FOREIGN KEY (id_guia) REFERENCES guias(id)
 );
 
-
 CREATE TABLE viagens_turistas (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     id_turista INT,
@@ -141,7 +142,6 @@ CREATE TABLE viagens_turistas (
     FOREIGN KEY (id_turista) REFERENCES turistas(id),
     FOREIGN KEY (id_viagem) REFERENCES viagens(id)  
 );  --NXN
-
 
 CREATE TABLE historico_de_viagens (
     id INT IDENTITY(1,1) PRIMARY KEY ,
@@ -206,13 +206,11 @@ INSERT INTO enderecos (id_cidade, cep, logradouro, numero, complemento, referenc
 ((SELECT id FROM cidades WHERE nome = 'Muria'), 96325874, 'rua zerumiru', 357, 'edificio azul', 'proximo a igreja'),
 ((SELECT id FROM cidades WHERE nome = 'Catalo'), 96325777, 'centro', 777, 'centro', 'proximo a capela 3 anjos');
 
-
 INSERT INTO turistas (id_endereco, nome, sobrenome, sexo, cpf, rg, data_nascimento) VALUES
 ((SELECT id FROM enderecos WHERE cep = 14785236 AND numero = 658), 'João', 'Fernandes', 'Masculino', 74125878965, 7896523, '02-07-1998'),
 ((SELECT id FROM enderecos WHERE cep = 87965425 AND numero = 895), 'Antonio', 'Amaral', 'Masculino', 87965823654, 1478965, '05-12-1994'),
 ((SELECT id FROM enderecos WHERE cep = 89015255 AND numero = 458), 'Maria', 'Rosa', 'Feminino', 74523698541, 4569871, '03-11-1997'),
 ((SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Camila', 'Vieira', 'Feminino', 98745632147, 8796541, '04-02-1997');
-
    
 INSERT INTO guias (id_endereco, nome, sobrenome, data_nascimento, sexo, cpf, rg, numero_carteira_trabalho, salario, categoria_habilitacao, rank_) VALUES
 ((SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Marcos', 'Antonio', '04-10-1990', 'M', 35789654123, 7532147, 12345678912, 2000, 'AB', 3),
