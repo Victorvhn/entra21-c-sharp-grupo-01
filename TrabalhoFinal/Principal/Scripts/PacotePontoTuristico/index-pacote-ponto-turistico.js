@@ -203,5 +203,5 @@
 
     function limparCamposEditar() {
         $('#select-editar-pacote-ponto-turistico-pacote').val();
-        $('#select-editar-pacote-ponto-turistco-ponto-turistico').val();
+        $('#select-editar-pacote-ponto-turistico-ponto-turistico').val();
     }
