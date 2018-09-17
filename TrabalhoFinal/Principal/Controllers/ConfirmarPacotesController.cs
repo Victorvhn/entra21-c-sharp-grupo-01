@@ -23,7 +23,7 @@ namespace Principal.Controllers
         {
             string start = Request.QueryString["start"];
             string lengh = Request.QueryString["length"];
-            string search = Request.QueryString["search"];
+            string search = Request.QueryString["search[value]"];
 
             List<TuristaPacote> turistasPacotes = new TuristaPacoteRepository().ObterTodosPorJSON(start, lengh, search);
             return Content(JsonConvert.SerializeObject(new { data = turistasPacotes }));

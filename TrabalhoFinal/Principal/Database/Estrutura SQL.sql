@@ -100,6 +100,7 @@ CREATE TABLE turistas_pacotes(
 	id_turista INT,
 	id_pacote INT,
 	status_do_pedido VARCHAR(20),
+	ativo BIT DEFAULT '1',
 	data_requisicao DATE
 ); --NXN
 
@@ -250,6 +251,6 @@ INSERT INTO viagens_turistas (id_turista, id_viagem, valor) VALUES
 ((SELECT id FROM turistas WHERE nome = 'Marcos'), (SELECT id FROM viagens WHERE data_compra = '01-02-2016'), 4500);
 
 INSERT INTO turistas_pacotes (id_turista, id_pacote, status_do_pedido, data_requisicao) VALUES
-((SELECT id FROM turistas WHERE nome = 'João'), (SELECT id FROM pacotes WHERE nome = 'Disney'), '1', '2018-09-16'),
-((SELECT id FROM turistas WHERE nome = 'Maria'), (SELECT id FROM pacotes WHERE nome = 'Amsterdam'), '1', '2018-09-16'),
-((SELECT id FROM turistas WHERE nome = 'Eduarda'), (SELECT id FROM pacotes WHERE nome = 'Paris'), '1', '2018-09-16');
+((SELECT id FROM turistas WHERE nome = 'João'), (SELECT id FROM pacotes WHERE nome = 'Disney'), 'Aguardando Aprovação', '2018-09-16'),
+((SELECT id FROM turistas WHERE nome = 'Maria'), (SELECT id FROM pacotes WHERE nome = 'Amsterdam'), 'Aguardando Pagamento', '2017-12-25'),
+((SELECT id FROM turistas WHERE nome = 'Camila'), (SELECT id FROM pacotes WHERE nome = 'Paris'), 'Aguardando Aprovação', '2017-08-10');
