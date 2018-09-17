@@ -10,8 +10,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info' id='botao-editar-idioma' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-idioma' data-nome='" + row.Nome + "' data-id='" + row.Id + "' href='#' > Excluir</a>";
+                    return "<a class='btn btn-outline-info botao-editar-idioma' data-id='" + row.Id + "'>Editar</a>" +
+                        "<a class='btn btn-outline-danger ml-1 botao-excluir-idioma' data-nome='" + row.Nome + "' data-id='" + row.Id + "' href='#' > Excluir</a>";
                 }
             }
         ]
@@ -74,7 +74,7 @@
     });
 
     //Botao editar
-    $('table').on('click', '#botao-editar-idioma', function () {
+    $('table').on('click', '.botao-editar-idioma', function () {
         var id = $(this).data('id');
         $.ajax({
             url: '/Idioma/Editar?id=' + id,
@@ -146,7 +146,7 @@
     });
 
     //Desativar
-    $('table').on('click', '#botao-excluir-idioma', function () {
+    $('table').on('click', '.botao-excluir-idioma', function () {
         var id = $(this).data('id');
         var nome = $(this).data('nome');
         $.ajax({

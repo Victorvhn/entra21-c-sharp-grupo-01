@@ -13,8 +13,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info' id='botao-editar-guia' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-guia' data-id='" + row.Id + "' href='#' >Desativar</a>";
+                    return "<a class='btn btn-outline-info botao-editar-guia' data-id='" + row.Id + "'>Editar</a>" +
+                        "<a class='btn btn-outline-danger ml-1 botao-excluir-guia' data-id='" + row.Id + "' href='#' >Desativar</a>";
 
                 }
             }
@@ -28,7 +28,7 @@
     });
 
     //Desativar
-    $('table').on('click', '#botao-excluir-guia', function () {
+    $('table').on('click', '.botao-excluir-guia', function () {
         var id = $(this).data('id');
         $.ajax({
             ulr: 'Guia/Excluir?id=' + id,
@@ -58,7 +58,7 @@
     });
 
     //Botao editar
-    $('table').on("click", "#botao-editar-guia", function () {
+    $('table').on("click", ".botao-editar-guia", function () {
         var id = $(this).data('id');
         $.ajax({
             url: '/Guia/Editar?id=' + id,

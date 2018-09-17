@@ -11,8 +11,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info' id='botao-editar-historico-viagem' data-id='" + row.Id + "' >Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-historico-viagem' data-id='" + row.Id + "' href='#' >Desativar</a>";
+                    return "<a class='btn btn-outline-info botao-editar-historico-viagem' data-id='" + row.Id + "' >Editar</a>" +
+                        "<a class='btn btn-outline-danger ml-1 botao-excluir-historico-viagem' data-id='" + row.Id + "' href='#' >Desativar</a>";
                 }
             }
         ]
@@ -89,7 +89,7 @@
     });
 
     //Botao editar
-    $('table').on('click', '#botao-editar-historico-viagem', function () {
+    $('table').on('click', '.botao-editar-historico-viagem', function () {
         var id = $(this).data('id');
         $.ajax({
             url: '/HistoricoViagem/Editar?id=' + id,
@@ -179,7 +179,7 @@
     });
 
     //Desativar
-    $('table').on('click', '#botao-excluir-historico-viagem', function () {
+    $('table').on('click', '.botao-excluir-historico-viagem', function () {
         var id = $(this).data('id');
         $.ajax({
             url: 'HistoricoViagem/Excluir?id=' + id,

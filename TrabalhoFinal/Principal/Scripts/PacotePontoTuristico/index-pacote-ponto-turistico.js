@@ -16,7 +16,6 @@
         ]
     });
 
-});
     //Abre modal de cadastro
     $('#botao-modal-cadastrar-pacote-ponto-turistico').on('click', function () {
         limparCampos();
@@ -205,3 +204,4 @@
         $('#select-editar-pacote-ponto-turistico-pacote').val();
         $('#select-editar-pacote-ponto-turistico-ponto-turistico').val();
     }
+});

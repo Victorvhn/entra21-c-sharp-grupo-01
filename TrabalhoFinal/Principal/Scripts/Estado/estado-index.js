@@ -10,8 +10,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info' id='botao-editar-estado' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1' id='botao-excluir-estado' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
+                    return "<a class='btn btn-outline-info botao-editar-estado' data-id='" + row.Id + "'>Editar</a>" +
+                        "<a class='btn btn-outline-danger ml-1 botao-excluir-estado' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
                 }
             }
         ]
@@ -72,7 +72,7 @@
     });
 
     //Botao editar
-    $('table').on('click', '#botao-editar-estado', function () {
+    $('table').on('click', '.botao-editar-estado', function () {
         var id = $(this).data('id');
         $.ajax({
             url: 'Estado/Editar?id=' + id,
@@ -145,7 +145,7 @@
     });
 
     //Desativar
-    $('table').on('click', '#botao-excluir-estado', function () {
+    $('table').on('click', '.botao-excluir-estado', function () {
         var id = $(this).data('id');
         var nome = $(this).data('nome');
         $.ajax({
