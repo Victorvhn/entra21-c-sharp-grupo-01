@@ -130,40 +130,94 @@
             $(element).parent().append(error[0])
         },
 
+
+        rules: {
+            'guia.Nome': {
+                required: true,
+                rangelength: [3, 30]
+            },
+            'guia.Sobrenome': {
+
+            },
+            'guia.Rg': {
+
+            },
+            'guia.Cpf': {
+
+            },
+            '': {
+
+            },
+            '': {
+
+            },
+            '': {
+
+            },
+            '': {
+
+            },
+            '': {
+
+            },
+            '': {
+
+            },
+            '': {
+
+            },
+            '': {
+
+            },
+            '': {
+
+            },
+
+
+        },
+        messages: {
+            'guia.Nome': {
+                required: 'Nome deve ser preenchido.',
+                rangelength: 'Nome deve conter de  {0} a {1} caracteres.'
+            }
+        }
+
     });
 
     //Salvar modal cadastro
     $("#botao-salvar-modal-cadastrar-guia").on("click", function () {
         var nomeVar = $("#campo-cadastro-guia-nome").val();
-        $.ajax({
-            url: '/Guia/Store',
-            method: 'post',
-            data: {
-                nome: $("#campo-cadastro-guia-nome").val(),
-                sobrenome: $("#campo-cadastro-guia-sobrenome").val(),
-                datanascimento: $("#campo-cadastro-guia-data-nascimento").val(),
-                sexo: $("#campo-cadastro-guia-sexo").val(),
-                rg: $("#campo-cadastro-guia-rg").val(),
-                cpf: $("#campo-cadastro-guia-cpf").val(),
-                carteiratrabalho: $("#campo-cadastro-guia-numero-carteira-trabalho").val(),
-                categoriahabilitacao: $("#campo-cadastro-guia-categoria-habilitacao").val(),
-                salario: $("#campo-cadastro-guia-salario").val(),
-                rank: $("#campo-cadastro-guia-rank").val()
-            },
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                limparCampos();
-                $("#guia-modal-cadastro").modal('hide');
-                $('#guia-tabela').DataTable().ajax.reload();
-                $(function () {
-                    new PNotify({
-                        title: 'Sucesso!',
-                        text: nomeVar + ' cadastrado com sucesso',
-                        type: 'success'
+        if ($('#form-modal-cadastro-guia').valid()) {
+            $.ajax({
+                url: '/Guia/Store',
+                method: 'post',
+                data: {
+                    nome: $("#campo-cadastro-guia-nome").val(),
+                    sobrenome: $("#campo-cadastro-guia-sobrenome").val(),
+                    datanascimento: $("#campo-cadastro-guia-data-nascimento").val(),
+                    sexo: $("#campo-cadastro-guia-sexo").val(),
+                    rg: $("#campo-cadastro-guia-rg").val(),
+                    cpf: $("#campo-cadastro-guia-cpf").val(),
+                    carteiratrabalho: $("#campo-cadastro-guia-numero-carteira-trabalho").val(),
+                    categoriahabilitacao: $("#campo-cadastro-guia-categoria-habilitacao").val(),
+                    salario: $("#campo-cadastro-guia-salario").val(),
+                    rank: $("#campo-cadastro-guia-rank").val()
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    limparCampos();
+                    $("#guia-modal-cadastro").modal('hide');
+                    $('#guia-tabela').DataTable().ajax.reload();
+                    $(function () {
+                        new PNotify({
+                            title: 'Sucesso!',
+                            text: nomeVar + ' cadastrado com sucesso',
+                            type: 'success'
+                        });
                     });
-                });
-            }
-        });
+                }
+            });
+        }
     });
 
     function limparCampos() {
