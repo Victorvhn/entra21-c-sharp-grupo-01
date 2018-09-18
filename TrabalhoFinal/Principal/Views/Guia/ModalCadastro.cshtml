@@ -13,190 +13,191 @@
             </div>
             <div class="modal-body">
 
-                <div class="row">
-                    <label>Dados Pessoais</label>
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-md-6">
-                        <label for="campo-cadastro-guia-nome">Nome</label>
-                        <input name="guia.Nome" type="text" id="campo-cadastro-guia-nome" class="form-control" />
+                <form id="form-modal-cadastro-guia" method="post">
+                    <div class="row">
+                        <label>Dados Pessoais</label>
                     </div>
 
-                    <div class="form-group col-md-6">
-                        <label for="campo-cadastro-guia-sobrenome">Sobrenome</label>
-                        <input name="guia.Sobrenome" type="text" id="campo-cadastro-guia-sobrenome" class="form-control" />
-                    </div>
+                    <div class="row">
 
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-sm-4">
-                        <label for="campo-cadastro-guia-rg">RG</label>
-                        <input name="guia.Rg" type="text" id="campo-cadastro-guia-rg" class="form-control" />
-                    </div>
-
-                    <div class="form-group col-sm-4">
-                        <label for="campo-cadastro-guia-cpf">CPF</label>
-                        <input name="guia.Cpf" type="text" id="campo-cadastro-guia-cpf" class="form-control" />
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label for="campo-cadastro-guia-data-nascimento">Data de Nascimento</label>
-                        <input name="guia.DataNascimento" type="date" id="campo-cadastro-guia-data-nascimento" class="form-control" />
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-md-4">
-                        <label for="campo-cadastro-guia-sexo">Sexo</label>
-                        <div>
-                            <input type="radio" id="radio-sexo-masculino" name="sexo" class="ml-md-1" />
-                            <label for="radio-sexo-masculino">Masculino</label>
-                            <input type="radio" id="radio-sexo-feminino" name="sexo" class="ml-md-5" />
-                            <label for="radio-sexo-feminino">Feminino</label>
+                        <div class="form-group col-md-6">
+                            <label for="campo-cadastro-guia-nome">Nome</label>
+                            <input name="guia.Nome" type="text" id="campo-cadastro-guia-nome" class="form-control" />
                         </div>
-                    </div>
 
-                    <div class="form-group col-md-4">
-                        <label for="campo-cadastro-guia-numero-carteira-trabalho">Número Carteira de Trabalho</label>
-                        <input name="guia.CarteiraTrabalho" type="text" id="campo-cadastro-guia-numero-carteira-trabalho"
-                               class="form-control" />
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label for="campo-cadastro-guia-salario">Salário</label>
-                        <input name="guia.Salario" type="text" id="campo-cadastro-guia-salario" class="form-control" />
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-md-4">
-                        <label for="campo-cadastro-guia-categoria-habilitacao">Categoria da Habilitação</label>
-                        <select id="campo-cadastro-guia-categoria-habilitacao" name="guia.CategoriaHabilitacao" class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" required="required" tabindex="-1">
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
-                        </select>
-                    </div>
-
-
-
-                    <div class="form-group col-sm-4">
-                        <label for="campo-cadastro-guia-rank">Rank</label>
-                        <select name="guia.Rank" type="text" id="campo-cadastro-guia-rank" class="form-control">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <label>Endereço</label>
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-md-6">
-
-                        <label for="select-cadastro-guia-estado">Estado</label>
-                        <select class="form-control" name="cidade.IdEstado" id="select-cadastro-guia-estado"></select>
+                        <div class="form-group col-md-6">
+                            <label for="campo-cadastro-guia-sobrenome">Sobrenome</label>
+                            <input name="guia.Sobrenome" type="text" id="campo-cadastro-guia-sobrenome" class="form-control" />
+                        </div>
 
                     </div>
 
-                    <div class="form-group col-md-6">
+                    <div class="row">
 
-                        <label for="select-cadastro-cidade-guia">Cidade</label>
-                        <select class="form-control" name="select-cadastro-guia-cidade" id="select-cadastro-cidade-guia"></select>
+                        <div class="form-group col-sm-4">
+                            <label for="campo-cadastro-guia-rg">RG</label>
+                            <input name="guia.Rg" type="text" id="campo-cadastro-guia-rg" class="form-control" />
+                        </div>
 
-                    </div>
+                        <div class="form-group col-sm-4">
+                            <label for="campo-cadastro-guia-cpf">CPF</label>
+                            <input name="guia.Cpf" type="text" id="campo-cadastro-guia-cpf" class="form-control" />
+                        </div>
 
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-md-6">
-
-                        <label for="campo-cep-cadastro-guia">
-                            CEP
-                        </label>
-                        <input class="form-control" type="text" name="endereco.Cep" id="campo-cep-cadastro-guia" />
-
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-md-8">
-
-                        <label for="campo-logradouro-cadastro-guia">
-                            Logradouro
-                        </label>
-                        <input name="endereco.Logradouro" type="text" id="campo-logradouro-cadastro-guia" size="150" class="form-control" />
+                        <div class="form-group col-md-4">
+                            <label for="campo-cadastro-guia-data-nascimento">Data de Nascimento</label>
+                            <input name="guia.DataNascimento" type="date" id="campo-cadastro-guia-data-nascimento" class="form-control" />
+                        </div>
 
                     </div>
 
-                    <div class="form-group col-md-4">
+                    <div class="row">
 
-                        <label for="campo-numero-cadastro-guia">
-                            Número
-                        </label>
-                        <input id="campo-numero-cadastro-guia" name="endereco.Numero" type="text" class="form-control autonumber" data-a-sep="." data-a-dec=",">
+                        <div class="form-group col-md-4">
+                            <label for="campo-cadastro-guia-sexo">Sexo</label>
+                            <div>
+                                <input type="radio" id="radio-sexo-masculino" name="sexo" class="ml-md-1" />
+                                <label for="radio-sexo-masculino">Masculino</label>
+                                <input type="radio" id="radio-sexo-feminino" name="sexo" class="ml-md-5" />
+                                <label for="radio-sexo-feminino">Feminino</label>
+                            </div>
+                        </div>
 
+                        <div class="form-group col-md-4">
+                            <label for="campo-cadastro-guia-numero-carteira-trabalho">Número Carteira de Trabalho</label>
+                            <input name="guia.CarteiraTrabalho" type="text" id="campo-cadastro-guia-numero-carteira-trabalho"
+                                   class="form-control" />
+                        </div>
 
-                    </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-md-8">
-
-                        <label for="campo-complemento-guia-cadastro">
-                            Complemento
-                        </label>
-                        <input id="campo-complemento-guia-cadastro" name="endereco.Complemento" type="text" class="form-control">
-
-                    </div>
-
-                    <div class="form-group col-md-4">
-
-                        <label for="campo-referencia-guia-cadastro">
-                            Referência
-                        </label>
-                        <input id="campo-referencia-guia-cadastro" name="endereco.Referencia" class="form-control">
+                        <div class="form-group col-md-4">
+                            <label for="campo-cadastro-guia-salario">Salário</label>
+                            <input name="guia.Salario" type="text" id="campo-cadastro-guia-salario" class="form-control" />
+                        </div>
 
                     </div>
 
-                </div>
+                    <div class="row">
 
-                <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="campo-cadastro-guia-categoria-habilitacao">Categoria da Habilitação</label>
+                            <select id="campo-cadastro-guia-categoria-habilitacao" name="guia.CategoriaHabilitacao" class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" required="required" tabindex="-1">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group col-md-12">
 
-                        <label for="campo-referencia-cadastro-guia">
-                            Referência
-                        </label>
-                        <input id="campo-referencia-cadastro-guia" name="endereco.Referencia" class="form-control">
+
+                        <div class="form-group col-sm-4">
+                            <label for="campo-cadastro-guia-rank">Rank</label>
+                            <select name="guia.Rank" type="text" id="campo-cadastro-guia-rank" class="form-control">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
 
                     </div>
 
-                </div>
+                    <div class="row">
+                        <label>Endereço</label>
+                    </div>
 
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+
+                            <label for="select-cadastro-guia-estado">Estado</label>
+                            <select class="form-control" name="cidade.IdEstado" id="select-cadastro-guia-estado"></select>
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+
+                            <label for="select-cadastro-cidade-guia">Cidade</label>
+                            <select class="form-control" name="select-cadastro-guia-cidade" id="select-cadastro-cidade-guia"></select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+
+                            <label for="campo-cep-cadastro-guia">
+                                CEP
+                            </label>
+                            <input class="form-control" type="text" name="endereco.Cep" id="campo-cep-cadastro-guia" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+
+                            <label for="campo-logradouro-cadastro-guia">
+                                Logradouro
+                            </label>
+                            <input name="endereco.Logradouro" type="text" id="campo-logradouro-cadastro-guia" size="150" class="form-control" />
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+
+                            <label for="campo-numero-cadastro-guia">
+                                Número
+                            </label>
+                            <input id="campo-numero-cadastro-guia" name="endereco.Numero" type="text" class="form-control autonumber" data-a-sep="." data-a-dec=",">
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+
+                            <label for="campo-complemento-guia-cadastro">
+                                Complemento
+                            </label>
+                            <input id="campo-complemento-guia-cadastro" name="endereco.Complemento" type="text" class="form-control">
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+
+                            <label for="campo-referencia-guia-cadastro">
+                                Referência
+                            </label>
+                            <input id="campo-referencia-guia-cadastro" name="endereco.Referencia" class="form-control">
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-12">
+
+                            <label for="campo-referencia-cadastro-guia">
+                                Referência
+                            </label>
+                            <input id="campo-referencia-cadastro-guia" name="endereco.Referencia" class="form-control">
+
+                        </div>
+
+                    </div>
+                </form>
             </div>
 
             <div class="modal-footer">

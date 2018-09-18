@@ -116,6 +116,22 @@
         limparCampos();
     });
 
+    //Validação Modal Cadastro
+    $('#form-modal-cadastro-guia').validate({
+        errorClass: 'form-control-danger',
+        validClass: 'form-control-success',
+        highlight: function (element) {
+            jQuery(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            jQuery(element).closest('.form-group').removeClass('has-error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parent().append(error[0])
+        },
+
+    });
+
     //Salvar modal cadastro
     $("#botao-salvar-modal-cadastrar-guia").on("click", function () {
         var nomeVar = $("#campo-cadastro-guia-nome").val();
