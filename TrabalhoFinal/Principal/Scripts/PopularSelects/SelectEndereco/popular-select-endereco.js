@@ -2,8 +2,17 @@
     $('#select-cadastro-endereco-cidade').select2({
         ajax: {
             url: '/Cidade/ObterTodosPorJSONParaSelect2',
-            datatype: 'json',
+            dataType: 'json',
 
         }
     });
 });
+
+$(document).ready(function () {
+    $('#select-editar-endereco-cidade').select2({
+        ajax: {
+            url: '/Cidade/ObterTodosPorJSONParaSelect2',
+            dataType: 'json'
+        }
+    })
+})
