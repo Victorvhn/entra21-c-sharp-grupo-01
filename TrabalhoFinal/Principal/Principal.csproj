@@ -5578,6 +5578,8 @@
     <Content Include="Views\ViagemTurista\Index.cshtml" />
     <Content Include="Views\ViagemTurista\ModalCadastro.cshtml" />
     <Content Include="Views\ViagemTurista\ModalEditar.cshtml" />
+    <Content Include="Views\Endereco\ModalCadastro.cshtml" />
+    <Content Include="Views\Endereco\ModalEditar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
