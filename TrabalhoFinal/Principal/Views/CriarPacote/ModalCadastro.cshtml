@@ -14,90 +14,92 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div>
-                    <span>Pacote</span>
-                </div>
 
-                <div class="row">
-                    <div class="form-group col-md-8">
+                <form id="form-modal-cadastro-pacote-usuario" method="post">
+                    <div>
+                        <span>Pacote</span>
+                    </div>
 
-                        <label>Nome Pacote</label>
-                        <input type="text" name="pacote.Nome" id="cadastro-pacote-nome-user" class="form-control" />
+                    <div class="row">
+                        <div class="form-group col-md-8">
+
+                            <label>Nome Pacote</label>
+                            <input type="text" name="pacote.Nome" id="cadastro-pacote-nome-user" class="form-control" />
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+
+                            <label>Destino</label>
+                            <select id="select-destino-pacote-user" class="form-control" name="select-destino">
+                                <option value="1">África</option>
+                                <option value="2">América</option>
+                                <option value="3">Ásia</option>
+                                <option value="4">Europa</option>
+                                <option value="5">Oceania</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <span>Viagem</span>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+
+                            <label>Data e Horário de Ida</label>
+                            <input type="datetime-local" id="campo-data-horario-saida-cadastro-user" name="campo-data-horario-saida-cadastro-user" class="form-control" />
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+
+                            <label>Data e Horário de Volta</label>
+                            <input type="datetime-local" id="campo-data-horario-retorno-cadastro-user" name="campo-data-horario-retorno-cadastro-user" class="form-control" />
+
+                        </div>
 
                     </div>
 
-                    <div class="form-group col-md-4">
+                    <div class="row">
+                        <div class="form-group col-md-6">
 
-                        <label>Destino</label>
-                        <select id="select-destino-pacote-user" class="form-control" name="guia.Id">
-                            <option value="1">África</option>
-                            <option value="2">América</option>
-                            <option value="3">Ásia</option>
-                            <option value="4">Europa</option>
-                            <option value="5">Oceania</option>
-                        </select>
+                            <label>Guia</label>
+                            <select id="select-guia-pacote-user" name="viagem.IdGuia" class="form-control"></select>
 
-                    </div>
-                </div>
+                        </div>
 
-                <div>
-                    <span>Viagem</span>
-                </div>
+                        <div class="form-group col-md-6">
 
-                <div class="row">
+                            <label>Pontos Turísticos</label>
+                            <select id="select-pontos-turisticos-cadastro-user" name="select-pontos-turisticos-cadastro-user" class="form-control" multiple="multiple"></select>
 
-                    <div class="form-group col-md-6">
-
-                        <label>Data e Horário de Ida</label>
-                        <input type="datetime-local" id="campo-data-horario-saida-cadastro-user" class="form-control" />
-
+                        </div>
                     </div>
 
-                    <div class="form-group col-md-6">
+                    <div class="row">
 
-                        <label>Data e Horário de Volta</label>
-                        <input type="datetime-local" id="campo-data-horario-retorno-cadastro-user" class="form-control"/>
+                        <div class="form-group col-md-2">
 
-                    </div>
+                            <label>Valor Total: R$</label>
 
-                </div>
+                        </div>
 
-                <div class="row">
-                    <div class="form-group col-md-6">
+                        <div class="form-group col-md-10">
 
-                        <label>Guia</label>
-                        <select id="select-guia-pacote-user" name="viagem.IdGuia" class="form-control"></select>
+                            <label id="campo-valor-total-pacote-user"></label>
 
-                    </div>
-
-                    <div class="form-group col-md-6">
-
-                        <label>Pontos Turísticos</label>
-                        <select id="select-pontos-turisticos-cadastro-user" name="" class="form-control" multiple="multiple"></select>
+                        </div>
 
                     </div>
-                </div>
-
-                <div class="row">
-
-                    <div class="form-group col-md-2">
-
-                        <label>Valor Total: R$</label>
-
-                    </div>
-
-                    <div class="form-group col-md-10">
-
-                        <label id="campo-valor-total-pacote-user"></label>
-
-                    </div>
-
-                </div>
-                <!-- cadastro pacote -->
-                <!-- select viagem -->
-                <!-- select pontos turisticos -->
-                <!-- pacotes pontos turisticos -->
-
+                    <!-- cadastro pacote -->
+                    <!-- select viagem -->
+                    <!-- select pontos turisticos -->
+                    <!-- pacotes pontos turisticos -->
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-pacote-user">Fechar</button>

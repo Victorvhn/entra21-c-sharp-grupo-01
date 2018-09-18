@@ -6,7 +6,10 @@
             url: '/Guia/ObterTodosParaSelect2',
             dataType: 'json'
         }
+    }).on('change', function (e) {
+        $('#form-modal-cadastro-pacote-usuario').valid()
     });
+    
 
      //SELECT PONTOS TURISTICOS
      $('#select-pontos-turisticos-cadastro-user').select2({
@@ -14,6 +17,8 @@
         ajax: {
             url: '/PontoTuristico/ObterTodosPorJSONSelect2',
             dataType: 'json'
-        }
-    });
+         }
+     }).on('change', function (e) {
+         $('#form-modal-cadastro-pacote-usuario').valid()
+     });
 });

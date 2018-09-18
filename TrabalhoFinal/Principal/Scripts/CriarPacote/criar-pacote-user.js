@@ -5,43 +5,108 @@
         $('#modal-cadastro-pacote-user').modal('show');
     });
 
+    // Validação
+    $('#form-modal-cadastro-pacote-usuario').validate({
+        errorClass: 'form-control-danger',
+        validClass: 'form-control-success',
+        hightlight: function (element) {
+            jQuery(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            jQuery(element).closest('.form-group').removeClass('has-error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parent().append(eror[0])
+        },
+
+        rules: {
+            'pacote.Nome': {
+                required: true,
+                rangelength: [3, 30]
+            },
+            'select-destino': {
+                required: true
+            },
+            'campo-data-horario-saida-cadastro-user': {
+                required: true,
+                date: true
+            },
+            'campo-data-horario-retorno-cadastro-user': {
+                required: true,
+                date: true
+            },
+            'viagem.IdGuia': {
+                required: true
+            },
+            'select-pontos-turisticos-cadastro-user': {
+                required: true
+            }
+
+        },
+        messages: {
+            'pacote.Nome': {
+                required: 'Nome deve ser preenchido.',
+                rangelength: 'nome deve conter de {0} a {1} caracteres'
+            },
+            'select-destino': {
+                required: 'Selecione um destino.'
+            },
+            'campo-data-horario-saida-cadastro-user': {
+                required: 'Informe a data de saída.',
+                date: 'Esta data não é válida.'
+            },
+            'campo-data-horario-retorno-cadastro-user': {
+                required: 'Informe a data de retorno.',
+                date: 'Esta data não é válida.'
+            },
+            'viagem.IdGuia': {
+                required: 'Selecione um guia.'
+            },
+            'select-pontos-turisticos-cadastro-user': {
+                required: 'Selecione um ponto turistico.'
+            }
+        }
+    });
+
     //Store 
     $("#botao-salvar-pacote-user").on("click", function () {
-        $.ajax({
-            "url": "/CriarPacote/Store",
-            method: "post",
-            data: {
-                Nome: $("#cadastro-pacote-nome-user").val(),
-                DataHorarioSaida: $("#campo-data-horario-saida-cadastro-user").val(),
-                DataHorarioVolta: $("#campo-data-horario-retorno-cadastro-user").val(),
-                IdGuia: $("#select-guia-pacote-user").val(),
-                IdsPontosTuristicos: $("#select-pontos-turisticos-cadastro-user").val(),
-                Valor: $("#campo-valor-total-pacote-user").val()
-            },
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                limparCamposCidadeCadastro();
-                $('#modal-cadastro-pacote-user').modal('hide');
-                if (resultado == 1) {
-                    $(function () {
-                        new PNotify({
-                            title: 'Sucesso!',
-                            text: 'Pacote cadastrado com sucesso',
-                            type: 'success'
-                        });
-                    });
-                } else {
+        if ($('#form-modal-cadastro-pacote-usuario').valid()) {
+            $.ajax({
+                "url": "/CriarPacote/Store",
+                method: "post",
+                data: {
+                    Nome: $("#cadastro-pacote-nome-user").val(),
+                    DataHorarioSaida: $("#campo-data-horario-saida-cadastro-user").val(),
+                    DataHorarioVolta: $("#campo-data-horario-retorno-cadastro-user").val(),
+                    IdGuia: $("#select-guia-pacote-user").val(),
+                    IdsPontosTuristicos: $("#select-pontos-turisticos-cadastro-user").val(),
+                    Valor: $("#campo-valor-total-pacote-user").val()
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    limparCamposCidadeCadastro();
                     $('#modal-cadastro-pacote-user').modal('hide');
-                    $(function () {
-                        new PNotify({
-                            title: 'Sucesso!',
-                            text: 'Erro ao cadastrar pacote',
-                            type: 'erro'
+                    if (resultado == 1) {
+                        $(function () {
+                            new PNotify({
+                                title: 'Sucesso!',
+                                text: 'Pacote cadastrado com sucesso',
+                                type: 'success'
+                            });
                         });
-                    });
+                    } else {
+                        $('#modal-cadastro-pacote-user').modal('hide');
+                        $(function () {
+                            new PNotify({
+                                title: 'Sucesso!',
+                                text: 'Erro ao cadastrar pacote',
+                                type: 'erro'
+                            });
+                        });
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
     function gerarValorPacote() {
