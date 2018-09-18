@@ -94,7 +94,7 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCampoEnderecoCadastro();
+                    limparCamposEnderecoCadastro();
                     $('#endereco-modal-cadastro').modal('hide');
                     $('#table-endereco').DataTable().ajax.reload();
                     $(function () {
@@ -189,4 +189,81 @@
             }
         }
     });
+
+    //Update Modal Editar
+    $('#botao-salvar-modal-editar-endereco').on('click', function () {
+        if ($('#form-modal-editar-endereco').valid()) {
+            $.ajax({
+                url: '/Endereco/Update',
+                method: 'post',
+                dataType: 'json',
+                data: {
+                    id: $('campo-editar-endereco-id').val(),
+                    logradouro: $('campo-editar-endereco-logradouro').val(),
+                    numero: $('campo-editar-endereco-numero').val(),
+                    complemento: $('campo-editar-endereco-complemento').val(),
+                    referencia: $('campo-editar-endereco-referencia').val(),
+                    idCidade: $('#select-editar-endereco-cidade').val()
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    if (resultado == 1) {
+                        $(function () {
+                            new PNotify({
+                                title: 'Sucesso!',
+                                text: 'Endereço alterado com sucesso',
+                                type: 'info'
+                            });
+                        });
+                        $('#table-endereco').DataTable().ajax.reload();
+                        $('#endereco-modal-editar').modal('hide');
+                        limparCamposEnderecoEditar();
+                    } else {
+                        new PNotify({
+                            title: 'Erro!',
+                            text: 'Erro ao alterar',
+                            type: 'error'
+                        })
+                    }
+                }
+            });
+        }
+    });
+
+    //Desativar
+    $('table').on('click', '.botao-excluir-endereco', function () {
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'Endereco/Excluir?id=' + id,
+            method: 'get',
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                if (resultado == 1) {
+                    new PNotify({
+                        title: 'Desativado!',
+                        text: 'Endereço desativado com sucesso',
+                        type: 'success'
+                    });
+                }
+            }
+        });
+    });
+
+    function limparCamposEnderecoCadastro() {
+        $('campo-cadastro-endereco-id').val('');
+        $('campo-cadastro-endereco-logradouro').val('');
+        $('campo-cadastro-endereco-numero').val('');
+        $('campo-cadastro-endereco-complemento').val('');
+        $('campo-cadastro-endereco-referencia').val('');
+        $('#select-cadastro-endereco-cidade').val('').trigger('change');
+    }
+
+    function limparCamposEnderecoEditar() {
+        $('campo-editar-endereco-id').val('');
+        $('campo-editar-endereco-logradouro').val('');
+        $('campo-editar-endereco-numero').val('');
+        $('campo-editar-endereco-complemento').val('');
+        $('campo-editar-endereco-referencia').val('');
+        $('#select-editar-endereco-cidade').val('').trigger('change');
+    }
 });
