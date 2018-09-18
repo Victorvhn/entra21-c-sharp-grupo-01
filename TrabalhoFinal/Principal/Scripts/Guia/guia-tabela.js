@@ -148,35 +148,46 @@
                     required: true,
                     verificaCPF: true
                 },
-                '': {
+                'guia.DataNascimento': {
 
                 },
-                '': {
+                'sexo': {
 
                 },
-                '': {
+                'guia.CarteiraTrabalho': {
 
                 },
-                '': {
+                'guia.Salario': {
 
                 },
-                '': {
+                'guia.CategoriaHabilitacao': {
 
                 },
-                '': {
+                'guia.Rank': {
 
                 },
-                '': {
+                'cidade.IdEstado': {
 
                 },
-                '': {
+                'select-cadastro-guia-cidade': {
 
                 },
-                '': {
+                'endereco.Cep': {
 
                 },
+                'endereco.Logradouro': {
 
+                },
+                'endereco.Numero': {
 
+                },
+                'endereco.Complemento': {
+
+                },
+                'endereco.Referencia': {
+
+                }
+                
             },
             messages: {
                 'guia.Nome': {

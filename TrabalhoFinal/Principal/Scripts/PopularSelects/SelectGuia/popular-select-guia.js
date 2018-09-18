@@ -4,6 +4,8 @@
             url: '/Cidade/ObterTodosPorJSONParaSelect2',
             dataType: 'json'
         }
+    }).on('change', function (e) {
+        $('#form-modal-cadastro-guia').valid()
     });
 });
 
@@ -13,5 +15,7 @@ $(document).ready(function () {
             url: '/Estado/ObterTodosPorJSONToSelect2',
             dataType: 'json'
         }
+    }).on('change', function (e) {
+        $('#form-modal-cadastro-guia').valid()
     });
 });
