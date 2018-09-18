@@ -60,6 +60,7 @@ namespace Principal.Controllers
             Endereco enderecoModel = new Endereco()
             {
                 Cep = endereco.Cep.ToString(),
+                IdCidade = Convert.ToInt32(endereco.IdCidade.ToString()),
                 Logradouro = endereco.Logradouro.ToString(),
                 Numero = Convert.ToInt16(endereco.Numero.ToString()),
                 Referencia = endereco.Referencia.ToString(),

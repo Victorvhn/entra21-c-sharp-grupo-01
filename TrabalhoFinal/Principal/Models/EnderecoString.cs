@@ -18,6 +18,8 @@ namespace Principal.Models
 
         public string Complemento { get; set; }
 
+        public string IdCidade { get; set; }
+
         public string Referencia { get; set; }
 
     }

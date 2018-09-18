@@ -140,7 +140,7 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "UPDATE enderecos SET cep= @CEP,logradouro = @LOGRADOURO,numero = @NUMERO,complemento = @COMPLEMENTO,referencia = @REFERENCIA, id_cidade = @ID_CIDADE WHERE id = @ID";
+            command.CommandText = "UPDATE enderecos SET cep = @CEP,logradouro = @LOGRADOURO,numero = @NUMERO,complemento = @COMPLEMENTO,referencia = @REFERENCIA, id_cidade = @ID_CIDADE WHERE id = @ID";
             command.Parameters.AddWithValue("@CEP", endereco.Cep);
             command.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
             command.Parameters.AddWithValue("@NUMERO", endereco.Numero);

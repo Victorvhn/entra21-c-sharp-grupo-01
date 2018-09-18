@@ -92,10 +92,10 @@
                 url: '/Endereco/Store',
                 method: 'post',
                 data: {
-                    logradouro: $('campo-cadastro-endereco-logradouro').val(),
-                    numero: $('campo-cadastro-endereco-numero').val(),
-                    complemento: $('campo-cadastro-endereco-complemento').val(),
-                    referencia: $('campo-cadastro-endereco-referencia').val(),
+                    logradouro: $('#campo-cadastro-endereco-logradouro').val(),
+                    numero: $('#campo-cadastro-endereco-numero').val(),
+                    complemento: $('#campo-cadastro-endereco-complemento').val(),
+                    referencia: $('#campo-cadastro-endereco-referencia').val(),
                     idCidade: $('#select-cadastro-endereco-cidade').val(),
                 },
                 success: function (data) {
@@ -123,11 +123,11 @@
             method: 'get',
             success: function (resultado) {
                 var data = JSON.parse(resultado);
-                $('campo-editar-endereco-id').val(data.Id);
-                $('campo-editar-endereco-logradouro').val(data.Logradouro);
-                $('campo-editar-endereco-numero').val(data.Numero);
-                $('campo-editar-endereco-complemento').val(data.Complemento);
-                $('campo-editar-endereco-referencia').val(data.Referencia);
+                $('#campo-editar-endereco-id').val(data.Id);
+                $('#campo-editar-endereco-logradouro').val(data.Logradouro);
+                $('#campo-editar-endereco-numero').val(data.Numero);
+                $('#campo-editar-endereco-complemento').val(data.Complemento);
+                $('#campo-editar-endereco-referencia').val(data.Referencia);
                 $('#select-editar-endereco-cidade').append(new Option(data.Cidade.Nome, data.IdCidade, false, false)).val(data.IdCidade).trigger('change');
 
                 $('#endereco-modal-editar').modal('show');
@@ -204,11 +204,11 @@
                 method: 'post',
                 dataType: 'json',
                 data: {
-                    id: $('campo-editar-endereco-id').val(),
-                    logradouro: $('campo-editar-endereco-logradouro').val(),
-                    numero: $('campo-editar-endereco-numero').val(),
-                    complemento: $('campo-editar-endereco-complemento').val(),
-                    referencia: $('campo-editar-endereco-referencia').val(),
+                    id: $('#campo-editar-endereco-id').val(),
+                    logradouro: $('#campo-editar-endereco-logradouro').val(),
+                    numero: $('#campo-editar-endereco-numero').val(),
+                    complemento: $('#campo-editar-endereco-complemento').val(),
+                    referencia: $('#campo-editar-endereco-referencia').val(),
                     idCidade: $('#select-editar-endereco-cidade').val()
                 },
                 success: function (data) {
@@ -263,20 +263,20 @@
     });
 
     function limparCamposEnderecoCadastro() {
-        $('campo-cadastro-endereco-id').val('');
-        $('campo-cadastro-endereco-logradouro').val('');
-        $('campo-cadastro-endereco-numero').val('');
-        $('campo-cadastro-endereco-complemento').val('');
-        $('campo-cadastro-endereco-referencia').val('');
+        $('#campo-cadastro-endereco-id').val('');
+        $('#campo-cadastro-endereco-logradouro').val('');
+        $('#campo-cadastro-endereco-numero').val('');
+        $('#campo-cadastro-endereco-complemento').val('');
+        $('#campo-cadastro-endereco-referencia').val('');
         $('#select-cadastro-endereco-cidade').val('').trigger('change');
     }
 
     function limparCamposEnderecoEditar() {
-        $('campo-editar-endereco-id').val('');
-        $('campo-editar-endereco-logradouro').val('');
-        $('campo-editar-endereco-numero').val('');
-        $('campo-editar-endereco-complemento').val('');
-        $('campo-editar-endereco-referencia').val('');
+        $('#campo-editar-endereco-id').val('');
+        $('#campo-editar-endereco-logradouro').val('');
+        $('#campo-editar-endereco-numero').val('');
+        $('#campo-editar-endereco-complemento').val('');
+        $('#campo-editar-endereco-referencia').val('');
         $('#select-editar-endereco-cidade').val('').trigger('change');
     }
 });
