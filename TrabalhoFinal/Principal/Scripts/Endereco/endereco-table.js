@@ -1,14 +1,20 @@
 ﻿$(function () {
     //Preenche DataTable
     $('#table-endereco').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": "/Endereco/ObterTodosPorJSON",
-        "columns": [
-            { data: 'Id' },
+        ajax: "/Endereco/ObterTodosPorJSON",
+        columns: [
+            { data: 'Id'},
             { data: 'Cep' },
             { data: 'Logradouro' },
-            { data: 'Cidade.Nome' }
+            { data: 'Cidade.Nome' },
+            {
+                data: null,
+                "bSortable": false, "width": "20%",
+                render: function (data, type, row) {
+                    return '<a class="btn btn-outline-info botao-editar-endereco" data-id="' + row.Id + '" data-toggle="modal" data-target="#endereco-modal-editar">Editar</a>' +
+                        '<a class="btn btn-outline-danger ml-1 botao-excluir-endereco" data-id="' + row.Id + '">Desativar</a>';
+                }
+            }
         ]
     });
 
@@ -234,7 +240,7 @@
     $('table').on('click', '.botao-excluir-endereco', function () {
         var id = $(this).data('id');
         $.ajax({
-            url: 'Endereco/Excluir?id=' + id,
+            url: '/Endereco/Excluir?id=' + id,
             method: 'get',
             success: function (data) {
                 var resultado = JSON.parse(data);
@@ -243,6 +249,13 @@
                         title: 'Desativado!',
                         text: 'Endereço desativado com sucesso',
                         type: 'success'
+                    });
+                    $('#table-endereco').DataTable().ajax.reload();
+                } else {
+                    new PNotify({
+                        title: 'Erro!',
+                        text: 'Erro ao desativas Endereço',
+                        type: 'error'
                     });
                 }
             }
