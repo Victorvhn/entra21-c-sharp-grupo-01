@@ -33,13 +33,15 @@ namespace Repository
             return cidades;
         }
 
-        public List<Cidade> ObterTodosParaJSON(string start, string length)
+        public List<Cidade> ObterTodosParaJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<Cidade> cidades = new List<Cidade>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT c.id, e.nome, c.nome, e.id FROM cidades c INNER JOIN estados e ON (e.id = c.id_estado) WHERE c.ativo = 1 ORDER BY c.nome 
-                                    OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
-
+            command.CommandText = @"SELECT c.id, e.nome, c.nome, e.id FROM cidades c INNER JOIN estados e ON (e.id = c.id_estado) 
+                                    WHERE c.ativo = 1 AND (c.nome LIKE @SEARCH OR e.nome LIKE @SEARCH)
+                                    ORDER BY "+ orderColumn + " " + orderDir + 
+                                    " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.Parameters.AddWithValue("@SEARCH", search);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
@@ -54,7 +56,7 @@ namespace Repository
                     {
                         Id = Convert.ToInt32(line[3].ToString()),
                         Nome = line[1].ToString()
-                    }                
+                    }
                 };
                 cidades.Add(cidade);
             }
@@ -79,6 +81,16 @@ namespace Repository
                 cidades.Add(cidade);
             }
             return cidades;
+        }
+
+        public int ContabilizarCidadesFiltradas(string search)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(c.id) FROM cidades c 
+                                    JOIN estados e ON (e.id = c.id_estado) 
+                                    WHERE c.ativo = 1 AND (c.nome LIKE @SEARCH OR e.nome LIKE @SEARCH)";
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
         public int Cadastrar(Cidade cidade)
@@ -138,6 +150,13 @@ JOIN estados ON (cidades.id_estado = estados.id) WHERE cidades.id = @ID";
 
             }
             return cidade;
+        }
+
+        public int ContabilizarCidades()
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM cidades WHERE ativo = 1";
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
     }
 }

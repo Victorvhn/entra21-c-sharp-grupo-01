@@ -93,11 +93,26 @@ namespace Principal.Controllers
         {
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = orderColumn == "1" ? "e.nome" : "c.nome";
+     
 
-            List<Cidade> cidades = new CidadeRepository().ObterTodosParaJSON(start, length);
+            CidadeRepository repository = new CidadeRepository();
+
+            List<Cidade> cidades = repository.ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
+
+            int countCidades = repository.ContabilizarCidades();
+            int countFiltered = repository.ContabilizarCidadesFiltradas(search);
+
             return Content(JsonConvert.SerializeObject(new
             {
-                data = cidades
+                data = cidades,
+                draw = draw,
+                recordsTotal = countCidades,
+                recordsFiltered = countFiltered
             }));
         }
 
