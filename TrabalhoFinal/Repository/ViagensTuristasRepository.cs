@@ -33,6 +33,28 @@ namespace Repository
             return viagens;
         }
 
+        public List<ViagemTurista> ObterTodosParaSelect()
+        {
+            List<ViagemTurista> viagensturista = new List<ViagemTurista>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, valor, id_turista, id_viagem FROM viagens WHERE ativo = 1";
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+            foreach (DataRow line in table.Rows)
+            {
+                ViagemTurista viagemTurista = new ViagemTurista()
+                {
+                    Id = Convert.ToInt32(line[0].ToString()),
+                    Valor = Convert.ToInt32(line[1].ToString()),
+                    IdTurista = Convert.ToInt32(line[3].ToString()),
+                    IdViagem = Convert.ToInt32(line[4].ToString())
+                };
+                viagensturista.Add(viagemTurista);
+            }
+            return viagensturista;
+        }
+
+
         public int Cadastro(ViagemTurista viagemTurista)
         {
             SqlCommand command = new Conexao().ObterConexao();

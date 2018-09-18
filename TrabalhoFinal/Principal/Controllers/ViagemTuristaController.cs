@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            
+
             ViewBag.ViagemTurista = new ViagemTurista();
             return View();
         }
@@ -28,7 +29,7 @@ namespace Principal.Controllers
 
             ViagemTurista viagemTurista = new ViagensTuristasRepository().ObterPeloId(id);
             ViewBag.ViagemTurista = viagemTurista;
-            
+
             return View();
         }
 
@@ -45,6 +46,21 @@ namespace Principal.Controllers
             int identificador = new ViagensTuristasRepository().Cadastro(viagemTurista);
             return null;
         }
+
+        public ActionResult ObterTodosPorJSONParaSelect2()
+        {
+            List<ViagemTurista> viagensturista = new ViagensTuristasRepository().ObterTodosParaSelect();
+
+            var x = new object[viagensturista.Count];
+            int i = 0;
+            foreach (var viagemTurista in viagensturista)
+            {
+                x[i] = new { id = viagemTurista.Id, valor = viagemTurista.Valor, idGuia = viagemTurista.IdTurista, idPacote = viagemTurista.IdViagem };
+                i++;
+            }
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
+
         [HttpPost]
         public ActionResult Update(ViagemTurista viagemTurista)
         {
