@@ -76,4 +76,33 @@
         }
 
     });
+    //Salvar Modal Cadastro
+    $('#botao-salvar-modal-cadastro-esdereco').on('click', function(){
+        if ($('#form-modal-cadastro-endereco').valid()) {
+            $.ajax({
+                url: '/Endereco/Store',
+                method: 'post',
+                data: {
+                    logradouro: $('campo-cadastro-endereco-logradouro').val(),
+                    numero: $('campo-cadastro-endereco-numero').val(),
+                    complemento: $('campo-cadastro-endereco-complemento').val(),
+                    referencia: $('campo-cadastro-endereco-referencia').val(),
+                    idCidade: $('#select-cadastro-endereco-cidade').val(),
+                },
+                success: function (data) {
+                    var resultado = JSON.parse(data);
+                    limparCampoEnderecoCadastro();
+                    $('#endereco-modal-cadastro').modal('hide');
+                    $('#table-endereco').DataTable().ajax.reload();
+                    $(function () {
+                        new PNotify({
+                            title: 'Sucesso!',
+                            text: 'Endereço Cadastrado com sucesso',
+                            type: 'success'
+                        });
+                    });
+                }
+            });
+        }
+    });
 });
