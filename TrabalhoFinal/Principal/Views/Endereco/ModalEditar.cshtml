@@ -2,5 +2,52 @@
 @{
     Layout = null;
 }
+<div class="modal fade" id="endereco-modal-editar" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar Endereço</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-modal-editar-endereco" method="post">
+                    <input type="hidden" name="endereco.Id" id="campo-editar-endereco-id" />
 
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>CEP</label>
+                            <input class="form-control form-control-default" name="endereco.Cep" id="campo-editar-cep-endereco" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="campo-editar-endereco-logradouro">Logradouro</label>
+                            <input class="form-control form-control-default" id="select-editar-logradouro-endereco" name="endereco.Cep" required />
+                        </div>
+                        <div class="col-md-3 form-group">
+                            <label for="campo-editar-endereco-numero">Número</label>
+                            <input class="form-control form-control-default" name="endereco.Numero" id="campo-editar-endereco-numero" required />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="campo-editar-endereco-complemento">Complemento</label>
+                            <input class="form-control form-control-default" name="endereco.Complemento" id="campo-editar-endereco-complemento" required />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="campo-editar-endereco-referencia">Referência</label>
+                            <input class="form-control form-control-default" name="endereco.Referencia" id="campo-editar-endereco-referencia" required />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="select-editar-endereco-cidade">Cidade</label>
+                            <select class="from-control form-control-default" name="endereco.IdCidade" id="select-editar-endereco-cidade" required></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-editar-endereco">Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-editar-endereco">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 

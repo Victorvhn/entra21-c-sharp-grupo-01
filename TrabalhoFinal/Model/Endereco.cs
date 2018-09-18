@@ -24,12 +24,6 @@ namespace Model
 
         public string Referencia { get; set; }
 
-        public string Completo
-        {
-            get
-            {
-                return Cidade.Estado.Nome + " " + Cidade.Nome + " " + Logradouro + " - " + Numero + " - " + Complemento + " - " + Referencia;
-            }
-        }
+      
     }
 }
