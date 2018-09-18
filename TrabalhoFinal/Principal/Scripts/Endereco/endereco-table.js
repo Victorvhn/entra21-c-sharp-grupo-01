@@ -5,10 +5,10 @@
         "serverSide": true,
         "ajax": "/Endereco/ObterTodosPorJSON",
         "columns": [
-            { "data": "Id" },
-            { "data": "Cep" },
-            { "data": "Logradouro" },
-            { "data": "Numero" }
+            { data: 'Id' },
+            { data: 'Cep' },
+            { data: 'Logradouro' },
+            { data: 'Cidade.Nome' }
         ]
     });
 });
