@@ -5530,17 +5530,11 @@
     <Content Include="Content\lib\lightgallery\fonts\lg.woff" />
     <Content Include="Views\Principal\Index.cshtml" />
     <Content Include="Views\Turista\CadastroTurista.cshtml" />
-    <Content Include="Views\Endereco\Editar.cshtml" />
-    <Content Include="Views\Endereco\Cadastrar.cshtml" />
     <Content Include="Views\Endereco\Index.cshtml" />
-    <Content Include="Views\ViagemTurista\Cadastro.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Cidade\Index.cshtml" />
-    <Content Include="Views\PacotePontoTuristico\Cadastro.cshtml" />
-    <Content Include="Views\PacotePontoTuristico\Editar.cshtml" />
     <Content Include="Views\HistoricoViagem\Index.cshtml" />
     <Content Include="Views\Turista\Editar.cshtml" />
-    <Content Include="Views\ViagemTurista\Editar.cshtml" />
     <Content Include="Views\Pacote\Index.cshtml" />
     <Content Include="Views\Guia\Index.cshtml" />
     <Content Include="Views\Guia\ModalCadastro.cshtml" />
