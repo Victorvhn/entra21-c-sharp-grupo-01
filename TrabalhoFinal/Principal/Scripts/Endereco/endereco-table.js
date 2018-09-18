@@ -25,6 +25,9 @@
         highlight: function (element) {
             jQuery(element).closest('.form-group').addClass('has.error');
         },
+        unhighlight: function (element) {
+            jQuery(element).closest('.form-group').removeClass('has-error');
+        },
         errorPlacement: function (element) {
             jQuery(element).parent().append(error[0])
         },
@@ -77,7 +80,7 @@
 
     });
     //Salvar Modal Cadastro
-    $('#botao-salvar-modal-cadastro-esdereco').on('click', function(){
+    $('#botao-salvar-modal-cadastro-esdereco').on('click', function () {
         if ($('#form-modal-cadastro-endereco').valid()) {
             $.ajax({
                 url: '/Endereco/Store',
@@ -103,6 +106,87 @@
                     });
                 }
             });
+        }
+    });
+
+    //Botão Editar
+    $('table').on('click', '.botao-editar-endereco', function () {
+        var id = $(this).data('id');
+        $.ajax({
+            url: '/Endereco/Editar?id=' + id,
+            method: 'get',
+            success: function (resultado) {
+                var data = JSON.parse(resultado);
+                $('campo-editar-endereco-id').val(data.Id);
+                $('campo-editar-endereco-logradouro').val(data.Logradouro);
+                $('campo-editar-endereco-numero').val(data.Numero);
+                $('campo-editar-endereco-complemento').val(data.Complemento);
+                $('campo-editar-endereco-referencia').val(data.Referencia);
+                $('#select-editar-endereco-cidade').append(new Option(data.Cidade.Nome, data.IdCidade, false, false)).val(data.IdCidade).trigger('change');
+
+                $('#endereco-modal-editar').modal('show');
+            }
+        });
+    });
+
+    //Validação Editar
+    $('#form-modal-editar-endereco').validate({
+        errorClass: "form-control-danger",
+        validClass: "form-control-success",
+        highlight: function (element) {
+            jQuery(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function (element) {
+            jQuery(element).closest('.form-group').removeClass('has-error');
+        },
+        errorPlacement: function (error, element) {
+            $(element).parent().append(error[0])
+        },
+        rules: {
+            'endereco.Cep': {
+                required: true,
+                rangelength: [8]
+            },
+            'endereco.Lograduro': {
+                required: true,
+                rangelength: [6, 20]
+            },
+            'endereco.Numero': {
+                required: true
+            },
+            'endereco.Complemento': {
+                required: true
+            },
+            'endereco.Referencia': {
+                required: true,
+                rangelength: [5, 30]
+            },
+            'endereco.IdCidade': {
+                required: true
+            }
+        },
+        messages: {
+            'endereco.Cep': {
+                required: 'CEP deve ser preenchido',
+                rangelength: 'CEP deve conter {8} caracteres'
+            },
+            'endereco.Logradouro': {
+                required: 'Logradouro deve ser preenchido',
+                rangelength: 'Logradouro deve conter entre {6} e {20} caracteres'
+            },
+            'endereco.Numero': {
+                required: 'Número deve ser preenchido'
+            },
+            'endereco.Complemento': {
+                required: 'Complemento deve ser preenchido'
+            },
+            'endereco.Referencia': {
+                required: 'Referência deve ser preenchido',
+                rangelength: 'Referência deve conter entre {5} e {30} caracteres'
+            },
+            'endereco.IdCidade': {
+                required: 'Cidade deve ser preenchido'
+            }
         }
     });
 });
