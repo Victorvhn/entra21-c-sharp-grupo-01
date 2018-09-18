@@ -89,7 +89,7 @@ namespace Principal.Controllers
             int i = 0;
             foreach (var endereco in enderecos)
             {
-                x[i] = new { id = endereco.Id, cep = endereco.Cep, num = endereco.Numero, log = endereco.Logradouro, comp = endereco.Complemento, re = endereco.Referencia };
+                x[i] = new { id = endereco.Id, cep = endereco.Cep, num = endereco.Numero, log = endereco.Logradouro, comp = endereco.Complemento, re = endereco.Referencia, eci = endereco.IdCidade};
                 i++;
             }
 
