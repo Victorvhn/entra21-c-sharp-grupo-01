@@ -13,7 +13,7 @@ namespace Repository
     public class EnderecoRepository
     {
 
-        public List<Endereco> ObterTodos()
+        public List<Endereco> ObterTodosPorJSON()
         {
             List<Endereco> enderecos = new List<Endereco>();
             SqlCommand command = new Conexao().ObterConexao();
@@ -48,7 +48,7 @@ namespace Repository
         {
             List<Endereco> enderecos = new List<Endereco>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, cep, logradouro, numero, complemento, referencia FROM enderecos";
+            command.CommandText = "SELECT id, cep, logradouro, numero, complemento, referencia, id_cidade FROM enderecos";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow linha in table.Rows)
@@ -60,7 +60,8 @@ namespace Repository
                     Logradouro = linha[2].ToString(),
                     Numero = Convert.ToInt16(linha[3].ToString()),
                     Complemento = linha[4].ToString(),
-                    Referencia = linha[5].ToString()
+                    Referencia = linha[5].ToString(),
+                    IdCidade = Convert.ToInt32(linha[6].ToString()),
                 };
                 enderecos.Add(endereco);
             }
@@ -96,7 +97,7 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
         {
             List<Endereco> enderecos = new List<Endereco>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, cep, logradouro, numero FROM enderecos ORDER BY logradouro OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.CommandText = "SELECT e.id, c.id, e.cep, e.logradouro, c.nome FROM enderecos e JOIN cidades c ON(c.id = e.id_cidade) ORDER BY logradouro OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -106,9 +107,14 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
                 Endereco endereco = new Endereco()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
-                    Cep = line[1].ToString(),
-                    Logradouro = line[2].ToString(),
-                    Numero = Convert.ToInt16(line[3].ToString()),
+                    IdCidade = Convert.ToInt16(line[1].ToString()),
+                    Cep = line[2].ToString(),
+                    Logradouro = line[3].ToString(),
+                    Cidade = new Cidade()
+                    {
+                        Id = Convert.ToInt32(line[1].ToString()),
+                        Nome = line[4].ToString()
+                    }
                 };
                 enderecos.Add(endereco);
             }
@@ -149,32 +155,36 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
         public bool Excluir(int Id)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "DELETE FROM enderecos WHERE id = @ID";
+            command.CommandText = "UPDATE enderecos SET ativo = 0 WHERE id = @ID";
             command.Parameters.AddWithValue("@ID", Id);
             return command.ExecuteNonQuery() == 1;
         }
 
         public Endereco ObterPeloId(int id)
         {
-            Endereco enderecos = null;
+            Endereco endereco = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, cep, logradouro, numero, complemento, referencia FROM enderecos WHERE id = @ID";
+            command.CommandText = "SELECT e.id_cidade, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome FROM enderecos e JOIN cidades c ON(c.id = e.id_cidade) WHERE e.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             if (table.Rows.Count == 1)
             {
 
-                enderecos = new Endereco();
-                enderecos.Id = Convert.ToInt32(table.Rows[0][0].ToString());
-                enderecos.Cep = table.Rows[0][1].ToString();
-                enderecos.Logradouro = table.Rows[0][2].ToString();
-                enderecos.Numero = Convert.ToInt16(table.Rows[0][3].ToString());
-                enderecos.Complemento = table.Rows[0][4].ToString();
-                enderecos.Referencia = table.Rows[0][5].ToString();
+                endereco = new Endereco();
+                endereco.Id = id;
+                endereco.IdCidade = Convert.ToInt32(table.Rows[0][1].ToString());
+                endereco.Cep = table.Rows[0][2].ToString();
+                endereco.Logradouro = table.Rows[0][3].ToString();
+                endereco.Numero = Convert.ToInt16(table.Rows[0][4].ToString());
+                endereco.Complemento = table.Rows[0][5].ToString();
+                endereco.Referencia = table.Rows[0][6].ToString();
+                endereco.Cidade = new Cidade();
+                endereco.Cidade.Id = Convert.ToInt32(table.Rows[0][1].ToString());
+                endereco.Cidade.Nome = table.Rows[0][8].ToString();
                 
             }
-            return enderecos;
+            return endereco;
 
         }
 
