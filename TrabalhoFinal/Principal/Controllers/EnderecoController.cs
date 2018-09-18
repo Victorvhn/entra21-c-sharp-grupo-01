@@ -40,7 +40,18 @@ namespace Principal.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new EnderecoRepository().Excluir(id);
-            return View();
+            int sucesso = 0;
+            if (apagado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+
+            return Content(JsonConvert.SerializeObject(sucesso));
+
         }
 
         [HttpPost]
@@ -55,7 +66,7 @@ namespace Principal.Controllers
                 Complemento = endereco.Complemento.ToString()
             };
             int identificador = new EnderecoRepository().Cadastrar(enderecoModel);
-            return RedirectToAction("Editar", new { id = identificador });
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
 
         }
 
@@ -75,7 +86,16 @@ namespace Principal.Controllers
         public ActionResult Update(Endereco endereco)
         {
             bool alterado = new EnderecoRepository().Alterar(endereco);
-            return RedirectToAction("Index");
+            int sucesso = 0;
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+            return Content(JsonConvert.SerializeObject(sucesso));
 
 
         }
