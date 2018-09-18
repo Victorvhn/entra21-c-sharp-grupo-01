@@ -27,7 +27,7 @@
     //Validação modal cadastro
     $('#form-modal-cadastro-viagem').validate({
         errorClass: 'form-control-danger',
-        validClass: 'form-control-sucess',
+        validClass: 'form-control-success',
         highlight: function (element) {
             jQuery(element).closest('.form-group').addClass('has-error');
         },

@@ -9,14 +9,14 @@
     $('#form-modal-cadastro-pacote-usuario').validate({
         errorClass: 'form-control-danger',
         validClass: 'form-control-success',
-        hightlight: function (element) {
+        highlight: function (element) {
             jQuery(element).closest('.form-group').addClass('has-error');
         },
         unhighlight: function (element) {
             jQuery(element).closest('.form-group').removeClass('has-error');
         },
         errorPlacement: function (error, element) {
-            $(element).parent().append(eror[0])
+            $(element).parent().append(error[0])
         },
 
         rules: {
