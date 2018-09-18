@@ -93,13 +93,21 @@ namespace Principal.Controllers
             string search = '%' + Request.QueryString["search[value]"] + '%';
             string orderColumn = Request.QueryString["order[0][column]"];
             string orderDir = Request.QueryString["order[0][dir]"];
-            orderColumn = orderColumn == "1" ? "e.nome" : "c.nome";
+            orderColumn = "nome";
 
-            List<Estado> estados = new EstadoRepository().ObterTodosParaJSON(start, length);
+            EstadoRepository repository = new EstadoRepository();
+
+            List<Estado> estados = repository.ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
+
+            int countEstados = repository.ContabilizarEstados();
+            int countFiltered = repository.ContabilizarEstadosFiltradas(search);
 
             return Content(JsonConvert.SerializeObject(new
             {
-                data = estados
+                data = estados,
+                draw = draw,
+                recordsTotal = countEstados,
+                recordsFiltered = countFiltered
             }));
         }
 

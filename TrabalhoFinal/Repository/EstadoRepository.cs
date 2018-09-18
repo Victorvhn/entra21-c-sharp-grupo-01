@@ -51,12 +51,16 @@ namespace Repository
             return estados;
         }
 
-        public List<Estado> ObterTodosParaJSON(string start, string length)
+        public List<Estado> ObterTodosParaJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<Estado> estados = new List<Estado>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome FROM estados WHERE ativo = 1 ORDER BY nome OFFSET " +
-                start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.CommandText = @"SELECT id, nome FROM estados 
+                                    WHERE ativo = 1 AND (nome LIKE @SEARCH OR id LIKE @SEARCH)
+                                    ORDER BY " + orderColumn + " " + orderDir + " " +
+                                    "OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+
+            command.Parameters.AddWithValue("@SEARCH", search);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach(DataRow line in table.Rows)
@@ -84,6 +88,22 @@ namespace Repository
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             
             return id;
+        }
+
+        public int ContabilizarEstadosFiltradas(string search)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM estados 
+                                    WHERE ativo = 1 AND (nome LIKE @SEARCH)";
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
+
+        public int ContabilizarEstados()
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM estados WHERE ativo = 1";
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
         public bool Alterar(Estado estado)
