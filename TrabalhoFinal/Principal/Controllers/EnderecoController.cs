@@ -23,7 +23,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
-            
+
             ViewBag.Endereco = new Endereco();
             return View();
         }
@@ -31,7 +31,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Endereco endereco = new EnderecoRepository().ObterPeloId(id);           
+            Endereco endereco = new EnderecoRepository().ObterPeloId(id);
             ViewBag.Endereco = endereco;
             return View();
         }
@@ -56,7 +56,7 @@ namespace Principal.Controllers
             };
             int identificador = new EnderecoRepository().Cadastrar(enderecoModel);
             return RedirectToAction("Editar", new { id = identificador });
-            
+
         }
 
         [HttpGet]
@@ -75,13 +75,13 @@ namespace Principal.Controllers
         public ActionResult Update(Endereco endereco)
         {
             bool alterado = new EnderecoRepository().Alterar(endereco);
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
 
-            
+
         }
 
-           public ActionResult ObterTodosPorJSONToSelect2()
-          {
+        public ActionResult ObterTodosPorJSONToSelect2()
+        {
 
             List<Endereco> enderecos = new EnderecoRepository().ObterTodosParaSelect();
 
@@ -89,12 +89,22 @@ namespace Principal.Controllers
             int i = 0;
             foreach (var endereco in enderecos)
             {
-                x[i] = new { id = endereco.Id, cep = endereco.Cep, num = endereco.Numero, log = endereco.Logradouro, comp = endereco.Complemento, re = endereco.Referencia, eci = endereco.IdCidade};
+                x[i] = new { id = endereco.Id, cep = endereco.Cep, num = endereco.Numero, log = endereco.Logradouro, comp = endereco.Complemento, re = endereco.Referencia, eci = endereco.IdCidade };
                 i++;
             }
 
             return Content(JsonConvert.SerializeObject(new { results = x }));
         }
+
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        public ActionResult ModalEditar()
+        {
+            return View();
+        }
     }
-    
+
 }
