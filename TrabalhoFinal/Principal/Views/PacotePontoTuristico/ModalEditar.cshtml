@@ -13,20 +13,23 @@
             </div>
             <div class="modal-body">
                 <form id="form-modal-editar-pacote-ponto-turistico" method="post">
-                    <div class="row mb-md-3">
-                        <input type="hidden" name="pacotePontoTuristico.Id" id="campo-editar-pacote-ponto-turistico-id" />
-                        <input type="hidden" name="pacotePontoTuristico.IdPacote" id="select-editar-pacote-ponto-turistico-pacote" />
-                        <input type="hidden" name="pacotePontoTuristico.IdPontoTuristico" id="select-editar-pacote-ponto-turistico-ponto-turistico" />
 
+                    <input type="hidden" name="pacotePontoTuristico.Id" id="campo-editar-pacote-ponto-turistico-id" />
+
+                    <div class="row">
                         <div class="col-md-12">
                             <label for="select-editar-pacote-ponto-turistico-pacote">Pacote</label>
-                            <select id="select-editar-pacote-ponto-turistico-pacote" name="pacotePontoTuristico.IdPacote" class="form-control"></select>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="select-editar-pacote-ponto-turistico-ponto-turistico">Ponto Turistico</label>
-                            <select id="select-editar-pacote-ponto-turistico-ponto-turistico" name="pacotePontoTuristico.IdPontoTuristico" class="form-control"></select>
+                            <select id="select-editar-pacote-ponto-turistico-pacote" class="form-control"></select>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="select-editar-pacote-ponto-turisto-ponto-turistico">Ponto Turistico</label>
+                            <select id="select-editar-pacote-ponto-turisto-ponto-turistico" name="pacotePontoTuristico.IdPontoTuristico" class="form-control"></select>
+                        </div>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
