@@ -4,7 +4,7 @@
         ajax: '/PontoTuristico/ObterTodosPorJSON',
         columns: [
             { data: 'Id' },
-            { data: 'Endereco.Nome' }, //Aqui vai ser outro nome
+            { data: 'Endereco.Completo' }, //Aqui vai ser outro nome
             { data: 'Nome' },
             {
                 data: null,
@@ -93,7 +93,7 @@
             success: function (resultado) {
                 var data = JSON.parse(resultado);
                 $('#campo-editar-pontoturistico-id').val(data.Id);
-                $('#select-modal-editar-pontoturistico').append(new Option(data.Estado.Nome, data.IdEstado, false, false)).val(data.IdEstado).trigger('change');
+                $('#select-modal-editar-pontoturistico').append(new Option(data.Endereco.Logradouro, data.IdEstado, false, false)).val(data.IdEstado).trigger('change');
                 $('#campo-editar-pontoturistico-nome').val(data.Nome);
 
                 $('#pontoturistico-modal-editar').modal('show');

@@ -28,10 +28,8 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            PontoTuristico PontoTuristico = new PontosTuristicosRepository().ObterPeloId(id);
-            ViewBag.PontoTuristico = PontoTuristico;
-           
-            return View();
+            PontoTuristico pontoTuristico = new PontosTuristicosRepository().ObterPeloId(id);
+            return Content(JsonConvert.SerializeObject(pontoTuristico));
         }
 
 

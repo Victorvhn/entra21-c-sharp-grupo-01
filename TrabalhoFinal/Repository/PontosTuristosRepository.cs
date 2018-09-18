@@ -74,7 +74,9 @@ namespace Repository
         {
             PontoTuristico pontoTuristico = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT pontos_turisticos.nome, id_endereco,enderecos.id FROM pontos_turisticos JOIN enderecos ON(pontos_turisticos.id_endereco = enderecos.id) WHERE id = @ID";
+            command.CommandText = @"SELECT pt.nome AS 'ponto_turistico', pt.id_endereco, ed.logradouro AS 'logradouro', ed.referencia AS 'referencia', ed.numero AS 'numero', ed.complemento AS 'complemento', cidades.nome AS 'cidadenome', cidades.id AS 'id_cidade', cidades.id_estado AS 'idestado_cidade',estados.id AS 'idestado', estados.nome AS 'nome_estado' FROM pontos_turisticos pt
+            JOIN enderecos ed ON(pt.id_endereco = ed.id) JOIN cidades ci ON pontos_turisticos( pt.id_endereco = ci.id) JOIN estados es ON pontos_turisticos (pt.id_endereco = es.id)
+                                WHERE pt.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();
@@ -83,9 +85,23 @@ namespace Repository
             {
                 pontoTuristico = new PontoTuristico();
                 pontoTuristico.Id = id;
-                pontoTuristico.IdEndereco = Convert.ToInt32(table.Rows[0][0].ToString());
+                pontoTuristico.Nome = table.Rows[0]["ponto_turistico"].ToString();
+                pontoTuristico.IdEndereco = Convert.ToInt32(table.Rows[0][1].ToString());
                 pontoTuristico.Endereco = new Endereco();
                 pontoTuristico.Endereco.Id = Convert.ToInt32(table.Rows[0][1].ToString());
+                pontoTuristico.Endereco.Logradouro = table.Rows[0]["logradouro"].ToString();
+                pontoTuristico.Endereco.Numero = Convert.ToInt16(table.Rows[0]["numero"].ToString());
+                pontoTuristico.Endereco.Complemento = table.Rows[0]["complemento"].ToString();
+                pontoTuristico.Endereco.Referencia = table.Rows[0]["referencia"].ToString();
+                pontoTuristico.Endereco.Cidade = new Cidade();
+                pontoTuristico.Endereco.Cidade.Id = Convert.ToInt32(table.Rows[0]["id_cidade"].ToString());
+                pontoTuristico.Endereco.Cidade.Nome = table.Rows[0]["cidadenome"].ToString();
+                pontoTuristico.Endereco.Cidade.IdEstado = Convert.ToInt32(table.Rows[0]["idestado_cidade"].ToString());
+                pontoTuristico.Endereco.Cidade.Estado = new Estado();
+                pontoTuristico.Endereco.Cidade.Estado.Id = Convert.ToInt32(table.Rows[0]["idestado"].ToString());
+                pontoTuristico.Endereco.Cidade.Estado.Nome = table.Rows[0]["nome_Estado"].ToString();
+
+
             }
             return pontoTuristico;
         }
@@ -103,7 +119,9 @@ namespace Repository
         {
             List<PontoTuristico> pontosturisticos = new List<PontoTuristico>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id,id_endereco,nome FROM pontos_turisticos ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.CommandText = @"SELECT pt.nome AS 'ponto_turistico', pt.id_endereco, ed.logradouro AS 'logradouro', ed.numero AS 'numero', ed.complemento AS 'complemento', cidades.nome AS 'cidadenome', cidades.id AS 'id_cidade', cidades.id_estado AS 'idestado_cidade',estados.id AS 'idestado', estados.nome AS 'nome_estado' FROM pontos_turisticos pt
+            JOIN enderecos ed ON(pt.id_endereco = ed.id) JOIN cidades ci ON pontos_turisticos( pt.id_endereco = ci.id) JOIN estados es ON pontos_turisticos (pt.id_endereco = es.id)
+            ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -112,7 +130,25 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                     IdEndereco = Convert.ToInt32(linha[1].ToString()),
-                    Nome = linha[2].ToString()
+                    Nome = linha[2].ToString(),
+                    Endereco = new Endereco()
+                    {
+                        Logradouro = linha["logradouro"].ToString(),
+                        Numero = Convert.ToInt16(linha["numero"].ToString()),
+                        Complemento = linha["complemento"].ToString(),
+                        Referencia = linha["referencia"].ToString(),
+                        Cidade = new Cidade()
+                        {
+                            Id = Convert.ToInt32(linha["id_cidade"].ToString()),
+                            Nome = linha["cidadenome"].ToString(),
+                            IdEstado = Convert.ToInt32(linha["idestado_cidade"].ToString()),
+                            Estado = new Estado()
+                            {
+                                Id = Convert.ToInt32(linha["idestado"].ToString()),
+                                Nome = linha["nome_estado"].ToString(),
+                            }
+                        }   
+                    }
                 };
                 pontosturisticos.Add(pontoturistico);
             }
