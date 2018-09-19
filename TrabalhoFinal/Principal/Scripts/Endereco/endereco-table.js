@@ -258,7 +258,7 @@
                 } else {
                     new PNotify({
                         title: 'Erro!',
-                        text: 'Erro ao desativas Endereço',
+                        text: 'Erro ao desativar Endereço',
                         type: 'error'
                     });
                 }
