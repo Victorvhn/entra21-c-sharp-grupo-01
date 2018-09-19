@@ -181,7 +181,7 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
                 endereco.Referencia = table.Rows[0][6].ToString();
                 endereco.Cidade = new Cidade();
                 endereco.Cidade.Id = Convert.ToInt32(table.Rows[0][1].ToString());
-                endereco.Cidade.Nome = table.Rows[0][8].ToString();
+                endereco.Cidade.Nome = table.Rows[0][7].ToString();
                 
             }
             return endereco;
