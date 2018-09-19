@@ -12,12 +12,13 @@ namespace Repository
 {
     public class ViagensTuristasRepository
     {
-        public List<Viagem> ObterTodasViagensPeloIdViagem(int idViagem)
+        public List<Viagem> ObterTodosPorJSON()
         {
             List<Viagem> viagens = new List<Viagem>();
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT viagens.id, viagens.data, valor FROM viagens_turistas
-                                  vt JOIN viagens ON (viagens.id = vt.id_viagem) WHERE vt.id_viagem = @ID_VIAGEM";
+                                  vt JOIN viagens v ON (v.id = vt.id_viagem)
+                                  JOIN turistas t ON(t.id = vt.id_turista) WHERE vt.id = @ID_VIAGEM";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
