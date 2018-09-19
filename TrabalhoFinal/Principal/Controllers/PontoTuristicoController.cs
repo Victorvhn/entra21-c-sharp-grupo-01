@@ -37,7 +37,16 @@ namespace Principal.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new PontosTuristicosRepository().Excluir(id);
-            return null;
+            int sucesso = 0;
+            if (apagado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpPost]
@@ -45,20 +54,28 @@ namespace Principal.Controllers
         {
             PontoTuristico pontoTuristicoModel = new PontoTuristico()
             {
-                Id =Convert.ToInt32(pontoTuristico.Id),
+                Id = Convert.ToInt32(pontoTuristico.Id),
                 Nome = pontoTuristico.Nome.ToString(),
                 IdEndereco = Convert.ToInt32(pontoTuristico.IdEndereco)
             };
             int identificador = new PontosTuristicosRepository().Cadastrar(pontoTuristicoModel);
-            return RedirectToAction("Editar", new { id = identificador });
-            //return null;
+            return Content(JsonConvert.SerializeObject(pontoTuristicoModel));
             
         }
         [HttpPost]
         public ActionResult Update(PontoTuristico PontoTuristico)
         {
             bool alterado = new PontosTuristicosRepository().Alterar(PontoTuristico);
-            return null;
+            int sucesso = 0;
+            if (alterado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         public ActionResult ObterTodosPorJSON()
