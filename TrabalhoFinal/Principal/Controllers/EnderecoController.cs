@@ -68,7 +68,7 @@ namespace Principal.Controllers
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
 
-            List<Endereco> enderecos = new EnderecoRepository().ObterTodosParaJSON(start, length);
+            List<Endereco> enderecos = new EnderecoRepository().ObterTodosPorJSON();
             return Content(JsonConvert.SerializeObject(new
             {
                 data = enderecos

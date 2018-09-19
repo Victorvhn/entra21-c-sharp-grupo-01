@@ -17,25 +17,23 @@ namespace Repository
         {
             List<Endereco> enderecos = new List<Endereco>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome FROM enderecos e JOIN cidades c ON (e.id_cidade = c.id)";
+            command.CommandText = "SELECT e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome FROM enderecos e JOIN cidades c ON (c.id = e.id_cidade) WHERE e.ativo = 1";
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
             {
-                Endereco endereco = new Endereco()
+                Endereco endereco = new Endereco();
                 {
-                    Id = Convert.ToInt32(line["e.id"].ToString()),
-                    Cep = line["e.cep"].ToString(),
-                    Logradouro = line["e.logradouro"].ToString(),
-                    Numero = Convert.ToInt16(line["e.numero"].ToString()),
-                    Complemento = line["e.complemento"].ToString(),
-                    Referencia = line["e.referencia"].ToString(),
-                    Cidade = new Cidade(){
-
-                        Id = Convert.ToInt32(line["c.id"].ToString()),
-                        Nome = line["c.nome"].ToString()
-                    },
+                    endereco.Id = Convert.ToInt32(line[0].ToString());
+                    endereco.Cep = line[1].ToString();
+                    endereco.Logradouro = line[2].ToString();
+                    endereco.Numero = Convert.ToInt16(line[3].ToString());
+                    endereco.Complemento = line[4].ToString();
+                    endereco.Referencia = line[5].ToString();
+                    endereco.Cidade = new Cidade();
+                    endereco.Cidade.Id = Convert.ToInt32(line[6].ToString());
+                    endereco.Cidade.Nome = line[7].ToString();    
 
 
                 };
