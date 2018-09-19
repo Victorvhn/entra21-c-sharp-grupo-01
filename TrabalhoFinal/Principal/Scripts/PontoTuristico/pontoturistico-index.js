@@ -4,7 +4,7 @@
         ajax: '/PontoTuristico/ObterTodosPorJSON',
         columns: [
             { data: 'Id' },
-            { data: 'Endereco.Completo' }, //Aqui vai ser outro nome
+            { data: 'Endereco.Completo' }, 
             { data: 'Nome' },
             {
                 data: null,
@@ -139,7 +139,7 @@
     $('table').on('click', '.botao-excluir-pontoturistico', function () {
         var id = $(this).data('id');
         $.ajax({
-            url: 'PontoTuristico/Excluir?id=' + id,
+            url: '/PontoTuristico/Excluir?id=' + id,
             method: 'get',
             success: function (data) {
                 var resultado = JSON.parse(data);
