@@ -1,9 +1,9 @@
 ﻿$(function () {
     //Preenche DataTable
     $('#table-endereco').DataTable({
-        ajax: "/Endereco/ObterTodosPorJSON",
+        ajax: '/Endereco/ObterTodosPorJSON',
         columns: [
-            { data: 'Id'},
+            { data: 'Id' },
             { data: 'Cep' },
             { data: 'Logradouro' },
             { data: 'Cidade.Nome' },
@@ -26,23 +26,24 @@
 
     //Validação modal Cadastro
     $('#form-modal-cadastro-endereco').validate({
-        errorClass: "form-control-danger",
-        validClass: "form-control-success",
+        errorClass: 'form-control-danger',
+        validClass: 'form-control-success',
         highlight: function (element) {
             jQuery(element).closest('.form-group').addClass('has.error');
         },
         unhighlight: function (element) {
             jQuery(element).closest('.form-group').removeClass('has-error');
         },
-        errorPlacement: function (element) {
-            jQuery(element).parent().append(error[0])
+        errorPlacement: function (error, element) {
+            $(element).parent().append(error[0])
         },
+
         rules: {
             'endereco.Cep': {
                 required: true,
-                rangelength: [8]
+                rangelength: [8, 8]
             },
-            'endereco.Lograduro': {
+            'endereco.Logradouro': {
                 required: true,
                 rangelength: [6, 20]
             },
@@ -86,12 +87,13 @@
 
     });
     //Salvar Modal Cadastro
-    $('#botao-salvar-modal-cadastro-esdereco').on('click', function () {
+    $('#botao-salvar-modal-cadastrar-endereco').on('click', function () {
         if ($('#form-modal-cadastro-endereco').valid()) {
             $.ajax({
                 url: '/Endereco/Store',
                 method: 'post',
                 data: {
+                    cep: $('#campo-cadastro-endereco-cep').val(),
                     logradouro: $('#campo-cadastro-endereco-logradouro').val(),
                     numero: $('#campo-cadastro-endereco-numero').val(),
                     complemento: $('#campo-cadastro-endereco-complemento').val(),
@@ -123,6 +125,7 @@
             method: 'get',
             success: function (resultado) {
                 var data = JSON.parse(resultado);
+                $('#campo-editar-endereco-cep').val(data.Cep);
                 $('#campo-editar-endereco-id').val(data.Id);
                 $('#campo-editar-endereco-logradouro').val(data.Logradouro);
                 $('#campo-editar-endereco-numero').val(data.Numero);
@@ -137,8 +140,8 @@
 
     //Validação Editar
     $('#form-modal-editar-endereco').validate({
-        errorClass: "form-control-danger",
-        validClass: "form-control-success",
+        errorClass: 'form-control-danger',
+        validClass: 'form-control-success',
         highlight: function (element) {
             jQuery(element).closest('.form-group').addClass('has-error');
         },
@@ -151,9 +154,9 @@
         rules: {
             'endereco.Cep': {
                 required: true,
-                rangelength: [8]
+                rangelength: [8, 8]
             },
-            'endereco.Lograduro': {
+            'endereco.Logradouro': {
                 required: true,
                 rangelength: [6, 20]
             },
@@ -205,6 +208,7 @@
                 dataType: 'json',
                 data: {
                     id: $('#campo-editar-endereco-id').val(),
+                    cep: $('#campo-editar-endereco-cep').val(),
                     logradouro: $('#campo-editar-endereco-logradouro').val(),
                     numero: $('#campo-editar-endereco-numero').val(),
                     complemento: $('#campo-editar-endereco-complemento').val(),
@@ -229,7 +233,7 @@
                             title: 'Erro!',
                             text: 'Erro ao alterar',
                             type: 'error'
-                        })
+                        });
                     }
                 }
             });
@@ -246,7 +250,7 @@
                 var resultado = JSON.parse(data);
                 if (resultado == 1) {
                     new PNotify({
-                        title: 'Desativado!',
+                        title: 'Desativado',
                         text: 'Endereço desativado com sucesso',
                         type: 'success'
                     });

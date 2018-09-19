@@ -87,7 +87,7 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
 
                 Endereco endereco = new Endereco();
                 endereco.Logradouro = linha[2].ToString();
-                endereco.Numero =  Convert.ToByte(linha[3].ToString());
+                endereco.Numero =  Convert.ToInt16(linha[3].ToString());
             }
             return enderecos;
         }
@@ -107,7 +107,7 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
                 Endereco endereco = new Endereco()
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
-                    IdCidade = Convert.ToInt16(line[1].ToString()),
+                    IdCidade = Convert.ToInt32(line[1].ToString()),
                     Cep = line[2].ToString(),
                     Logradouro = line[3].ToString(),
                     Cidade = new Cidade()
@@ -152,11 +152,11 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
 
         }
 
-        public bool Excluir(int Id)
+        public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = "UPDATE enderecos SET ativo = 0 WHERE id = @ID";
-            command.Parameters.AddWithValue("@ID", Id);
+            command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
         }
 
