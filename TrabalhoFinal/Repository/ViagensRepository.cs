@@ -12,7 +12,7 @@ namespace Repository
 {
     public class ViagensRepository
     {
-        public List<Viagem> ObterTodosPorJSON(string start, string length)
+        public List<Viagem> ObterTodosPorJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<Viagem> viagens = new List<Viagem>();
             SqlCommand command = new Conexao().ObterConexao();
@@ -80,6 +80,16 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
+
+        /* public int ContabilizarViagensFiltradas(string search)
+         {
+             throw new NotImplementedException();
+         }
+
+         public int ContabilizarViagens()
+         {
+             throw new NotImplementedException();
+         }*/
 
         public bool Alterar(Viagem viagens)
         {

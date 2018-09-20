@@ -70,17 +70,37 @@ namespace Principal.Content
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
+            string[] colunasNomes = new string[5];
+            colunasNomes[0] = "";
+            colunasNomes[1] = "";
+            colunasNomes[2] = "";
+            colunasNomes[3] = "";
+            colunasNomes[4] = "";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
-            List<Viagem> viagens = new ViagensRepository().ObterTodosPorJSON(start, length);
+            ViagensRepository repository = new ViagensRepository();
+
+            List<Viagem> viagens = new ViagensRepository().ObterTodosPorJSON(start, length, search, orderColumn, orderDir);
+
+            int countViagens = repository.ContabilizarViagens();
+            int countFiltered = repository.ContabilizarViagensFiltradas(search);
 
             return Content(JsonConvert.SerializeObject(new
             {
-                data = viagens
+                data = viagens,
+                draw = draw,
+                recordsTotal = countViagens,
+                recordsFiltered = countFiltered
             }));
         }
 
+        [HttpGet]
         public ActionResult ObterTodosPorJSONParaSelect2()
         {
             List<Viagem> viagens = new ViagensRepository().ObterTodosParaSelect();
