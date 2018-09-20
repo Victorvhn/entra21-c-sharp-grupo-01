@@ -48,7 +48,7 @@ namespace Repository
             FROM historico_de_viagens hv
             INNER JOIN pacotes p ON (p.id = hv.id_pacote) 
             WHERE hv.ativo = 1 AND ((hv.id LIKE @SEARCH) OR (p.nome LIKE @SEARCH) OR (hv.data_ LIKE @SEARCH))
-            ORDER BY " + orderColumn + " " + orderDir + "" +
+            ORDER BY " + orderColumn + " " + orderDir + 
             " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY";
 
             command.Parameters.AddWithValue("@SEARCH", search);

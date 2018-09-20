@@ -21,12 +21,33 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
+            string[] colunasNomes = new string[5];
+            colunasNomes[0] = "tp.id";
+            colunasNomes[1] = "t.nome";
+            colunasNomes[2] = "p.nome";
+            colunasNomes[3] = "p.valor";
+            colunasNomes[4] = "tp.status_do_pedido";
             string start = Request.QueryString["start"];
-            string lengh = Request.QueryString["length"];
-            string search = Request.QueryString["search[value]"];
+            string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
-            List<TuristaPacote> turistasPacotes = new TuristaPacoteRepository().ObterTodosPorJSON(start, lengh, search);
-            return Content(JsonConvert.SerializeObject(new { data = turistasPacotes }));
+            TuristaPacoteRepository repository = new TuristaPacoteRepository();
+
+            List<TuristaPacote> turistasPacotes = repository.ObterTodosPorJSON(start, length, search, orderColumn, orderDir);
+
+            int countPacotesConfirmacoes = repository.ContabilizarPacotesAguardando();
+            int countFiltered = repository.ContabilizarPacotesAguardandoFiltrado(search);
+
+            return Content(JsonConvert.SerializeObject(new {
+                data = turistasPacotes,
+                draw = draw,
+                recordsTotal = countPacotesConfirmacoes,
+                recordsFiltered = countFiltered
+            }));
         }
     }
 }
