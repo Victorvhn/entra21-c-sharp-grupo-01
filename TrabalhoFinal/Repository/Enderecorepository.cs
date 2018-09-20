@@ -17,7 +17,11 @@ namespace Repository
         {
             List<Endereco> enderecos = new List<Endereco>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome FROM enderecos e JOIN cidades c ON (c.id = e.id_cidade) WHERE e.ativo = 1";
+            command.CommandText = @"SELECT e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome, es.id, es.nome FROM enderecos e 
+            JOIN cidades c ON (c.id = e.id_cidade)
+            JOIN estados es ON (es.id = c.id_estado ) 
+
+            WHERE e.ativo = 1";
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -33,8 +37,10 @@ namespace Repository
                     endereco.Referencia = line[5].ToString();
                     endereco.Cidade = new Cidade();
                     endereco.Cidade.Id = Convert.ToInt32(line[6].ToString());
-                    endereco.Cidade.Nome = line[7].ToString();    
-
+                    endereco.Cidade.Nome = line[7].ToString();
+                    endereco.Cidade.Estado = new Estado();
+                    endereco.Cidade.Estado.Id = Convert.ToInt32(line[8].ToString());
+                    endereco.Cidade.Estado.Nome = line[9].ToString();
 
                 };
                 enderecos.Add(endereco);
@@ -94,26 +100,33 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
         public List<Endereco> ObterTodosParaJSON(string start, string length)
         {
             List<Endereco> enderecos = new List<Endereco>();
+     
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT e.id, c.id, e.cep, e.logradouro, c.nome FROM enderecos e JOIN cidades c ON(c.id = e.id_cidade) ORDER BY logradouro OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
-
+            command.CommandText = @"SELECT e.id AS 'id', e.id_cidade AS 'eidcidade' , e.cep AS 'cep', e.logradouro AS 'logradouro', e.numero AS 'numero', e.complemento AS 'complemento', 
+e.referencia AS 'referencia', c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id AS 'estadoid', es.nome AS 'nomeestado' FROM enderecos e 
+                                  JOIN cidades c ON(c.id = e.id_cidade )
+                                  JOIN estados es ON (es.id = c.id_estado ) WHERE e.id = @ID
+ ORDER BY logradouro OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
             foreach (DataRow line in table.Rows)
             {
-                Endereco endereco = new Endereco()
-                {
-                    Id = Convert.ToInt32(line[0].ToString()),
-                    IdCidade = Convert.ToInt32(line[1].ToString()),
-                    Cep = line[2].ToString(),
-                    Logradouro = line[3].ToString(),
-                    Cidade = new Cidade()
-                    {
-                        Id = Convert.ToInt32(line[1].ToString()),
-                        Nome = line[4].ToString()
-                    }
-                };
+                Endereco endereco = new Endereco();
+                endereco.Id =  Convert.ToInt32(table.Rows[0]["id"].ToString());
+                endereco.IdCidade = Convert.ToInt32(table.Rows[0]["eidcidade"].ToString());
+                endereco.Cep = table.Rows[0]["cep"].ToString();
+                endereco.Logradouro = table.Rows[0]["logradouro"].ToString();
+                endereco.Numero = Convert.ToInt16(table.Rows[0]["numero"].ToString());
+                endereco.Complemento = table.Rows[0]["complemento"].ToString();
+                endereco.Referencia = table.Rows[0]["referencia"].ToString();
+                endereco.Cidade = new Cidade();
+                endereco.Cidade.Id = Convert.ToInt32(table.Rows[0]["cidadeid"].ToString());
+                endereco.Cidade.Nome = table.Rows[0]["cidadenome"].ToString();
+                endereco.Cidade.Estado = new Estado();
+                endereco.Cidade.Estado.Id = Convert.ToInt32(table.Rows[0]["estadoid"].ToString());
+                endereco.Cidade.Estado.Nome = table.Rows[0]["nomeestado"].ToString();
+
                 enderecos.Add(endereco);
             }
             return enderecos;
@@ -162,7 +175,10 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
         {
             Endereco endereco = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT e.id_cidade, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome FROM enderecos e JOIN cidades c ON(c.id = e.id_cidade) WHERE e.id = @ID";
+            command.CommandText = @"SELECT e.id_cidade AS 'eidcidade' , e.cep AS 'cep', e.logradouro AS 'logradouro', e.numero AS 'numero', e.complemento AS 'complemento', 
+e.referencia AS 'referencia', c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id AS 'estadoid', es.nome AS 'nomeestado' FROM enderecos e 
+                                  JOIN cidades c ON(c.id = e.id_cidade )
+                                  JOIN estados es ON (es.id = c.id_estado ) WHERE e.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -170,16 +186,19 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
             {
 
                 endereco = new Endereco();
-                endereco.Id = Convert.ToInt32(table.Rows[0][0].ToString());
-                endereco.IdCidade = Convert.ToInt32(table.Rows[0][1].ToString());
-                endereco.Cep = table.Rows[0][2].ToString();
-                endereco.Logradouro = table.Rows[0][3].ToString();
-                endereco.Numero = Convert.ToInt16(table.Rows[0][4].ToString());
-                endereco.Complemento = table.Rows[0][5].ToString();
-                endereco.Referencia = table.Rows[0][6].ToString();
+                endereco.Id = id;
+                endereco.IdCidade = Convert.ToInt32(table.Rows[0]["eidcidade"].ToString());
+                endereco.Cep = table.Rows[0]["cep"].ToString();
+                endereco.Logradouro = table.Rows[0]["logradouro"].ToString();
+                endereco.Numero = Convert.ToInt16(table.Rows[0]["numero"].ToString());
+                endereco.Complemento = table.Rows[0]["complemento"].ToString();
+                endereco.Referencia = table.Rows[0]["referencia"].ToString();
                 endereco.Cidade = new Cidade();
-                endereco.Cidade.Id = Convert.ToInt32(table.Rows[0][1].ToString());
-                endereco.Cidade.Nome = table.Rows[0][7].ToString();
+                endereco.Cidade.Id = Convert.ToInt32(table.Rows[0]["cidadeid"].ToString());
+                endereco.Cidade.Nome = table.Rows[0]["cidadenome"].ToString();
+                endereco.Cidade.Estado = new Estado();
+                endereco.Cidade.Estado.Id = Convert.ToInt32(table.Rows[0]["estadoid"].ToString());
+                endereco.Cidade.Estado.Nome = table.Rows[0]["nomeestado"].ToString();
                 
             }
             return endereco;

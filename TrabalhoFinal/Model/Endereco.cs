@@ -24,7 +24,7 @@ namespace Model
 
         public string Referencia { get; set; }
 
-       /* public string Completo
+        public string Completo
         {
             get
             {
@@ -32,6 +32,6 @@ namespace Model
             }
 
 
-        }*/
+        }
     }
 }

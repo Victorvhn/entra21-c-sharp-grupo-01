@@ -33,7 +33,7 @@ namespace Principal.Controllers
         {
             Endereco endereco = new EnderecoRepository().ObterPeloId(id);
             ViewBag.Endereco = endereco;
-            return View();
+            return Content(JsonConvert.SerializeObject(endereco));
         }
 
         [HttpGet]
@@ -75,6 +75,7 @@ namespace Principal.Controllers
             }));
         }
 
+        [HttpGet]
         public ActionResult Update(Endereco endereco)
         {
             bool alterado = new EnderecoRepository().Alterar(endereco);
@@ -92,6 +93,7 @@ namespace Principal.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult ObterTodosPorJSONToSelect2()
         {
 
@@ -108,11 +110,13 @@ namespace Principal.Controllers
             return Content(JsonConvert.SerializeObject(new { results = x }));
         }
 
+        [HttpGet]
         public ActionResult ModalCadastro()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult ModalEditar()
         {
             return View();
