@@ -97,7 +97,7 @@
             },
             'cidade.Nome': {
                 required: 'Cidade deve ser preenchido.',
-                rangelength: 'Cidade deve conter de {0} a {1} caracteres'
+                rangelength: 'Cidade deve conter entre 3 a 30 caracteres'
             }
         }
     });
@@ -177,7 +177,7 @@
             },
             'cidade.Nome': {
                 required: 'Cidade deve ser preenchido.',
-                rangelength: 'Cidade deve conter de {0} a {1} caracteres'
+                rangelength: 'Cidade deve conter entre 3 a 30 caracteres'
             }
         }
     });
