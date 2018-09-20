@@ -88,15 +88,15 @@ namespace Principal.Content
 
             List<Viagem> viagens = new ViagensRepository().ObterTodosPorJSON(start, length, search, orderColumn, orderDir);
 
-            int countViagens = repository.ContabilizarViagens();
-            int countFiltered = repository.ContabilizarViagensFiltradas(search);
+            //int countViagens = repository.ContabilizarViagens();
+            //int countFiltered = repository.ContabilizarViagensFiltradas(search);
 
             return Content(JsonConvert.SerializeObject(new
             {
                 data = viagens,
-                draw = draw,
-                recordsTotal = countViagens,
-                recordsFiltered = countFiltered
+                //draw = draw,
+                //recordsTotal = countViagens,
+                //recordsFiltered = countFiltered
             }));
         }
 
