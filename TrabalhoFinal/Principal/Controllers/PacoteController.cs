@@ -88,14 +88,32 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
+            string[] colunasNomes = new string[4];
+            colunasNomes[0] = "id";
+            colunasNomes[1] = "nome";
+            colunasNomes[2] = "valor";
+            colunasNomes[3] = "percentual_max_desconto";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
-            List<Pacote> pacotes = new PacoteRepository().ObterTodosParaJSON(start, length);
+            PacoteRepository repository = new PacoteRepository();
+
+            List<Pacote> pacotes = repository.ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
+
+            int countPacotes = repository.ContabilizarPacotes();
+            int countFiltered = repository.ContabilizarPacotesFiltradas(search);
 
             return Content(JsonConvert.SerializeObject(new
             {
-                data = pacotes
+                data = pacotes,
+                draw = draw,
+                recordsTotal = countPacotes,
+                recordsFiltered = countFiltered
             }));
 
         }

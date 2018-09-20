@@ -13,7 +13,7 @@ namespace Repository
     public class TuristaPacoteRepository
     {
 
-        public List<TuristaPacote> ObterTodosPorJSON(string start, string length, string search)
+        public List<TuristaPacote> ObterTodosPorJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<TuristaPacote> turistasPacotes = new List<TuristaPacote>();
             SqlCommand command = new Conexao().ObterConexao();
@@ -21,8 +21,11 @@ namespace Repository
 FROM turistas_pacotes tp 
 INNER JOIN turistas t ON (t.id = tp.id_turista)
 INNER JOIN pacotes p ON (p.id = tp.id_pacote)
-WHERE (tp.id LIKE '%" + search + "%') OR (t.nome LIKE '%" + search + "%') OR (p.nome LIKE '%" + search + "%') OR (p.valor LIKE '%" + search + "%') OR (tp.status_do_pedido LIKE '%" + search + "%') ORDER BY tp.data_requisicao OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+WHERE t.ativo = 1 AND (tp.id LIKE @SEARCH) OR (t.nome LIKE @SEARCH) OR (p.nome LIKE @SEARCH) OR (p.valor LIKE @SEARCH) OR (tp.status_do_pedido LIKE @SEARCH) 
+ORDER BY " + orderColumn + " " + orderDir +  
+" OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
+            command.Parameters.AddWithValue("@SEARCH", search);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
@@ -41,5 +44,24 @@ WHERE (tp.id LIKE '%" + search + "%') OR (t.nome LIKE '%" + search + "%') OR (p.
             return turistasPacotes;
         }
 
+        public int ContabilizarPacotesAguardandoFiltrado(string search)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(tp.id)
+            FROM turistas_pacotes tp 
+            INNER JOIN turistas t ON (t.id = tp.id_turista)
+            INNER JOIN pacotes p ON (p.id = tp.id_pacote) 
+            WHERE t.ativo = 1 AND (tp.id LIKE @SEARCH) OR (t.nome LIKE @SEARCH) OR (p.nome LIKE @SEARCH) OR (p.valor LIKE @SEARCH) OR (tp.status_do_pedido LIKE @SEARCH)";
+
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
+
+        public int ContabilizarPacotesAguardando()
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM turistas_pacotes WHERE ativo = 1";
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
     }
 }
