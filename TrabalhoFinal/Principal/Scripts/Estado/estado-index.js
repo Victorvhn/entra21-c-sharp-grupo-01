@@ -48,7 +48,7 @@
         messages: {
             'estado-Nome': {
                 required: 'Estado deve ser preenchido',
-                rangelength: 'Estado deve conter entre 2 a 30 caracteres'
+                rangelength: 'Estado deve conter entre {0} a {1} caracteres'
             }
         }
     });
@@ -111,7 +111,7 @@
         messages: {
             'estado.Nome': {
                 required: 'Estado deve ser preenchido',
-                rangelength: 'Estado deve conter entre 2 a 30 caracteres'
+                rangelength: 'Estado deve conter entre {0} a {1} caracteres'
             }
         }
     });
