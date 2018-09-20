@@ -4797,6 +4797,8 @@
     <Content Include="Content\assets\pcassets\js\pcoded.min.js" />
     <Content Include="Content\assets\pcassets\js\vertical-demo.js" />
     <Content Include="Content\css\master-customizada.css" />
+    <Content Include="Content\imagens\icone1.ico" />
+    <Content Include="Content\imagens\icone2.png" />
     <Content Include="Content\imagens\LogoLuvtour.png" />
     <Content Include="Content\imagens\LuvLuv.png" />
     <Content Include="Content\lib\animate.css\css\animate.css" />
