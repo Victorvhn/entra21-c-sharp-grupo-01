@@ -75,7 +75,7 @@ namespace Principal.Controllers
             }));
         }
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Update(Endereco endereco)
         {
             bool alterado = new EnderecoRepository().Alterar(endereco);
