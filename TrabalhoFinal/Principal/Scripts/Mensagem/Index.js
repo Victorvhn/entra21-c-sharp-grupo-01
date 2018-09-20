@@ -1,9 +1,11 @@
 ﻿$(function () {
     var id = 0.0;
 
-    $('.showChat_inner').toggle('slide', {
-        direction: 'right'
-    }, 500);
+    $('#chat-botao').on('click', function () {
+        $('.showChat_inner').toggle('slide', {
+            direction: 'right'
+        }, 500);
+    });    
 
     $("#mensagem-texto").on('keypress', function (evt) {
         if (evt.keyCode == 13) {
