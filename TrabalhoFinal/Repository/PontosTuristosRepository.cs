@@ -74,9 +74,11 @@ namespace Repository
         {
             PontoTuristico pontoTuristico = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT pt.nome AS 'ponto_turistico', pt.id_endereco, ed.logradouro AS 'logradouro', ed.referencia AS 'referencia', ed.numero AS 'numero', ed.complemento AS 'complemento', cidades.nome AS 'cidadenome', cidades.id AS 'id_cidade', cidades.id_estado AS 'idestado_cidade',estados.id AS 'idestado', estados.nome AS 'nome_estado' FROM pontos_turisticos pt
-            JOIN enderecos ed ON(pt.id_endereco = ed.id) JOIN cidades ci ON pontos_turisticos( pt.id_endereco = ci.id) JOIN estados es ON pontos_turisticos (pt.id_endereco = es.id)
-                                WHERE pt.id = @ID";
+            command.CommandText = @"SELECT pt.id,pt.nome AS 'ponto_turistico', pt.id_endereco, ed.logradouro AS 'logradouro', ed.numero AS 'numero', cidades.nome AS 'cidadenome', cidades.id AS 'id_cidade', cidades.id_estado AS 'idestado_cidade',estados.id AS 'idestado', estados.nome AS 'nome_estado' FROM pontos_turisticos pt
+            JOIN enderecos ed ON(ed.id = pt.id_endereco) 
+            JOIN cidades ci ON pontos_turisticos( ci.id =  pt.id_endereco)
+            JOIN estados es ON pontos_turisticos (es.id = pt.id_endereco)
+            WHERE pt.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
 
             DataTable table = new DataTable();
@@ -100,8 +102,6 @@ namespace Repository
                 pontoTuristico.Endereco.Cidade.Estado = new Estado();
                 pontoTuristico.Endereco.Cidade.Estado.Id = Convert.ToInt32(table.Rows[0]["idestado"].ToString());
                 pontoTuristico.Endereco.Cidade.Estado.Nome = table.Rows[0]["nome_Estado"].ToString();
-
-
             }
             return pontoTuristico;
         }
@@ -119,9 +119,11 @@ namespace Repository
         {
             List<PontoTuristico> pontosturisticos = new List<PontoTuristico>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT pt.nome AS 'ponto_turistico', pt.id_endereco, ed.logradouro AS 'logradouro', ed.numero AS 'numero', ed.complemento AS 'complemento', cidades.nome AS 'cidadenome', cidades.id AS 'id_cidade', cidades.id_estado AS 'idestado_cidade',estados.id AS 'idestado', estados.nome AS 'nome_estado' FROM pontos_turisticos pt
-            JOIN enderecos ed ON(pt.id_endereco = ed.id) JOIN cidades ci ON pontos_turisticos( pt.id_endereco = ci.id) JOIN estados es ON pontos_turisticos (pt.id_endereco = es.id)
-            ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.CommandText = @"SELECT pt.id,pt.nome AS 'ponto_turistico', pt.id_endereco, ed.logradouro AS 'logradouro', ed.numero AS 'numero', cidades.nome AS 'cidadenome', cidades.id AS 'id_cidade', cidades.id_estado AS 'idestado_cidade',estados.id AS 'idestado', estados.nome AS 'nome_estado' FROM pontos_turisticos pt
+            INNER JOIN enderecos ed ON (ed.id = pt.id)
+            INNER JOIN cidades ci ON (ci.id =  pt.id)
+            INNER JOIN estados es ON (es.id = pt.id) 
+            ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
