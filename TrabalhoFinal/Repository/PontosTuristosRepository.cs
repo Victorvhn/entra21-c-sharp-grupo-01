@@ -119,10 +119,10 @@ namespace Repository
         {
             List<PontoTuristico> pontosturisticos = new List<PontoTuristico>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT pt.id,pt.nome AS 'ponto_turistico', pt.id_endereco, ed.logradouro AS 'logradouro', ed.numero AS 'numero', cidades.nome AS 'cidadenome', cidades.id AS 'id_cidade', cidades.id_estado AS 'idestado_cidade',estados.id AS 'idestado', estados.nome AS 'nome_estado' FROM pontos_turisticos pt
-            INNER JOIN enderecos ed ON (ed.id = pt.id)
-            INNER JOIN cidades ci ON (ci.id =  pt.id)
-            INNER JOIN estados es ON (es.id = pt.id) 
+            command.CommandText = @"SELECT ponto_turistico.id,ponto_turistico.nome AS 'pontoturistico_nome', ponto_turistico.id_endereco, endereco.logradouro AS 'logradouro', endereco.numero AS 'numero', cidades.nome AS 'cidadenome', cidades.id AS 'id_cidade', cidades.id_estado AS 'idestado_cidade',estados.id AS 'idestado', estados.nome AS 'nome_estado' FROM pontos_turisticos pt
+            INNER JOIN enderecos ed ON (enderecos.id = ponto_turistico.id)
+            INNER JOIN cidades ci ON (cidades.id =  ponto_turistico.id)
+            INNER JOIN estados es ON (estados.id = ponto_turistico.id) 
             ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
@@ -132,7 +132,7 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                     IdEndereco = Convert.ToInt32(linha[1].ToString()),
-                    Nome = linha[2].ToString(),
+                    Nome = linha["pontoturistico_nome"].ToString(),
                     Endereco = new Endereco()
                     {
                         Logradouro = linha["logradouro"].ToString(),
