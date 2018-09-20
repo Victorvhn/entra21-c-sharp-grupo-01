@@ -4800,7 +4800,6 @@
     <Content Include="Content\imagens\icone1.ico" />
     <Content Include="Content\imagens\icone2.png" />
     <Content Include="Content\imagens\logo.png" />
-    <Content Include="Content\imagens\LuvTour.png" />
     <Content Include="Content\imagens\NovoLogo.png" />
     <Content Include="Content\lib\animate.css\css\animate.css" />
     <Content Include="Content\lib\autosize\js\autosize.min.js" />
