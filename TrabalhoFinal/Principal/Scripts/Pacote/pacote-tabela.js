@@ -1,16 +1,37 @@
 ﻿$(function () {
     //Preenche DataTable
     $('#pacote-tabela').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": "/Pacote/ObterTodosPorJSON",
-        "columns": [
-            { "data": "Id" },
-            { "data": "Nome" },
-            { "data": "Valor" },
-            { "data": "PercentualMaximoDesconto" },
+        ajax: "/Pacote/ObterTodosPorJSON",
+        order: [[1, "asc"]],
+        columns: [
+            {
+                data: "Id",
+                bSortable: false,
+                width: "10%",
+                target: 0
+            },
+            {
+                data: "Nome",
+                bSortable: true,
+                width: "30%",
+                target: 1
+            },
+            {
+                data: "Valor",
+                bSortable: true,
+                width: "20%",
+                target: 2
+            },
+            {
+                data: "PercentualMaximoDesconto",
+                bSortable: true,
+                width: "20%",
+                target: 3
+            },
             {
                 data: null,
+                bSortable: false,
+                width: "20%",
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-info botao-editar-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1 botao-excluir-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";

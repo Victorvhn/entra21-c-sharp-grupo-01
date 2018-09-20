@@ -52,13 +52,17 @@ namespace Repository
             return pacotes;
         }
 
-        public List<Pacote> ObterTodosParaJSON(string start, string length)
+        public List<Pacote> ObterTodosParaJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<Pacote> pacotes = new List<Pacote>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome, valor, percentual_max_desconto FROM pacotes WHERE ativo = 1 ORDER BY nome OFFSET " +
-               start + " ROWS FETCH NEXT "
-               + length + " ROWS ONLY  ";
+            command.CommandText = @"SELECT id, nome, valor, percentual_max_desconto 
+FROM pacotes 
+WHERE ativo = 1 AND ((id LIKE @SEARCH) OR (nome LIKE @SEARCH) OR (percentual_max_desconto LIKE @SEARCH))
+ORDER BY " + orderColumn + " " + orderDir +
+" OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY  ";
+            command.Parameters.AddWithValue("@SEARCH", search);
+
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
@@ -85,7 +89,24 @@ namespace Repository
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
-       
+
+        public int ContabilizarPacotesFiltradas(string search)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id)
+FROM pacotes 
+WHERE ativo = 1 AND ((id LIKE @SEARCH) OR (nome LIKE @SEARCH) OR (percentual_max_desconto LIKE @SEARCH))";
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
+
+        public int ContabilizarPacotes()
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM pacotes WHERE ativo = 1";
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
+
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -93,7 +114,7 @@ namespace Repository
             command.Parameters.AddWithValue("@ID", id);
             return command.ExecuteNonQuery() == 1;
         }
-        
+
         public Pacote ObterPeloId(int id)
         {
             Pacote pacote = null;
@@ -103,14 +124,14 @@ namespace Repository
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
-            if(table.Rows.Count == 1)
+            if (table.Rows.Count == 1)
             {
                 pacote = new Pacote();
                 pacote.Id = id;
                 pacote.Nome = table.Rows[0][0].ToString();
                 pacote.Valor = Convert.ToDouble(table.Rows[0][1].ToString());
                 pacote.PercentualMaximoDesconto = Convert.ToByte(table.Rows[0][2].ToString());
-                
+
             }
             return pacote;
         }
@@ -120,7 +141,7 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = "UPDATE pacotes SET nome = @NOME, valor = @VALOR, percentual_max_desconto = @PERCENTUAL_MAX_DESCONTO WHERE id = @ID";
             command.Parameters.AddWithValue("@NOME", pacote.Nome);
-            command.Parameters.AddWithValue("@VALOR",pacote.Valor);
+            command.Parameters.AddWithValue("@VALOR", pacote.Valor);
             command.Parameters.AddWithValue("@PERCENTUAL_MAX_DESCONTO", pacote.PercentualMaximoDesconto);
             command.Parameters.AddWithValue("@ID", pacote.Id);
             return command.ExecuteNonQuery() == 1;
@@ -129,5 +150,5 @@ namespace Repository
 
         }
     }
-    
+
 }
