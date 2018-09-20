@@ -46,7 +46,7 @@
             },
             'endereco.Logradouro': {
                 required: true,
-                rangelength: [6, 20]
+                rangelength: [6, 30]
             },
             'endereco.Numero': {
                 required: true
@@ -56,7 +56,7 @@
             },
             'endereco.Referencia': {
                 required: true,
-                rangelength: [5, 30]
+                rangelength: [5, 50]
             },
             'endereco.IdCidade': {
                 required: true
@@ -65,11 +65,11 @@
         messages: {
             'endereco.Cep': {
                 required: 'CEP deve ser preenchido',
-                rangelength: 'CEP deve conter {8} caracteres'
+                rangelength: 'CEP deve conter 8 caracteres'
             },
             'endereco.Logradouro': {
                 required: 'Logradouro deve ser preenchido',
-                rangelength: 'Logradouro deve conter entre {6} e {20} caracteres'
+                rangelength: 'Logradouro deve conter entre 6 e 30 caracteres'
             },
             'endereco.Numero': {
                 required: 'Número deve ser preenchido'
@@ -79,7 +79,7 @@
             },
             'endereco.Referencia': {
                 required: 'Referência deve ser preenchido',
-                rangelength: 'Referência deve conter entre {5} e {30} caracteres'
+                rangelength: 'Referência deve conter entre 5 e 50 caracteres'
             },
             'endereco.IdCidade': {
                 required: 'Cidade deve ser preenchido'
@@ -178,7 +178,7 @@
         messages: {
             'endereco.Cep': {
                 required: 'CEP deve ser preenchido',
-                rangelength: 'CEP deve conter {8} caracteres'
+                rangelength: 'CEP deve conter 8 caracteres'
             },
             'endereco.Logradouro': {
                 required: 'Logradouro deve ser preenchido',
