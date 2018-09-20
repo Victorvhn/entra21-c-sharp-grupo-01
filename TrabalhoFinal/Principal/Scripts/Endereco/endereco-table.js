@@ -26,10 +26,10 @@
 
     //Validação modal Cadastro
     $('#form-modal-cadastro-endereco').validate({
-        errorClass: 'form-control-danger',
+     errorClass: 'form-control-danger',
         validClass: 'form-control-success',
         highlight: function (element) {
-            jQuery(element).closest('.form-group').addClass('has.error');
+            jQuery(element).closest('.form-group').addClass('has-error');
         },
         unhighlight: function (element) {
             jQuery(element).closest('.form-group').removeClass('has-error');
@@ -37,6 +37,7 @@
         errorPlacement: function (error, element) {
             $(element).parent().append(error[0])
         },
+
 
         rules: {
             'endereco.Cep': {

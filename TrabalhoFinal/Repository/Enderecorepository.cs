@@ -19,9 +19,7 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome, es.id, es.nome FROM enderecos e 
             JOIN cidades c ON (c.id = e.id_cidade)
-            JOIN estados es ON (es.id = c.id_estado ) 
-
-            WHERE e.ativo = 1";
+            JOIN estados es ON (es.id = c.id_estado )WHERE e.ativo = 1";
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -151,7 +149,7 @@ e.referencia AS 'referencia', c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id 
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "UPDATE enderecos SET cep = @CEP,logradouro = @LOGRADOURO,numero = @NUMERO,complemento = @COMPLEMENTO,referencia = @REFERENCIA, id_cidade = @ID_CIDADE WHERE id = @ID";
+            command.CommandText = "UPDATE enderecos SET cep = @CEP, logradouro = @LOGRADOURO, numero = @NUMERO, complemento = @COMPLEMENTO, referencia = @REFERENCIA, id_cidade = @ID_CIDADE WHERE id = @ID";
             command.Parameters.AddWithValue("@CEP", endereco.Cep);
             command.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
             command.Parameters.AddWithValue("@NUMERO", endereco.Numero);
