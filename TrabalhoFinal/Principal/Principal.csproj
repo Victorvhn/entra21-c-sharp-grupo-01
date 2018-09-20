@@ -44,6 +44,9 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PusherServer, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PusherServer.4.1.0\lib\net45\PusherServer.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -5163,6 +5166,7 @@
     <Content Include="Scripts\Guia\guia-tabela.js" />
     <Content Include="Scripts\HistoricoViagens\historicoViagem-tabela.js" />
     <Content Include="Scripts\Idioma\idioma-tabela.js" />
+    <Content Include="Scripts\Mensagem\Index.js" />
     <Content Include="Scripts\PopularSelects\SelectEndereco\popular-select-endereco.js" />
     <Content Include="Scripts\ViagemTurista\index.viagemTurista.js" />
     <Content Include="Scripts\PacotePontoTuristico\index-pacote-ponto-turistico.js" />
@@ -5184,9 +5188,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ConfirmarPacotesController.cs" />
+    <Compile Include="Controllers\Cookie.cs" />
     <Compile Include="Controllers\CriarPacoteController.cs" />
     <Compile Include="Controllers\HistoricoViagemController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MensagemController.cs" />
     <Compile Include="Controllers\ViagemController.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\EnderecoController.cs" />
@@ -5565,8 +5573,6 @@
     <Content Include="Views\PontoTuristico\Index.cshtml" />
     <Content Include="Views\PontoTuristico\ModalCadastro.cshtml" />
     <Content Include="Views\PontoTuristico\ModalEditar.cshtml" />
-    <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\PacotePontoTuristico\ModalCadastro.cshtml" />
     <Content Include="Views\PacotePontoTuristico\ModalEditar.cshtml" />
     <Content Include="Views\PacotePontoTuristico\Index.cshtml" />
@@ -5577,6 +5583,9 @@
     <Content Include="Views\ViagemTurista\ModalEditar.cshtml" />
     <Content Include="Views\Endereco\ModalCadastro.cshtml" />
     <Content Include="Views\Endereco\ModalEditar.cshtml" />
+    <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5587,6 +5596,8 @@
   <ItemGroup>
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Mensagem\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
