@@ -5,12 +5,27 @@
         "order": [[1, "asc"]],
         columns: [
 
-            { data: 'Id', "bSortable": false, "width": "10%" },
-            { data: 'Estado.Nome', "bSortable": true, "width": "40%", "target": 0 },
-            { data: 'Nome', "bSortable": true, "width": "30%", "target": 1  },
+            {
+                data: 'Id',
+                bSortable: false,
+                width: "10%"
+            },
+            {
+                data: 'Estado.Nome',
+                bSortable: true,
+                width: "40%",
+                target: 0
+            },
+            {
+                data: 'Nome',
+                bSortable: true,
+                width: "30%",
+                target: 1
+            },
             {
                 data: null,
-                "bSortable": false, "width": "20%",
+                bSortable: false,
+                width: "20%",
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-info botao-editar-cidade' data-id='" + row.Id + "'>Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1 botao-excluir-cidade' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";

@@ -32,12 +32,16 @@ namespace Repository
             return idiomas;
         }
 
-        public List<Idioma> ObterTodosParaJSON(string start, string length)
+        public List<Idioma> ObterTodosParaJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<Idioma> idiomas = new List<Idioma>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, nome FROM idiomas WHERE ativo = 1 ORDER BY nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.CommandText = @"SELECT id, nome FROM idiomas 
+WHERE ativo = 1 AND ((nome LIKE @SEARCH) OR (id LIKE @SEARCH))
+ORDER BY " + orderColumn + " " + orderDir +
+" OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
+            command.Parameters.AddWithValue("@SEARCH", search);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
@@ -73,6 +77,21 @@ namespace Repository
             return idiomas;
         }
 
+        public int ContabilizarEstadosFiltradas(string search)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM idiomas WHERE ativo = 1 AND ((nome LIKE @SEARCH) OR (id LIKE @SEARCH))";
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
+
+        public int ContabilizarEstados()
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM idiomas WHERE ativo = 1";           
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
+
         public int Cadastrar(Idioma idioma)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -86,13 +105,13 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"UPDATE idiomas SET nome = @NOME WHERE id = @ID";
-            
+
             command.Parameters.AddWithValue("@NOME", idioma.Nome);
             command.Parameters.AddWithValue("@ID", idioma.Id);
             return command.ExecuteNonQuery() == 1;
         }
 
-        public bool Excluir (int id)
+        public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"DELETE FROM idiomas WHERE id = @ID";
