@@ -47,8 +47,8 @@ namespace Repository
                 {
                     Id = Convert.ToInt32(line[0].ToString()),
                     Valor = Convert.ToInt32(line[1].ToString()),
-                    IdTurista = Convert.ToInt32(line[3].ToString()),
-                    IdViagem = Convert.ToInt32(line[4].ToString())
+                    IdTurista = Convert.ToInt32(line[2].ToString()),
+                    IdViagem = Convert.ToInt32(line[3].ToString())
                 };
                 viagensturista.Add(viagemTurista);
             }
