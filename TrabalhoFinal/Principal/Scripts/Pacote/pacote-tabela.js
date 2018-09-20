@@ -68,18 +68,18 @@
         },
         messages: {
             'Pacote.Nome': {
-                required: 'Pacote deve ser preenchido.',
-                rangelength: 'Pacote deve conter de {0} a {1} caracteres.'
+                required: 'Pacote deve ser preenchido',
+                rangelength: 'Pacote deve conter de {0} a {1} caracteres'
             },
             'Pacote.Valor': {
-                required: 'Valor deve ser preenchido.',
-                range: 'Valor deve ser de R$ {0} a R$ {1}.',
+                required: 'Valor deve ser preenchido',
+                range: 'Valor deve ser de R$ {0} a R$ {1}',
                 number: 'Valor deve conter números inteiros ou decimais'
             },
             'Pacote.PercentualMaximoDesconto': {
-                required: 'Percentual maximo de desconto deve ser preenchido.',
-                range: 'Percentual maximo de desconto deve ser de {0}% a {1}%.',
-                number: 'Percentual maximo de desconto deve conter números inteiros ou decimais.'
+                required: 'Percentual maximo de desconto deve ser preenchido',
+                range: 'Percentual maximo de desconto deve ser de {0}% a {1}%',
+                number: 'Percentual maximo de desconto deve conter números inteiros ou decimais'
             }
         }
     });
@@ -152,18 +152,18 @@
         },
         messages: {
             'Pacote.Nome': {
-                required: 'Pacote deve ser preenchido.',
-                rangelength: 'Pacote deve conter de {0} a {1} caracteres.'
+                required: 'Pacote deve ser preenchido',
+                rangelength: 'Pacote deve conter de {0} a {1} caracteres'
             },
             'Pacote.Valor': {
-                required: 'Valor deve ser preenchido.',
-                range: 'Valor deve ser de R$ {0} a R$ {1}.',
+                required: 'Valor deve ser preenchido',
+                range: 'Valor deve ser de R$ {0} a R$ {1}',
                 number: 'Valor deve conter números inteiros ou decimais'
             },
             'Pacote.PercentualMaximoDesconto': {
-                required: 'Percentual maximo de desconto deve ser preenchido.',
-                range: 'Percentual maximo de desconto deve ser de {0}% a {1}%.',
-                number: 'Percentual maximo de desconto deve conter números inteiros ou decimais.'
+                required: 'Percentual maximo de desconto deve ser preenchido',
+                range: 'Percentual maximo de desconto deve ser de {0}% a {1}%',
+                number: 'Percentual maximo de desconto deve conter números inteiros ou decimais'
             }
         }
     });

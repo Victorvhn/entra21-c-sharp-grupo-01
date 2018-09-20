@@ -46,7 +46,7 @@
         messages: {
             'idioma.Nome': {
                 required: 'Idioma deve ser preenchido,',
-                rangelength: 'Idioma deve conter de {0} a {1}'
+                rangelength: 'Idioma deve conter entre {0} a {1}'
 
             }
         }
@@ -108,8 +108,8 @@
         },
         messages: {
             'idioma.Nome': {
-                required: 'Idioma deve ser preenchido,',
-                rangelength: 'Idioma deve conter de {0} a {1}'
+                required: 'Idioma deve ser preenchido',
+                rangelength: 'Idioma deve conter entre {0} a {1}'
 
             }
         }

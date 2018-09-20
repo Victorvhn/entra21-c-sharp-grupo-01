@@ -66,11 +66,11 @@
         },
         messages: {
             'historicoViagem.IdPacote': {
-                required: 'Selecione um pacote.'
+                required: 'Selecione um pacote'
             },
             'historicoViagem.Data': {
-                required: 'Informe a data.',
-                date: 'A data não é valida.'
+                required: 'Informe a data',
+                date: 'A data não é valida'
             }
         }
 
