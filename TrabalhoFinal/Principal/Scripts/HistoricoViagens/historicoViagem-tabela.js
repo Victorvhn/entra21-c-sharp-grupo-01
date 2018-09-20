@@ -1,15 +1,31 @@
 ﻿$(function () {
     //Preenche DataTable
     $('#historico-viagem-tabela').DataTable({
-        "processing": true,
-        "serverSide": true,
-        "ajax": "/HistoricoViagem/ObterTodosPorJSON",
-        "columns": [
-            { "data": "Id" },
-            { "data": "Pacote.Nome" },
-            { "data": "DataPadraoBR" },
+        ajax: "/HistoricoViagem/ObterTodosPorJSON",
+        order: [[1, "asc"]],
+        columns: [
+            {
+                data: "Id",
+                bSortable: false,
+                width: "10%",
+                target: 0
+            },
+            {
+                data: "Pacote.Nome",
+                bSortable: true,
+                width: "40%",
+                target: 1
+            },
+            {
+                data: "DataPadraoBR",
+                bSortable: true,
+                width: "30%",
+                target: 2
+            },
             {
                 data: null,
+                bSortable: false,
+                width: "20%",
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-info botao-editar-historico-viagem' data-id='" + row.Id + "' >Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1 botao-excluir-historico-viagem' data-id='" + row.Id + "' href='#' >Desativar</a>";

@@ -40,12 +40,18 @@ namespace Repository
             return historicoViagens;
         }
 
-        public List<HistoricoViagem> ObterTodosParaJSON(string start, string length)
+        public List<HistoricoViagem> ObterTodosParaJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<HistoricoViagem> historicoViagens = new List<HistoricoViagem>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT hv.id, p.id, hv.id_pacote, hv.data_, p.nome FROM historico_de_viagens hv
-            INNER JOIN pacotes p ON (p.id = hv.id_pacote) WHERE hv.ativo = 1";
+            command.CommandText = @"SELECT hv.id, p.id, hv.id_pacote, hv.data_, p.nome 
+            FROM historico_de_viagens hv
+            INNER JOIN pacotes p ON (p.id = hv.id_pacote) 
+            WHERE hv.ativo = 1 AND ((hv.id LIKE @SEARCH) OR (p.nome LIKE @SEARCH) OR (hv.data_ LIKE @SEARCH))
+            ORDER BY " + orderColumn + " " + orderDir + "" +
+            " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY";
+
+            command.Parameters.AddWithValue("@SEARCH", search);
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -62,7 +68,7 @@ namespace Repository
                     Nome = linha[4].ToString()
                 };
 
-                
+
                 historicoViagens.Add(historicoViagem);
             }
             return historicoViagens;
@@ -91,6 +97,24 @@ namespace Repository
             command.Parameters.AddWithValue("@ID_PACOTE", historicoViagem.IdPacote);
             command.Parameters.AddWithValue("@ID", historicoViagem.Id);
             return command.ExecuteNonQuery() == 1;
+        }
+
+        public int ContabilizarCidadesFiltradas(string search)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(hv.id)
+            FROM historico_de_viagens hv
+            INNER JOIN pacotes p ON (p.id = hv.id_pacote) 
+            WHERE hv.ativo = 1 AND ((hv.id LIKE @SEARCH) OR (p.nome LIKE @SEARCH) OR (hv.data_ LIKE @SEARCH))";
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
+
+        public int ContabilizarCidades()
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM historico_de_viagens WHERE ativo = 1";
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
         public bool Excluir(int id)

@@ -1,25 +1,23 @@
 ﻿$(function () {
     //Preenche DataTable
     $('#table-estados').DataTable({
-        processing: true,
-        serverSide: true,
         ajax: '/Estado/ObterTodosPorJSON',
-        "order": [[1, "asc"]],
+        order: [[1, "asc"]],
         columns: [
             {
                 data: 'Id',
-                "bSortable": false,
-                "width": "20%"
+                bSortable: false,
+                width: "10%"
             },
             {
                 data: 'Nome',
-                "bSortable": true,
-                "width": "60%"
+                bSortable: true,
+                width: "70%"
             },
             {
                 data: null,
-                "bSortable": false,
-                "width": "20%",
+                bSortable: false,
+                width: "20%",
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-info botao-editar-estado' data-id='" + row.Id + "'>Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1 botao-excluir-estado' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";

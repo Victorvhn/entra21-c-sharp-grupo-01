@@ -77,14 +77,14 @@ namespace Principal.Controllers
 
             List<Idioma> idiomas = repository.ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
 
-            int countEstados = repository.ContabilizarEstados();
+            int countIdiomas = repository.ContabilizarEstados();
             int countFiltered = repository.ContabilizarEstadosFiltradas(search);
 
             return Content(JsonConvert.SerializeObject(new
             {
                 data = idiomas,
                 draw = draw,
-                recordsTotal = countEstados,
+                recordsTotal = countIdiomas,
                 recordsFiltered = countFiltered
             }));
         }

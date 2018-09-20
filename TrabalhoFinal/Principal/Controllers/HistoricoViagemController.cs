@@ -11,7 +11,7 @@ namespace Principal.Controllers
     public class HistoricoViagemController : Controller
     {
         // GET: HistoricoViagem
-
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -20,7 +20,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            
+
             ViewBag.HistoricoViagem = new HistoricoViagem();
             return View();
         }
@@ -30,9 +30,9 @@ namespace Principal.Controllers
         {
             HistoricoViagem historicoViagem = new HistoricoViagemRepository().ObterPeloId(id);
             ViewBag.HistoricoViagem = historicoViagem;
-           
+
             return Content(JsonConvert.SerializeObject(historicoViagem));
-          
+
         }
 
         [HttpGet]
@@ -51,7 +51,7 @@ namespace Principal.Controllers
                 sucesso = 0;
             }
 
-            return Content(JsonConvert.SerializeObject(sucesso)); 
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpPost]
@@ -85,19 +85,34 @@ namespace Principal.Controllers
             return Content(JsonConvert.SerializeObject(sucesso));
         }
 
-    
-
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
+            string[] colunasNomes = new string[3];
+            colunasNomes[0] = "hv.id";
+            colunasNomes[1] = "p.nome";
+            colunasNomes[2] = "hv.data_";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
-            List<HistoricoViagem> historicoViagens = new HistoricoViagemRepository().ObterTodosParaJSON(start, length);
+            HistoricoViagemRepository repository = new HistoricoViagemRepository();
+
+            List<HistoricoViagem> historicoViagens = repository.ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
+
+            int countHistoricoViagens = repository.ContabilizarCidades();
+            int countFiltered = repository.ContabilizarCidadesFiltradas(search);
 
             return Content(JsonConvert.SerializeObject(new
             {
-                data = historicoViagens
+                data = historicoViagens,
+                draw = draw,
+                recordsTotal = countHistoricoViagens,
+                recordsFiltered = countFiltered
             }));
 
         }
