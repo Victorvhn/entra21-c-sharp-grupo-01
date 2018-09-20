@@ -46,7 +46,7 @@
         messages: {
             'pacote.Nome': {
                 required: 'Nome deve ser preenchido.',
-                rangelength: 'nome deve conter de {0} a {1} caracteres'
+                rangelength: 'nome deve conter entre {0} a {1} caracteres'
             },
             'select-destino': {
                 required: 'Selecione um destino.'

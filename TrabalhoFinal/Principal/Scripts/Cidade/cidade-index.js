@@ -96,8 +96,8 @@
                 required: 'Selecione um Estado'
             },
             'cidade.Nome': {
-                required: 'Cidade deve ser preenchido.',
-                rangelength: 'Cidade deve conter de {0} a {1} caracteres'
+                required: 'Cidade deve ser preenchido',
+                rangelength: 'Cidade deve conter entre 3 a 30 caracteres'
             }
         }
     });
@@ -176,8 +176,8 @@
                 required: 'Selecione um Estado'
             },
             'cidade.Nome': {
-                required: 'Cidade deve ser preenchido.',
-                rangelength: 'Cidade deve conter de {0} a {1} caracteres'
+                required: 'Cidade deve ser preenchido',
+                rangelength: 'Cidade deve conter entre {0} a {1} caracteres'
             }
         }
     });
