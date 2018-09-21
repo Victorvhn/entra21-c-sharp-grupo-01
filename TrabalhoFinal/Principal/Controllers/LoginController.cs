@@ -15,6 +15,7 @@ namespace Principal.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(string usuario, string senha)
         {
