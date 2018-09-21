@@ -4802,8 +4802,7 @@
     <Content Include="Content\css\master-customizada.css" />
     <Content Include="Content\imagens\icone1.ico" />
     <Content Include="Content\imagens\icone2.png" />
-    <Content Include="Content\imagens\logo.png" />
-    <Content Include="Content\imagens\NovoLogo.png" />
+    <Content Include="Content\imagens\LogoLuvTour.png" />
     <Content Include="Content\lib\animate.css\css\animate.css" />
     <Content Include="Content\lib\autosize\js\autosize.min.js" />
     <Content Include="Content\lib\bootstrap-datepicker\css\bootstrap-datepicker3.css" />

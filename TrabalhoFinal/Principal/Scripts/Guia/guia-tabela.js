@@ -142,7 +142,9 @@
                 },
                 'guia.Rg': {
                     required: true,
-                    digits: true
+                    digits: true,
+                    minlength: [7],
+                    maxlength: [12]
                 },
                 'guia.Cpf': {
                     required: true,
@@ -161,7 +163,9 @@
                 },
                 'guia.Salario': {
                     required: true,
-                    number: true
+                    number: true,
+                    minlength: [3],
+                    range: [954, 10000]                   
                 },
                 'guia.CategoriaHabilitacao': {
                     required: true,
@@ -178,7 +182,9 @@
                 },
                 'endereco.Cep': {
                     required: true,
-                    digits: true
+                    digits: true,
+                    validaCEP: true,
+                   
                 },
                 'endereco.Logradouro': {
                     required: true,
@@ -202,14 +208,17 @@
                 },
                 'guia.Sobrenome': {
                     required: 'Sobrenome deve ser preenchido.',
-                    rangelength: 'Sobrenome deve conter de  {0} a {1} caracteres.'
+                    rangelength: 'Sobrenome deve conter de {0} a {1} caracteres.'
                 },
                 'guia.Rg': {
                     required: 'RG deve ser preenchido.',
-                    digits: 'Rg deve conter somente digitos.'
+                    digits: 'RG deve conter somente digitos.',
+                    minlength: 'RG deve conter no mínimo 7 dígitos.',
+                    maxlength: 'RG deve conter no máximo 12 dpigitos.'
                 },
                 'guia.Cpf': {
-                    required: 'CPF deve ser preenchido.'
+                    required: 'CPF deve ser preenchido.',
+                    
 
                 },
                 'guia.DataNascimento': {
@@ -225,7 +234,10 @@
                 },
                 'guia.Salario': {
                     required: 'Salario deve ser preenchido.',
-                    number: 'Salario deve conter somente nuemros inteiro e decimais.'
+                    number: 'Salario deve conter somente nuemros inteiro e decimais.',
+                    minlength: 'Salario deve conter no minimo 3 digitos.',
+                    range: 'Salário deve ser entre R$ 954,00 e R$ 10.000,00'
+
                 },
                 'guia.CategoriaHabilitacao': {
                     required: 'Categoria da habilitação deve ser preenchido.',
@@ -242,7 +254,9 @@
                 },
                 'endereco.Cep': {
                     required: 'Cep deve ser preenchido.',
-                    digits: 'Cep deve conter somente digitos'
+                    digits: 'Cep deve conter somente digitos',
+                    minlength: 'CEP deve conter no mínimo 8 dígitos.',
+                    maxlength: 'CEP inválido.'
                 },
                 'endereco.Logradouro': {
                     required: 'Logradouro deve ser preenchido.',
@@ -289,7 +303,9 @@
         return true;
     }, "Informe um CPF válido.");
 
-
+    jQuery.validator.addMethod("validaCEP", function (value, element) {
+        return this.optional(element) || /^[0-9]{5}-[0-9]{3}$/.test(value);
+    }, "Por favor, digite um CEP válido");
 
     $(document).ready(init);
 
