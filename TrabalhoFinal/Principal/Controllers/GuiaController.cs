@@ -82,8 +82,19 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
+            string[] colunasNomes = new string[5];
+            colunasNomes[0] = "";
+            colunasNomes[1] = "";
+            colunasNomes[2] = "";
+            colunasNomes[3] = "";
+            colunasNomes[4] = "";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
             List<Guia> guias = new GuiaRepository().ObterTodosParaJSON(start, length);
 
@@ -103,7 +114,7 @@ namespace Principal.Controllers
             int i = 0;
             foreach (var guia in guias)
             {
-                x[i] = new { id = guia.Id, text = guia.Nome };
+                x[i] = new { id = guia.Id, nome = guia.Nome, sobrenome = guia.Sobrenome, cpf = guia.Cpf, rank = guia.Rank };
                 i++;
             }
 

@@ -149,44 +149,50 @@
                     verificaCPF: true
                 },
                 'guia.DataNascimento': {
-
+                    required: true,
+                    date: true
                 },
                 'sexo': {
-
+                    required: true
                 },
                 'guia.CarteiraTrabalho': {
-
+                    required: true,
+                    digits: true
                 },
                 'guia.Salario': {
-
+                    required: true,
+                    number: true
                 },
                 'guia.CategoriaHabilitacao': {
-
+                    required: true,
+                    rangelength:[1, 5]
                 },
                 'guia.Rank': {
-
+                    required: true
                 },
                 'cidade.IdEstado': {
-
+                    required: true
                 },
                 'select-cadastro-guia-cidade': {
-
+                    required: true
                 },
                 'endereco.Cep': {
-
+                    required: true,
+                    digits: true
                 },
                 'endereco.Logradouro': {
-
+                    required: true,
+                    rangelength:[3, 40]
                 },
                 'endereco.Numero': {
-
+                    required: true,
+                    digits: true
                 },
-                'endereco.Complemento': {
-
+                'endereco.Bairro': {
+                    required: true,
+                    rangelength:[4, 20]
                 },
-                'endereco.Referencia': {
-
-                }
+               
                 
             },
             messages: {
@@ -206,17 +212,65 @@
                     required: 'CPF deve ser preenchido.'
 
                 },
+                'guia.DataNascimento': {
+                    required: 'Data de Nascimento deve ser preenchido.',
+                    date: 'Data de Nascimento Inválida.'
+                },
+                'sexo': {
+                    required: 'Sexo deve ser preenchido.'
+                },
+                'guia.CarteiraTrabalho': {
+                    required: 'Carteira de tabalho deve ser preenchido.',
+                    digits: 'Carteira de trabalho deve conter somente digitos.'
+                },
+                'guia.Salario': {
+                    required: 'Salario deve ser preenchido.',
+                    number: 'Salario deve conter somente nuemros inteiro e decimais.'
+                },
+                'guia.CategoriaHabilitacao': {
+                    required: 'Categoria da habilitação deve ser preenchido.',
+                    rangelength: 'Carteira de habilitação deve conter de {0} a {1} caracteres.'
+                },
+                'guia.Rank': {
+                    required: 'Rank deve ser preenchido.'
+                },
+                'cidade.IdEstado': {
+                    required: 'Estado deve ser preenchido.'
+                },
+                'select-cadastro-guia-cidade': {
+                    required: 'Cidade deve ser preenchido.'
+                },
+                'endereco.Cep': {
+                    required: 'Cep deve ser preenchido.',
+                    digits: 'Cep deve conter somente digitos'
+                },
+                'endereco.Logradouro': {
+                    required: 'Logradouro deve ser preenchido.',
+                    rangelength: 'Logradouro deve conter de {0} a {1} caracteres.'
+                },
+                'endereco.Numero': {
+                    required: 'Número deve ser preenchido.',
+                    digits: 'Número deve conter apenas dígitos.'
+                },
+                'endereco.Bairro': {
+                    required: 'Bairro deve ser preenchido.',
+                    rangelength: 'Bairro deve conter de {0} a {1} caracteres.'
+                }
+                
             }
 
         });
     }
 
+
     jQuery.validator.addMethod("verificaCPF", function (value, element) {
+        // tamnho do cpf
         if (value.length < 11) return false;
+        // retira pontos, virgulas e traços
         value = value.replace('.', '');
         value = value.replace('.', '');
         cpf = value.replace('-', '');
-        
+        //  calcular cpf válido
         while (cpf.length < 11) cpf = "0" + cpf;
         var expReg = /^0+$|^1+$|^2+$|^3+$|^4+$|^5+$|^6+$|^7+$|^8+$|^9+$/;
         var a = [];
@@ -235,8 +289,11 @@
         return true;
     }, "Informe um CPF válido.");
 
+
+
     $(document).ready(init);
 
+   
     //Salvar modal cadastro
     $("#botao-salvar-modal-cadastrar-guia").on("click", function () {
         var nomeVar = $("#campo-cadastro-guia-nome").val();
