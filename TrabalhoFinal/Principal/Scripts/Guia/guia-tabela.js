@@ -183,8 +183,7 @@
                 'endereco.Cep': {
                     required: true,
                     digits: true,
-                    validaCEP: true,
-                   
+                    validaCEP: true                  
                 },
                 'endereco.Logradouro': {
                     required: true,
