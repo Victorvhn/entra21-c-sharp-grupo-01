@@ -73,7 +73,7 @@
             },
             'Pacote.Valor': {
                 required: 'Valor deve ser preenchido',
-                range: 'Valor deve ser de R$ {0} a R$ {1}',
+                range: 'Valor deve ser de R$ 500,00 a R$ 12.000,00',
                 number: 'Valor deve conter números inteiros ou decimais'
             },
             'Pacote.PercentualMaximoDesconto': {
