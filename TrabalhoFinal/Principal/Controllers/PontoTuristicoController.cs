@@ -50,17 +50,11 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(PontoTuristicoString pontoTuristico)
+        public ActionResult Store(PontoTuristico pontosTuristicos)
         {
-            PontoTuristico pontoTuristicoModel = new PontoTuristico()
-            {
-                Id = Convert.ToInt32(pontoTuristico.Id),
-                Nome = pontoTuristico.Nome.ToString(),
-                IdEndereco = Convert.ToInt32(pontoTuristico.IdEndereco)
-            };
-            int identificador = new PontosTuristicosRepository().Cadastrar(pontoTuristicoModel);
-            return Content(JsonConvert.SerializeObject(pontoTuristicoModel));
-            
+            int identificador = new PontosTuristicosRepository().Cadastrar(pontosTuristicos);
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
+       
         }
         [HttpPost]
         public ActionResult Update(PontoTuristico PontoTuristico)

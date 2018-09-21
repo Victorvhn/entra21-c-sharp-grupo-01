@@ -12,28 +12,28 @@ namespace Repository
 {
     public class PontosTuristicosRepository
     {
-        public List<Pacote> ObterTodosPacotesPeloIdPacote(int idPacote)
-        {
-            List<Pacote> pacotes = new List<Pacote>();
-            SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT pt.id, p.id, p.nome, p.valor, id_endereco, pt.nome,  FROM pontos_turisticos pt JOIN
-                                  pacotes p ON(pt.id = p.id_pacote) WHERE pt.id_pacote = @ID_PACOTE";
+//        public List<Pacote> ObterTodosPacotesPeloIdPacote(int idPacote)
+//        {
+//            List<Pacote> pacotes = new List<Pacote>();
+//            SqlCommand command = new Conexao().ObterConexao();
+//            command.CommandText = @"SELECT pt.id, p.id, p.nome, p.valor, id_endereco, pt.nome,  FROM pontos_turisticos pt JOIN
+//                                  pacotes p ON(pt.id = p.id_pacote) WHERE pt.id_pacote = @ID_PACOTE";
 
-            DataTable table = new DataTable();
-            table.Load(command.ExecuteReader());
-            foreach (DataRow line in table.Rows)
-            {
-                Pacote pacote = new Pacote()
-                {
-                    Id = Convert.ToInt32(line["p.id"].ToString()),
-                    Nome = line["p.nome"].ToString()
+//            DataTable table = new DataTable();
+//            table.Load(command.ExecuteReader());
+//            foreach (DataRow line in table.Rows)
+//            {
+//                Pacote pacote = new Pacote()
+//                {
+//                    Id = Convert.ToInt32(line["p.id"].ToString()),
+//                    Nome = line["p.nome"].ToString()
 
-                };
-                pacotes.Add(pacote);
+//                };
+//                pacotes.Add(pacote);
 
-            }
-            return pacotes;
-        }
+//            }
+//            return pacotes;
+//        }
 
         public List<PontoTuristico> ObterTodosParaSelect()
         {
@@ -47,7 +47,8 @@ namespace Repository
                 PontoTuristico pontoTuristico = new PontoTuristico()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Nome = linha[1].ToString()
+                    Nome = linha[1].ToString(),
+                    IdEndereco = Convert.ToInt32(linha[2].ToString())
                 };
                 pontosTuristicos.Add(pontoTuristico);
             }
@@ -56,7 +57,7 @@ namespace Repository
         public int Cadastrar(PontoTuristico pontosturisticos)
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "INSERT INTO pontos_turisticos (id_endereco,nome)OUTPUT INSERTED.ID VALUES(@ID_ENDERECO,@NOME)";
+            command.CommandText = "INSERT INTO pontos_turisticos(id_endereco,nome)OUTPUT INSERTED.ID VALUES(@ID_ENDERECO,@NOME)";
             command.Parameters.AddWithValue("@ID_ENDERECO", pontosturisticos.IdEndereco);
             command.Parameters.AddWithValue("@NOME", pontosturisticos.Nome);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
@@ -76,7 +77,7 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT pt.id,pt.nome,e.logradouro,e.numero,c.id,c.nome,es.id,es.nome FROM pontos_turisticos
             JOIN endereco e ON(e.id = pt.id_endereco)
-            JOIN cidades c ON (c.id = e.id_estado)
+            JOIN cidades c ON (c.id = e.id_cidade)
             JOIN estados es ON (es.id = c.id_estado)
            
             WHERE pt.ativo = @ID";
