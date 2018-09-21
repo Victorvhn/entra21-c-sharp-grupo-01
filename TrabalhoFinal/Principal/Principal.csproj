@@ -5170,6 +5170,7 @@
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\Mensagem\Index.js" />
     <Content Include="Scripts\PopularSelects\SelectEndereco\popular-select-endereco.js" />
+    <Content Include="Scripts\Validate\cep-validate.js" />
     <Content Include="Scripts\ViagemTurista\index.viagemTurista.js" />
     <Content Include="Scripts\PacotePontoTuristico\index-pacote-ponto-turistico.js" />
     <Content Include="Scripts\Pacote\pacote-tabela.js" />

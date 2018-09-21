@@ -183,7 +183,9 @@
                 'endereco.Cep': {
                     required: true,
                     digits: true,
-                    validaCEP: true                  
+                    validacep: true,
+                    minlength: [8],
+                    maxlength: [8]
                 },
                 'endereco.Logradouro': {
                     required: true,
@@ -254,8 +256,7 @@
                 'endereco.Cep': {
                     required: 'Cep deve ser preenchido.',
                     digits: 'Cep deve conter somente digitos',
-                    minlength: 'CEP deve conter no mínimo 8 dígitos.',
-                    maxlength: 'CEP inválido.'
+                    
                 },
                 'endereco.Logradouro': {
                     required: 'Logradouro deve ser preenchido.',
@@ -302,7 +303,7 @@
         return true;
     }, "Informe um CPF válido.");
 
-    jQuery.validator.addMethod("validaCEP", function (value, element) {
+    jQuery.validator.addMethod("validacep", function (value, element) {
         return this.optional(element) || /^[0-9]{5}-[0-9]{3}$/.test(value);
     }, "Por favor, digite um CEP válido");
 
