@@ -6,7 +6,7 @@ $(document).ready(function () {
             url: '/Pacote/ObterTodosPorJSONToSelect2',
             dataType: 'json'
         }
-    }).on('change', function (e) {
+    }).on('change', function () {
         $('#form-modal-cadastro-historico-viagem').valid()
     });
 });

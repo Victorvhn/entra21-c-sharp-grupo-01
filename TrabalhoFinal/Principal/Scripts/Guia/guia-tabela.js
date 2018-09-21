@@ -116,6 +116,11 @@
         limparCampos();
     });
 
+    // Mascaras
+    $(document).ready(function () {
+        $("#campo-cadastro-guia-cpf").mask("999.999.999-99");
+    });
+
     //Validação Modal Cadastro
     function init() {
         $('#form-modal-cadastro-guia').validate({
@@ -278,7 +283,7 @@
 
 
     jQuery.validator.addMethod("verificaCPF", function (value, element) {
-        // tamnho do cpf
+        // tamanho do cpf
         if (value.length < 11) return false;
         // retira pontos, virgulas e traços
         value = value.replace('.', '');

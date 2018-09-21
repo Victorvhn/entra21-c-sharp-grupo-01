@@ -43,13 +43,17 @@
 
     //Validação modal cadastro
     $('#form-modal-cadastro-historico-viagem').validate({
-        errorClass: 'form-control-danger',
-        validClass: 'form-control-success',
+        errorClass: "form-control-danger",
+        validClass: "form-control-success",
         highlight: function (element) {
             jQuery(element).closest('.form-group').addClass('has-error');
+            jQuery(element).addClass("form-control-danger");
+            jQuery(element).removeClass("form-control-success");
         },
         unhighlight: function (element) {
             jQuery(element).closest('.form-group').removeClass('has-error');
+            jQuery(element).removeClass("form-control-danger");
+            jQuery(element).addClass("form-control-success");
         },
         errorPlacement: function (error, element) {
             $(element).parent().append(error[0])
