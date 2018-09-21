@@ -8,12 +8,14 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Principal
         public ActionResult Index()
         {
+            ViewBag.UsuarioNome = ((Guia)Session["usuarioLogado"]).Nome;
             return View();
-        }        
+        }
+
     }
 }

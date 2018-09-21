@@ -4800,6 +4800,7 @@
     <Content Include="Content\assets\pcassets\js\pcoded.min.js" />
     <Content Include="Content\assets\pcassets\js\vertical-demo.js" />
     <Content Include="Content\css\master-customizada.css" />
+    <Content Include="Content\imagens\Brasil.png" />
     <Content Include="Content\imagens\icone1.ico" />
     <Content Include="Content\imagens\icone2.png" />
     <Content Include="Content\imagens\logo.png" />
@@ -5167,6 +5168,7 @@
     <Content Include="Scripts\Guia\guia-tabela.js" />
     <Content Include="Scripts\HistoricoViagens\historicoViagem-tabela.js" />
     <Content Include="Scripts\Idioma\idioma-tabela.js" />
+    <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\Mensagem\Index.js" />
     <Content Include="Scripts\PopularSelects\SelectEndereco\popular-select-endereco.js" />
     <Content Include="Scripts\ViagemTurista\index.viagemTurista.js" />
@@ -5587,6 +5589,7 @@
     <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\LockScreen.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

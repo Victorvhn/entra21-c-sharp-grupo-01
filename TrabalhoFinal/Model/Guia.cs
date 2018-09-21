@@ -8,7 +8,6 @@ namespace Model
 {
     public class Guia
     {
-        public string Login_ { get; set; }
 
         public string Sexo { get; set; }
 
@@ -16,7 +15,10 @@ namespace Model
 
         public Endereco Endereco { get; set; }
 
-        public string Senha { get; set; }
+        public int IdLogin { get; set; }
+
+        public Login Login { get; set; }
+
 
         public char Ativo { get; set; }
 

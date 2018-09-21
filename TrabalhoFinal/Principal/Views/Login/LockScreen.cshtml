@@ -1,13 +1,13 @@
-﻿
-@{
+﻿@{ 
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 
 <head>
-    <title>LuvTour - Acesso</title>
+    <title> LuvTour - Tela de bloqueio </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -22,7 +22,6 @@
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
@@ -34,8 +33,6 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/icon/icofont/css/icofont.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
-
-
 </head>
 
 <body class="fix-menu">
@@ -57,50 +54,31 @@
         </div>
     </div>
     <!-- Pre-loader end -->
-
     <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
         <!-- Container-fluid starts -->
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                    <!-- Authentication card start -->
+                    <!-- Login card start -->
                     <div class="login-card card-block auth-body mr-auto ml-auto">
-                        <form class="md-float-material" method="post" action="/Login/Index">
+                        <form class="md-float-material">
                             <div class="text-center">
-                                <img src="~/Content/assets/images/auth/LogoLogin.png" alt="logo.png">
+                                <img class="img-fluid" src="~/Content/assets/images/auth/logo-dark.png" alt="Theme-Logo">
                             </div>
                             <div class="auth-box">
-                                <div class="row m-b-20">
+                                <div class="row">
                                     <div class="col-md-12">
-                                        <h3 class="text-left txt-primary">Acesso</h3>
+                                        <h3 class="text-center"><i class="icofont icofont-lock text-primary f-80"></i></h3>
                                     </div>
                                 </div>
-                                <hr />
+                                <p class="text-inverse b-b-default text-right">Back to <a href="auth-normal-sign-in.html">Login.</a></p>
                                 <div class="input-group">
-                                    <input type="email" name="usuario" class="form-control" placeholder="Seu endereço de e-mail">
+                                    <input type="text" class="form-control" placeholder="Seu endereço de e-mail">
                                     <span class="md-line"></span>
                                 </div>
-                                <div class="input-group">
-                                    <input type="password" name="senha" class="form-control" placeholder="Senha">
-                                    <span class="md-line"></span>
-                                </div>
-                                <div class="row m-t-25 text-left">
-                                    <div class="col-12">
-                                        <div class="checkbox-fade fade-in-primary d-">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                <span class="text-inverse">Lembrar senha</span>
-                                            </label>
-                                        </div>
-                                        <div class="forgot-phone text-right f-right">
-                                            <a href="auth-reset-password.html" class="text-right f-w-600 text-inverse"> Esqueceu a senha?</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row m-t-30">
+                                <div class="row">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Entrar</button>
+                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"><i class="icofont icofont-lock"></i> Lock Screen </button>
                                     </div>
                                 </div>
                                 <hr />
@@ -110,12 +88,11 @@
                                         <p class="text-inverse text-left"><b>Sua equipe de autenticação</b></p>
                                     </div>
                                 </div>
-
                             </div>
                         </form>
                         <!-- end of form -->
                     </div>
-                    <!-- Authentication card end -->
+                    <!-- Login card end -->
                 </div>
                 <!-- end of col-sm-12 -->
             </div>
@@ -165,7 +142,7 @@
         </div>
         <p>Sorry for the inconvenience!</p>
     </div>
-    <![endif]-->
+        <![endif]-->
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
     <script type="text/javascript" src="~/Content/lib/jquery/js/jquery.min.js"></script>
@@ -182,7 +159,10 @@
     <script type="text/javascript" src="~/Content/lib/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
     <script type="text/javascript" src="~/Content/lib/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript" src="~/Content/lib/jquery-i18next/js/jquery-i18next.min.js"></script>
+    <!--Color Script Common-->
     <script type="text/javascript" src="~/Content/assets/js/common-pages.js"></script>
+
+
 </body>
 
 </html>
