@@ -119,6 +119,7 @@
     // Mascaras
     $(document).ready(function () {
         $("#campo-cadastro-guia-cpf").mask("999.999.999-99");
+        $("#campo-cep-cadastro-guia").mask('99999-999');
     });
 
     //Validação Modal Cadastro
@@ -156,8 +157,8 @@
                     verificaCPF: true
                 },
                 'guia.DataNascimento': {
-                    required: true,
-                    date: true
+                    required: true,                   
+                    dateBR: true
                 },
                 'sexo': {
                     required: true
@@ -175,10 +176,7 @@
                 'guia.CategoriaHabilitacao': {
                     required: true,
                     rangelength:[1, 5]
-                },
-                'guia.Rank': {
-                    required: true
-                },
+                },               
                 'cidade.IdEstado': {
                     required: true
                 },
@@ -186,18 +184,14 @@
                     required: true
                 },
                 'endereco.Cep': {
-                    required: true,
-                    digits: true,
-                    validacep: true,
-                    minlength: [8],
-                    maxlength: [8]
+                    required: true,                   
+                    validacep: true,                   
                 },
                 'endereco.Logradouro': {
                     required: true,
                     rangelength:[3, 40]
                 },
-                'endereco.Numero': {
-                    required: true,
+                'endereco.Numero': {                    
                     digits: true
                 },
                 'endereco.Bairro': {
@@ -223,9 +217,7 @@
                     maxlength: 'RG deve conter no máximo 12 dpigitos.'
                 },
                 'guia.Cpf': {
-                    required: 'CPF deve ser preenchido.',
-                    
-
+                    required: 'CPF deve ser preenchido.',                    
                 },
                 'guia.DataNascimento': {
                     required: 'Data de Nascimento deve ser preenchido.',
@@ -248,10 +240,7 @@
                 'guia.CategoriaHabilitacao': {
                     required: 'Categoria da habilitação deve ser preenchido.',
                     rangelength: 'Carteira de habilitação deve conter de {0} a {1} caracteres.'
-                },
-                'guia.Rank': {
-                    required: 'Rank deve ser preenchido.'
-                },
+                },               
                 'cidade.IdEstado': {
                     required: 'Estado deve ser preenchido.'
                 },
@@ -267,8 +256,7 @@
                     required: 'Logradouro deve ser preenchido.',
                     rangelength: 'Logradouro deve conter de {0} a {1} caracteres.'
                 },
-                'endereco.Numero': {
-                    required: 'Número deve ser preenchido.',
+                'endereco.Numero': {                   
                     digits: 'Número deve conter apenas dígitos.'
                 },
                 'endereco.Bairro': {
@@ -282,6 +270,7 @@
     }
 
 
+    //verifica cpf válido
     jQuery.validator.addMethod("verificaCPF", function (value, element) {
         // tamanho do cpf
         if (value.length < 11) return false;
@@ -308,13 +297,40 @@
         return true;
     }, "Informe um CPF válido.");
 
+    
+
+    $.validator.addMethod(
+        "dateBR",
+        function (value, element) {
+            var check = false;
+            var re = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+            if (re.test(value)) {
+                var adata = value.split('/');
+                var gg = parseInt(adata[0], 10);
+                var mm = parseInt(adata[1], 10);
+                var aaaa = parseInt(adata[2], 10);
+                var xdata = new Date(aaaa, mm - 1, gg);
+                if ((xdata.getFullYear() == aaaa) && (xdata.getMonth() == mm - 1) && (xdata.getDate() == gg))
+                    check = true;
+                else
+                    check = false;
+            } else
+                check = false;
+            return this.optional(element) || check;
+        },
+        "Insira uma data válida"
+    ); 
+     
+    
+
     jQuery.validator.addMethod("validacep", function (value, element) {
         return this.optional(element) || /^[0-9]{5}-[0-9]{3}$/.test(value);
     }, "Por favor, digite um CEP válido");
 
+
     $(document).ready(init);
 
-   
+
     //Salvar modal cadastro
     $("#botao-salvar-modal-cadastrar-guia").on("click", function () {
         var nomeVar = $("#campo-cadastro-guia-nome").val();
@@ -351,6 +367,8 @@
         }
     });
 
+
+
     function limparCampos() {
         $("#campo-cadastro-guia-nome").val(""),
             $("#campo-cadastro-guia-sobrenome").val(""),
@@ -363,4 +381,5 @@
             $("#campo-cadastro-guia-categoria-habilitacao").val(""),
             $("#campo-cadastro-guia-rank").val("")
     }
+    
 });
