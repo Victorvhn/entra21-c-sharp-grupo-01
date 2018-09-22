@@ -49,15 +49,9 @@
                 rangelength: [6, 30]
             },
             'endereco.Numero': {
-                required: true
-            },
-            'endereco.Complemento': {
-                required: true
-            },
-            'endereco.Referencia': {
                 required: true,
-                rangelength: [5, 50]
-            },
+                digits:true
+            },                                    
             'endereco.IdCidade': {
                 required: true
             }
@@ -72,15 +66,9 @@
                 rangelength: 'Logradouro deve conter entre {0} e {1} caracteres'
             },
             'endereco.Numero': {
-                required: 'Número deve ser preenchido'
-            },
-            'endereco.Complemento': {
-                required: 'Complemento deve ser preenchido'
-            },
-            'endereco.Referencia': {
-                required: 'Referência deve ser preenchido',
-                rangelength: 'Referência deve conter entre {0} e {1} caracteres'
-            },
+                required: 'Número deve ser preenchido.',
+                digits: 'Número deve conter somente  digitos'
+            },            
             'endereco.IdCidade': {
                 required: 'Cidade deve ser preenchido'
             }

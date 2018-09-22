@@ -191,7 +191,8 @@
                     required: true,
                     rangelength:[3, 40]
                 },
-                'endereco.Numero': {                    
+                'endereco.Numero': {  
+                    required: true,
                     digits: true
                 },
                 'endereco.Bairro': {
@@ -256,7 +257,8 @@
                     required: 'Logradouro deve ser preenchido.',
                     rangelength: 'Logradouro deve conter de {0} a {1} caracteres.'
                 },
-                'endereco.Numero': {                   
+                'endereco.Numero': {    
+                    required: 'Número deve ser preenchido.',
                     digits: 'Número deve conter apenas dígitos.'
                 },
                 'endereco.Bairro': {
