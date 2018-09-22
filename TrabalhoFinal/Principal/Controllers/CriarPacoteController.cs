@@ -53,5 +53,11 @@ namespace Principal.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSON()
+        {
+            return null;
+        }
     }
 }

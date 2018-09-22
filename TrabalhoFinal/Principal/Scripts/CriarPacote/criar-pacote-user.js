@@ -139,6 +139,37 @@
         $('#campo-valor-total-pacote-user').html(valorTotal);
     };
 
+    $("").on("", function () {
+        $.ajax ({
+            url: "/CriarPacote/ObterTodosPorJSON",
+            method: "get"
+        }),
+        success: function (result) {
+            var resultado = JSON.parse(result);
+            /*$("#pai").append('<div class="media chat-messages">\
+                        <div class="media-body chat-menu-reply">\
+                            <div class="">\
+                                <p class="chat-cont">' + $("#mensagem-texto").val() + '</p >\
+                                <p class="chat-time">' + resultado.dataHora + '</p>\
+                            </div>\
+                        </div>\
+                        </div>');*/
+
+            $('#').append('<div class="col-lg-6 col-xl-3 col-md-6">\
+                < div class= "card rounded-card user-card" >\
+                <div class="card-block">\
+                    <div class="user-content">\
+                        <h4 class="">' + resultado.Nome + '</h4>\
+                        <p class="m-b-0 text-muted">' + resultado.Valor + '</p>\
+                    </div>\
+                </div>\
+                </div >\
+            </div >');
+            
+            $("#mensagem-texto").val("");
+        }
+    });
+
     function limparCampos() {
 
     }
