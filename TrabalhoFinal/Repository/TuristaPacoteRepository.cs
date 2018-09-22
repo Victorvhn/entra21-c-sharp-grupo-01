@@ -57,6 +57,12 @@ ORDER BY " + orderColumn + " " + orderDir +
             return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
+        public List<TuristaPacote> ObterTodosPorJSONParaCard()
+        {
+            /*List < TuristaPacote > = new Conexao().ObterConexao();*/
+            return null;
+        }
+
         public int ContabilizarPacotesAguardando()
         {
             SqlCommand command = new Conexao().ObterConexao();
