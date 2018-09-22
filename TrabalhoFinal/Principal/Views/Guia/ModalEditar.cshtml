@@ -18,12 +18,12 @@
                     <input type="hidden" id="campo-editar-guia-id" value="" />
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="campo-nome">Nome</label>
+                            <label for="campo-nome">Nome <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.Nome" type="text" id="campo-editar-guia-nome" class="form-control" value="" />
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="campo-sobrenome">Sobrenome</label>
+                            <label for="campo-sobrenome">Sobrenome <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.Sobrenome" type="text" id="campo-editar-guia-sobrenome" class="form-control" value="" />
                         </div>
 
@@ -34,17 +34,17 @@
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="campo-cpf">CPF</label>
+                            <label for="campo-cpf">CPF <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.Cpf" type="text" id="campo-editar-guia-cpf" class="form-control" value="" />
                         </div>
 
                         <div class="form-group col">
-                            <label for="campo-data-nascimento">Data de Nascimento</label>
+                            <label for="campo-data-nascimento">Data de Nascimento <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.DataNascimento" type="date" id="campo-editar-guia-data-nascimento" class="form-control" value="" />
                         </div>
 
                         <div class="form-group col">
-                            <label for="campo-sexo">Sexo</label>
+                            <label for="campo-sexo">Sexo <span class="text-danger font-weight-bold">*</span></label>
                             <select id="campo-editar-guia-sexo" name="Guia.Sexo" class="form-control" required="required">
                                 <option disabled="disabled" selected="selected">Sexo</option>
                                 <option value="Homem">Masculino</option>
@@ -53,18 +53,18 @@
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="campo-numero-carteira-trabalho">Número Carteira de Trabalho</label>
+                            <label for="campo-numero-carteira-trabalho">Número Carteira de Trabalho <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.CarteiraTrabalho" type="text" id="campo-editar-guia-numero-carteira-trabalho"
                                    class="form-control" value="" />
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="campo-salario">Salário</label>
+                            <label for="campo-salario">Salário <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.Salario" type="text" id="campo-editar-guia-salario" class="form-control" value="" />
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="campo-categoria-habilitacao">Categoria da Habilitação</label>
+                            <label for="campo-categoria-habilitacao">Categoria da Habilitação <span class="text-danger font-weight-bold">*</span></label>
                             <select id="campo-editar-guia-categoria-habilitacao" name="Guia.CategoriaHabilitacao" class="form-control" required="required">
                                 <option disabled="disabled" selected="selected">- Selecione uma Categoria -</option>
                                 <option value="A">A</option>
@@ -99,6 +99,75 @@
                             </select>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <h5>Endereço</h5> <br /><br />
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+
+                            <label for="select-cadastro-guia-estado">Estado  <span class="text-danger font-weight-bold">*</span></label>
+                            <select class="form-control" name="cidade.IdEstado" id="select-cadastro-guia-estado"></select>
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+
+                            <label for="select-cadastro-cidade-guia">Cidade  <span class="text-danger font-weight-bold">*</span></label>
+                            <select class="form-control" name="select-cadastro-guia-cidade" id="select-cadastro-cidade-guia"></select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+
+                            <label for="cep">CEP  <span class="text-danger font-weight-bold">*</span></label>
+                            <input class="form-control" type="text" name="endereco.Cep" id="campo-cep-cadastro-guia" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+
+                            <label for="logradouro">Logradouro  <span class="text-danger font-weight-bold">*</span></label>
+                            <input name="endereco.Logradouro" type="text" id="campo-logradouro-editar-guia" size="150" class="form-control" />
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+
+                            <label for="campo-numero-editar-guia">Número</label>
+                            <input id="campo-numero-editar-guia" name="endereco.Numero" type="text" class="form-control">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+
+                            <label for="bairro">Bairro  <span class="text-danger font-weight-bold">*</span></label>
+                            <input id="campo-complemento-guia-editar" name="endereco.Bairro" type="text" class="form-control">
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+
+                            <label for="campo-referencia-guia-editar">Referência</label>
+                            <input id="campo-referencia-guia-editar" name="endereco.Referencia" class="form-control">
+
+                        </div>
+
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">

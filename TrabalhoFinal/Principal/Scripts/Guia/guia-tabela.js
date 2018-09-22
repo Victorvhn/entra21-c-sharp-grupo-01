@@ -297,32 +297,25 @@
         return true;
     }, "Informe um CPF válido.");
 
-    
+    //Validar Data
+    $.validator.addMethod("dateBR", function (value, element) {
+        if (value.length != 10) return false;
+        // verificando data
+        var data = value;
+        var dia = data.substr(0, 2);
+        var barra1 = data.substr(2, 1);
+        var mes = data.substr(3, 2);
+        var barra2 = data.substr(5, 1);
+        var ano = data.substr(6, 4);
+        if (value == "") return true;
+        if (data.length != 10 || barra1 != "/" || barra2 != "/" || isNaN(dia) || isNaN(mes) || isNaN(ano) || dia > 31 || mes > 12) return false;
+        if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia == 31) return false;
+        if (mes == 2 && (dia > 29 || (dia == 29 && ano % 4 != 0))) return false;
+        if (ano < 1888) return false;
+        return true;
+    }, "Informe uma data válida");  // Mensagem padrão
 
-    $.validator.addMethod(
-        "dateBR",
-        function (value, element) {
-            var check = false;
-            var re = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-            if (re.test(value)) {
-                var adata = value.split('/');
-                var gg = parseInt(adata[0], 10);
-                var mm = parseInt(adata[1], 10);
-                var aaaa = parseInt(adata[2], 10);
-                var xdata = new Date(aaaa, mm - 1, gg);
-                if ((xdata.getFullYear() == aaaa) && (xdata.getMonth() == mm - 1) && (xdata.getDate() == gg))
-                    check = true;
-                else
-                    check = false;
-            } else
-                check = false;
-            return this.optional(element) || check;
-        },
-        "Insira uma data válida"
-    ); 
-     
-    
-
+    // validar Cep
     jQuery.validator.addMethod("validacep", function (value, element) {
         return this.optional(element) || /^[0-9]{5}-[0-9]{3}$/.test(value);
     }, "Por favor, digite um CEP válido");
