@@ -211,7 +211,7 @@ namespace Repository
                 guia.Login.Email = table.Rows[0]["email"].ToString();
                 guia.Login.Id = Convert.ToInt32(table.Rows[0]["id_login"].ToString());
                 guia.IdLogin = Convert.ToInt32(table.Rows[0]["id_login"].ToString());
-                guia.Login.Privilegio = table.Rows[0]["privilegio"].ToString();
+                //guia.Login.Privilegio = table.Rows[0]["privilegio"].ToString();
             }
             return guia;
         }
