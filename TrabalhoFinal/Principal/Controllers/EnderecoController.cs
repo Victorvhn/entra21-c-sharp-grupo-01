@@ -59,7 +59,7 @@ namespace Principal.Controllers
         {
             Endereco enderecoModel = new Endereco();
 
-            enderecoModel.Cep = endereco.Cep.ToString();
+            enderecoModel.Cep = endereco.Cep.Replace("-", "").ToString();
             enderecoModel.Logradouro = endereco.Logradouro.ToString();
             enderecoModel.Numero = Convert.ToInt16(endereco.Numero);
             if (endereco.Complemento != null)
