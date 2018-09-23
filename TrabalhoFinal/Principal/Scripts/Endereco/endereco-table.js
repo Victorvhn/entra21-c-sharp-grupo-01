@@ -278,6 +278,7 @@
 
     function limparCamposEnderecoCadastro() {
         $('#campo-cadastro-endereco-id').val('');
+        $('#campo-cadastro-endereco-cep').val('');
         $('#campo-cadastro-endereco-logradouro').val('');
         $('#campo-cadastro-endereco-numero').val('');
         $('#campo-cadastro-endereco-complemento').val('');
@@ -287,6 +288,7 @@
 
     function limparCamposEnderecoEditar() {
         $('#campo-editar-endereco-id').val('');
+        $('#campo-cadastro-endereco-cep').val('');
         $('#campo-editar-endereco-logradouro').val('');
         $('#campo-editar-endereco-numero').val('');
         $('#campo-editar-endereco-complemento').val('');
