@@ -28,7 +28,7 @@ namespace Model
         {
             get
             {
-                return Cidade.Estado.Nome + " " + Cidade.Nome + " " + Logradouro + " - " + Numero + " - " + Complemento + " - " + Referencia;
+                return Cidade.Estado.Nome + " - " + Cidade.Nome + " - " + Logradouro + " - " + Numero;
             }
 
 

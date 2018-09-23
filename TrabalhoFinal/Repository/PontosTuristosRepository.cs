@@ -12,30 +12,28 @@ namespace Repository
 {
     public class PontosTuristicosRepository
     {
-//        public List<Pacote> ObterTodosPacotesPeloIdPacote(int idPacote)
-//        {
-//            List<Pacote> pacotes = new List<Pacote>();
-//            SqlCommand command = new Conexao().ObterConexao();
-//            command.CommandText = @"SELECT pt.id, p.id, p.nome, p.valor, id_endereco, pt.nome,  FROM pontos_turisticos pt JOIN
-//                                  pacotes p ON(pt.id = p.id_pacote) WHERE pt.id_pacote = @ID_PACOTE";
+        //        public List<Pacote> ObterTodosPacotesPeloIdPacote(int idPacote)
+        //        {
+        //            List<Pacote> pacotes = new List<Pacote>();
+        //            SqlCommand command = new Conexao().ObterConexao();
+        //            command.CommandText = @"SELECT pt.id, p.id, p.nome, p.valor, id_endereco, pt.nome,  FROM pontos_turisticos pt JOIN
+        //                                  pacotes p ON(pt.id = p.id_pacote) WHERE pt.id_pacote = @ID_PACOTE";
 
-//            DataTable table = new DataTable();
-//            table.Load(command.ExecuteReader());
-//            foreach (DataRow line in table.Rows)
-//            {
-//                Pacote pacote = new Pacote()
-//                {
-//                    Id = Convert.ToInt32(line["p.id"].ToString()),
-//                    Nome = line["p.nome"].ToString()
+        //            DataTable table = new DataTable();
+        //            table.Load(command.ExecuteReader());
+        //            foreach (DataRow line in table.Rows)
+        //            {
+        //                Pacote pacote = new Pacote()
+        //                {
+        //                    Id = Convert.ToInt32(line["p.id"].ToString()),
+        //                    Nome = line["p.nome"].ToString()
 
-//                };
-//                pacotes.Add(pacote);
+        //                };
+        //                pacotes.Add(pacote);
 
-//            }
-//            return pacotes;
-//        }
-
-       
+        //            }
+        //            return pacotes;
+        //        }
 
         public int Cadastrar(PontoTuristico pontosturisticos)
         {
@@ -47,7 +45,6 @@ namespace Repository
             return id;
         }
 
-
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -56,7 +53,6 @@ namespace Repository
             return command.ExecuteNonQuery() == 1;
 
         }
-
 
         public PontoTuristico ObterPeloId(int id)
         {
@@ -91,13 +87,12 @@ namespace Repository
             return pontoTuristico;
         }
 
-
         public bool Alterar(PontoTuristico pontoturisco)
         {
             SqlCommand command = new Conexao().ObterConexao();
 
             command.CommandText = "UPDATE pontos_turisticos SET id_endereco = @ID_ENDERECO,nome = @NOME WHERE id = @ID";
-            command.Parameters.AddWithValue("@ID_ENDERECO",pontoturisco.IdEndereco);
+            command.Parameters.AddWithValue("@ID_ENDERECO", pontoturisco.IdEndereco);
             command.Parameters.AddWithValue("@NOME", pontoturisco.Nome);
             command.Parameters.AddWithValue("@ID", pontoturisco.Id);
             return command.ExecuteNonQuery() == 1;
@@ -107,11 +102,10 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT COUNT(pt.id) FROM pontos_turisticos pt
-            INNER JOIN endereco e ON(e.id = pt.id_endereco)
+            INNER JOIN enderecos e ON(e.id = pt.id_endereco)
             INNER JOIN cidades c ON (c.id = e.id_cidade)
             INNER JOIN estados es ON (es.id = c.id_estado)
-            WHERE pt.ativo = 1 AND ((pt.id LIKE @SEARCH) OR (pt.nome LIKE @SEARCH) OR 
-            (e.nome LIKE @SEARCH))";
+            WHERE pt.ativo = 1 AND ((pt.id LIKE @SEARCH) OR (pt.nome LIKE @SEARCH) OR (e.logradouro LIKE @SEARCH))";
             command.Parameters.AddWithValue("@SEARCH", search);
             return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
@@ -133,7 +127,7 @@ namespace Repository
             JOIN enderecos e ON(e.id = pt.id_endereco)
             JOIN cidades c ON (c.id = e.id_cidade)
             JOIN estados es ON (es.id = c.id_estado)           
-            WHERE pt.ativo = 1 AND ((pt.id LIKE @SEARCH) OR (pt.nome LIKE @SEARCH) OR (e.nome LIKE @SEARCH))
+            WHERE pt.ativo = 1 AND ((pt.id LIKE @SEARCH) OR (pt.nome LIKE @SEARCH) OR (e.logradouro LIKE @SEARCH) OR (c.nome LIKE @SEARCH) OR (es.nome LIKE @SEARCH))
             ORDER BY " + orderColumn + " " + orderDir + " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
             command.Parameters.AddWithValue("@SEARCH", search);
@@ -146,28 +140,23 @@ namespace Repository
                 pontoturistico.Id = Convert.ToInt32(linha[0].ToString());
                 pontoturistico.Nome = linha[1].ToString();
 
-                pontoturistico.Endereco = new Endereco()
-                {
-                    Id = Convert.ToInt32(linha[1].ToString()),
-                    Cep = linha[3].ToString(),
-                    Logradouro = linha[4].ToString(),
-                    Numero = Convert.ToInt16(linha[5].ToString()),
-                    Complemento = linha[6].ToString(),
-                    Referencia = linha[7].ToString()
-                };
+                pontoturistico.Endereco = new Endereco();
+                pontoturistico.Endereco.Id = Convert.ToInt32(linha[2].ToString());
+                pontoturistico.Endereco.Cep = linha[3].ToString();
+                pontoturistico.Endereco.Logradouro = linha[4].ToString();
+                pontoturistico.Endereco.Numero = Convert.ToInt16(linha[5].ToString());
+                pontoturistico.Endereco.Complemento = linha[6].ToString();
+                pontoturistico.Endereco.Referencia = linha[7].ToString();
 
-                pontoturistico.Endereco.Cidade = new Cidade()
-                {
-                    Id = Convert.ToInt32(linha[8].ToString()),
-                    Nome = linha[9].ToString()
-                };
+                pontoturistico.Endereco.Cidade = new Cidade();
+                pontoturistico.Endereco.Cidade.Id = Convert.ToInt32(linha[8].ToString());
+                pontoturistico.Endereco.Cidade.Nome = linha[9].ToString();
 
-                pontoturistico.Endereco.Cidade.Estado = new Estado()
-                {
-                    Id = Convert.ToInt32(linha[10].ToString()),
-                    Nome = linha[11].ToString()
-                };
-                
+                pontoturistico.Endereco.Cidade.Estado = new Estado();
+                pontoturistico.Endereco.Cidade.Estado.Id = Convert.ToInt32(linha[10].ToString());
+                pontoturistico.Endereco.Cidade.Estado.Nome = linha[11].ToString();
+
+
                 pontosturisticos.Add(pontoturistico);
             }
             return pontosturisticos;

@@ -13,10 +13,12 @@ namespace Principal.Controllers
     public class PontoTuristicoController : Controller
     {
         // GET: PontoTuristico
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult Cadastro()
         {
@@ -31,7 +33,6 @@ namespace Principal.Controllers
             PontoTuristico pontoTuristico = new PontosTuristicosRepository().ObterPeloId(id);
             return Content(JsonConvert.SerializeObject(pontoTuristico));
         }
-
 
         [HttpGet]
         public ActionResult Excluir(int id)
@@ -57,7 +58,6 @@ namespace Principal.Controllers
 
         }
 
-
         [HttpPost]
         public ActionResult Update(PontoTuristico PontoTuristico)
         {
@@ -74,18 +74,16 @@ namespace Principal.Controllers
             return Content(JsonConvert.SerializeObject(sucesso));
         }
 
+        [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
-            string[] colunasNomes = new string[2];           
-            colunasNomes[0] = "pt.nome";
-            colunasNomes[1] = "e.nome";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
             string draw = Request.QueryString["draw"];
             string search = '%' + Request.QueryString["search[value]"] + '%';
             string orderColumn = Request.QueryString["order[0][column]"];
             string orderDir = Request.QueryString["order[0][dir]"];
-            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
+            orderColumn = orderColumn == "1" ? "e.logradouro" : "pt.nome";
 
             PontosTuristicosRepository repository = new PontosTuristicosRepository();
 

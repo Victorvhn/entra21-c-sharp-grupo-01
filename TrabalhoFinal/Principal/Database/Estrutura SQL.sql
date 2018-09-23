@@ -198,15 +198,15 @@ INSERT INTO cidades (id_estado, nome) VALUES
 ((SELECT id FROM estados WHERE nome = 'Madri'), 'Catalo');
 
 INSERT INTO enderecos (id_cidade, cep, logradouro, numero, complemento, referencia) VALUES
-((SELECT id FROM cidades WHERE nome = 'Hamburgo'), 14785236, 'rua das flores', 658, 'casa', 'proximo ao mercado de cosmeticos'),
-((SELECT id FROM cidades WHERE nome = 'Fukuoka'), 87965425, 'rua dos rosais', 895, 'edificio marinais', 'proximo a praça central'),
-((SELECT id FROM cidades WHERE nome = 'Blumenau'), 89015255, 'rua florianópolis', 458, 'casa de alvenaria', 'final da rua'),
-((SELECT id FROM cidades WHERE nome = 'Oásis de siwa'), 98543228, 'rua jorumiaki', 796, 'castelo tres torres', 'nas colinas do oeste'),
-((SELECT id FROM cidades WHERE nome = 'Marua'), 12345678, 'rua roça', 123, 'casa', 'morro azul'),
-((SELECT id FROM cidades WHERE nome = 'Kura'), 11234567, 'rua amerua', 321, 'casa de pedra', 'perto das dunas'),
-((SELECT id FROM cidades WHERE nome = 'Balaci'), 14785236, 'rua ventura', 987, 'casa sem portao', 'ao lado do mercado'),
-((SELECT id FROM cidades WHERE nome = 'Muria'), 96325874, 'rua zerumiru', 357, 'edificio azul', 'proximo a igreja'),
-((SELECT id FROM cidades WHERE nome = 'Catalo'), 96325777, 'centro', 777, 'centro', 'proximo a capela 3 anjos');
+((SELECT id FROM cidades WHERE nome = 'Hamburgo'), 14785236, 'Rua das flores', 658, 'Casa', 'Proximo ao mercado de cosmeticos'),
+((SELECT id FROM cidades WHERE nome = 'Fukuoka'), 87965425, 'Rua dos rosais', 895, 'Edificio marinais', 'Proximo a praça central'),
+((SELECT id FROM cidades WHERE nome = 'Blumenau'), 89015255, 'Rua florianópolis', 458, 'Casa de alvenaria', 'Final da rua'),
+((SELECT id FROM cidades WHERE nome = 'Oásis de siwa'), 98543228, 'Rua jorumiaki', 796, 'Castelo tres torres', 'Nas colinas do oeste'),
+((SELECT id FROM cidades WHERE nome = 'Marua'), 12345678, 'Rua roça', 123, 'Casa', 'Morro azul'),
+((SELECT id FROM cidades WHERE nome = 'Kura'), 11234567, 'Rua amerua', 321, 'Casa de pedra', 'Perto das dunas'),
+((SELECT id FROM cidades WHERE nome = 'Balaci'), 14785236, 'Rua ventura', 987, 'Casa sem portao', 'Ao lado do mercado'),
+((SELECT id FROM cidades WHERE nome = 'Muria'), 96325874, 'Rua zerumiru', 357, 'Edificio azul', 'Proximo a igreja'),
+((SELECT id FROM cidades WHERE nome = 'Catalo'), 96325777, 'Centro', 777, 'Centro', 'Proximo a capela 3 anjos');
 
 INSERT INTO turistas (id_endereco, nome, sobrenome, sexo, cpf, rg, data_nascimento) VALUES
 ((SELECT id FROM enderecos WHERE cep = 14785236 AND numero = 658), 'João', 'Fernandes', 'Masculino', 74125878965, 7896523, '02-07-1998'),
