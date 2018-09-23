@@ -57,7 +57,6 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSONParaCard()
         {
-
             List<Pacote> pacotes = new PacoteRepository().ObterTodosParaCard();
 
             return Content(JsonConvert.SerializeObject(new { data = pacotes }));

@@ -112,9 +112,8 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCamposEnderecoCadastro();
-                    $('#endereco-modal-cadastro').modal('hide');
                     $('#table-endereco').DataTable().ajax.reload();
+                    $('#endereco-modal-cadastro').modal('hide');
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
@@ -122,6 +121,7 @@
                             type: 'success'
                         });
                     });
+                    limparCamposEnderecoCadastro();
                 }
             });
         }

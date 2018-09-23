@@ -114,19 +114,21 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
             foreach (DataRow line in table.Rows)
             {
                 Endereco endereco = new Endereco();
-                endereco.Id =  Convert.ToInt32(table.Rows[0]["id"].ToString());
-                endereco.IdCidade = Convert.ToInt32(table.Rows[0]["eidcidade"].ToString());
-                endereco.Cep = table.Rows[0]["cep"].ToString();
-                endereco.Logradouro = table.Rows[0]["logradouro"].ToString();
-                endereco.Numero = Convert.ToInt16(table.Rows[0]["numero"].ToString());
-                endereco.Complemento = table.Rows[0]["complemento"].ToString();
-                endereco.Referencia = table.Rows[0]["referencia"].ToString();
+                endereco.Id =  Convert.ToInt32(line["id"].ToString());
+                endereco.IdCidade = Convert.ToInt32(line["eidcidade"].ToString());
+                endereco.Cep = line["cep"].ToString();
+                endereco.Logradouro = line["logradouro"].ToString();
+                endereco.Numero = Convert.ToInt16(line["numero"].ToString());
+                endereco.Complemento = line["complemento"].ToString();
+                endereco.Referencia = line["referencia"].ToString();
+
                 endereco.Cidade = new Cidade();
-                endereco.Cidade.Id = Convert.ToInt32(table.Rows[0]["cidadeid"].ToString());
-                endereco.Cidade.Nome = table.Rows[0]["cidadenome"].ToString();
+                endereco.Cidade.Id = Convert.ToInt32(line["cidadeid"].ToString());
+                endereco.Cidade.Nome = line["cidadenome"].ToString();
+
                 endereco.Cidade.Estado = new Estado();
-                endereco.Cidade.Estado.Id = Convert.ToInt32(table.Rows[0]["estadoid"].ToString());
-                endereco.Cidade.Estado.Nome = table.Rows[0]["nomeestado"].ToString();
+                endereco.Cidade.Estado.Id = Convert.ToInt32(line["estadoid"].ToString());
+                endereco.Cidade.Estado.Nome = line["nomeestado"].ToString();
 
                 enderecos.Add(endereco);
             }
