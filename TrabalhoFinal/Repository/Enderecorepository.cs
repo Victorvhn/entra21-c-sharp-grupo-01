@@ -95,16 +95,18 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
         }
 
 
-        public List<Endereco> ObterTodosParaJSON(string start, string length)
+        public List<Endereco> ObterTodosParaJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<Endereco> enderecos = new List<Endereco>();
-     
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT e.id AS 'id', e.id_cidade AS 'eidcidade' , e.cep AS 'cep', e.logradouro AS 'logradouro', e.numero AS 'numero', e.complemento AS 'complemento', 
-e.referencia AS 'referencia', c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id AS 'estadoid', es.nome AS 'nomeestado' FROM enderecos e 
-                                  JOIN cidades c ON(c.id = e.id_cidade )
-                                  JOIN estados es ON (es.id = c.id_estado ) WHERE e.id = @ID
- ORDER BY logradouro OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.CommandText = @"SELECT e.id AS 'id', e.id_cidade AS 'eidcidade' , e.cep AS 'cep', e.logradouro AS 'logradouro', 
+                                    e.numero AS 'numero', e.complemento AS 'complemento', e.referencia AS 'referencia', 
+                                    c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id AS 'estadoid', es.nome AS 'nomeestado' FROM enderecos e 
+                                    JOIN cidades c ON(c.id = e.id_cidade )
+                                    JOIN estados es ON (es.id = c.id_estado ) 
+                                    WHERE e.ativo = 1 AND ((e.cep LIKE @SEARCH) OR (e.logradouro LIKE @SEARCH) OR (c.nome LIKE @SEARCH))
+                                    ORDER BY  "+ orderColumn + " " + orderDir + " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.Parameters.AddWithValue("@SEARCH", search);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
@@ -128,6 +130,17 @@ e.referencia AS 'referencia', c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id 
                 enderecos.Add(endereco);
             }
             return enderecos;
+        }
+
+        public int ContabilizarEnderecosFiltrados(string search)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(e.id) FROM enderecos e
+                                    JOIN cidades c ON (c.id = e.id_cidade )
+                                    JOIN estados es ON (es.id = c.id_estado )
+                                    WHERE e.ativo = 1 AND ((e.cep LIKE @SEARCH) OR (e.logradouro LIKE @SEARCH) OR (c.nome LIKE @SEARCH) )";
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
         public int Cadastrar(Endereco endereco)
@@ -201,6 +214,13 @@ e.referencia AS 'referencia', c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id 
             }
             return endereco;
 
+        }
+
+        public int ContabilizarEnderecos()
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELEC COUNT(id) FROM enderecos WHERE ativo = 1";
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
     }

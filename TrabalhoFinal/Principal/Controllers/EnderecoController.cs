@@ -65,13 +65,32 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
+
+            string[] colunasNomes = new string[3];            
+            colunasNomes[0] = "e.cep";
+            colunasNomes[1] = "e.logradouro";
+            colunasNomes[2] = "c.nome";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
-            List<Endereco> enderecos = new EnderecoRepository().ObterTodosPorJSON();
+            EnderecoRepository repository = new EnderecoRepository();
+
+            List<Endereco> enderecos = repository.ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
+
+            int countEnderecos = repository.ContabilizarEnderecos();
+            int countFiltered = repository.ContabilizarEnderecosFiltrados(search);
+
             return Content(JsonConvert.SerializeObject(new
             {
-                data = enderecos
+                data = enderecos,
+                draw = draw,
+                recordsTotal = countEnderecos,
+                recordsFiltered = countFiltered
             }));
         }
 

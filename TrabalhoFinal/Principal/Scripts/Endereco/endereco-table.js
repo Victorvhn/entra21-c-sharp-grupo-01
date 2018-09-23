@@ -2,14 +2,35 @@
     //Preenche DataTable
     $('#table-endereco').DataTable({
         ajax: '/Endereco/ObterTodosPorJSON',
+        "order": [[2, "asc"]],
         columns: [
-            { data: 'Id' },
-            { data: 'Cep' },
-            { data: 'Logradouro' },
-            { data: 'Cidade.Nome' },
+            {
+                data: 'Id',
+                bSortable: false,
+                width: "10%"
+            },
+            {
+                data: 'Cep',
+                bSortable: true,
+                width: "15%",
+                target: 0
+            },
+            {
+                data: 'Logradouro',
+                bSortable: true,
+                width: "30%",
+                target: 1
+            },
+            {
+                data: 'Cidade.Nome',
+                bSortable: true,
+                width: "25%",
+                target: 2
+            },
             {
                 data: null,
-                "bSortable": false, "width": "20%",
+                bSortable: false,
+                width: "20%",
                 render: function (data, type, row) {
                     return '<a class="btn btn-outline-info botao-editar-endereco" data-id="' + row.Id + '" data-toggle="modal" data-target="#endereco-modal-editar">Editar</a>' +
                         '<a class="btn btn-outline-danger ml-1 botao-excluir-endereco" data-id="' + row.Id + '">Desativar</a>';
