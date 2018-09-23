@@ -11,7 +11,7 @@
                 target: 0
             },
             {
-                data: 'Endereco.Completo',
+                data: 'Endereco.Nome',
                 bSortable: true,
                 width: "30%%",
                 target: 1

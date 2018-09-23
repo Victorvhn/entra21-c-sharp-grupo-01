@@ -20,7 +20,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            
+
             ViewBag.PontoTuristico = new PontoTuristico();
             return View();
         }
@@ -54,8 +54,10 @@ namespace Principal.Controllers
         {
             int identificador = new PontosTuristicosRepository().Cadastrar(pontosTuristicos);
             return Content(JsonConvert.SerializeObject(new { id = identificador }));
-       
+
         }
+
+
         [HttpPost]
         public ActionResult Update(PontoTuristico PontoTuristico)
         {
@@ -74,26 +76,43 @@ namespace Principal.Controllers
 
         public ActionResult ObterTodosPorJSON()
         {
+            string[] colunasNomes = new string[2];           
+            colunasNomes[0] = "pt.nome";
+            colunasNomes[1] = "e.nome";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
-            List<PontoTuristico> pontosturisticos = new PontosTuristicosRepository().ObterTodosParaJSON(start, length);
+            PontosTuristicosRepository repository = new PontosTuristicosRepository();
 
-            return Content(JsonConvert.SerializeObject(new { data = pontosturisticos }));
-        }
-        [HttpGet]
-        public ActionResult ObterTodosPorJSONSelect2()
-        {
-            List<PontoTuristico> pontosturisticos = new PontosTuristicosRepository().ObterTodosParaSelect();
+            List<PontoTuristico> pontosturisticos = repository.ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
 
-            var x = new Object[pontosturisticos.Count];
-            int i = 0;
-            foreach (var pontoturistico in pontosturisticos)
+            int countPontoTuristico = repository.ContabilizarPontosTuristicos();
+            int countFiltered = repository.ContabilizarPontosTuristicosFiltrados(search);
+
+            return Content(JsonConvert.SerializeObject(new
             {
-                x[i] = new { id = pontoturistico.Id, text = pontoturistico.Nome, idEndereco = pontoturistico.IdEndereco };
-                i++;
-            }
-            return Content(JsonConvert.SerializeObject(new { results = x }));
+                data = pontosturisticos,
+                draw = draw,
+                recordsTotal = countPontoTuristico,
+                recordsFiltered = countFiltered
+            }));
+        }
+
+        [HttpGet]
+        public ActionResult ModalCadastro()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ModalEditar()
+        {
+            return View();
         }
     }
 }
