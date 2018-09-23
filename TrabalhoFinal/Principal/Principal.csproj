@@ -97,6 +97,7 @@
     <Content Include="Content\assets\css\ionicons.css" />
     <Content Include="Content\assets\css\jquery.mCustomScrollbar.css" />
     <Content Include="Content\assets\css\linearicons.css" />
+    <Content Include="Content\assets\css\main.css" />
     <Content Include="Content\assets\css\pcoded-horizontal.min.css" />
     <Content Include="Content\assets\css\simple-line-icons.css" />
     <Content Include="Content\assets\css\style.css" />

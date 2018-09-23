@@ -30,6 +30,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 .icofont-angry-monster:before {
 	content: "\e901";
 }
