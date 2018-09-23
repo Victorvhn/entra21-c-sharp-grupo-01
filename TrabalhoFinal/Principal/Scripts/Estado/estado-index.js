@@ -1,4 +1,4 @@
-﻿a$(function () {
+﻿$(function () {
     //Preenche DataTable
     $('#table-estados').DataTable({
         ajax: '/Estado/ObterTodosPorJSON',
