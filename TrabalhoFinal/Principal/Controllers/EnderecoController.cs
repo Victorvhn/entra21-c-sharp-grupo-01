@@ -55,9 +55,25 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Endereco endereco)
-        {   
-            int identificador = new EnderecoRepository().Cadastrar(endereco);
+        public ActionResult Store(EnderecoString endereco)
+        {
+            Endereco enderecoModel = new Endereco();
+
+            enderecoModel.Cep = endereco.Cep.ToString();
+            enderecoModel.Logradouro = endereco.Logradouro.ToString();
+            enderecoModel.Numero = Convert.ToInt16(endereco.Numero);
+            if (endereco.Complemento != null)
+            {
+                enderecoModel.Complemento = endereco.Complemento.ToString();
+            }
+            if (endereco.Referencia != null)
+            {
+                enderecoModel.Referencia = endereco.Referencia.ToString();
+            }
+            enderecoModel.IdCidade = Convert.ToInt32(endereco.IdCidade.ToString());
+
+
+            int identificador = new EnderecoRepository().Cadastrar(enderecoModel);
             return Content(JsonConvert.SerializeObject(new { id = identificador }));
 
         }
@@ -66,7 +82,7 @@ namespace Principal.Controllers
         public ActionResult ObterTodosPorJSON()
         {
 
-            string[] colunasNomes = new string[3];            
+            string[] colunasNomes = new string[3];
             colunasNomes[0] = "e.cep";
             colunasNomes[1] = "e.logradouro";
             colunasNomes[2] = "c.nome";

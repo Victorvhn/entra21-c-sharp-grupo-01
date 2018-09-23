@@ -94,7 +94,6 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
             return enderecos;
         }
 
-
         public List<Endereco> ObterTodosParaJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<Endereco> enderecos = new List<Endereco>();
@@ -145,13 +144,44 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
 
         public int Cadastrar(Endereco endereco)
         {
+            string complemento = "";
+            string complementoText = "";
+            string referencia = "";
+            string referenciaText = "";
+            if (endereco.Complemento != null)
+            {
+                complemento = " complemento,";
+                complementoText = " @COMPLEMENTO,";
+            }
+            else
+            {
+                complemento = "";
+                complementoText = "";
+            }
+
+            if (endereco.Referencia != null)
+            {
+                referencia = " referencia,";
+                referenciaText = " @REFERENCIA,";
+            }
+            else
+            {
+                referencia = "";
+                referenciaText = "";
+            }
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "INSERT INTO enderecos(cep, logradouro, numero, complemento, referencia, id_cidade) OUTPUT INSERTED.ID VALUES (@CEP, @LOGRADOURO, @NUMERO, @COMPLEMENTO, @REFERENCIA, @ID_CIDADE)";
+            command.CommandText = @"INSERT INTO enderecos(cep, logradouro, numero," + complemento + "" + referencia + " id_cidade) OUTPUT INSERTED.ID VALUES (@CEP, @LOGRADOURO, @NUMERO," + complementoText + " " + referenciaText + " @ID_CIDADE)";
             command.Parameters.AddWithValue("@CEP", endereco.Cep);
             command.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
             command.Parameters.AddWithValue("@NUMERO", endereco.Numero);
-            command.Parameters.AddWithValue("@COMPLEMENTO", endereco.Complemento);
-            command.Parameters.AddWithValue("@REFERENCIA", endereco.Referencia);
+            if (endereco.Complemento != null)
+            {
+                command.Parameters.AddWithValue("@COMPLEMENTO", endereco.Complemento);
+            }
+            if (endereco.Referencia != null)
+            {
+                command.Parameters.AddWithValue("@REFERENCIA", endereco.Referencia);
+            }
             command.Parameters.AddWithValue("@ID_CIDADE", endereco.IdCidade);
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
@@ -219,7 +249,7 @@ e.referencia AS 'referencia', c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id 
         public int ContabilizarEnderecos()
         {
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELEC COUNT(id) FROM enderecos WHERE ativo = 1";
+            command.CommandText = @"SELECT COUNT(id) FROM enderecos WHERE ativo = 1";
             return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
