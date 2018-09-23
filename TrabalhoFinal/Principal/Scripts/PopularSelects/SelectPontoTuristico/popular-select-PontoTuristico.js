@@ -1,5 +1,6 @@
-﻿$(document).ready(function () {
-    $('#select-modal-cadastro-pontoTuristico').select2({
+﻿"use strict";
+$(document).ready(function () {
+    $('#select-modal-cadastro-pontoturistico').select2({
         ajax: {
             url: '/Endereco/ObterTodosPorJSONToSelect2',
             dataType: 'json'

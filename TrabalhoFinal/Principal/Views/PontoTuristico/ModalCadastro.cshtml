@@ -14,25 +14,22 @@
             </div>
             <div class="modal-body">
 
-                <div class="form-group">
+                <form id="form-modal-cadastro-ponto-turistico" method="post">
+                    <div class="form-row">
 
-                    <label class="col-md-12">
-                        Endereço <span class="text-danger font-weight-bold">*</span>
-                    </label>
-                    <div class="col-md-6">
-                        <select class="form-control form-control-default" name="pontoTuristico.IdEndereco" id="select-modal-cadastro-pontoturistico"></select>
+                        <div class="form-group col-md-6">
+                            <label for="select-endereco-ponto-turistico">Endereço <span class="text-danger font-weight-bold">*</span></label>
+                            <select class="form-control form-control-default" name="pontoTuristico.IdEndereco" id="select-modal-cadastro-estado"></select>
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="cadastro-pontoTuristico-campo-nome">Ponto Turistico <span class="text-danger font-weight-bold">*</span></label>
+                            <input type="text" id="campo-cadastro-pontoturistico-nome" class="form-control" name="pontoTuristico.Nome">
+                        </div>
+
                     </div>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label for="cadastro-pontoTuristico-campo-nome">
-                        Ponto Turistico <span class="text-danger font-weight-bold">*</span>
-                    </label>
-                    <input type="text" id="campo-cadastro-pontoturistico-nome" class="form-control" name="pontoTuristico.Nome">
-
-                </div>
+                </form>
 
             </div>
             <div class="modal-footer">

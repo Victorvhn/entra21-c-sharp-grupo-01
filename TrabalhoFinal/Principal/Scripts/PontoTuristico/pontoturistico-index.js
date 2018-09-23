@@ -2,6 +2,7 @@
     //Preenche DataTable
     $('#table-pontoturistico').DataTable({
         ajax: '/PontoTuristico/ObterTodosPorJSON',
+        "order":[[2, "asc"]],
         columns: [
             {
                 data: 'Id',
@@ -10,13 +11,16 @@
                 target: 0
             },
             {
-                data: 'Endereco.Completo'
+                data: 'Endereco.Completo',
+                bSortable: true,
+                width: "30%%",
+                target: 1
             },
             {
                 data: 'Nome',
                 bSortable: true,
                 width: "40%",
-                target: 1
+                target: 2
             },
             {
                 data: null,
