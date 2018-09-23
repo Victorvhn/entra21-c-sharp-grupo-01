@@ -4,16 +4,31 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<button type="button" class="btn btn-primary waves-effect" id="botao-modal-cadastrar-historico-viagem">Cadastrar</button>
-
-<div class="card">
-    <div class="card-header">
-        <h3>Tabela Histórico de Viagens</h3>
-        <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li></ul></div>
+<div class="page-header card horizontal-layout-icon">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="icofont icofont-document-search"></i>
+                <div class="d-inline">
+                    <h4>Tabela de Histórico de Viagens</h4>
+                    <span>Tela de gerenciamento de Históricos de Viagens</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <button type="button" class="btn btn-grd-primary" id="botao-modal-cadastrar-historico-viagem">
+                    <i class="icofont icofont-plus"></i>
+                    Cadastrar
+                </button>
+            </div>
+        </div>
     </div>
+</div>
+<div class="card">
     <div class="card-block">
         <div class="table-responsive">
-            <table class="table table-de" id="historico-viagem-tabela">
+            <table class="table table-striped table-bordered nowrap dataTable" id="historico-viagem-tabela">
                 <thead>
                     <tr>
                         <th>Código</th>
