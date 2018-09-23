@@ -102,6 +102,7 @@
             });
         }
     });
+
     //Botao editar
     $('table').on('click', '.botao-editar-pontoturistico', function () {
         var id = $(this).data('id');
@@ -118,6 +119,7 @@
             }
         });
     });
+
     //Update modal editar
     $('#botao-salvar-modal-editar-pontoturistico').on('click', function () {
         $.ajax({

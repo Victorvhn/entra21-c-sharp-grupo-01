@@ -50,7 +50,9 @@ namespace Repository
         {
             List<Endereco> enderecos = new List<Endereco>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = "SELECT id, cep, logradouro, numero, complemento, referencia, id_cidade FROM enderecos";
+            command.CommandText = @"SELECT e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, e.id_cidade FROM enderecos e 
+            JOIN cidades c ON (c.id = e.id_cidade)
+            JOIN estados es ON (e.id = c.id_estado)";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow linha in table.Rows)
