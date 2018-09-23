@@ -140,25 +140,32 @@
     };
 
     $("#botao-de-teste-card").on("click", function () {
-        $.ajax ({
-            url: "/CriarPacote/ObterTodosPorJSON",
-            method: "get"
-        }),
-        success: function (result) {
-            var resultado = JSON.parse(result);
+        $.ajax({
+            url: "/CriarPacote/ObterTodosPorJSONParaCard",
+            method: "get",
+            datatype: 'json',
+            success: function (data) {
+                var resultado = JSON.parse(data);
+                
+                for (var i = 0; i < resultado.length; i++) {
 
-            $('#principal-criar-pacote').append('<div class="col-lg-6 col-xl-3 col-md-6">\
-                < div class= "card rounded-card user-card" >\
-                <div class="card-block">\
-                    <div class="user-content">\
-                        <h4 class="">' + resultado.Nome + '</h4>\
-                        <p class="m-b-0 text-muted">' + resultado.Valor + '</p>\
-                    </div>\
-                </div>\
-                </div >\
-            </div >');
-          
-        }
+
+                    $('#principal-criar-pacote').append('\
+                    < div class= "col-lg-6 col-xl-3 col-md-6" >\
+                        < div class= "card rounded-card user-card" >\
+                            <div class="card-block">\
+                                <div class="user-content">\
+                                    <h4 class="">'  + '</h4>\
+                                    <p class="m-b-0 text-muted">'+ '</p>\
+                                </div>\
+                            </div>\
+                        </div >\
+                    </div >');
+                }
+
+
+            }
+        });
     });
 
     function limparCampos() {

@@ -55,13 +55,12 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
-        public ActionResult ObterTodosPorJSON()
+        public ActionResult ObterTodosPorJSONParaCard()
         {
-            TuristaPacoteRepository turistaPacoteRepository = new TuristaPacoteRepository();
 
-            List<Model.TuristaPacote> turistaPacotes = turistaPacoteRepository.ObterTodosPorJSONParaCard();
+            List<Pacote> pacotes = new PacoteRepository().ObterTodosParaCard();
 
-            return Content(JsonConvert.SerializeObject(new { data = turistaPacotes }));
+            return Content(JsonConvert.SerializeObject(new { data = pacotes }));
         }
     }
 }

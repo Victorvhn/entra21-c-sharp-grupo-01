@@ -12,7 +12,7 @@ namespace Repository
 {
     public class PacoteRepository
     {
-        public List<Pacote> ObterTodos()
+        public List<Pacote> ObterTodosParaCard()
         {
             List<Pacote> pacotes = new List<Pacote>();
             SqlCommand command = new Conexao().ObterConexao();

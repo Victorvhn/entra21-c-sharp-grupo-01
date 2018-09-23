@@ -36,10 +36,10 @@
                             </div>\
                         </div>\
                         </div>');
-                
+
                 $("#mensagem-texto").val("");
             }
-        })
+        });
     }
 
     var pusher = new Pusher('1ba12d6fac4afcac5b77', {
