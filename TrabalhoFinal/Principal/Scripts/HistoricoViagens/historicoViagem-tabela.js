@@ -229,7 +229,6 @@
 
     function limparCampos() {
         $('#select-cadastro-historico-viagem-idPacote').val('').trigger('change');
-      
-        $("#campo-cadastro-historicoViagens-data").val('');            
+        $("#campo-cadastro-historico-viagem-data").val(null);            
     }
 });

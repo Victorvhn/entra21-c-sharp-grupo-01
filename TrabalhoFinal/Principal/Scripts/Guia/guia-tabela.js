@@ -369,7 +369,7 @@
         $('#campo-cadastro-guia-sobrenome').val('');
         $('#campo-cadastro-guia-rg').val('');
         $('#campo-cadastro-guia-cpf').val('');
-        $('#campo-cadastro-guia-data-nascimento').val('');
+        $('#campo-cadastro-guia-data-nascimento').val(null);
         $('#campo-cadastro-guia-sexo').val('');
         $('#campo-cadastro-guia-numero-carteira-trabalho').val('');
         $('#campo-cadastro-guia-salario').val('');

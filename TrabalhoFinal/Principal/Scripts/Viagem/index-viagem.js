@@ -243,10 +243,10 @@
     });
 
     function limparCampos() {
-        $('campo-cadastro-data-saida-viagem').val();
-        $('#campo-cadastro-data-volta-viagem').val();
-        $('#select-cadastro-viagem-guia').val();
-        $('#select-cadastro-viagem-pacote').val();
+        $('#campo-cadastro-data-saida-viagem').val(null);
+        $('#campo-cadastro-data-volta-viagem').val(null);
+        $('#select-cadastro-viagem-guia').val('').trigger('cahnge');
+        $('#select-cadastro-viagem-pacote').val('').trigger('change');
     }
 
     function limparCampoEditar() {
