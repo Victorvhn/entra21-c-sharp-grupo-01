@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Basicos" xml:space="preserve">
+    <value>Basics</value>
+  </data>
   <data name="CarteiraDeTrabalho" xml:space="preserve">
     <value>Work Permit</value>
   </data>
   <data name="Cidade" xml:space="preserve">
     <value>City</value>
+  </data>
+  <data name="Cidades" xml:space="preserve">
+    <value>Cities</value>
   </data>
   <data name="Classificacao" xml:space="preserve">
     <value>Rank</value>
@@ -144,14 +150,23 @@
   <data name="Endereco" xml:space="preserve">
     <value>Address</value>
   </data>
+  <data name="Enderecos" xml:space="preserve">
+    <value>Adresses</value>
+  </data>
   <data name="Estado" xml:space="preserve">
     <value>State</value>
+  </data>
+  <data name="Estados" xml:space="preserve">
+    <value>States</value>
   </data>
   <data name="Genero" xml:space="preserve">
     <value>Gender</value>
   </data>
   <data name="Idade" xml:space="preserve">
     <value>Age</value>
+  </data>
+  <data name="Idiomas" xml:space="preserve">
+    <value>Languages</value>
   </data>
   <data name="Nome" xml:space="preserve">
     <value>Name</value>
@@ -162,8 +177,14 @@
   <data name="Pacote" xml:space="preserve">
     <value>Package</value>
   </data>
+  <data name="Pacotes" xml:space="preserve">
+    <value>Packages</value>
+  </data>
   <data name="Pais" xml:space="preserve">
     <value>Country</value>
+  </data>
+  <data name="PontosTuristicos" xml:space="preserve">
+    <value>Attractions</value>
   </data>
   <data name="Referencia" xml:space="preserve">
     <value>Reference</value>
@@ -182,5 +203,8 @@
   </data>
   <data name="Valor" xml:space="preserve">
     <value>Value</value>
+  </data>
+  <data name="Viagens" xml:space="preserve">
+    <value>Travels</value>
   </data>
 </root>

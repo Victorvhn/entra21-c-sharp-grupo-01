@@ -117,7 +117,91 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Basicos" xml:space="preserve">
+    <value>Básicos</value>
+  </data>
+  <data name="CarteiraDeTrabalho" xml:space="preserve">
+    <value>Carteira de Trabalho</value>
+  </data>
+  <data name="Cidade" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="Cidades" xml:space="preserve">
+    <value>Cidades</value>
+  </data>
+  <data name="Classificacao" xml:space="preserve">
+    <value>Classificação</value>
+  </data>
+  <data name="Complemento" xml:space="preserve">
+    <value>Complemento</value>
+  </data>
   <data name="Continente" xml:space="preserve">
     <value>Continente</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="DataNascimento" xml:space="preserve">
+    <value>Data de Nascimento</value>
+  </data>
+  <data name="Endereco" xml:space="preserve">
+    <value>Endereço</value>
+  </data>
+  <data name="Enderecos" xml:space="preserve">
+    <value>Endereços</value>
+  </data>
+  <data name="Estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Estados" xml:space="preserve">
+    <value>Estados</value>
+  </data>
+  <data name="Genero" xml:space="preserve">
+    <value>Gênero</value>
+  </data>
+  <data name="Idade" xml:space="preserve">
+    <value>Idade</value>
+  </data>
+  <data name="Idiomas" xml:space="preserve">
+    <value>Idiomas</value>
+  </data>
+  <data name="Nome" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="Numero" xml:space="preserve">
+    <value>Número</value>
+  </data>
+  <data name="Pacote" xml:space="preserve">
+    <value>Pacote</value>
+  </data>
+  <data name="Pacotes" xml:space="preserve">
+    <value>Pacotes</value>
+  </data>
+  <data name="Pais" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="PontosTuristicos" xml:space="preserve">
+    <value>Pontos Turísticos</value>
+  </data>
+  <data name="Referencia" xml:space="preserve">
+    <value>Referência</value>
+  </data>
+  <data name="Salario" xml:space="preserve">
+    <value>Salário</value>
+  </data>
+  <data name="Senha" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="Sobrenome" xml:space="preserve">
+    <value>Sobrenome</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="Valor" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="Viagens" xml:space="preserve">
+    <value>Viagens</value>
   </data>
 </root>
