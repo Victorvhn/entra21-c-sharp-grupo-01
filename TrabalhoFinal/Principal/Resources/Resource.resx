@@ -294,6 +294,9 @@
   <data name="PercentualDesconto" xml:space="preserve">
     <value>Percentual máximo de desconto deve ser Preenchido</value>
   </data>
+  <data name="PercentualDescontoDeveConter" xml:space="preserve">
+    <value>Percentual máximo de desconto deve conter números inteiros ou decimais</value>
+  </data>
   <data name="PercentualDescontoDeveSer" xml:space="preserve">
     <value>Percentual máximo de desconto deve ser entre 1 % a 100%</value>
   </data>
