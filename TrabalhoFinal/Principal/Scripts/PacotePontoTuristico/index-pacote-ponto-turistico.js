@@ -66,7 +66,6 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCampos();
                     $('#pacote-ponto-turistico-modal-cadastro').modal('hide');
                     $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                     $(function () {
@@ -76,6 +75,7 @@
                             type: 'success'
                         });
                     });
+                    limparCampos();
                 }
             });
         }

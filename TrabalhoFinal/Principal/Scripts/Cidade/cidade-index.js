@@ -115,7 +115,6 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCamposCidadeCadastro();
                     $('#cidade-modal-cadastro').modal('hide');
                     $('#table-cidade').DataTable().ajax.reload();
                     $(function () {
@@ -125,6 +124,7 @@
                             type: 'success'
                         });
                     });
+                    limparCamposCidadeCadastro();
                 }
             });
         }
@@ -254,8 +254,4 @@
         $('#campo-cadastro-cidade-nome').val('');
     }
 
-    function limparCamposCidadeEditar() {
-        $('#campo-editar-cidade-id').val('');
-        $('#select-modal-editar-cidade').val('').trigger('change');
-    }
 });

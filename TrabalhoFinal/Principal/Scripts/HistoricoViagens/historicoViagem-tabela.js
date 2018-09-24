@@ -93,7 +93,6 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCampos();
                     $('#historico-viagem-modal-cadastro').modal('hide');
                     $('#historico-viagem-tabela').DataTable().ajax.reload();
                     $(function () {
@@ -103,6 +102,7 @@
                             type: 'success'
                         });
                     });
+                    limparCampos();
                 }
             });
         }
@@ -228,9 +228,8 @@
 
 
     function limparCampos() {
-        $("#select-cadastro-historico-viagem-idPacote").prop('selectedIndex', - 1);
-        $("#campo-cadastro-historicoViagens-data").val("");
-        $("#select-editar-historicoViagens-idPacote").prop('selectedIndex', - 1);
-        $("#campo-editar-historicoViagens-data").val("");
+        $('#select-cadastro-historico-viagem-idPacote').val('').trigger('change');
+      
+        $("#campo-cadastro-historicoViagens-data").val('');            
     }
 });

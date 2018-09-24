@@ -89,7 +89,6 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCampos();
                     $('#viagem-modal-cadastro').modal('hide');
                     $('#table-viagens').DataTable().ajax.reload();
                     $(function () {
@@ -99,6 +98,7 @@
                             type: 'success'
                         });
                     });
+                    limparCampos();
                 }
             });
         }
@@ -201,7 +201,6 @@
                             });
                         });
                         $('#viagem-modal-editar').modal('hide');
-                        limparCampoEditar();
                     } else {
                         new PNotify({
                             title: 'Erro!',
@@ -209,6 +208,7 @@
                             type: 'error'
                         });
                     }
+                    limparCampoEditar();
                 }
             });
         }

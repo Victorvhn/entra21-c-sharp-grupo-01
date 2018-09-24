@@ -88,7 +88,6 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCamposPontoTuristicoCadastro();
                     $('#pontoturistico-modal-cadastro').modal('hide');
                     $('#table-pontoturistico').DataTable().ajax.reload();
                     $(function () {
@@ -98,6 +97,7 @@
                             type: 'success'
                         });
                     });
+                    limparCamposPontoTuristicoCadastro();
                 }
             });
         }

@@ -140,7 +140,6 @@
                             });
                         });
                         $('#estado-modal-editar').modal('hide');
-                        limparCampos();
                     } else {
                         new PNotify({
                             title: 'Erro!',
@@ -148,6 +147,7 @@
                             type: 'error'
                         });
                     }
+                    limparCampos();
                 }
             });
         }
@@ -183,8 +183,6 @@
     });
 
     function limparCampos() {
-        $('#campo-cadastro-estado-nome').val('');
-        $('#campo-editar-estado-id').val('');
-        $('#campo-editar-estado-nome').val('');
+        $('#campo-cadastro-estado-nome').val('');       
     }
 });

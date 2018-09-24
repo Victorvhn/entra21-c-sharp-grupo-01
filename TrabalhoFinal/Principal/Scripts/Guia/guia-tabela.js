@@ -347,7 +347,6 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCampos();
                     $("#guia-modal-cadastro").modal('hide');
                     $('#guia-tabela').DataTable().ajax.reload();
                     $(function () {
@@ -357,6 +356,7 @@
                             type: 'success'
                         });
                     });
+                    limparCampos();
                 }
             });
         }
@@ -365,16 +365,23 @@
 
 
     function limparCampos() {
-        $("#campo-cadastro-guia-nome").val(""),
-            $("#campo-cadastro-guia-sobrenome").val(""),
-            $("#campo-cadastro-guia-rg").val(""),
-            $("#campo-cadastro-guia-cpf").val(""),
-            $("#campo-cadastro-guia-data-nascimento").val(""),
-            $("#campo-cadastro-guia-sexo").val(""),
-            $("#campo-cadastro-guia-numero-carteira-trabalho").val(""),
-            $("#campo-cadastro-guia-salario").val(""),
-            $("#campo-cadastro-guia-categoria-habilitacao").val(""),
-            $("#campo-cadastro-guia-rank").val("")
+        $('#campo-cadastro-guia-nome').val('');
+        $('#campo-cadastro-guia-sobrenome').val('');
+        $('#campo-cadastro-guia-rg').val('');
+        $('#campo-cadastro-guia-cpf').val('');
+        $('#campo-cadastro-guia-data-nascimento').val('');
+        $('#campo-cadastro-guia-sexo').val('');
+        $('#campo-cadastro-guia-numero-carteira-trabalho').val('');
+        $('#campo-cadastro-guia-salario').val('');
+        $("#campo-cadastro-guia-categoria-habilitacao").val('').trigger('change');
+        $('#campo-cadastro-guia-rank').val('').trigger('change');
+        $('#campo-referencia-guia-cadastro').val('');
+        $('#campo-complemento-guia-cadastro').val('');
+        $('#campo-numero-cadastro-guia').val('');
+        $('#campo-logradouro-cadastro-guia').val('');
+        $('#campo-cep-cadastro-guia').val('');
+        $('#select-cadastro-cidade-guia').val('').trigger('change');
+        $('#select-cadastro-guia-estado').val('').trigger('change');
     }
     
 });

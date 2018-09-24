@@ -240,10 +240,6 @@
     function limparCampos() {
         $('#campo-cadastro-pacote-nome').val('');
         $('#campo-cadastro-pacote-valor').val('');
-        $('#campo-cadastro-pacote-percentualMaximoDesconto').val('');
-        $('#campo-editar-pacote-id').val('');
-        $('#campo-editar-pacote-nome').val('');
-        $('#campo-editar-pacote-valor').val('');
-        $('#campo-editar-pacote-percentualMaximoMesconto').val('');
+        $('#campo-cadastro-percentualMaximoDesconto').val('');       
     }
 });

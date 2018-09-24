@@ -47,6 +47,7 @@
                         type: 'success'
                     });
                 });
+                LimparCampos();
             }
         });
     });
@@ -100,6 +101,7 @@
                         type: 'Info'
                     });
                 }
+                
             }
         });
     });
@@ -130,4 +132,9 @@
             }
         });
     });
+
+    function LimparCampos() {
+        $('#select-cadastro-viagemTurista-turista').val('').trigger('change');
+        $('#select-cadastro-viagemTurista-viagem').val('').trigger('change');
+    }
 });
