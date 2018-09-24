@@ -70,7 +70,7 @@
             },
             'pontoturistico.Nome': {
                 required: 'ponto turistico deve ser preenchido.',
-                rangelength: 'ponto turistico deve conter de {0} a {1} caracteres'
+                rangelength: 'ponto turistico deve conter entre {0} a {1} caracteres'
             }
         }
     });

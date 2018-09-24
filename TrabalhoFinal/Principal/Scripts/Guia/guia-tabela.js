@@ -205,17 +205,17 @@
             messages: {
                 'guia.Nome': {
                     required: 'Nome deve ser preenchido.',
-                    rangelength: 'Nome deve conter de  {0} a {1} caracteres.'
+                    rangelength: 'Nome deve conter entre {0} a {1} caracteres.'
                 },
                 'guia.Sobrenome': {
                     required: 'Sobrenome deve ser preenchido.',
-                    rangelength: 'Sobrenome deve conter de {0} a {1} caracteres.'
+                    rangelength: 'Sobrenome deve conter entre {0} a {1} caracteres.'
                 },
                 'guia.Rg': {
                     required: 'RG deve ser preenchido.',
                     digits: 'RG deve conter somente digitos.',
                     minlength: 'RG deve conter no mínimo 7 dígitos.',
-                    maxlength: 'RG deve conter no máximo 12 dpigitos.'
+                    maxlength: 'RG deve conter no máximo 12 digitos.'
                 },
                 'guia.Cpf': {
                     required: 'CPF deve ser preenchido.',                    
@@ -233,14 +233,14 @@
                 },
                 'guia.Salario': {
                     required: 'Salario deve ser preenchido.',
-                    number: 'Salario deve conter somente nuemros inteiro e decimais.',
+                    number: 'Salario deve conter somente numeros inteiro e decimais.',
                     minlength: 'Salario deve conter no minimo 3 digitos.',
                     range: 'Salário deve ser entre R$ 954,00 e R$ 10.000,00'
 
                 },
                 'guia.CategoriaHabilitacao': {
                     required: 'Categoria da habilitação deve ser preenchido.',
-                    rangelength: 'Carteira de habilitação deve conter de {0} a {1} caracteres.'
+                    rangelength: 'Carteira de habilitação deve conter entre {0} a {1} caracteres.'
                 },               
                 'cidade.IdEstado': {
                     required: 'Estado deve ser preenchido.'
@@ -255,7 +255,7 @@
                 },
                 'endereco.Logradouro': {
                     required: 'Logradouro deve ser preenchido.',
-                    rangelength: 'Logradouro deve conter de {0} a {1} caracteres.'
+                    rangelength: 'Logradouro deve conter entre {0} a {1} caracteres.'
                 },
                 'endereco.Numero': {    
                     required: 'Número deve ser preenchido.',
@@ -263,7 +263,7 @@
                 },
                 'endereco.Bairro': {
                     required: 'Bairro deve ser preenchido.',
-                    rangelength: 'Bairro deve conter de {0} a {1} caracteres.'
+                    rangelength: 'Bairro deve conter entre {0} a {1} caracteres.'
                 }
                 
             }

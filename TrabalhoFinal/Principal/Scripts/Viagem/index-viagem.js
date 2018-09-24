@@ -63,7 +63,7 @@
 
             },
             'viagem.DataHorarioSaida': {
-                required: 'Informe data de saida.',
+                required: 'Informe a data de saida.',
                 date: true
             },
             'viagem.DataHorarioVolta': {
