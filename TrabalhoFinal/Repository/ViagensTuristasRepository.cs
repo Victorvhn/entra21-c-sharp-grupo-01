@@ -14,24 +14,33 @@ namespace Repository
     {
         public List<Viagem> ObterTodosPorJSON()
         {
-            List<Viagem> viagens = new List<Viagem>();
+            List<ViagemTurista> viagensTuristas = new List<ViagemTurista>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT viagens.id, viagens.data, valor FROM viagens_turistas
-                                  vt JOIN viagens v ON (v.id = vt.id_viagem)
-                                  JOIN turistas t ON(t.id = vt.id_turista) WHERE vt.id = @ID_VIAGEM";
+            command.CommandText = @"SELECT vt.id, vt.id_turista, vt.id_viagem, t.nome, v.data_compra FROM viagens_turistas vt 
+                                    JOIN viagens v ON (v.id = vt.id_viagem)
+                                    JOIN turistas t ON(t.id = vt.id_turista) 
+                                    JOIN historico_de_viagens hv ON (hv.id = )
+                                    WHERE vt.id = @ID_VIAGEM";
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
             foreach (DataRow line in table.Rows)
             {
-                Viagem viagensTuristas = new Viagem()
-                {
-                    Id = Convert.ToInt32(line[0].ToString()),
-                    //Data = Convert.ToDateTime(line[1].ToString()),
+                ViagemTurista viagemTurista = new ViagemTurista();
+                viagemTurista.Id = Convert.ToInt32(line[0].ToString());
+                viagemTurista.IdTurista = Convert.ToInt32(line[1].ToString());
+                viagemTurista.IdViagem = Convert.ToInt32(line[2].ToString());
 
-                };
-                viagens.Add(viagensTuristas);
+                viagemTurista.Turista = new Turista();
+                viagemTurista.Turista.Nome = line[3].ToString();
+
+                viagemTurista.Viagem = new Viagem();
+                viagemTurista.Viagem.DataCompra = Convert.ToDateTime(line[4].ToString());
+
+
+                viagensTuristas.Add(viagemTurista);
             }
-            return viagens;
+            //return viagensTuristas;
+            return null;
         }
 
         public List<ViagemTurista> ObterTodosParaSelect()

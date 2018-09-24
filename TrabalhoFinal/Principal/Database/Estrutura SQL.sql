@@ -139,7 +139,6 @@ CREATE TABLE viagens_turistas (
     id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
     id_turista INT,
     id_viagem INT,
-    valor FLOAT,
 	ativo BIT DEFAULT '1',
     FOREIGN KEY (id_turista) REFERENCES turistas(id),
     FOREIGN KEY (id_viagem) REFERENCES viagens(id)  
@@ -244,11 +243,11 @@ INSERT INTO viagens (id_guia, id_pacote, data_compra, data_horario_saida, data_h
 ((SELECT id FROM guias WHERE nome = 'Marcio'), (SELECT id FROM pacotes WHERE nome = 'Orlando'), '10-08-2015', '20151120 10:20:00 AM', '20151201 09:00:00 PM'),
 ((SELECT id FROM guias WHERE nome = 'Marcos'), (SELECT id FROM pacotes WHERE nome = 'Paris'), '01-02-2016', '20160225 08:25:00 AM', '20160303 03:35:00 PM');
 
-INSERT INTO viagens_turistas (id_turista, id_viagem, valor) VALUES
-((SELECT id FROM turistas WHERE nome = 'Fernanda'), (SELECT id FROM viagens WHERE data_compra = '10-05-2012'), 4000),
-((SELECT id FROM turistas WHERE nome = 'Eduarda'), (SELECT id FROM viagens WHERE data_compra = '07-08-2017'), 5000),
-((SELECT id FROM turistas WHERE nome = 'Marcio'), (SELECT id FROM viagens WHERE data_compra = '10-08-2015'), 3500),
-((SELECT id FROM turistas WHERE nome = 'Marcos'), (SELECT id FROM viagens WHERE data_compra = '01-02-2016'), 4500);
+INSERT INTO viagens_turistas (id_turista, id_viagem) VALUES
+((SELECT id FROM turistas WHERE nome = 'Fernanda'), (SELECT id FROM viagens WHERE data_compra = '10-05-2012')),
+((SELECT id FROM turistas WHERE nome = 'Eduarda'), (SELECT id FROM viagens WHERE data_compra = '07-08-2017')),
+((SELECT id FROM turistas WHERE nome = 'Marcio'), (SELECT id FROM viagens WHERE data_compra = '10-08-2015')),
+((SELECT id FROM turistas WHERE nome = 'Marcos'), (SELECT id FROM viagens WHERE data_compra = '01-02-2016'));
 
 INSERT INTO turistas_pacotes (id_turista, id_pacote, status_do_pedido, data_requisicao) VALUES
 ((SELECT id FROM turistas WHERE nome = 'João'), (SELECT id FROM pacotes WHERE nome = 'Disney'), 'Aguardando Aprovação', '2018-09-16'),

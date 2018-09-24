@@ -12,10 +12,12 @@ namespace Principal.Controllers
     public class ViagemTuristaController : Controller
     {
         // GET: ViagemTurista
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult Cadastro()
         {
@@ -23,6 +25,7 @@ namespace Principal.Controllers
             ViewBag.ViagemTurista = new ViagemTurista();
             return View();
         }
+
         [HttpGet]
         public ActionResult Editar(int id)
         {
@@ -56,6 +59,7 @@ namespace Principal.Controllers
             return null;
         }
 
+        [HttpGet]
         public ActionResult ObterTodosPorJSONParaSelect2()
         {
             List<ViagemTurista> viagensturista = new ViagensTuristasRepository().ObterTodosParaSelect();

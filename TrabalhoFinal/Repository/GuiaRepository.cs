@@ -182,7 +182,7 @@ namespace Repository
         {
             Guia guia = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT g.id, g.id_login, g.sexo, g.nome, g.sobrenome, g.numero_carteira_trabalho, g.categoria_habilitacao, g.salario, g.cpf, g.rg, g.data_nascimento, g.rank_, g.id_endereco,  u.email
+            command.CommandText = @"SELECT g.id, g.id_login, g.sexo, g.nome, g.sobrenome, g.numero_carteira_trabalho, g.categoria_habilitacao, g.salario, g.cpf, g.rg, g.data_nascimento, g.rank_, g.id_endereco, u.email, u.privilegio
             FROM guias g
             JOIN logins u ON(u.id = g.id_login AND email = @EMAIL AND senha = @SENHA)";
             command.Parameters.AddWithValue("@EMAIL", email);
@@ -211,7 +211,7 @@ namespace Repository
                 guia.Login.Email = table.Rows[0]["email"].ToString();
                 guia.Login.Id = Convert.ToInt32(table.Rows[0]["id_login"].ToString());
                 guia.IdLogin = Convert.ToInt32(table.Rows[0]["id_login"].ToString());
-                //guia.Login.Privilegio = table.Rows[0]["privilegio"].ToString();
+                guia.Login.Privilegio = table.Rows[0]["privilegio"].ToString();
             }
             return guia;
         }
