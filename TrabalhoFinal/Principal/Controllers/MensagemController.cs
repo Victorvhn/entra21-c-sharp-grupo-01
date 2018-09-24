@@ -1,5 +1,4 @@
-﻿using Model;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PusherServer;
 using System;
 using System.Collections.Generic;
@@ -16,8 +15,6 @@ namespace Principal.Controllers
         [HttpPost]
         public async Task<ActionResult> Enviar(string mensagem, string id)
         {
-            id = (((Guia)Session["usuarioLogado"]).Id).ToString();
-
             var options = new PusherOptions
             {
                 Cluster = "us2",
@@ -37,7 +34,7 @@ namespace Principal.Controllers
               "my-event",
               new { message =  mensagem, dataHora, id });
 
-            return Content(JsonConvert.SerializeObject(new { status = "ok", dataHora, id }));
+            return Content(JsonConvert.SerializeObject(new { status = "ok", dataHora }));
         }
     }
 }

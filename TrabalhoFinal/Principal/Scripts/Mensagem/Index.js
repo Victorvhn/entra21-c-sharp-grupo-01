@@ -1,4 +1,5 @@
 ﻿$(function () {
+    var id = 0.0;
 
     $('#chat-botao').on('click', function () {
         $('.showChat_inner').toggle('slide', {
@@ -17,6 +18,7 @@
     });
 
     function enviarMensagem() {
+        id = Math.random();
         $.ajax({
             url: "/mensagem/enviar",
             method: 'post',
@@ -29,7 +31,6 @@
                 $("#pai").append('<div class="media chat-messages">\
                         <div class="media-body chat-menu-reply">\
                             <div class="">\
-                                <p class="chat-cont">'+  +'</p> \
                                 <p class="chat-cont">' + $("#mensagem-texto").val() + '</p >\
                                 <p class="chat-time">' + resultado.dataHora + '</p>\
                             </div>\
