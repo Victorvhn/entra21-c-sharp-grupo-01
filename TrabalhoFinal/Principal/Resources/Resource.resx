@@ -117,14 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlteradoSucesso" xml:space="preserve">
+    <value>Alterado com sucesso</value>
+  </data>
+  <data name="BairroDeveConter" xml:space="preserve">
+    <value>Bairro deve conter entre 4 a 20 caracteres</value>
+  </data>
+  <data name="BairroPreenchido" xml:space="preserve">
+    <value>Bairro deve ser Preenchido</value>
+  </data>
   <data name="Basicos" xml:space="preserve">
     <value>Básicos</value>
+  </data>
+  <data name="CadastradoSucesso" xml:space="preserve">
+    <value>Cadastrado com sucesso</value>
   </data>
   <data name="CarteiraDeTrabalho" xml:space="preserve">
     <value>Carteira de Trabalho</value>
   </data>
+  <data name="CarteiraTrabalhoDigitos" xml:space="preserve">
+    <value>Carteira de Trabalho deve conter somentes dígitos</value>
+  </data>
+  <data name="CarteiraTrabalhoPreenchido" xml:space="preserve">
+    <value>Carteira de Trabalho deve ser Preenchido</value>
+  </data>
+  <data name="CEPDeveConter" xml:space="preserve">
+    <value>CEP deve conter 9 caracteres</value>
+  </data>
+  <data name="CEPPreenchido" xml:space="preserve">
+    <value>CEP deve ser Preenchido</value>
+  </data>
   <data name="Cidade" xml:space="preserve">
     <value>Cidade</value>
+  </data>
+  <data name="CidadeDeveConterEntre" xml:space="preserve">
+    <value>Cidade deve conter entre 3 a 30 caracteres</value>
+  </data>
+  <data name="CidadePreenchido" xml:space="preserve">
+    <value>Cidade deve ser Preenchido</value>
   </data>
   <data name="Cidades" xml:space="preserve">
     <value>Cidades</value>
@@ -138,11 +168,26 @@
   <data name="Continente" xml:space="preserve">
     <value>Continente</value>
   </data>
+  <data name="CpfPreenchido" xml:space="preserve">
+    <value>CPF deve ser Preenchido</value>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Data</value>
   </data>
   <data name="DataNascimento" xml:space="preserve">
     <value>Data de Nascimento</value>
+  </data>
+  <data name="DataNascimentoInvalido" xml:space="preserve">
+    <value>Data de nascimento Inválida</value>
+  </data>
+  <data name="DataNascimentoPreenchido" xml:space="preserve">
+    <value>Data de nascimento deve ser Preenchido</value>
+  </data>
+  <data name="DataValida" xml:space="preserve">
+    <value>Data não é válida</value>
+  </data>
+  <data name="DesativadoSucesso" xml:space="preserve">
+    <value>Desativado com sucesso</value>
   </data>
   <data name="Endereco" xml:space="preserve">
     <value>Endereço</value>
@@ -153,26 +198,92 @@
   <data name="Estado" xml:space="preserve">
     <value>Estado</value>
   </data>
+  <data name="EstadoDeveConter" xml:space="preserve">
+    <value>Estado deve conter entre 2 a 30 caracteres</value>
+  </data>
+  <data name="EstadoPreenchido" xml:space="preserve">
+    <value>Estado deve ser Preenchido</value>
+  </data>
   <data name="Estados" xml:space="preserve">
     <value>Estados</value>
   </data>
   <data name="Genero" xml:space="preserve">
     <value>Gênero</value>
   </data>
+  <data name="GeneroPreenchido" xml:space="preserve">
+    <value>Gênero deve ser preenchido</value>
+  </data>
+  <data name="Guia" xml:space="preserve">
+    <value>Guia</value>
+  </data>
+  <data name="HabilitacaoDeveConter" xml:space="preserve">
+    <value>Carteira de Habilitação deve conter entre 1 a 5 caracteres</value>
+  </data>
+  <data name="HabilitacaoPreenchida" xml:space="preserve">
+    <value>Carteira de Habilitação deve ser Preenchido</value>
+  </data>
+  <data name="HistoricoViagem" xml:space="preserve">
+    <value>Histórico de Viagem</value>
+  </data>
   <data name="Idade" xml:space="preserve">
     <value>Idade</value>
+  </data>
+  <data name="Idioma" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="IdiomaDeveConter" xml:space="preserve">
+    <value>Idioma deve conter entre 4 a 20 caracteres</value>
+  </data>
+  <data name="IdiomaPreenchido" xml:space="preserve">
+    <value>Idioma deve ser Preenchido</value>
   </data>
   <data name="Idiomas" xml:space="preserve">
     <value>Idiomas</value>
   </data>
+  <data name="InformeData" xml:space="preserve">
+    <value>Informe a Data</value>
+  </data>
+  <data name="InformeDataSaida" xml:space="preserve">
+    <value>Informe a Data de Saída</value>
+  </data>
+  <data name="InformeDataVolta" xml:space="preserve">
+    <value>Informe a data da Volta</value>
+  </data>
+  <data name="LogradouroDeveConter" xml:space="preserve">
+    <value>Logradouro deve conter entre 6 a 30 caracteres</value>
+  </data>
+  <data name="LogradouroPreenchido" xml:space="preserve">
+    <value>Logradouro deve ser Preenchido</value>
+  </data>
   <data name="Nome" xml:space="preserve">
     <value>Nome</value>
+  </data>
+  <data name="NomeDeveConter" xml:space="preserve">
+    <value>Nome deve conter entre 3 a 30 caracteres</value>
+  </data>
+  <data name="NomePreenchido" xml:space="preserve">
+    <value>Nome deve ser Preenchido</value>
   </data>
   <data name="Numero" xml:space="preserve">
     <value>Número</value>
   </data>
+  <data name="NumeroDigitos" xml:space="preserve">
+    <value>Número deve conter apenas dígitos</value>
+  </data>
+  <data name="NumeroPreenchido" xml:space="preserve">
+    <value>Número deve ser Preenchido</value>
+  </data>
   <data name="Pacote" xml:space="preserve">
     <value>Pacote</value>
+  </data>
+  <data name="PacoteDeveConter" xml:space="preserve">
+    <value>Pacote deve conter entre 3 a 30 caracteres</value>
+  </data>
+  <data name="PacotePontoTuristico" xml:space="preserve">
+    <value>Pacote Ponto Turistico</value>
+  </data>
+  <data name="PacotePreenchido" xml:space="preserve">
+    <value>Pacote deve ser Preenchido</value>
   </data>
   <data name="Pacotes" xml:space="preserve">
     <value>Pacotes</value>
@@ -180,14 +291,65 @@
   <data name="Pais" xml:space="preserve">
     <value>País</value>
   </data>
+  <data name="PercentualDesconto" xml:space="preserve">
+    <value>Percentual máximo de desconto deve ser Preenchido</value>
+  </data>
+  <data name="PercentualDescontoDeveSer" xml:space="preserve">
+    <value>Percentual máximo de desconto deve ser entre 1 % a 100%</value>
+  </data>
   <data name="PontosTuristicos" xml:space="preserve">
     <value>Pontos Turísticos</value>
+  </data>
+  <data name="PontoTuristico" xml:space="preserve">
+    <value>Ponto Turístico</value>
+  </data>
+  <data name="PontoTuristicoDeveConter" xml:space="preserve">
+    <value>Ponto Turístico deve conter entre 3 a 30 caracteres</value>
+  </data>
+  <data name="PontoTuristicoPreenchido" xml:space="preserve">
+    <value>Ponto Turistico deve ser Preenchido</value>
   </data>
   <data name="Referencia" xml:space="preserve">
     <value>Referência</value>
   </data>
+  <data name="RgDigitos" xml:space="preserve">
+    <value>RG deve conter apenas dígitos</value>
+  </data>
+  <data name="RgMaximo" xml:space="preserve">
+    <value>RG deve conter no máximo 12 dígitos</value>
+  </data>
+  <data name="RgMinimo" xml:space="preserve">
+    <value>RG deve conter no mínimo 7 dígitos</value>
+  </data>
+  <data name="RgPreenchido" xml:space="preserve">
+    <value>RG deve ser preenchido</value>
+  </data>
+  <data name="SalalarioDeveSer" xml:space="preserve">
+    <value>Salário deve ser entre R$ 954,00 a R$ 10.000,00</value>
+  </data>
   <data name="Salario" xml:space="preserve">
     <value>Salário</value>
+  </data>
+  <data name="SalarioDigitosDecimais" xml:space="preserve">
+    <value>Salário deve conter apenas números inteiros e decimais</value>
+  </data>
+  <data name="SalarioMinimo" xml:space="preserve">
+    <value>Salário deve conter no mínimo 3 dígitos</value>
+  </data>
+  <data name="SalarioPreenchido" xml:space="preserve">
+    <value>Salário deve ser Preenchido</value>
+  </data>
+  <data name="SelecioneEstado" xml:space="preserve">
+    <value>Selecione um Estado</value>
+  </data>
+  <data name="SelecioneGuia" xml:space="preserve">
+    <value>Selecione um Guia</value>
+  </data>
+  <data name="SelecionePacote" xml:space="preserve">
+    <value>Selecione um Pacote</value>
+  </data>
+  <data name="SelecionePontoTuristico" xml:space="preserve">
+    <value>Seleione um Ponto Turístico</value>
   </data>
   <data name="Senha" xml:space="preserve">
     <value>Senha</value>
@@ -195,11 +357,29 @@
   <data name="Sobrenome" xml:space="preserve">
     <value>Sobrenome</value>
   </data>
+  <data name="SobrenomeDeveConter" xml:space="preserve">
+    <value>Sobrenome deve conter entre 3 a 30 caracteres</value>
+  </data>
+  <data name="SobrenomePrenchido" xml:space="preserve">
+    <value>Sobrenome deve ser Preenchido</value>
+  </data>
   <data name="Usuario" xml:space="preserve">
     <value>Usuário</value>
   </data>
   <data name="Valor" xml:space="preserve">
     <value>Valor</value>
+  </data>
+  <data name="ValorDeveSer" xml:space="preserve">
+    <value>Valor deve ser entre R$ 500,00 a R$ 12.000,00</value>
+  </data>
+  <data name="ValorInteros" xml:space="preserve">
+    <value>Valor deve conter apenas números inteiros e decimais</value>
+  </data>
+  <data name="ValorPreenchido" xml:space="preserve">
+    <value>Valor deve ser Preenchido</value>
+  </data>
+  <data name="Viagem" xml:space="preserve">
+    <value>Viagem</value>
   </data>
   <data name="Viagens" xml:space="preserve">
     <value>Viagens</value>
