@@ -14,6 +14,7 @@ namespace Principal.Controllers
         public ActionResult Index()
         {
             ViewBag.UsuarioNome = ((Guia)Session["usuarioLogado"]).Nome;
+            ViewBag.UsuarioSobrenome = ((Guia)Session["usuarioLogado"]).Sobrenome;
             ViewBag.UsuarioPrivilegio = ((Guia)Session["usuarioLogado"]).Login.Privilegio;
             return View();
         }

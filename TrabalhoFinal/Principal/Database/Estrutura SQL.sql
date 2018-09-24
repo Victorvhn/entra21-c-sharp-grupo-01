@@ -153,14 +153,14 @@ CREATE TABLE historico_de_viagens (
 );
 
 INSERT INTO logins(email, senha, privilegio) VALUES
-('admin@admin.com', 'admin', 'Admin'),
-('user@user.com', 'user', 'User'),
-('user@user.com1', 'user1', 'User'),
-('user@user.com2', 'user2', 'User'),
-('user@user.com3', 'user3', 'User'),
-('funcionario@funcionario.com', 'funcionario', 'Funct'),
-('funcionario@funcionario.com2', 'funcionario2', 'Funct'),
-('funcionario@funcionario.com3', 'funcionario3', 'Funct');
+('admin@admin.com', 'admin', 'Administrador'),
+('user@user.com', 'user', 'Usuário'),
+('user@user.com1', 'user1', 'Usuário'),
+('user@user.com2', 'user2', 'Usuário'),
+('user@user.com3', 'user3', 'Usuário'),
+('funcionario@funcionario.com', 'funcionario', 'Funcionário'),
+('funcionario@funcionario.com2', 'funcionario2', 'Funcionário'),
+('funcionario@funcionario.com3', 'funcionario3', 'Funcionário');
 
 INSERT INTO pacotes (nome, valor, percentual_max_desconto) VALUES
 ('Disney', 4000, 20),
