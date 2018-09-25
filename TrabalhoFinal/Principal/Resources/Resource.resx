@@ -510,4 +510,7 @@
   <data name="ViagemTurista" xml:space="preserve">
     <value>Viagem Turista</value>
   </data>
+  <data name="CadastroCidade" xml:space="preserve">
+    <value>Cadastro de Cidaed</value>
+  </data>
 </root>

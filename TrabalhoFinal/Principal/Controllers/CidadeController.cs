@@ -21,7 +21,10 @@ namespace Principal.Controllers
             {
                 selecioneEstado = Resources.Resource.SelecioneEstado,
                 cidadePreenchido = Resources.Resource.CidadePreenchido,
-                cidadeConter = Resources.Resource.CidadeDeveConterEntre
+                cidadeConter = Resources.Resource.CidadeDeveConterEntre,
+                cadastrado = Resources.Resource.CadastradoSucesso,
+                alterado = Resources.Resource.AlteradoSucesso,
+                desativado = Resources.Resource.DesativadoSucesso
 
             });
         }

@@ -513,4 +513,7 @@
   <data name="ViagemTurista" xml:space="preserve">
     <value>Tourist Travel</value>
   </data>
+  <data name="CadastroCidade" xml:space="preserve">
+    <value>City Registration</value>
+  </data>
 </root>
