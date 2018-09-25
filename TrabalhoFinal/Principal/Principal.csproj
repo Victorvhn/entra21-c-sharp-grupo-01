@@ -5172,6 +5172,7 @@
     <Content Include="Scripts\Idioma\idioma-tabela.js" />
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\Mensagem\Index.js" />
+    <Content Include="Scripts\MultiIdioma\multi-idioma.js" />
     <Content Include="Scripts\PopularSelects\SelectEndereco\popular-select-endereco.js" />
     <Content Include="Scripts\Validate\cep-validate.js" />
     <Content Include="Scripts\ViagemTurista\index.viagemTurista.js" />
@@ -5234,6 +5235,7 @@
     <Compile Include="Models\ViagemString.cs" />
     <Compile Include="Models\ViagemTuristaString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\GlobalTexts.cs" />
     <Compile Include="Resources\Resource.de1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -5610,7 +5612,6 @@
     <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\LockScreen.cshtml" />
-    <Content Include="Views\Language\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

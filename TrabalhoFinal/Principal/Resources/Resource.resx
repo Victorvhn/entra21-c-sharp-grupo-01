@@ -142,7 +142,7 @@
     <value>Carteira de Trabalho deve ser Preenchido</value>
   </data>
   <data name="CEPDeveConter" xml:space="preserve">
-    <value>CEP deve conter 9 caracteres</value>
+    <value>CEP deve conter 8 caracteres</value>
   </data>
   <data name="CEPPreenchido" xml:space="preserve">
     <value>CEP deve ser Preenchido</value>
