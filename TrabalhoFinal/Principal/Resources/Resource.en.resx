@@ -429,4 +429,61 @@
   <data name="TelaGerenciamentoEndereco" xml:space="preserve">
     <value>Addresses Management Screen</value>
   </data>
+  <data name="TabelaCidades" xml:space="preserve">
+    <value>City Table</value>
+  </data>
+  <data name="TabelaGuias" xml:space="preserve">
+    <value>Guide Table</value>
+  </data>
+  <data name="TabelaHV" xml:space="preserve">
+    <value>Travel History Table</value>
+  </data>
+  <data name="TabelaIdiomas" xml:space="preserve">
+    <value>Language Table</value>
+  </data>
+  <data name="TabelaPacotes" xml:space="preserve">
+    <value>Package Table</value>
+  </data>
+  <data name="TabelaPPT" xml:space="preserve">
+    <value>Tourist Attraction Package Table</value>
+  </data>
+  <data name="TabelaPT" xml:space="preserve">
+    <value>Tourist Attraction Table</value>
+  </data>
+  <data name="TabelaViagens" xml:space="preserve">
+    <value>TravelTable</value>
+  </data>
+  <data name="TabelaVT" xml:space="preserve">
+    <value>Tourist Travel Table</value>
+  </data>
+  <data name="TelaGerenciamentoCidade" xml:space="preserve">
+    <value>City Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoGuias" xml:space="preserve">
+    <value>Guide Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoHV" xml:space="preserve">
+    <value>Travel History Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoIdiomas" xml:space="preserve">
+    <value>Language Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoPacotes" xml:space="preserve">
+    <value>Package Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoPPT" xml:space="preserve">
+    <value>Tourist Attraction Package Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoTA" xml:space="preserve">
+    <value>Tourist Attraction Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoTourist" xml:space="preserve">
+    <value>Tourist Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoViagens" xml:space="preserve">
+    <value>Travel Management Screen</value>
+  </data>
+  <data name="TelaGerenciamentoVT" xml:space="preserve">
+    <value>Tourist Travel Management Screen</value>
+  </data>
 </root>
