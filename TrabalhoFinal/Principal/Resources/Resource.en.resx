@@ -486,4 +486,31 @@
   <data name="TelaGerenciamentoVT" xml:space="preserve">
     <value>Tourist Travel Management Screen</value>
   </data>
+  <data name="Cadastros" xml:space="preserve">
+    <value>Registers</value>
+  </data>
+  <data name="Aprovacao" xml:space="preserve">
+    <value>Approvals</value>
+  </data>
+  <data name="Avancado" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="ConfirmarPacotes" xml:space="preserve">
+    <value>Confirm Packages</value>
+  </data>
+  <data name="CriacaoUsuario" xml:space="preserve">
+    <value>User Creation (Interim)</value>
+  </data>
+  <data name="CriarPacote" xml:space="preserve">
+    <value>Create Package</value>
+  </data>
+  <data name="Guias" xml:space="preserve">
+    <value>Guides</value>
+  </data>
+  <data name="Turistas" xml:space="preserve">
+    <value>Tourists</value>
+  </data>
+  <data name="ViagemTurista" xml:space="preserve">
+    <value>Tourist Travel</value>
+  </data>
 </root>
