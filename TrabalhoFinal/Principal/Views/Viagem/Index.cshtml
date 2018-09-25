@@ -59,6 +59,10 @@
 @Html.Partial("~/Views/Viagem/ModalEditar.cshtml")
 
 @section script{
+<script src="~/Scripts/MultiIdioma/multi-idioma.js"></script>
+<script type="text/javascript">
+    loadStrings('Viagem');
+</script>
     <script src="~/Scripts/Viagem/index-viagem.js"></script>
     <script src="~/Scripts/PopularSelects/SelectViagem/popular-select-viagem.js"></script>
 }
