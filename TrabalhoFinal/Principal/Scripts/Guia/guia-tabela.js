@@ -1,17 +1,41 @@
 ﻿$(function () {
     //Preenche DataTable
-    $('#guia-tabela').DataTable({
-        processing: true,
-        serverSide: true,
+    $('#guia-tabela').DataTable({       
         ajax: "/Guia/ObterTodosPorJSON",
+        order: [[1, "asc"]],
         columns: [
-            { data: "Id" },
-            { data: "Nome" },
-            { data: "Sobrenome" },
-            { data: "Cpf" },
-            { data: "Rank" },
+            {
+                data: "Id",
+                bSortable: true,
+                width: "5%",
+                target: 0
+            },
+            {
+                data: "Nome",
+                bSortable: true,
+                width: "25%",
+                target: 1
+            },
+            {
+                data: "Sobrenome",
+                bSortable: true,
+                width: "25%",
+                target: 2
+            },
+            {
+                data: "Cpf",
+                bSortable: true,
+                width: "30%"
+            },
+            {
+                data: "Rank",
+                bSortable: false,
+                width:"5%"
+            },
             {
                 data: null,
+                bSortable: false,
+                width: "10%",
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-info botao-editar-guia' data-id='" + row.Id + "'>Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1 botao-excluir-guia' data-id='" + row.Id + "' href='#' >Desativar</a>";
@@ -58,7 +82,7 @@
     });
 
     //Botao editar
-    $('table').on("click", ".botao-editar-guia", function () {
+    $('table').on('click', '.botao-editar-guia', function () {
         var id = $(this).data('id');
         $.ajax({
             url: '/Guia/Editar?id=' + id,
@@ -83,7 +107,7 @@
                 $('#campo-referencia-guia-cadastro').val(data.Referencia);
 
 
-                $("#guia-modal-editar").modal("show");
+                $('#guia-modal-editar').modal("show");
             }
         });
     });
