@@ -70,11 +70,11 @@
         },
         messages: {
             'historicoViagem.IdPacote': {
-                required: 'Selecione um pacote'
+                required: STRINGS.selecionePacote
             },
             'historicoViagem.Data': {
-                required: 'Informe a data',
-                date: 'A data não é valida'
+                required: STRINGS.informeData,
+                date: STRINGS.dataValida
             }
         }
 
@@ -98,7 +98,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: PacoteVar + ' cadastrado com sucesso',
+                            text: PacoteVar + " " + STRINGS.cadastrado,
                             type: 'success'
                         });
                     });
@@ -150,12 +150,12 @@
             }
         },
         messages: {
-            'HistoricoViagem.IdPacote': {
-                required: 'Selecione um pacote.'
+            'historicoViagem.IdPacote': {
+                required: STRINGS.selecionePacote
             },
-            'HistoricoViagem.Data': {
-                required: 'Informe a data.',
-                date: 'A data não é valida.'
+            'historicoViagem.Data': {
+                required: STRINGS.informeData,
+                date: STRINGS.dataValida
             }
         }
 
@@ -180,7 +180,7 @@
                         $(function () {
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: 'Alterado com sucesso',
+                                text: STRINGS.alterado,
                                 type: 'info'
                             });
                         });
@@ -209,7 +209,7 @@
                 if (resultado == 1) {
                     new PNotify({
                         title: 'Desativado!',
-                        text: 'Viagem desativada com sucesso',
+                        text: STRINGS.desativado,
                         type: 'success'
                     });
 

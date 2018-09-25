@@ -561,4 +561,16 @@
   <data name="ValorTotal" xml:space="preserve">
     <value>Amount: R$</value>
   </data>
+  <data name="EditarHV" xml:space="preserve">
+    <value>Edit Travel History</value>
+  </data>
+  <data name="TabelaEstados" xml:space="preserve">
+    <value>States Table</value>
+  </data>
+  <data name="TelaGerenciamentoEstado" xml:space="preserve">
+    <value>States Management Screen</value>
+  </data>
+  <data name="Teste" xml:space="preserve">
+    <value>Test</value>
+  </data>
 </root>

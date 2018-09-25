@@ -11,6 +11,19 @@ namespace Principal.Controllers
     public class HistoricoViagemController : Controller
     {
         // GET: HistoricoViagem
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
+                cadastro = Resources.Resource.CadastradoSucesso,
+                alterado = Resources.Resource.AlteradoSucesso,
+                desativado = Resources.Resource.DesativadoSucesso,
+                selecionePacote = Resources.Resource.SelecionePacote,
+                informeData = Resources.Resource.InformeData,
+                dataValida = Resources.Resource.DataValida
+            });
+        }
         [HttpGet]
         public ActionResult Index()
         {

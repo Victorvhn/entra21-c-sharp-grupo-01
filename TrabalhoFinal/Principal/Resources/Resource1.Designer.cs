@@ -493,6 +493,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Editar Histórico de Viagem.
+        /// </summary>
+        public static string EditarHV {
+            get {
+                return ResourceManager.GetString("EditarHV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Endereço.
         /// </summary>
         public static string Endereco {
@@ -1132,6 +1141,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tabela de Estados.
+        /// </summary>
+        public static string TabelaEstados {
+            get {
+                return ResourceManager.GetString("TabelaEstados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tabela de Guias.
         /// </summary>
         public static string TabelaGuias {
@@ -1222,6 +1240,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Estados.
+        /// </summary>
+        public static string TelaGerenciamentoEstado {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tela de Gerenciamento de Guias.
         /// </summary>
         public static string TelaGerenciamentoGuias {
@@ -1290,6 +1317,15 @@ namespace Principal.Resources {
         public static string TelaGerenciamentoVT {
             get {
                 return ResourceManager.GetString("TelaGerenciamentoVT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teste.
+        /// </summary>
+        public static string Teste {
+            get {
+                return ResourceManager.GetString("Teste", resourceCulture);
             }
         }
         
