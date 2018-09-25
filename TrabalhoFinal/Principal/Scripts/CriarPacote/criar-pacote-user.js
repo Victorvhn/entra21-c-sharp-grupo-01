@@ -168,8 +168,8 @@
     });
 
     function limparCampos() {
-        $('#campo-data-horario-saida-cadastro-user').val('');
-        $('#campo-data-horario-retorno-cadastro-user').val('');
+        $('#campo-data-horario-saida-cadastro-user').val(null);
+        $('#campo-data-horario-retorno-cadastro-user').val(null);
         $('#select-destino-pacote-user').val('').trigger('change');
     }
 });
