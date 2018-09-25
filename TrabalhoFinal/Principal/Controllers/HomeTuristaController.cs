@@ -15,7 +15,7 @@ namespace Principal.Controllers
         {
             ViewBag.UsuarioNome = ((Turista)Session["usuarioLogado"]).Nome;
             ViewBag.UsuarioSobrenome = ((Turista)Session["usuarioLogado"]).Sobrenome;
-            ViewBag.UsuarioPrivilegio = ((Turista)Session["usuarioLogado"]).Login.Privilegio;
+            ViewBag.UsuarioPrivilegio = ((Turista)Session["usuarioLogado"]).Login.Privilegio;            
             return View();
         }
     }

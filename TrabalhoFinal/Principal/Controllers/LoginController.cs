@@ -15,7 +15,7 @@ namespace Principal.Controllers
         public ActionResult Index()
         {
             return View();
-        }        
+        }
 
         [HttpPost]
         public ActionResult Index(string usuario, string senha)
@@ -39,16 +39,6 @@ namespace Principal.Controllers
                 Session.Add("usuarioLogado", guia);
                 return RedirectToAction("Index", "Home");
             }
-
-            /*if (guia == null)
-            {
-                return View();
-            }
-            else
-            {
-                Session.Add("usuarioLogado", guia);
-                return RedirectToAction("Index", "Home");
-            }*/
         }
 
         public ActionResult Logout()
