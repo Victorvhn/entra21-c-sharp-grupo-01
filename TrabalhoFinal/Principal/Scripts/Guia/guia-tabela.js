@@ -369,9 +369,7 @@
 
             return false;
         }
-
-
-
+        
         return true;
 
     }, "Por favor, digite um CEP válido");
