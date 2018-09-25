@@ -79,8 +79,7 @@ CREATE TABLE guias (
     categoria_habilitacao VARCHAR(10), 
     salario FLOAT,
     cpf VARCHAR(11),
-    rg VARCHAR(20),
-	cep VARCHAR(8),
+    rg VARCHAR(20),	
     sexo CHAR(1),
     data_nascimento DATE,  
     rank_ SMALLINT, 
@@ -214,11 +213,11 @@ INSERT INTO turistas (id_endereco, nome, sobrenome, sexo, cpf, rg, data_nascimen
 ((SELECT id FROM enderecos WHERE cep = 89015255 AND numero = 458), 'Maria', 'Rosa', 'Feminino', 74523698541, 4569871, '03-11-1997'),
 ((SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Camila', 'Vieira', 'Feminino', 98745632147, 8796541, '04-02-1997');
    
-INSERT INTO guias (id_login, id_endereco, nome, sobrenome, data_nascimento, sexo, cpf, rg, cep, numero_carteira_trabalho, salario, categoria_habilitacao, rank_) VALUES
-(1, (SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Marcos', 'Antonio', '04-10-1990', 'M', 35789654123, 14781703, 7532147, 12345678912, 2000, 'AB', 3),
-(2, (SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Marcio', 'Luz', '05-12-1900', 'M',  75325896325, 12914271, 0147898, 11234567891, 3000, 'B', 4),
-(3,(SELECT id FROM enderecos WHERE cep = 14785236 AND numero =  987), 'Eduarda', 'Volx', '07-02-1995', 'F',  54896325418, 88339060, 5789632, 22136547894, 4000, 'A', 2),
-(4, (SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'F', 47896521478, 89045503, 4789654, 78987456321, 1500, 'ABC', 1);
+INSERT INTO guias (id_login, id_endereco, nome, sobrenome, data_nascimento, sexo, cpf, rg, numero_carteira_trabalho, salario, categoria_habilitacao, rank_) VALUES
+(1, (SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Marcos', 'Antonio', '04-10-1990', 'M', 35789654123, 7532147, 12345678912, 2000, 'AB', 3),
+(2, (SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Marcio', 'Luz', '05-12-1900', 'M',  75325896325, 0147898, 11234567891, 3000, 'B', 4),
+(3,(SELECT id FROM enderecos WHERE cep = 14785236 AND numero =  987), 'Eduarda', 'Volx', '07-02-1995', 'F',  54896325418, 5789632, 22136547894, 4000, 'A', 2),
+(4, (SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'F', 47896521478, 4789654, 78987456321, 1500, 'ABC', 1);
 
 INSERT INTO idiomas (nome) VALUES
 ('Ingles'),
