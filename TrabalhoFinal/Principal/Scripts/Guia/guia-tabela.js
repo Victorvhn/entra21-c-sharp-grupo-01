@@ -68,7 +68,7 @@
                 $("#campo-editar-guia-sobrenome").val(data.Sobrenome);
                 $("#campo-editar-guia-rg").val(data.Rg);
                 $("#campo-editar-guia-cpf").val(data.Cpf);
-                $("#campo-editar-guia-data-nascimento").val(data.DataNascimento);
+                $("#campo-editar-guia-data-nascimento").val(data.DataNascimentoPadraoBR);
                 $("#campo-editar-guia-sexo").val(data.Sexo);
                 $("#campo-numero-carteira-trabalho").val(data.CarteiraTrabalho);
                 $("#campo-editar-guia-salario").val(data.Salario);
@@ -412,6 +412,33 @@
         }
     });
 
+    //Botao Editar
+    $('table').on('clik', '.botao-editar-guia', function () {
+        var id = $(this).data('id');
+        $.ajax({
+            url: '/Guia/Editar?id=' + id,
+            method: 'get',
+            success: function (resultado) {
+                var data = JSON.parse(resultado);
+                $('#campo-editar-guia-id').val(data.Id);
+                console.log(resultado);
+                $('#campo-editar-guia-nome').val(data.Nome);
+                $('#campo-editar-guia-sobrenome').val(data.Sobrenome);
+                $('#campo-editar-guia-rg').val(data.Rg);
+                $('#campo-editar-guia-cpf').val(data.Cpf);
+                $('#campo-editar-guia-data-nascimento').val(data.DataNascimentoPadraoBR);
+                $('#campo-editar-guia-sexo').val(data.Sexo);
+                $('#campo-editar-guia-numero-carteira-trabalho').val(data.CarteiraTrabalho);
+                $('#campo-editar-guia-salario').val(data.Salario);
+                $('#campo-editar-guia-categoria-habilitacao').val(data.CategoriaHabilitacao);
+                $('#campo-editar-guia-rank').val(data.Rank);
+                $('#select-cadastro-guia-estado').append(new Option(data.Estado.Nome, data.IdEstado, false, false)).val(data.IdEstado).trigger('change');
+                $('#select-cadastro-guia-cidade').append(new Option(data.Cidade.Nome, data.IdCidade, false, false)).val(data.IdCidade).trigger('change');
+                $('#campo-cep-cadastro-guia').
+            }
+                
+        });
+    });
 
 
     function limparCampos() {
