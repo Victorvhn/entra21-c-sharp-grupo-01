@@ -20,24 +20,31 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Index(string usuario, string senha)
         {
-            Guia guia = new GuiaRepository().VerificarLogin(usuario, senha);
-            if (guia == null)
+            try
             {
-                Turista turista = new TuristaRepository().VerificarLogin(usuario, senha);
-                if (turista == null)
+                Guia guia = new GuiaRepository().VerificarLogin(usuario, senha);
+                if (guia == null)
                 {
-                    return View();
+                    Turista turista = new TuristaRepository().VerificarLogin(usuario, senha);
+                    if (turista == null)
+                    {
+                        return View();
+                    }
+                    else
+                    {
+                        Session.Add("usuarioLogado", turista);
+                        return RedirectToAction("Index", "HomeTurista");
+                    }
                 }
                 else
                 {
-                    Session.Add("usuarioLogado", turista);
-                    return RedirectToAction("Index", "HomeTurista");
+                    Session.Add("usuarioLogado", guia);
+                    return RedirectToAction("Index", "Home");
                 }
             }
-            else
+            catch
             {
-                Session.Add("usuarioLogado", guia);
-                return RedirectToAction("Index", "Home");
+                return View();
             }
         }
 
