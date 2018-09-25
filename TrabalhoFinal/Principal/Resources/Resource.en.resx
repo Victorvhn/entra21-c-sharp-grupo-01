@@ -516,4 +516,7 @@
   <data name="CadastroCidade" xml:space="preserve">
     <value>City Registration</value>
   </data>
+  <data name="CadastroEstado" xml:space="preserve">
+    <value>State Registration</value>
+  </data>
 </root>

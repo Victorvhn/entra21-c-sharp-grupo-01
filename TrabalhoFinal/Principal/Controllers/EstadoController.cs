@@ -12,6 +12,19 @@ namespace Principal.Controllers
 {
     public class EstadoController : Controller
     {
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
+                cadastrado = Resources.Resource.CadastradoSucesso,
+                alterado = Resources.Resource.AlteradoSucesso,
+                desativado = Resources.Resource.DesativadoSucesso,
+                estadoPreenchido = Resources.Resource.EstadoPreenchido,
+                estadoConter = Resources.Resource.EstadoDeveConter
+
+            });
+        }
         // GET: Estados        
         [HttpGet]
         public ActionResult Index()

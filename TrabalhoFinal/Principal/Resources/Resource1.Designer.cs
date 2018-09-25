@@ -19,7 +19,7 @@ namespace Principal.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resource {
@@ -142,7 +142,7 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cadastro de Cidade.
+        ///   Looks up a localized string similar to Cadastro de Cidaed.
         /// </summary>
         public static string CadastroCidade {
             get {
@@ -156,6 +156,15 @@ namespace Principal.Resources {
         public static string CadastroEndereco {
             get {
                 return ResourceManager.GetString("CadastroEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cadastro de Estado.
+        /// </summary>
+        public static string CadastroEstado {
+            get {
+                return ResourceManager.GetString("CadastroEstado", resourceCulture);
             }
         }
         
@@ -394,20 +403,20 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Editar Cidade.
-        /// </summary>
-        public static string EditarCidade {
-            get {
-                return ResourceManager.GetString("EditarCidade", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Editar Endereços.
         /// </summary>
         public static string EditarEnderecos {
             get {
                 return ResourceManager.GetString("EditarEnderecos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Estado.
+        /// </summary>
+        public static string EditarEstado {
+            get {
+                return ResourceManager.GetString("EditarEstado", resourceCulture);
             }
         }
         
