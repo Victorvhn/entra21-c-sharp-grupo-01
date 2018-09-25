@@ -14,6 +14,22 @@ namespace Principal.Controllers
     {
         // GET: Endereco
 
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {                
+                logPreenchido = Resources.Resource.LogradouroPreenchido,
+                logDeveConter = Resources.Resource.LogradouroDeveConter,
+                cidadePreenchido = Resources.Resource.CidadePreenchido,
+                numPreenchido = Resources.Resource.NumeroPreenchido,
+                numSomenteDig = Resources.Resource.NumeroDigitos,
+                cepPreenchido = Resources.Resource.CEPPreenchido,
+                cepDeveConter = Resources.Resource.CEPDeveConter,
+                endereco = Resources.Resource.Endereco
+            });
+        }
+
         [HttpGet]
         public ActionResult Index()
         {

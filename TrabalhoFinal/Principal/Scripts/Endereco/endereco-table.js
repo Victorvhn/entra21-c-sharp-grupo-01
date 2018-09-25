@@ -79,19 +79,19 @@
         },
         messages: {
             'endereco.Cep': {
-                required: 'CEP deve ser preenchido',
-                rangelength: 'CEP deve conter 8 caracteres'
+                required: STRINGS.cepPreenchido,
+                rangelength: STRINGS.cepDeveConter
             },
             'endereco.Logradouro': {
-                required: 'Logradouro deve ser preenchido',
-                rangelength: 'Logradouro deve conter entre {0} e {1} caracteres'
+                required: STRINGS.logPreenchido,
+                rangelength: STRINGS.logDeveConter
             },
             'endereco.Numero': {
-                required: 'Número deve ser preenchido.',
-                digits: 'Número deve conter somente  digitos'
+                required: STRINGS.numPreenchido,
+                digits: STRINGS.numSomenteDig
             },            
             'endereco.IdCidade': {
-                required: 'Cidade deve ser preenchido'
+                required: STRINGS.cidadePreenchido
             }
         }
 
@@ -186,25 +186,19 @@
         },
         messages: {
             'endereco.Cep': {
-                required: 'CEP deve ser preenchido',
-                rangelength: 'CEP deve conter 8 caracteres'
+                required: STRINGS.cepPreenchido,
+                rangelength: STRINGS.cepDeveConter
             },
             'endereco.Logradouro': {
-                required: 'Logradouro deve ser preenchido',
-                rangelength: 'Logradouro deve conter entre {0} e {1} caracteres'
+                required: STRINGS.logPreenchido,
+                rangelength: STRINGS.logDeveConter
             },
             'endereco.Numero': {
-                required: 'Número deve ser preenchido'
-            },
-            'endereco.Complemento': {
-                required: 'Complemento deve ser preenchido'
-            },
-            'endereco.Referencia': {
-                required: 'Referência deve ser preenchido',
-                rangelength: 'Referência deve conter entre {0} e {1} caracteres'
+                required: STRINGS.numPreenchido,
+                digits: STRINGS.numSomenteDig
             },
             'endereco.IdCidade': {
-                required: 'Cidade deve ser preenchido'
+                required: STRINGS.cidadePreenchido
             }
         }
     });

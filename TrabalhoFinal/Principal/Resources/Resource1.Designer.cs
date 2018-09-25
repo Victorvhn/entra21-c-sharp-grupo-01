@@ -133,7 +133,7 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CEP deve conter 9 caracteres.
+        ///   Looks up a localized string similar to CEP deve conter 8 caracteres.
         /// </summary>
         public static string CEPDeveConter {
             get {
