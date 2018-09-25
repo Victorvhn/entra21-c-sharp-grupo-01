@@ -28,7 +28,7 @@ namespace Repository
                     Id = Convert.ToInt32(linha[0].ToString()),
                     IdEndereco = Convert.ToInt32(linha[1].ToString()),
                     Login_ = linha[2].ToString(),
-                    Sexo = Convert.ToChar(linha[3].ToString()),
+                    Sexo = linha[3].ToString(),
                     Senha = linha[4].ToString(),
                     Nome = linha[5].ToString(),
                     Sobrenome = linha[6].ToString(),
@@ -41,6 +41,42 @@ namespace Repository
             }
             return turista;
         }
+
+        public Turista VerificarLogin(string email, string senha)
+        {
+            Turista turista = null;
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT t.id, t.id_login, t.id_endereco, t.nome, t.sobrenome, t.cpf, t.rg, t.sexo, t.data_nascimento, u.privilegio, u.email
+            FROM turistas t
+            JOIN logins u ON (u.id = t.id_login AND email = @EMAIL AND senha = @SENHA)";
+            command.Parameters.AddWithValue("@EMAIL", email);
+            command.Parameters.AddWithValue("@SENHA", senha);
+            DataTable table = new DataTable();
+            table.Load(command.ExecuteReader());
+
+            if (table.Rows.Count == 1)
+            {
+                turista = new Turista();
+                turista.Id = Convert.ToInt32(table.Rows[0][0].ToString());
+
+                turista.Nome = table.Rows[0][3].ToString();
+                turista.IdEndereco = Convert.ToInt32(table.Rows[0][2].ToString());
+                turista.Sobrenome = table.Rows[0][4].ToString();
+                turista.Cpf = table.Rows[0][5].ToString();
+                turista.Rg = table.Rows[0][6].ToString();
+                turista.Sexo = table.Rows[0][7].ToString();
+                turista.DataNascimento = Convert.ToDateTime(table.Rows[0][8].ToString());
+
+                turista.Login = new Login();
+                turista.Login.Email = table.Rows[0][10].ToString();
+                turista.Login.Id = Convert.ToInt32(table.Rows[0][1].ToString());
+                turista.IdLogin = Convert.ToInt32(table.Rows[0][1].ToString());
+                turista.Login.Privilegio = table.Rows[0][9].ToString();            
+            }
+
+            return turista;
+        }
+
         public int Cadastrar(Turista turista)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -101,7 +137,7 @@ namespace Repository
                 turista = new Turista();
                 turista.Id = id;
                 turista.Login_ = table.Rows[0][0].ToString();
-                turista.Sexo = Convert.ToChar(table.Rows[0][1].ToString());
+                turista.Sexo = table.Rows[0][1].ToString();
                 turista.Senha = table.Rows[0][2].ToString();
                 turista.Nome = table.Rows[0][3].ToString();
                 turista.Sobrenome = table.Rows[0][4].ToString();   

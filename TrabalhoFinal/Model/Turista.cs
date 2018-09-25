@@ -10,11 +10,15 @@ namespace Model
     {
         public string Login_ { get; set; }
 
-        public char Sexo { get; set; }
+        public string Sexo { get; set; }
 
         public int Id { get; set; }
 
         public Endereco Endereco { get; set; }
+
+        public Login Login { get; set; }
+
+        public int IdLogin { get; set; }
 
         public string Senha { get; set; }
 

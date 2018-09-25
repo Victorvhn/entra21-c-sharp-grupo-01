@@ -154,10 +154,10 @@ CREATE TABLE historico_de_viagens (
 
 INSERT INTO logins(email, senha, privilegio) VALUES
 ('admin@admin.com', 'admin', 'Administrador'),
-('user@user.com', 'user', 'Usuário'),
-('user@user.com1', 'user1', 'Usuário'),
-('user@user.com2', 'user2', 'Usuário'),
-('user@user.com3', 'user3', 'Usuário'),
+('user@u.com', 'u', 'Usuário'),
+('user@u2.com', 'u2', 'Usuário'),
+('user@u3.com', 'u3', 'Usuário'),
+('user@u4.com', 'u4', 'Usuário'),
 ('f@f.com', 'f', 'Funcionário'),
 ('f@f2.com', 'f2', 'Funcionário'),
 ('f@f3.com', 'f3', 'Funcionário');
@@ -207,11 +207,11 @@ INSERT INTO enderecos (id_cidade, cep, logradouro, numero, complemento, referenc
 ((SELECT id FROM cidades WHERE nome = 'Muria'), 96325874, 'Rua zerumiru', 357, 'Edificio azul', 'Proximo a igreja'),
 ((SELECT id FROM cidades WHERE nome = 'Catalo'), 96325777, 'Centro', 777, 'Centro', 'Proximo a capela 3 anjos');
 
-INSERT INTO turistas (id_endereco, nome, sobrenome, sexo, cpf, rg, data_nascimento) VALUES
-((SELECT id FROM enderecos WHERE cep = 14785236 AND numero = 658), 'João', 'Fernandes', 'Masculino', 74125878965, 7896523, '02-07-1998'),
-((SELECT id FROM enderecos WHERE cep = 87965425 AND numero = 895), 'Antonio', 'Amaral', 'Masculino', 87965823654, 1478965, '05-12-1994'),
-((SELECT id FROM enderecos WHERE cep = 89015255 AND numero = 458), 'Maria', 'Rosa', 'Feminino', 74523698541, 4569871, '03-11-1997'),
-((SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Camila', 'Vieira', 'Feminino', 98745632147, 8796541, '04-02-1997');
+INSERT INTO turistas (id_login ,id_endereco, nome, sobrenome, sexo, cpf, rg, data_nascimento) VALUES
+(2,(SELECT id FROM enderecos WHERE cep = 14785236 AND numero = 658), 'João', 'Fernandes', 'Masculino', 74125878965, 7896523, '02-07-1998'),
+(3,(SELECT id FROM enderecos WHERE cep = 87965425 AND numero = 895), 'Antonio', 'Amaral', 'Masculino', 87965823654, 1478965, '05-12-1994'),
+(4,(SELECT id FROM enderecos WHERE cep = 89015255 AND numero = 458), 'Maria', 'Rosa', 'Feminino', 74523698541, 4569871, '03-11-1997'),
+(5,(SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Camila', 'Vieira', 'Feminino', 98745632147, 8796541, '04-02-1997');
    
 INSERT INTO guias (id_login, id_endereco, nome, sobrenome, data_nascimento, sexo, cpf, rg, numero_carteira_trabalho, salario, categoria_habilitacao, rank_) VALUES
 (1, (SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Marcos', 'Antonio', '04-10-1990', 'M', 35789654123, 7532147, 12345678912, 2000, 'AB', 3),

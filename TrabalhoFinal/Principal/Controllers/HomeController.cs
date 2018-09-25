@@ -11,6 +11,7 @@ namespace Principal.Controllers
     public class HomeController : BaseController
     {
         // GET: Principal
+        [HttpGet]
         public ActionResult Index()
         {
             ViewBag.UsuarioNome = ((Guia)Session["usuarioLogado"]).Nome;
@@ -18,6 +19,5 @@ namespace Principal.Controllers
             ViewBag.UsuarioPrivilegio = ((Guia)Session["usuarioLogado"]).Login.Privilegio;
             return View();
         }
-
     }
 }
