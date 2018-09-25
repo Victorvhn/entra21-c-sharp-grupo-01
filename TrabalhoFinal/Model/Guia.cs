@@ -38,6 +38,8 @@ namespace Model
 
         public string Rg { get; set; }
 
+        public string Cep { get; set; }
+
         public DateTime DataNascimento { get; set; }
 
         public string DataNascimentoPadraoBR { get { return string.Format("{0:dd/MM/yyyy H:mm}", DataNascimentoPadraoBR); } }

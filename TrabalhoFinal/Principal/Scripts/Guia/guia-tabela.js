@@ -434,7 +434,7 @@
                 $('#campo-editar-guia-rank').val(data.Rank);
                 $('#select-cadastro-guia-estado').append(new Option(data.Estado.Nome, data.IdEstado, false, false)).val(data.IdEstado).trigger('change');
                 $('#select-cadastro-guia-cidade').append(new Option(data.Cidade.Nome, data.IdCidade, false, false)).val(data.IdCidade).trigger('change');
-                $('#campo-cep-cadastro-guia').
+                $('#campo-cep-cadastro-guia').val(data.Cep)
             }
                 
         });
