@@ -483,4 +483,31 @@
   <data name="TelaGerenciamentoVT" xml:space="preserve">
     <value>Tela de Gerenciamento de Viagem Turista</value>
   </data>
+  <data name="Cadastros" xml:space="preserve">
+    <value>Cadastros</value>
+  </data>
+  <data name="Aprovacao" xml:space="preserve">
+    <value>Aprovação</value>
+  </data>
+  <data name="Avancado" xml:space="preserve">
+    <value>Avançado</value>
+  </data>
+  <data name="ConfirmarPacotes" xml:space="preserve">
+    <value>Confirmar Pacotes</value>
+  </data>
+  <data name="CriacaoUsuario" xml:space="preserve">
+    <value>Criação do Usuário (Provisório)</value>
+  </data>
+  <data name="CriarPacote" xml:space="preserve">
+    <value>Criar Pacote</value>
+  </data>
+  <data name="Guias" xml:space="preserve">
+    <value>Guias</value>
+  </data>
+  <data name="Turistas" xml:space="preserve">
+    <value>Turistas</value>
+  </data>
+  <data name="ViagemTurista" xml:space="preserve">
+    <value>Viagem Turista</value>
+  </data>
 </root>
