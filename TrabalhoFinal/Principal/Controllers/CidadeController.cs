@@ -12,7 +12,19 @@ namespace Principal.Controllers
 {
     public class CidadeController : Controller
     {
+
         // GET: Cidade
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
+                selecioneEstado = Resources.Resource.SelecioneEstado,
+                cidadePreenchido = Resources.Resource.CidadePreenchido,
+                cidadeConter = Resources.Resource.CidadeDeveConterEntre
+
+            });
+        }
         [HttpGet]
         public ActionResult Index()
         {
