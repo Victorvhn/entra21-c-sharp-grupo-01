@@ -20,7 +20,7 @@ namespace Repository
 FROM viagens v 
 INNER JOIN pacotes p ON (p.id = v.id_pacote)
 INNER JOIN guias g ON (g.id = v.id_guia)
-WHERE v.ativo = 1
+WHERE v.ativo = 1 AND ((v.id LIKE @SEARCH) OR (p.nome LIKE @SEARCH) OR (g.nome LIKE @SEARCH) OR (v.data_horario_saida LIKE @SEARCH) OR (v.data_horario_volta LIKE @SEARCH))
 ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
             DataTable table = new DataTable();
@@ -81,15 +81,25 @@ ORDER BY p.nome OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             return id;
         }
 
-        /* public int ContabilizarViagensFiltradas(string search)
+         public int ContabilizarViagensFiltradas(string search)
          {
-             throw new NotImplementedException();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(v.id)
+            FROM viagens v
+            INNER JOIN pacotes p ON (p.id = v.id_pacote)
+            INNER JOIN guias g ON (g.id = v.id_guia)
+            WHERE v.ativo = 1 AND ((v.id LIKE @SEARCH) OR (p.nome LIKE @SEARCH) OR (g.nome LIKE @SEARCH) OR (v.data_horario_saida LIKE @SEARCH) OR (v.data_horario_volta LIKE @SEARCH))";
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
          }
 
          public int ContabilizarViagens()
          {
-             throw new NotImplementedException();
-         }*/
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM viagens WHERE ativo = 1";
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+
+        }
 
         public bool Alterar(Viagem viagens)
         {

@@ -71,11 +71,11 @@ namespace Principal.Content
         public ActionResult ObterTodosPorJSON()
         {
             string[] colunasNomes = new string[5];
-            colunasNomes[0] = "";
-            colunasNomes[1] = "";
-            colunasNomes[2] = "";
-            colunasNomes[3] = "";
-            colunasNomes[4] = "";
+            colunasNomes[0] = "v.id";
+            colunasNomes[1] = "p.nome";
+            colunasNomes[2] = "g.nome";
+            colunasNomes[3] = "v.data_horario_saida";
+            colunasNomes[4] = "v.data_horario_volta";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
             string draw = Request.QueryString["draw"];
@@ -88,15 +88,15 @@ namespace Principal.Content
 
             List<Viagem> viagens = new ViagensRepository().ObterTodosPorJSON(start, length, search, orderColumn, orderDir);
 
-            //int countViagens = repository.ContabilizarViagens();
-            //int countFiltered = repository.ContabilizarViagensFiltradas(search);
+            int countViagens = repository.ContabilizarViagens();
+            int countFiltered = repository.ContabilizarViagensFiltradas(search);
 
             return Content(JsonConvert.SerializeObject(new
             {
                 data = viagens,
-                //draw = draw,
-                //recordsTotal = countViagens,
-                //recordsFiltered = countFiltered
+                draw = draw,
+                recordsTotal = countViagens,
+                recordsFiltered = countFiltered
             }));
         }
 
