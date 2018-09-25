@@ -93,11 +93,11 @@
         },
         messages: {
             'cidade.IdEstado': {
-                required: STRINGS.selecioneEstado
+                required: 'Selecione um Estado'
             },
             'cidade.Nome': {
-                required: STRINGS.cidadePreenchido,
-                rangelength: STRINGS.cidadeDeveConter
+                required: 'Cidade deve ser preenchido',
+                rangelength: 'Cidade deve conter entre 3 a 30 caracteres'
             }
         }
     });
@@ -120,7 +120,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: STRINGS.cadastradoSucesso,
+                            text: nomeVar + ' cadastrado com sucesso',
                             type: 'success'
                         });
                     });
@@ -173,11 +173,11 @@
         },
         messages: {
             'cidade.IdEstado': {
-                required: STRINGS.selecioneEstado
+                required: 'Selecione um Estado'
             },
             'cidade.Nome': {
-                required: STRINGS.cidadePreenchido,
-                rangelength: STRINGS.cidadeDeveConter
+                required: 'Cidade deve ser preenchido',
+                rangelength: 'Cidade deve conter entre {0} a {1} caracteres'
             }
         }
     });
@@ -201,7 +201,7 @@
                         $(function () {
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: STRINGS.alteradoSucesso,
+                                text: 'Alterado com sucesso',
                                 type: 'info'
                             });
                         });
@@ -232,7 +232,7 @@
                 if (resultado == 1) {
                     new PNotify({
                         title: 'Desativado!',
-                        text: STRINGS.desativadoSucesso,
+                        text: nome + ' desativado com sucesso',
                         type: 'success'
                     });
 

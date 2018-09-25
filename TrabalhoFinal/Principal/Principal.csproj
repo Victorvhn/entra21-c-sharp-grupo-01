@@ -5235,6 +5235,7 @@
     <Compile Include="Models\ViagemString.cs" />
     <Compile Include="Models\ViagemTuristaString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\GlobalTexts.cs" />
     <Compile Include="Resources\Resource.de1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -393,9 +393,6 @@
   <data name="Cadastrar" xml:space="preserve">
     <value>Cadastrar</value>
   </data>
-  <data name="CadastroCidade" xml:space="preserve">
-    <value>Cadastro de Cidade</value>
-  </data>
   <data name="CadastroEndereco" xml:space="preserve">
     <value>Cadastro de Endereço</value>
   </data>
@@ -407,9 +404,6 @@
   </data>
   <data name="Editar" xml:space="preserve">
     <value>Editar</value>
-  </data>
-  <data name="EditarCidade" xml:space="preserve">
-    <value>Editar Cidade</value>
   </data>
   <data name="EditarEnderecos" xml:space="preserve">
     <value>Editar Endereços</value>
@@ -429,14 +423,8 @@
   <data name="Logradouro" xml:space="preserve">
     <value>Logradouro</value>
   </data>
-  <data name="TabelaCidades" xml:space="preserve">
-    <value>Tabela de Cidades</value>
-  </data>
   <data name="tabelaEnderecos" xml:space="preserve">
     <value>Tabela de Endereços</value>
-  </data>
-  <data name="TelaGerenciamentoCidades" xml:space="preserve">
-    <value>Tela de Gerenciamento de Cidades</value>
   </data>
   <data name="TelaGerenciamentoEndereco" xml:space="preserve">
     <value>Tela de Gerenciamento de Endereços</value>

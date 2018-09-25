@@ -124,15 +124,6 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cadastro de Cidade.
-        /// </summary>
-        public static string CadastroCidade {
-            get {
-                return ResourceManager.GetString("CadastroCidade", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cadastro de Endereço.
         /// </summary>
         public static string CadastroEndereco {
@@ -336,15 +327,6 @@ namespace Principal.Resources {
         public static string Editar {
             get {
                 return ResourceManager.GetString("Editar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Editar Cidade.
-        /// </summary>
-        public static string EditarCidade {
-            get {
-                return ResourceManager.GetString("EditarCidade", resourceCulture);
             }
         }
         
@@ -934,29 +916,11 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tabela de Cidades.
-        /// </summary>
-        public static string TabelaCidades {
-            get {
-                return ResourceManager.GetString("TabelaCidades", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Tabela de Endereços.
         /// </summary>
         public static string tabelaEnderecos {
             get {
                 return ResourceManager.GetString("tabelaEnderecos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tela de Gerenciamento de Cidades.
-        /// </summary>
-        public static string TelaGerenciamentoCidades {
-            get {
-                return ResourceManager.GetString("TelaGerenciamentoCidades", resourceCulture);
             }
         }
         
