@@ -17,13 +17,13 @@
 
                 <form id="form-modal-cadastro-pacote-usuario" method="post">
                     <div>
-                        <span>Pacote</span>
+                        <span>@Principal.Resources.Resource.Pacote</span>
                     </div>
 
                     <div class="row">
                         <div class="form-group col-md-8">
 
-                            <label>Nome Pacote <span class="text-danger font-weight-bold">*</span></label>
+                            <label>@Principal.Resources.Resource.PacoteNome<span class="text-danger font-weight-bold">*</span></label>
                             <input type="text" name="pacote.Nome" id="cadastro-pacote-nome-user" class="form-control" />
 
                         </div>
@@ -33,32 +33,32 @@
                             <label>Destino <span class="text-danger font-weight-bold">*</span></label>
                             <select id="select-destino-pacote-user" class="form-control" name="select-destino">
                                 <option value="" selected="selected">Selecione um destino</option>
-                                <option value="1">África</option>
-                                <option value="2">América</option>
-                                <option value="3">Ásia</option>
-                                <option value="4">Europa</option>
-                                <option value="5">Oceania</option>
+                                <option value="1">@Principal.Resources.Resource.Africa</option>
+                                <option value="2">@Principal.Resources.Resource.America</option>
+                                <option value="3">@Principal.Resources.Resource.Asia</option>
+                                <option value="4">@Principal.Resources.Resource.Europa</option>
+                                <option value="5">@Principal.Resources.Resource.Oceania</option>
                             </select>
 
                         </div>
                     </div>
 
                     <div>
-                        <span>Viagem</span>
+                        <span>@Principal.Resources.Resource.Viagem</span>
                     </div>
 
                     <div class="row">
 
                         <div class="form-group col-md-6">
 
-                            <label>Data e Horário de Ida <span class="text-danger font-weight-bold">*</span></label>
+                            <label>@Principal.Resources.Resource.DataHorarioIda <span class="text-danger font-weight-bold">*</span></label>
                             <input type="datetime-local" id="campo-data-horario-saida-cadastro-user" name="campo-data-horario-saida-cadastro-user" class="form-control" />
 
                         </div>
 
                         <div class="form-group col-md-6">
 
-                            <label>Data e Horário de Volta <span class="text-danger font-weight-bold">*</span></label>
+                            <label>@Principal.Resources.Resource.DataHorarioVolta <span class="text-danger font-weight-bold">*</span></label>
                             <input type="datetime-local" id="campo-data-horario-retorno-cadastro-user" name="campo-data-horario-retorno-cadastro-user" class="form-control" />
 
                         </div>
@@ -68,14 +68,14 @@
                     <div class="row">
                         <div class="form-group col-md-6">
 
-                            <label>Guia <span class="text-danger font-weight-bold">*</span></label>
+                            <label>@Principal.Resources.Resource.Guia <span class="text-danger font-weight-bold">*</span></label>
                             <select id="select-guia-pacote-user" name="viagem.IdGuia" class="form-control"></select>
 
                         </div>
 
                         <div class="form-group col-md-6">
 
-                            <label>Pontos Turísticos <span class="text-danger font-weight-bold">*</span></label>
+                            <label>@Principal.Resources.Resource.PontosTuristicos<span class="text-danger font-weight-bold">*</span></label>
                             <select id="select-pontos-turisticos-cadastro-user" name="select-pontos-turisticos-cadastro-user" class="form-control" multiple="multiple"></select>
 
                         </div>
@@ -85,7 +85,7 @@
 
                         <div class="form-group col-md-2">
 
-                            <label>Valor Total: R$</label>
+                            <label>@Principal.Resources.Resource.ValorTotal</label>
 
                         </div>
 
@@ -103,8 +103,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-pacote-user">Fechar</button>
-                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-pacote-user">Cadastrar</button>
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-pacote-user">@Principal.Resources.Resource.Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-pacote-user">@Principal.Resources.Resource.Cadastrar</button>
             </div>
         </div>
     </div>

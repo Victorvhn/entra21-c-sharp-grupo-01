@@ -516,7 +516,43 @@
   <data name="CadastroCidade" xml:space="preserve">
     <value>City Registration</value>
   </data>
+  <data name="Africa" xml:space="preserve">
+    <value>Africa</value>
+  </data>
+  <data name="America" xml:space="preserve">
+    <value>America</value>
+  </data>
+  <data name="Asia" xml:space="preserve">
+    <value>Asia</value>
+  </data>
+  <data name="CadastrarPacote" xml:space="preserve">
+    <value>Register Package</value>
+  </data>
   <data name="CadastroEstado" xml:space="preserve">
     <value>State Registration</value>
+  </data>
+  <data name="DataHorarioIda" xml:space="preserve">
+    <value>Date and time of departure</value>
+  </data>
+  <data name="DataHorarioVolta" xml:space="preserve">
+    <value>Date and time of return</value>
+  </data>
+  <data name="EditarEstado" xml:space="preserve">
+    <value>State Edit</value>
+  </data>
+  <data name="Europa" xml:space="preserve">
+    <value>Europe</value>
+  </data>
+  <data name="Oceania" xml:space="preserve">
+    <value>Oceania</value>
+  </data>
+  <data name="PacoteNome" xml:space="preserve">
+    <value>Package name</value>
+  </data>
+  <data name="SelecioneDestino" xml:space="preserve">
+    <value>Select a destination </value>
+  </data>
+  <data name="ValorTotal" xml:space="preserve">
+    <value>Amount: R$</value>
   </data>
 </root>

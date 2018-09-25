@@ -70,6 +70,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to África.
+        /// </summary>
+        public static string Africa {
+            get {
+                return ResourceManager.GetString("Africa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alterado com sucesso.
         /// </summary>
         public static string AlteradoSucesso {
@@ -79,11 +88,29 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to América.
+        /// </summary>
+        public static string America {
+            get {
+                return ResourceManager.GetString("America", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aprovação.
         /// </summary>
         public static string Aprovacao {
             get {
                 return ResourceManager.GetString("Aprovacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ásia.
+        /// </summary>
+        public static string Asia {
+            get {
+                return ResourceManager.GetString("Asia", resourceCulture);
             }
         }
         
@@ -138,6 +165,15 @@ namespace Principal.Resources {
         public static string Cadastrar {
             get {
                 return ResourceManager.GetString("Cadastrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cadastrar Pacote.
+        /// </summary>
+        public static string CadastrarPacote {
+            get {
+                return ResourceManager.GetString("CadastrarPacote", resourceCulture);
             }
         }
         
@@ -340,6 +376,24 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data e Horário de Ida.
+        /// </summary>
+        public static string DataHorarioIda {
+            get {
+                return ResourceManager.GetString("DataHorarioIda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data e Horário de Volta.
+        /// </summary>
+        public static string DataHorarioVolta {
+            get {
+                return ResourceManager.GetString("DataHorarioVolta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data de Nascimento.
         /// </summary>
         public static string DataNascimento {
@@ -498,6 +552,15 @@ namespace Principal.Resources {
         public static string Estados {
             get {
                 return ResourceManager.GetString("Estados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Europa.
+        /// </summary>
+        public static string Europa {
+            get {
+                return ResourceManager.GetString("Europa", resourceCulture);
             }
         }
         
@@ -727,6 +790,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Oceânia.
+        /// </summary>
+        public static string Oceania {
+            get {
+                return ResourceManager.GetString("Oceania", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pacote.
         /// </summary>
         public static string Pacote {
@@ -741,6 +813,15 @@ namespace Principal.Resources {
         public static string PacoteDeveConter {
             get {
                 return ResourceManager.GetString("PacoteDeveConter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome do Pacote.
+        /// </summary>
+        public static string PacoteNome {
+            get {
+                return ResourceManager.GetString("PacoteNome", resourceCulture);
             }
         }
         
@@ -930,6 +1011,15 @@ namespace Principal.Resources {
         public static string SalarioPreenchido {
             get {
                 return ResourceManager.GetString("SalarioPreenchido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selecione um destino.
+        /// </summary>
+        public static string SelecioneDestino {
+            get {
+                return ResourceManager.GetString("SelecioneDestino", resourceCulture);
             }
         }
         
@@ -1236,6 +1326,15 @@ namespace Principal.Resources {
         public static string ValorPreenchido {
             get {
                 return ResourceManager.GetString("ValorPreenchido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor total: R$.
+        /// </summary>
+        public static string ValorTotal {
+            get {
+                return ResourceManager.GetString("ValorTotal", resourceCulture);
             }
         }
         
