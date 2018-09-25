@@ -119,11 +119,12 @@
     // Mascaras
     $(document).ready(function () {
         $("#campo-cadastro-guia-cpf").mask("999.999.999-99");
-        $("#campo-cep-cadastro-guia").mask('99999-999');
+       
     });
 
     //Validação Modal Cadastro
     function init() {
+
         $('#form-modal-cadastro-guia').validate({
             errorClass: 'form-control-danger',
             validClass: 'form-control-success',
@@ -136,7 +137,7 @@
             errorPlacement: function (error, element) {
                 $(element).parent().append(error[0])
             },
-
+           
             rules: {
                 'guia.Nome': {
                     required: true,
@@ -184,8 +185,8 @@
                     required: true
                 },
                 'endereco.Cep': {
-                    required: true,                   
-                    validacep: true,                   
+                    required: true                
+                                   
                 },
                 'endereco.Logradouro': {
                     required: true,
@@ -316,16 +317,90 @@
         if (ano < 1888) return false;
         return true;
     }, "Informe uma data válida");  // Mensagem padrão
+    
 
-    // validar Cep
-    jQuery.validator.addMethod("validacep", function (value, element) {
-        return this.optional(element) || /^[0-9]{5}-[0-9]{3}$/.test(value);
-    }, "Por favor, digite um CEP válido");
+    //valida cep
+    /*jQuery.validator.addMethod("validacep", function (value, element) {
+        value = value.replace('-', '');
 
+        var validacep = /^[0-9]{8}$/;
+        var cepTeste;
+
+        if (validacep.test(value)) {
+
+            $.getJSON("https://viacep.com.br/ws/" + value + "/json/?callback=?", function (dados) {
+
+                if (!("erro" in dados)) {
+
+                    cepTeste = "Seu bairro é " + dados.bairro;
+                }
+                else {
+                    return false
+                }
+            });
+        }
+        return alert(cepTeste);
+
+    }, "Por favor, digite um CEP válido");*/
+
+    $(document).ready(function () {
+
+        function limpa_formulário_cep() {
+            // Limpa valores do formulário de cep.
+            $('#campo-logradouro-cadastro-guia').val('');
+            $('#campo-complemento-guia-cadastro').val('');
+           
+        }
+
+        //Quando o campo cep perde o foco.
+        $('#campo-cep-cadastro-guia').blur(function () {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = $(this).val().replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    $('#campo-logradouro-cadastro-guia').val("...");
+                    $('#campo-complemento-guia-cadastro').val("...");                    
+
+                    //Consulta o webservice viacep.com.br/
+                    $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+                        if (!("erro" in dados)) {
+                            //Atualiza os campos com os valores da consulta.
+                            $('#campo-logradouro-cadastro-guia').val(dados.logradouro);
+                            $('#campo-complemento-guia-cadastro').val(dados.bairro);                            
+                        } //end if.
+                        else {
+                            //CEP pesquisado não foi encontrado.
+                            limpa_formulário_cep();
+                            alert("CEP não encontrado.");
+                        }
+                    });
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        });
+    });
 
     $(document).ready(init);
-
-
+ 
     //Salvar modal cadastro
     $("#botao-salvar-modal-cadastrar-guia").on("click", function () {
         var nomeVar = $("#campo-cadastro-guia-nome").val();
