@@ -96,7 +96,7 @@ namespace Principal.Controllers
             string orderDir = Request.QueryString["order[0][dir]"];
             orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
-            List<Guia> guias = new GuiaRepository().ObterTodosParaJSON(start, length);
+            List<Guia> guias = new GuiaRepository().ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
 
             return Content(JsonConvert.SerializeObject(new
             {

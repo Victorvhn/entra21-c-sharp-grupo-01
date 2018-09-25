@@ -13,57 +13,50 @@ namespace Repository
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id_endereco,id, login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, 
+            command.CommandText = @"SELECT id, id_endereco, sexo, nome, sobrenome, numero_carteira_trabalho, 
             categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_ FROM guias";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
             {
-                Guia guia = new Guia()
-                {
-                    Id = Convert.ToInt32(linha[0].ToString()),
-                    // TODO ajustar login
-                    //Login_ = linha[1].ToString(),
-                    Sexo = linha[2].ToString(),
-                    // TODO ajustar login
-                   // Senha = linha[3].ToString(),
-                    Nome = linha[4].ToString(),
-                    Sobrenome = linha[5].ToString(),
-                    CarteiraTrabalho = linha[6].ToString(),
-                    CategoriaHabilitacao = linha[7].ToString(),
-                    Salario = Convert.ToSingle(linha[8].ToString()),
-                    Cpf = linha[9].ToString(),
-                    Rg = linha[10].ToString(),
-                    DataNascimento = Convert.ToDateTime(linha[11].ToString()),
-                    Rank = Convert.ToByte(linha[12].ToString()),
-                    IdEndereco = Convert.ToInt32(linha[13].ToString())
-
-                };
+                Guia guia = new Guia();
+                guia.Id = Convert.ToInt32(linha[0].ToString());
+                guia.IdEndereco = Convert.ToInt32(linha[1].ToString());
+                guia.Sexo = linha[2].ToString();
+                guia.Nome = linha[4].ToString();
+                guia.Sobrenome = linha[5].ToString();
+                guia.CarteiraTrabalho = linha[6].ToString();
+                guia.CategoriaHabilitacao = linha[7].ToString();
+                guia.Salario = Convert.ToSingle(linha[8].ToString());
+                guia.Cpf = linha[9].ToString();
+                guia.Rg = linha[10].ToString();
+                guia.DataNascimento = Convert.ToDateTime(linha[11].ToString());
+                guia.Rank = Convert.ToByte(linha[12].ToString());
                 guias.Add(guia);
             }
             return guias;
         }
 
-        public List<Guia> ObterTodosParaJSON(string start, string length)
+        public List<Guia> ObterTodosParaJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome, sobrenome, cpf, rank_ FROM guias WHERE ativo = 1 ORDER BY nome OFFSET " +
-                start + " ROWS FETCH NEXT "
-                + length + " ROWS ONLY ";
+            command.CommandText = @"SELECT id, nome, sobrenome, cpf, rank_ 
+            FROM guias 
+            WHERE ativo = 1 AND ((nome LIKE @SEARCH) OR (sobrenome LIKE @SEARCH) OR (cpf LIKE @SEARCH))
+            ORDER BY " + orderColumn + " " + orderDir + 
+            " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            command.Parameters.AddWithValue("@SEARCH", search);
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
             {
-                Guia guia = new Guia()
-                {
-                    Id = Convert.ToInt32(linha[0].ToString()),                    
-                    Nome = linha[1].ToString(),
-                    Sobrenome = linha[2].ToString(),                    
-                    Cpf = linha[3].ToString(),
-                    Rank = Convert.ToByte(linha[4].ToString())
-                   
-                };
+                Guia guia = new Guia();
+                guia.Id = Convert.ToInt32(linha[0].ToString());
+                guia.Nome = linha[1].ToString();
+                guia.Sobrenome = linha[2].ToString();
+                guia.Cpf = linha[3].ToString();
+                guia.Rank = Convert.ToByte(linha[4].ToString());
                 guias.Add(guia);
             }
             return guias;
@@ -92,8 +85,8 @@ namespace Repository
 
             command.CommandText = @"INSERT INTO guias (sexo, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
             OUTPUT INSERTED.ID
-            VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";            
-            command.Parameters.AddWithValue("@SEXO", guia.Sexo);            
+            VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";
+            command.Parameters.AddWithValue("@SEXO", guia.Sexo);
             command.Parameters.AddWithValue("@NOME", guia.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
             command.Parameters.AddWithValue("@NUMERO_CARTEIRA_TRABALHO", guia.CarteiraTrabalho);
@@ -155,7 +148,7 @@ namespace Repository
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
-            if(table.Rows.Count == 1)
+            if (table.Rows.Count == 1)
             {
                 guia = new Guia();
                 guia.Id = id;
@@ -194,7 +187,7 @@ namespace Repository
             {
                 guia = new Guia();
                 guia.Id = Convert.ToInt32(table.Rows[0]["id"].ToString());
-                
+
                 guia.Sexo = table.Rows[0]["sexo"].ToString();
                 guia.Nome = table.Rows[0]["nome"].ToString();
                 guia.Sobrenome = table.Rows[0]["sobrenome"].ToString();
