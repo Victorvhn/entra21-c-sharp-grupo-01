@@ -916,6 +916,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tabela de Cidades.
+        /// </summary>
+        public static string TabelaCidades {
+            get {
+                return ResourceManager.GetString("TabelaCidades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tabela de Endereços.
         /// </summary>
         public static string tabelaEnderecos {
@@ -925,11 +934,164 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tabela de Guias.
+        /// </summary>
+        public static string TabelaGuias {
+            get {
+                return ResourceManager.GetString("TabelaGuias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabela de Histórico de Viagem.
+        /// </summary>
+        public static string TabelaHV {
+            get {
+                return ResourceManager.GetString("TabelaHV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabela de Idiomas.
+        /// </summary>
+        public static string TabelaIdiomas {
+            get {
+                return ResourceManager.GetString("TabelaIdiomas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabela de Pacotes.
+        /// </summary>
+        public static string TabelaPacotes {
+            get {
+                return ResourceManager.GetString("TabelaPacotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabela de Pacote Ponto Turístico.
+        /// </summary>
+        public static string TabelaPPT {
+            get {
+                return ResourceManager.GetString("TabelaPPT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabela de Ponto Turístico.
+        /// </summary>
+        public static string TabelaPT {
+            get {
+                return ResourceManager.GetString("TabelaPT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabela de Viagens.
+        /// </summary>
+        public static string TabelaViagens {
+            get {
+                return ResourceManager.GetString("TabelaViagens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabela de Viagem Turista.
+        /// </summary>
+        public static string TabelaVT {
+            get {
+                return ResourceManager.GetString("TabelaVT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Cidades.
+        /// </summary>
+        public static string TelaGerenciamentoCidade {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoCidade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tela de Gerenciamento de Endereços.
         /// </summary>
         public static string TelaGerenciamentoEndereco {
             get {
                 return ResourceManager.GetString("TelaGerenciamentoEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Guias.
+        /// </summary>
+        public static string TelaGerenciamentoGuias {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoGuias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Histórico de Viagem.
+        /// </summary>
+        public static string TelaGerenciamentoHV {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoHV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Idiomas.
+        /// </summary>
+        public static string TelaGerenciamentoIdiomas {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoIdiomas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Pacotes.
+        /// </summary>
+        public static string TelaGerenciamentoPacotes {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoPacotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Pacote Ponto Turistico.
+        /// </summary>
+        public static string TelaGerenciamentoPPT {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoPPT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Ponto Turístico.
+        /// </summary>
+        public static string TelaGerenciamentoTA {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoTA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Viagens.
+        /// </summary>
+        public static string TelaGerenciamentoViagens {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoViagens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Viagem Turista.
+        /// </summary>
+        public static string TelaGerenciamentoVT {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoVT", resourceCulture);
             }
         }
         
