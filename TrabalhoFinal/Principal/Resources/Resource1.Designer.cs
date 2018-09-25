@@ -79,6 +79,24 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aprovação.
+        /// </summary>
+        public static string Aprovacao {
+            get {
+                return ResourceManager.GetString("Aprovacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avançado.
+        /// </summary>
+        public static string Avancado {
+            get {
+                return ResourceManager.GetString("Avancado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bairro deve conter entre 4 a 20 caracteres.
         /// </summary>
         public static string BairroDeveConter {
@@ -129,6 +147,15 @@ namespace Principal.Resources {
         public static string CadastroEndereco {
             get {
                 return ResourceManager.GetString("CadastroEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cadastros.
+        /// </summary>
+        public static string Cadastros {
+            get {
+                return ResourceManager.GetString("Cadastros", resourceCulture);
             }
         }
         
@@ -241,6 +268,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirmar Pacotes.
+        /// </summary>
+        public static string ConfirmarPacotes {
+            get {
+                return ResourceManager.GetString("ConfirmarPacotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Continente.
         /// </summary>
         public static string Continente {
@@ -255,6 +291,24 @@ namespace Principal.Resources {
         public static string CpfPreenchido {
             get {
                 return ResourceManager.GetString("CpfPreenchido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Criação do Usuário (Provisório).
+        /// </summary>
+        public static string CriacaoUsuario {
+            get {
+                return ResourceManager.GetString("CriacaoUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Criar Pacote.
+        /// </summary>
+        public static string CriarPacote {
+            get {
+                return ResourceManager.GetString("CriarPacote", resourceCulture);
             }
         }
         
@@ -453,6 +507,15 @@ namespace Principal.Resources {
         public static string Guia {
             get {
                 return ResourceManager.GetString("Guia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guias.
+        /// </summary>
+        public static string Guias {
+            get {
+                return ResourceManager.GetString("Guias", resourceCulture);
             }
         }
         
@@ -1096,6 +1159,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turistas.
+        /// </summary>
+        public static string Turistas {
+            get {
+                return ResourceManager.GetString("Turistas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usuário.
         /// </summary>
         public static string Usuario {
@@ -1146,6 +1218,15 @@ namespace Principal.Resources {
         public static string Viagem {
             get {
                 return ResourceManager.GetString("Viagem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Viagem Turista.
+        /// </summary>
+        public static string ViagemTurista {
+            get {
+                return ResourceManager.GetString("ViagemTurista", resourceCulture);
             }
         }
         
