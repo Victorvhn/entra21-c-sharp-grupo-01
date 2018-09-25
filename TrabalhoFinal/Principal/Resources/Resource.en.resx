@@ -525,6 +525,9 @@
   <data name="Asia" xml:space="preserve">
     <value>Asia</value>
   </data>
+  <data name="CadastrarHV" xml:space="preserve">
+    <value>Travel History Registration</value>
+  </data>
   <data name="CadastrarPacote" xml:space="preserve">
     <value>Register Package</value>
   </data>
@@ -536,6 +539,9 @@
   </data>
   <data name="DataHorarioVolta" xml:space="preserve">
     <value>Date and time of return</value>
+  </data>
+  <data name="EditarCidade" xml:space="preserve">
+    <value>Edit City</value>
   </data>
   <data name="EditarEstado" xml:space="preserve">
     <value>State Edit</value>

@@ -169,6 +169,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cadastro de Histórico de Viagem.
+        /// </summary>
+        public static string CadastrarHV {
+            get {
+                return ResourceManager.GetString("CadastrarHV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cadastrar Pacote.
         /// </summary>
         public static string CadastrarPacote {
@@ -453,6 +462,15 @@ namespace Principal.Resources {
         public static string Editar {
             get {
                 return ResourceManager.GetString("Editar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Cidade.
+        /// </summary>
+        public static string EditarCidade {
+            get {
+                return ResourceManager.GetString("EditarCidade", resourceCulture);
             }
         }
         

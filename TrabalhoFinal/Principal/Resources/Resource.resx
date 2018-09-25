@@ -513,4 +513,49 @@
   <data name="CadastroCidade" xml:space="preserve">
     <value>Cadastro de Cidaed</value>
   </data>
+  <data name="Africa" xml:space="preserve">
+    <value>África</value>
+  </data>
+  <data name="America" xml:space="preserve">
+    <value>América</value>
+  </data>
+  <data name="Asia" xml:space="preserve">
+    <value>Ásia</value>
+  </data>
+  <data name="CadastrarHV" xml:space="preserve">
+    <value>Cadastro de Histórico de Viagem</value>
+  </data>
+  <data name="CadastrarPacote" xml:space="preserve">
+    <value>Cadastrar Pacote</value>
+  </data>
+  <data name="CadastroEstado" xml:space="preserve">
+    <value>Cadastro de Estado</value>
+  </data>
+  <data name="DataHorarioIda" xml:space="preserve">
+    <value>Data e Horário de Ida</value>
+  </data>
+  <data name="DataHorarioVolta" xml:space="preserve">
+    <value>Data e Horário de Volta</value>
+  </data>
+  <data name="EditarCidade" xml:space="preserve">
+    <value>Editar Cidade</value>
+  </data>
+  <data name="EditarEstado" xml:space="preserve">
+    <value>Editar Estado</value>
+  </data>
+  <data name="Europa" xml:space="preserve">
+    <value>Europa</value>
+  </data>
+  <data name="Oceania" xml:space="preserve">
+    <value>Oceânia</value>
+  </data>
+  <data name="PacoteNome" xml:space="preserve">
+    <value>Nome do Pacote</value>
+  </data>
+  <data name="SelecioneDestino" xml:space="preserve">
+    <value>Selecione um destino</value>
+  </data>
+  <data name="ValorTotal" xml:space="preserve">
+    <value>Valor total: R$</value>
+  </data>
 </root>
