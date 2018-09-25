@@ -2,14 +2,41 @@
     //Preenche DataTable
     $('#table-viagens').DataTable({
         ajax: '/Viagem/ObterTodosPorJSON',
+        "order": [[2, "asc"]],
         columns: [
-            { data: 'Id' },
-            { data: 'Pacote.Nome' },
-            { data: 'Guia.Nome' },
-            { data: 'DataHoraSaidaPadraoBR' },
-            { data: 'DataHoraVoltaPadraoBR' },
+            {
+                data: 'Id',
+                bSortable: true,
+                width: "5%"
+            },
+            {
+                data: 'Pacote.Nome',
+                bSortable: true,
+                width: "25%",
+                target: 0
+            },
+            {
+                data: 'Guia.Nome',
+                bSortable: true,
+                width: "20%",
+                target: 1
+            },
+            {
+                data: 'DataHoraSaidaPadraoBR',
+                bSortable: true,
+                width: "15%",
+                target: 2
+            },
+            {
+                data: 'DataHoraVoltaPadraoBR',
+                bSortable: true,
+                width: "15%",
+                target: 3
+            },
             {
                 data: null,
+                bSortable: false,
+                width: "20%",
                 render: function (data, type, row) {
                     return '<a class="btn btn-outline-info botao-editar-viagem" data-id="' + row.Id + '" data-toggle="modal" data-target="#viagem-modal-editar">Editar</a>' +
                         "<a class='btn btn-outline-danger ml-1 botao-excluir-viagem' data-id='" + row.Id + "'>Desativar</a>";
