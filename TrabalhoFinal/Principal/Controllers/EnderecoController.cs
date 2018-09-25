@@ -26,7 +26,12 @@ namespace Principal.Controllers
                 numSomenteDig = Resources.Resource.NumeroDigitos,
                 cepPreenchido = Resources.Resource.CEPPreenchido,
                 cepDeveConter = Resources.Resource.CEPDeveConter,
-                endereco = Resources.Resource.Endereco
+                endereco = Resources.Resource.Endereco,
+                enderecoCadastrado = Resources.Resource.EnderecoCadastradoSucesso,
+                enderecoAlterado = Resources.Resource.EnderecoEditadoSucesso,
+                enderecoDesativado = Resources.Resource.EnderecoDesativadoSucesso,
+                editar = Resources.Resource.Editar,
+                desativar = Resources.Resource.Desativar
             });
         }
 

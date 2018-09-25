@@ -117,7 +117,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: 'Endereço Cadastrado com sucesso',
+                            text: STRINGS.enderecoCadastrado,
                             type: 'success'
                         });
                     });
@@ -173,13 +173,6 @@
             'endereco.Numero': {
                 required: true
             },
-            'endereco.Complemento': {
-                required: true
-            },
-            'endereco.Referencia': {
-                required: true,
-                rangelength: [5, 40]
-            },
             'endereco.IdCidade': {
                 required: true
             }
@@ -225,7 +218,7 @@
                         $(function () {
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: 'Endereço alterado com sucesso',
+                                text: STRINGS.enderecoAlterado,
                                 type: 'info'
                             });
                         });
@@ -255,7 +248,7 @@
                 if (resultado == 1) {
                     new PNotify({
                         title: 'Desativado',
-                        text: 'Endereço desativado com sucesso',
+                        text: STRINGS.enderecoDesativado,
                         type: 'success'
                     });
                     $('#table-endereco').DataTable().ajax.reload();

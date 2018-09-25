@@ -387,4 +387,46 @@
   <data name="Viagens" xml:space="preserve">
     <value>Viagens</value>
   </data>
+  <data name="acao" xml:space="preserve">
+    <value>Ação</value>
+  </data>
+  <data name="Cadastrar" xml:space="preserve">
+    <value>Cadastrar</value>
+  </data>
+  <data name="CadastroEndereco" xml:space="preserve">
+    <value>Cadastro de Endereço</value>
+  </data>
+  <data name="Codigo" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="Desativar" xml:space="preserve">
+    <value>Desativar</value>
+  </data>
+  <data name="Editar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="EditarEnderecos" xml:space="preserve">
+    <value>Editar Endereços</value>
+  </data>
+  <data name="EnderecoCadastradoSucesso" xml:space="preserve">
+    <value>Endereço Cadastrado com Sucesso</value>
+  </data>
+  <data name="EnderecoDesativadoSucesso" xml:space="preserve">
+    <value>Endereço desativado com Sucesso</value>
+  </data>
+  <data name="EnderecoEditadoSucesso" xml:space="preserve">
+    <value>Endereço alterado com Sucesso</value>
+  </data>
+  <data name="Fechar" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="Logradouro" xml:space="preserve">
+    <value>Logradouro</value>
+  </data>
+  <data name="tabelaEnderecos" xml:space="preserve">
+    <value>Tabela de Endereços</value>
+  </data>
+  <data name="TelaGerenciamentoEndereco" xml:space="preserve">
+    <value>Tela de Gerenciamento de Endereços</value>
+  </data>
 </root>

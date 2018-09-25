@@ -120,9 +120,6 @@
   <data name="AlteradoSucesso" xml:space="preserve">
     <value>Altered successfully</value>
   </data>
-  <data name="Ba" xml:space="preserve">
-    <value />
-  </data>
   <data name="BairroDeveConter" xml:space="preserve">
     <value>Neighbourhood must contain between 4 and 20 characters</value>
   </data>
@@ -193,7 +190,7 @@
     <value>The date is not valid</value>
   </data>
   <data name="DesativadoSucesso" xml:space="preserve">
-    <value>Deactivated successfully</value>
+    <value>Desactivated successfully</value>
   </data>
   <data name="Endereco" xml:space="preserve">
     <value>Address</value>
@@ -389,5 +386,47 @@
   </data>
   <data name="Viagens" xml:space="preserve">
     <value>Travels</value>
+  </data>
+  <data name="Acao" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Cadastrar" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="CadastroEndereco" xml:space="preserve">
+    <value>Address Registration</value>
+  </data>
+  <data name="Codigo" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Desativar" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Editar" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditarEnderecos" xml:space="preserve">
+    <value>Edit Addresses</value>
+  </data>
+  <data name="EnderecoCadastradoSucesso" xml:space="preserve">
+    <value>Address Registered successfully</value>
+  </data>
+  <data name="EnderecoDesativadoSucesso" xml:space="preserve">
+    <value>Address Desactivated successfully</value>
+  </data>
+  <data name="EnderecoEditadoSucesso" xml:space="preserve">
+    <value>Address Altered successfully</value>
+  </data>
+  <data name="Fechar" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Logradouro" xml:space="preserve">
+    <value>Public Place</value>
+  </data>
+  <data name="TabelaEnderecos" xml:space="preserve">
+    <value>Address Table</value>
+  </data>
+  <data name="TelaGerenciamentoEndereco" xml:space="preserve">
+    <value>Addresses Management Screen</value>
   </data>
 </root>

@@ -61,6 +61,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ação.
+        /// </summary>
+        public static string acao {
+            get {
+                return ResourceManager.GetString("acao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alterado com sucesso.
         /// </summary>
         public static string AlteradoSucesso {
@@ -102,6 +111,24 @@ namespace Principal.Resources {
         public static string CadastradoSucesso {
             get {
                 return ResourceManager.GetString("CadastradoSucesso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cadastrar.
+        /// </summary>
+        public static string Cadastrar {
+            get {
+                return ResourceManager.GetString("Cadastrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cadastro de Endereço.
+        /// </summary>
+        public static string CadastroEndereco {
+            get {
+                return ResourceManager.GetString("CadastroEndereco", resourceCulture);
             }
         }
         
@@ -196,6 +223,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código.
+        /// </summary>
+        public static string Codigo {
+            get {
+                return ResourceManager.GetString("Codigo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Complemento.
         /// </summary>
         public static string Complemento {
@@ -277,11 +313,65 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desativar.
+        /// </summary>
+        public static string Desativar {
+            get {
+                return ResourceManager.GetString("Desativar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar.
+        /// </summary>
+        public static string Editar {
+            get {
+                return ResourceManager.GetString("Editar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Endereços.
+        /// </summary>
+        public static string EditarEnderecos {
+            get {
+                return ResourceManager.GetString("EditarEnderecos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Endereço.
         /// </summary>
         public static string Endereco {
             get {
                 return ResourceManager.GetString("Endereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Endereço Cadastrado com Sucesso.
+        /// </summary>
+        public static string EnderecoCadastradoSucesso {
+            get {
+                return ResourceManager.GetString("EnderecoCadastradoSucesso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Endereço desativado com Sucesso.
+        /// </summary>
+        public static string EnderecoDesativadoSucesso {
+            get {
+                return ResourceManager.GetString("EnderecoDesativadoSucesso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Endereço alterado com Sucesso.
+        /// </summary>
+        public static string EnderecoEditadoSucesso {
+            get {
+                return ResourceManager.GetString("EnderecoEditadoSucesso", resourceCulture);
             }
         }
         
@@ -327,6 +417,15 @@ namespace Principal.Resources {
         public static string Estados {
             get {
                 return ResourceManager.GetString("Estados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fechar.
+        /// </summary>
+        public static string Fechar {
+            get {
+                return ResourceManager.GetString("Fechar", resourceCulture);
             }
         }
         
@@ -453,6 +552,15 @@ namespace Principal.Resources {
         public static string InformeDataVolta {
             get {
                 return ResourceManager.GetString("InformeDataVolta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logradouro.
+        /// </summary>
+        public static string Logradouro {
+            get {
+                return ResourceManager.GetString("Logradouro", resourceCulture);
             }
         }
         
@@ -804,6 +912,24 @@ namespace Principal.Resources {
         public static string SobrenomePrenchido {
             get {
                 return ResourceManager.GetString("SobrenomePrenchido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabela de Endereços.
+        /// </summary>
+        public static string tabelaEnderecos {
+            get {
+                return ResourceManager.GetString("tabelaEnderecos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Gerenciamento de Endereços.
+        /// </summary>
+        public static string TelaGerenciamentoEndereco {
+            get {
+                return ResourceManager.GetString("TelaGerenciamentoEndereco", resourceCulture);
             }
         }
         
