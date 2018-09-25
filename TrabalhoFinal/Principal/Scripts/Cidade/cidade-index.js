@@ -93,11 +93,11 @@
         },
         messages: {
             'cidade.IdEstado': {
-                required: 'Selecione um Estado'
+                required: STRINGS.selecioneEstado
             },
             'cidade.Nome': {
-                required: 'Cidade deve ser preenchido',
-                rangelength: 'Cidade deve conter entre 3 a 30 caracteres'
+                required: STRINGS.cidadePreenchido,
+                rangelength: STRINGS.cidadeDeveConter
             }
         }
     });
@@ -120,7 +120,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: nomeVar + ' cadastrado com sucesso',
+                            text: STRINGS.cadastradoSucesso,
                             type: 'success'
                         });
                     });
@@ -173,11 +173,11 @@
         },
         messages: {
             'cidade.IdEstado': {
-                required: 'Selecione um Estado'
+                required: STRINGS.selecioneEstado
             },
             'cidade.Nome': {
-                required: 'Cidade deve ser preenchido',
-                rangelength: 'Cidade deve conter entre {0} a {1} caracteres'
+                required: STRINGS.cidadePreenchido,
+                rangelength: STRINGS.cidadeDeveConter
             }
         }
     });
@@ -201,7 +201,7 @@
                         $(function () {
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: 'Alterado com sucesso',
+                                text: STRINGS.alteradoSucesso,
                                 type: 'info'
                             });
                         });
@@ -232,7 +232,7 @@
                 if (resultado == 1) {
                     new PNotify({
                         title: 'Desativado!',
-                        text: nome + ' desativado com sucesso',
+                        text: STRINGS.desativadoSucesso,
                         type: 'success'
                     });
 
