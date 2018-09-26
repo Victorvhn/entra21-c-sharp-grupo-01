@@ -585,6 +585,9 @@
   <data name="TelaBloqueio" xml:space="preserve">
     <value>Tela de Bloqueio</value>
   </data>
+  <data name="CadastrarPPT" xml:space="preserve">
+    <value>Cadastrar Pacote Ponto Turístico</value>
+  </data>
   <data name="CadastroIdioma" xml:space="preserve">
     <value>Cadastro de Idioma</value>
   </data>
@@ -599,6 +602,9 @@
   </data>
   <data name="EditarPacote" xml:space="preserve">
     <value>Editar Pacote</value>
+  </data>
+  <data name="EditarPPT" xml:space="preserve">
+    <value>Editar Pacote Ponto Turístico</value>
   </data>
   <data name="EditarViagem" xml:space="preserve">
     <value>Editar Viagem</value>
