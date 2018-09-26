@@ -28,7 +28,8 @@
             },
             success: function (result) {
                 var resultado = JSON.parse(result);
-                $("#pai").append('<div class="media chat-messages">\
+
+                    $("#pai").append('<div class="media chat-messages">\
                         <div class="media-body chat-menu-reply">\
                             <div class="">\
                                 <p class="chat-cont">' + $("#mensagem-texto").val() + '</p >\
@@ -36,8 +37,9 @@
                             </div>\
                         </div>\
                         </div>');
-
-                $("#mensagem-texto").val("");
+                    $("#mensagem-texto").val("");
+             
+                
             }
         });
     }

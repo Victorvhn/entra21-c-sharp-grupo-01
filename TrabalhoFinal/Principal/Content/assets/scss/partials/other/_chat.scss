@@ -1,21 +1,24 @@
 /**  =====================
       Chatting css start
 ==========================  **/
-.chat-bg{
+.chat-bg {
     background-image: url('../images/chat-bg.jpg');
     background-size: cover;
-        background-blend-mode: overlay;
+    background-blend-mode: overlay;
     background-color: rgba(255, 255, 255, 0.45);
 }
+
 #main-chat {
     .chat-single-box.active {
         .chat-header {
             background-color: $primary-color;
+
             a {
                 color: #fff;
             }
         }
     }
+
     .chat-single-box {
         .chat-header {
             a {
@@ -23,42 +26,53 @@
             }
         }
     }
+
     .chat-box ul.boxs li.chat-single-box .chat-header.custom-collapsed {
         position: absolute;
         bottom: 0;
         width: 300px;
     }
+
     .minimized {
         background-color: #1e2730;
     }
+
     .user-groups {
         padding-left: 20px;
         padding-bottom: 20px;
         border-bottom: 1px solid #ddd;
         margin-bottom: 20px;
+
         .userlist-box {
             border-bottom: none;
+
             &:last-child {
                 padding-bottom: 0;
                 margin-bottom: 0;
             }
         }
+
         .media {
             padding-left: 0;
         }
+
         h6 {
             font-size: 15px;
             font-weight: 600;
             margin-bottom: 20px;
         }
+
         li {
             margin-bottom: 20px;
+
             &:last-child {
                 margin-bottom: 0;
             }
+
             &.work {
                 position: relative;
                 padding-left: 20px;
+
                 &:before {
                     content: '';
                     position: absolute;
@@ -70,8 +84,10 @@
                     top: 6px;
                 }
             }
+
             &.frnds {
                 @extend .work;
+
                 &:before {
                     background-color: $danger-color;
                 }
@@ -92,6 +108,7 @@
     padding: 12px;
     bottom: 10px;
     border-top: 1px solid #ddd;
+
     #paper-btn {
         i {
             font-size: 18px;
@@ -178,10 +195,12 @@
     direction: ltr;
     z-index: 999;
     bottom: 0;
+
     .chat-header {
         background-color: $default-color;
         color: #fff;
-        .close{
+
+        .close {
             margin-top: 0;
         }
     }
@@ -234,11 +253,13 @@
     width: 300px;
     position: fixed;
     border-radius: 0px;
+    
 }
 
 .userlist-box {
     cursor: pointer;
     border-bottom: 1px solid #efefef;
+
     .media-left {
         padding-right: 10px;
     }
@@ -340,6 +361,7 @@
 .back_chatBox {
     margin: 0 auto;
     font-weight: 600;
+
     i {
         float: left;
         position: absolute;
@@ -487,6 +509,7 @@
     height: 100%;
     z-index: 99;
     border-left: 1px solid #ccc;
+
     .img-circle {
         border-radius: 0 !important
     }
