@@ -18,6 +18,10 @@
 @Html.Partial("~/Views/CriarPacote/ModalCadastro.cshtml")
 
 @section script{
-    <script src="~/Scripts/CriarPacote/criar-pacote-user.js" ></script>   
+    <script src="~/Scripts/MultiIdioma/multi-idioma.js"></script>
+    <script type="text/javascript">
+        loadStrings('CriarPacote');
+    </script>
+    <script src="~/Scripts/CriarPacote/criar-pacote-user.js"></script>
     <script src="~/Scripts/PopularSelects/CriarPacoteUser/popular-selects-guia-ponto-turistico.js"></script>
 }

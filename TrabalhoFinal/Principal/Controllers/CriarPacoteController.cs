@@ -13,6 +13,24 @@ namespace Principal.Controllers
     public class CriarPacoteController : Controller
     {
         // GET: CriarPacote
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
+                cadastrado = Resources.Resource.CadastradoSucesso,
+                alterado = Resources.Resource.AlteradoSucesso,
+                desativado = Resources.Resource.DesativadoSucesso,
+                nomePreenchido = Resources.Resource.NomePreenchido,
+                nomeConter = Resources.Resource.NomeDeveConter,
+                selecioneDestino = Resources.Resource.SelecioneDestino,
+                informeDataSaida = Resources.Resource.InformeDataSaida,
+                dataInvalida = Resources.Resource.DataValida,
+                informeDataVolta = Resources.Resource.InformeDataVolta,
+                selecioneGuia = Resources.Resource.SelecioneGuia,
+                selecionePontoTuristico = Resources.Resource.SelecionePontoTuristico
+            });
+        }
         [HttpGet]
         public ActionResult Index()
         {

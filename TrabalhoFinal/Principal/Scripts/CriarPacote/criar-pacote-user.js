@@ -45,25 +45,25 @@
         },
         messages: {
             'pacote.Nome': {
-                required: 'Nome deve ser preenchido.',
-                rangelength: 'nome deve conter entre {0} a {1} caracteres'
+                required: STRINGS.nomePreenchido,
+                rangelength: STRINGS.nomeConter
             },
             'select-destino': {
-                required: 'Selecione um destino.'
+                required: STRINGS.selecioneDestino
             },
             'campo-data-horario-saida-cadastro-user': {
-                required: 'Informe a data de saída.',
-                date: 'Esta data não é válida.'
+                required: STRINGS.informeDataSaida,
+                date: STRINGS.dataInvalida
             },
             'campo-data-horario-retorno-cadastro-user': {
-                required: 'Informe a data de retorno.',
-                date: 'Esta data não é válida.'
+                required: STRINGS.informeDataVolta,
+                date: STRINGS.dataInvalida
             },
             'viagem.IdGuia': {
-                required: 'Selecione um guia.'
+                required: STRINGS.selecioneGuia
             },
             'select-pontos-turisticos-cadastro-user': {
-                required: 'Selecione um ponto turistico.'
+                required: STRINGS.selecionePontoTuristico
             }
         }
     });
@@ -90,7 +90,7 @@
                         $(function () {
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: 'Pacote cadastrado com sucesso',
+                                text: STRINGS.cadastrado,
                                 type: 'success'
                             });
                         });
