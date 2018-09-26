@@ -585,4 +585,10 @@
   <data name="TelaBloqueio" xml:space="preserve">
     <value>Tela de Bloqueio</value>
   </data>
+  <data name="CadastroIdioma" xml:space="preserve">
+    <value>Cadastro de Idioma</value>
+  </data>
+  <data name="EditarIdioma" xml:space="preserve">
+    <value>Editar Idioma</value>
+  </data>
 </root>

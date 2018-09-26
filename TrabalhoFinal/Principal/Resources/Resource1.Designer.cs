@@ -214,6 +214,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cadastro de Idioma.
+        /// </summary>
+        public static string CadastroIdioma {
+            get {
+                return ResourceManager.GetString("CadastroIdioma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cadastros.
         /// </summary>
         public static string Cadastros {
@@ -507,6 +516,15 @@ namespace Principal.Resources {
         public static string EditarHV {
             get {
                 return ResourceManager.GetString("EditarHV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Idioma.
+        /// </summary>
+        public static string EditarIdioma {
+            get {
+                return ResourceManager.GetString("EditarIdioma", resourceCulture);
             }
         }
         

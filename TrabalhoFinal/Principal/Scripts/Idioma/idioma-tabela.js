@@ -45,8 +45,8 @@
         },
         messages: {
             'idioma.Nome': {
-                required: 'Idioma deve ser preenchido,',
-                rangelength: 'Idioma deve conter entre {0} a {1}'
+                required: STRINGS.idiomaPreenchido,
+                rangelength: STRINGS.idiomaConter
 
             }
         }
@@ -69,7 +69,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: nomeVar + ' cadastrado com sucesso',
+                            text: nomeVar + " " + STRINGS.cadastro,
                             type: 'success'
                         });
                     });
@@ -108,8 +108,8 @@
         },
         messages: {
             'idioma.Nome': {
-                required: 'Idioma deve ser preenchido',
-                rangelength: 'Idioma deve conter entre {0} a {1}'
+                required: STRINGS.idiomaPreenchido,
+                rangelength: STRINGS.idiomaConter
 
             }
         }
@@ -135,7 +135,7 @@
                         $(function () {
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: 'Alterado com sucesso',
+                                text: STRINGS.alterado,
                                 type: 'info'
                             });
                         });
@@ -166,7 +166,7 @@
                 if (resultado == 1) {
                     new PNotify({
                         title: 'Desativado!',
-                        text: nome + ' desativado com sucesso',
+                        text: nome + " " + STRINGS.desativado,
                         type: 'success'
                     });
 

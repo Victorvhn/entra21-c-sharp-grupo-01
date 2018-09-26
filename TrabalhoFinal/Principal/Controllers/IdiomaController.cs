@@ -17,7 +17,11 @@ namespace Principal.Controllers
         {
             return Json(new
             {
-
+                cadastrado = Resources.Resource.CadastradoSucesso,
+                alterado = Resources.Resource.AlteradoSucesso,
+                desativado = Resources.Resource.DesativadoSucesso,
+                idiomaPreenchido = Resources.Resource.IdiomaPreenchido,
+                idiomaConter = Resources.Resource.IdiomaDeveConter
             });
         }
         [HttpGet]        
