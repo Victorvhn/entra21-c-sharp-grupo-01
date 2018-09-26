@@ -13,6 +13,20 @@ namespace Principal.Content
     public class ViagemController : Controller
     {
         // GET: Viagem
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
+                cadastrado = Resources.Resource.CadastradoSucesso,
+                alterado = Resources.Resource.AlteradoSucesso,
+                desativado = Resources.Resource.DesativadoSucesso,
+                selecionePacote = Resources.Resource.SelecionePacote,
+                selecioneGuia = Resources.Resource.SelecioneGuia,
+                informeDataIda = Resources.Resource.InformeDataSaida,
+                informeDataVolta = Resources.Resource.InformeDataVolta
+            });
+        }
         [HttpGet]
         public ActionResult Index()
         {

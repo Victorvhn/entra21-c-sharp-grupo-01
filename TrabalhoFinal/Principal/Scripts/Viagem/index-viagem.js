@@ -83,18 +83,18 @@
         },
         messages: {
             'viagem.IdPacote': {
-                required: 'Selecione um pacote.'
+                required: STRINGS.selecionePacote
             },
             'viagem.IdGuia': {
-                required: 'Selecione um Guia.'
+                required: STRINGS.selecioneGuia
 
             },
             'viagem.DataHorarioSaida': {
-                required: 'Informe a data de saida.',
+                required: STRINGS.informeDataIda,
                 date: true
             },
             'viagem.DataHorarioVolta': {
-                required: 'Informe a data da volta.',
+                required: STRINGS.informeDataVolta,
                 date: true
 
             }
@@ -121,7 +121,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: 'Viagem cadastrada com sucesso',
+                            text: STRINGS.cadastrado,
                             type: 'success'
                         });
                     });
@@ -183,18 +183,18 @@
         },
         messages: {
             'viagem.IdPacote': {
-                required: 'Selecione um pacote.'
+                required: STRINGS.selecionePacote
             },
             'viagem.IdGuia': {
-                required: 'Selecione um Guia.'
+                required: STRINGS.selecioneGuia
 
             },
             'viagem.DataHorarioSaida': {
-                required: 'Informe data de saida.',
+                required: STRINGS.informeDataIda,
                 date: true
             },
             'viagem.DataHorarioVolta': {
-                required: 'Informe a data da volta.',
+                required: STRINGS.informeDataVolta,
                 date: true
 
             }
@@ -223,7 +223,7 @@
                             $('#table-viagens').DataTable().ajax.reload();
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: 'Alterado com sucesso',
+                                text: STRINGS.alterado,
                                 type: 'info'
                             });
                         });
@@ -252,7 +252,7 @@
                 if (result == 1) {
                     new PNotify({
                         title: 'Desativado!',
-                        text: 'Viagem desativada com sucesso',
+                        text: STRINGS.desativado,
                         type: 'success'
                     });
 

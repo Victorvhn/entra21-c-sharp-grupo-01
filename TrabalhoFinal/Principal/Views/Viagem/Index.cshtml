@@ -12,8 +12,8 @@
             <div class="page-header-title">
                 <i class="icofont icofont-airplane-alt"></i>
                 <div class="d-inline">
-                    <h4>Tabela de Viagens</h4>
-                    <span>Tela de gerenciamento de Viagens</span>
+                    <h4>@Principal.Resources.Resource.TabelaViagens</h4>
+                    <span>@Principal.Resources.Resource.TelaGerenciamentoViagens</span>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="page-header-breadcrumb">
                 <button type="button" class="btn btn-grd-primary" id="botao-modal-cadastrar-viagem">
                     <i class="icofont icofont-plus"></i>
-                    Cadastrar
+                    @Principal.Resources.Resource.Cadastrar
                 </button>
             </div>
         </div>
@@ -31,23 +31,23 @@
             <table class="table table-striped table-hover table-bordered nowrap" id="table-viagens">
                 <thead>
                     <tr>
-                        <th>Código</th>
-                        <th>Pacote</th>
-                        <th>Guia</th>
-                        <th>Data e Hora Saida</th>
-                        <th>Data e Hora Volta</th>
-                        <th>Ação</th>
+                        <th>@Principal.Resources.Resource.Codigo</th>
+                        <th>@Principal.Resources.Resource.Pacote</th>
+                        <th>@Principal.Resources.Resource.Guia</th>
+                        <th>@Principal.Resources.Resource.DataHorarioIda</th>
+                        <th>@Principal.Resources.Resource.DataHorarioVolta</th>
+                        <th>@Principal.Resources.Resource.Acao</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
                 <tfoot>
                     <tr>
-                        <th>Código</th>
-                        <th>Pacote</th>
-                        <th>Guia</th>
-                        <th>Data e Hora Saida</th>
-                        <th>Data e Hora Volta</th>
-                        <th>Ação</th>
+                        <th>@Principal.Resources.Resource.Codigo</th>
+                        <th>@Principal.Resources.Resource.Pacote</th>
+                        <th>@Principal.Resources.Resource.Guia</th>
+                        <th>@Principal.Resources.Resource.DataHorarioIda</th>
+                        <th>@Principal.Resources.Resource.DataHorarioVolta</th>
+                        <th>@Principal.Resources.Resource.Acao</th>
                     </tr>
                 </tfoot>
             </table>
@@ -59,7 +59,10 @@
 @Html.Partial("~/Views/Viagem/ModalEditar.cshtml")
 
 @section script{
-    
+    <script src="~/Scripts/MultiIdioma/multi-idioma.js"></script>
+    <script type="text/javascript">
+        loadStrings('Viagem');
+    </script>
     <script src="~/Scripts/Viagem/index-viagem.js"></script>
     <script src="~/Scripts/PopularSelects/SelectViagem/popular-select-viagem.js"></script>
 }

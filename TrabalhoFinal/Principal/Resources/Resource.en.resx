@@ -295,7 +295,7 @@
     <value>Country</value>
   </data>
   <data name="PercentualDesconto" xml:space="preserve">
-    <value>Maximum discount percentage must be filled</value>
+    <value>Maximum discount percentage</value>
   </data>
   <data name="PercentualDescontoDeveConter" xml:space="preserve">
     <value>Maximum discount percentage must contain only integers and decimals</value>
@@ -591,6 +591,9 @@
   <data name="CadastroIdioma" xml:space="preserve">
     <value>Language Registration</value>
   </data>
+  <data name="CadastroViagem" xml:space="preserve">
+    <value>Travel Registration</value>
+  </data>
   <data name="Desconto" xml:space="preserve">
     <value>Discount</value>
   </data>
@@ -599,5 +602,11 @@
   </data>
   <data name="EditarPacote" xml:space="preserve">
     <value>Edit Package</value>
+  </data>
+  <data name="EditarViagem" xml:space="preserve">
+    <value>Edit Travel</value>
+  </data>
+  <data name="PercentualDescontoPreenchido" xml:space="preserve">
+    <value>Maximum discount percentage must be filled</value>
   </data>
 </root>
