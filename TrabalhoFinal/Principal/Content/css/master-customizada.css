@@ -1,3 +1,6 @@
 ﻿.texto-barra-lateral {
     color: #BDC3C7
 }
+.show-notification {
+    width: 19em  !important;
+}

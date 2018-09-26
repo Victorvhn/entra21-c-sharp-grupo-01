@@ -125,26 +125,20 @@
                         </ul>
                         <ul class="nav-right">
                             <li class="header-notification lng-dropdown">
-                                <a href="/Language/Change?lang=pt" id="dropdown-active-item">
-                                    <img src="~/Content/imagens/Brasil.png" alt=""> Português
+                                <a href="/Language/Change?lang=@Principal.Controllers.BaseController.CurrentIdiom.TwoLetterISOLanguageName">
+                                    <img src="~/Content/assets/images/flags/@{@Principal.Controllers.BaseController.CurrentIdiom.TwoLetterISOLanguageName}.svg" alt="">
+                                    @Principal.Controllers.BaseController.CurrentIdiom.DisplayName
                                 </a>
                                 <ul class="show-notification">
-                                    <li>
-                                        <a href="/Language/Change?lang=pt-br" data-lng="pt-br">
-                                            <img src="~/Content/imagens/Brasil.png" alt=""> Português
-                                        </a>
-                                    </li>
-                                    <li>
-
-                                        <a href="/Language/Change?lang=en" data-lng="en">
-                                            <img src="~/Content/assets/images/flags/ENGLISH.jpg" alt=""> English                                            
-                                        </a>                                        
-                                    </li>                                    
-                                    <li>
-                                        <a href="/Language/Change?lang=de" data-lng="de">
-                                            <img src="~/Content/assets/images/flags/FRANCE.jpg" alt=""> Deutsch
-                                        </a>
-                                    </li>
+                                    @foreach (System.Globalization.CultureInfo idiom in Principal.Controllers.BaseController.Idioms)
+                                    {
+                                        <li>
+                                            <a href="/Language/Change?lang=@idiom.TwoLetterISOLanguageName">
+                                                <img src="~/Content/assets/images/flags/@{@idiom.TwoLetterISOLanguageName}.svg" alt="">
+                                                @idiom.DisplayName
+                                            </a>
+                                        </li>
+                                    }
                                 </ul>
                             </li>
                             <li class="header-notification">

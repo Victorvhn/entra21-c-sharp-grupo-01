@@ -12,7 +12,15 @@ namespace Principal.Controllers
     public class IdiomaController : Controller
     {
         // GET: Idioma
-        [HttpGet]
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
+
+            });
+        }
+        [HttpGet]        
         public ActionResult Index()
         {
             return View();
