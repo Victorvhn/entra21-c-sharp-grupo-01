@@ -612,4 +612,10 @@
   <data name="PercentualDescontoPreenchido" xml:space="preserve">
     <value>Percentual máximo de desconto deve ser Preenchido</value>
   </data>
+  <data name="Apresentar" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Buscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
 </root>

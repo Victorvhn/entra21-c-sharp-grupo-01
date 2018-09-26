@@ -97,6 +97,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show.
+        /// </summary>
+        public static string Apresentar {
+            get {
+                return ResourceManager.GetString("Apresentar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aprovação.
         /// </summary>
         public static string Aprovacao {
@@ -147,6 +156,15 @@ namespace Principal.Resources {
         public static string Basicos {
             get {
                 return ResourceManager.GetString("Basicos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buscar.
+        /// </summary>
+        public static string Buscar {
+            get {
+                return ResourceManager.GetString("Buscar", resourceCulture);
             }
         }
         
