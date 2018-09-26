@@ -41,8 +41,11 @@ namespace Repository
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, nome, sobrenome, cpf, rank_ 
-            FROM guias 
+            command.CommandText = @"SELECT g.id, g.id_endereco, g.id_login, g.nome, g.sobrenome, g.cpf, g.rank_, 
+            e.id, e.id_cidade, e.cep, e.logradouro
+            e.numero, e.complemento, e.referencia
+            FROM guias g
+            INNER JOIN enderecos e ON (e.id = g.id_endereco)            
             WHERE ativo = 1 AND ((nome LIKE @SEARCH) OR (sobrenome LIKE @SEARCH) OR (cpf LIKE @SEARCH))
             ORDER BY " + orderColumn + " " + orderDir + 
             " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
@@ -53,10 +56,17 @@ namespace Repository
             {
                 Guia guia = new Guia();
                 guia.Id = Convert.ToInt32(linha[0].ToString());
-                guia.Nome = linha[1].ToString();
-                guia.Sobrenome = linha[2].ToString();
-                guia.Cpf = linha[3].ToString();
-                guia.Rank = Convert.ToByte(linha[4].ToString());
+                guia.Nome = linha[3].ToString();
+                guia.Sobrenome = linha[4].ToString();
+                guia.Cpf = linha[5].ToString();
+                guia.Rank = Convert.ToByte(linha[6].ToString());
+                guia.Endereco = new Endereco();
+                guia.Endereco.Id = Convert.ToInt32(linha[7].ToString());
+                guia.Endereco.Cep = linha[9].ToString();
+                guia.Endereco.Logradouro = linha[10].ToString();
+                guia.Endereco.Numero = Convert.ToInt16(linha[11].ToString());
+                guia.Endereco.Complemento = linha[12].ToString();
+                guia.Endereco.Referencia = linha[13].ToString();
                 guias.Add(guia);
             }
             return guias;
@@ -99,6 +109,25 @@ namespace Repository
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
 
             return id;
+
+        }
+
+        public int ContabilizarGuiasFiltrados(string search)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(g.id)
+            FROM guias g
+            WHERE ativo = 1 AND ((nome LIKE @SEARCH) OR (sobrenome LIKE @SEARCH) OR (cpf LIKE @SEARCH))";
+            command.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+
+        }
+
+        public int ContabilizarGuias()
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"SELECT COUNT(id) FROM guias WHERE ativo = 1";
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
 
         }
 

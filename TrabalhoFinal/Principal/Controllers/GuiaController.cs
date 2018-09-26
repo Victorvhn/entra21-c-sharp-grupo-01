@@ -96,11 +96,19 @@ namespace Principal.Controllers
             string orderDir = Request.QueryString["order[0][dir]"];
             orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
+            GuiaRepository repository = new GuiaRepository();
+
             List<Guia> guias = new GuiaRepository().ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
+
+            int countViagens = repository.ContabilizarGuias();
+            int countFiltered = repository.ContabilizarGuiasFiltrados(search);
 
             return Content(JsonConvert.SerializeObject(new
             {
-                data = guias
+                data = guias,
+                draw = draw,
+                recordsTotal = countViagens,
+                recordsFiltered = countFiltered
             }));
 
         }
