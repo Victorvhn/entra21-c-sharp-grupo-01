@@ -570,4 +570,19 @@
   <data name="ValorTotal" xml:space="preserve">
     <value>Valor total: R$</value>
   </data>
+  <data name="ChatGlobal" xml:space="preserve">
+    <value>Chat Global</value>
+  </data>
+  <data name="MeuPerfil" xml:space="preserve">
+    <value>Meu Perfil</value>
+  </data>
+  <data name="Sair" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="SuaMensagemAqui" xml:space="preserve">
+    <value>Sua mensagem aqui</value>
+  </data>
+  <data name="TelaBloqueio" xml:space="preserve">
+    <value>Tela de Bloqueio</value>
+  </data>
 </root>

@@ -573,4 +573,19 @@
   <data name="Teste" xml:space="preserve">
     <value>Test</value>
   </data>
+  <data name="ChatGlobal" xml:space="preserve">
+    <value>Global Chat</value>
+  </data>
+  <data name="MeuPerfil" xml:space="preserve">
+    <value>My Profile</value>
+  </data>
+  <data name="Sair" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="SuaMensagemAqui" xml:space="preserve">
+    <value>Your Message here</value>
+  </data>
+  <data name="TelaBloqueio" xml:space="preserve">
+    <value>Lockscreen</value>
+  </data>
 </root>

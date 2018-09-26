@@ -268,6 +268,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chat Global.
+        /// </summary>
+        public static string ChatGlobal {
+            get {
+                return ResourceManager.GetString("ChatGlobal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cidade.
         /// </summary>
         public static string Cidade {
@@ -763,6 +772,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Meu Perfil.
+        /// </summary>
+        public static string MeuPerfil {
+            get {
+                return ResourceManager.GetString("MeuPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome.
         /// </summary>
         public static string Nome {
@@ -997,6 +1015,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sair.
+        /// </summary>
+        public static string Sair {
+            get {
+                return ResourceManager.GetString("Sair", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salário deve ser entre R$ 954,00 a R$ 10.000,00.
         /// </summary>
         public static string SalalarioDeveSer {
@@ -1123,6 +1150,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sua mensagem aqui.
+        /// </summary>
+        public static string SuaMensagemAqui {
+            get {
+                return ResourceManager.GetString("SuaMensagemAqui", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tabela de Cidades.
         /// </summary>
         public static string TabelaCidades {
@@ -1218,6 +1254,15 @@ namespace Principal.Resources {
         public static string TabelaVT {
             get {
                 return ResourceManager.GetString("TabelaVT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tela de Bloqueio.
+        /// </summary>
+        public static string TelaBloqueio {
+            get {
+                return ResourceManager.GetString("TelaBloqueio", resourceCulture);
             }
         }
         
