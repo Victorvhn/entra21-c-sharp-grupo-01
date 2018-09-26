@@ -41,14 +41,14 @@ namespace Repository
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT g.id, g.id_endereco, g.id_login, g.nome, g.sobrenome, g.cpf, g.rank_, 
+            command.CommandText = @"SELECT g.id, g.id_endereco, g.nome, g.sobrenome, g.cpf, g.rank_, 
             e.id, e.id_cidade, e.cep, e.logradouro
             e.numero, e.complemento, e.referencia
             FROM guias g
             INNER JOIN enderecos e ON (e.id = g.id_endereco)            
-            WHERE ativo = 1 AND ((nome LIKE @SEARCH) OR (sobrenome LIKE @SEARCH) OR (cpf LIKE @SEARCH))
-            ORDER BY " + orderColumn + " " + orderDir + 
-            " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            WHERE ativo = 1 AND ((g.nome LIKE @SEARCH) OR (g.sobrenome LIKE @SEARCH) OR (g.cpf LIKE @SEARCH))
+             ORDER BY " + orderColumn + " " + orderDir +
+            " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY";
             command.Parameters.AddWithValue("@SEARCH", search);
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
@@ -56,17 +56,17 @@ namespace Repository
             {
                 Guia guia = new Guia();
                 guia.Id = Convert.ToInt32(linha[0].ToString());
-                guia.Nome = linha[3].ToString();
-                guia.Sobrenome = linha[4].ToString();
-                guia.Cpf = linha[5].ToString();
-                guia.Rank = Convert.ToByte(linha[6].ToString());
+                guia.Nome = linha[2].ToString();
+                guia.Sobrenome = linha[3].ToString();
+                guia.Cpf = linha[4].ToString();
+                guia.Rank = Convert.ToByte(linha[5].ToString());
                 guia.Endereco = new Endereco();
-                guia.Endereco.Id = Convert.ToInt32(linha[7].ToString());
-                guia.Endereco.Cep = linha[9].ToString();
-                guia.Endereco.Logradouro = linha[10].ToString();
-                guia.Endereco.Numero = Convert.ToInt16(linha[11].ToString());
-                guia.Endereco.Complemento = linha[12].ToString();
-                guia.Endereco.Referencia = linha[13].ToString();
+                guia.Endereco.Id = Convert.ToInt32(linha[6].ToString());
+                guia.Endereco.Cep = linha[8].ToString();
+                guia.Endereco.Logradouro = linha[9].ToString();
+                guia.Endereco.Numero = Convert.ToInt16(linha[10].ToString());
+                guia.Endereco.Complemento = linha[11].ToString();
+                guia.Endereco.Referencia = linha[12].ToString();
                 guias.Add(guia);
             }
             return guias;
@@ -117,7 +117,7 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT COUNT(g.id)
             FROM guias g
-            WHERE ativo = 1 AND ((nome LIKE @SEARCH) OR (sobrenome LIKE @SEARCH) OR (cpf LIKE @SEARCH))";
+            WHERE ativo = 1 AND ((g.nome LIKE @SEARCH) OR (g.sobrenome LIKE @SEARCH) OR (g.cpf LIKE @SEARCH))";
             command.Parameters.AddWithValue("@SEARCH", search);
             return Convert.ToInt32(command.ExecuteScalar().ToString());
 
