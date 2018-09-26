@@ -12,6 +12,18 @@ namespace Principal.Controllers
     public class PacotePontoTuristicoController : Controller
     {
         // GET: PacotePontoTuristico
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
+                cadastrado = Resources.Resource.CadastradoSucesso,
+                alterado = Resources.Resource.AlteradoSucesso,
+                desativado = Resources.Resource.DesativadoSucesso,
+                selecionePT = Resources.Resource.SelecionePontoTuristico,
+                selecionePacote = Resources.Resource.SelecionePacote
+            });
+        }
         public ActionResult Index()
         {
             return View();

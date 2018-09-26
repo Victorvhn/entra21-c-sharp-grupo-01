@@ -588,6 +588,9 @@
   <data name="TelaBloqueio" xml:space="preserve">
     <value>Lockscreen</value>
   </data>
+  <data name="CadastrarPPT" xml:space="preserve">
+    <value>Register Tourist Attraction Package</value>
+  </data>
   <data name="CadastroIdioma" xml:space="preserve">
     <value>Language Registration</value>
   </data>
@@ -602,6 +605,9 @@
   </data>
   <data name="EditarPacote" xml:space="preserve">
     <value>Edit Package</value>
+  </data>
+  <data name="EditarPPT" xml:space="preserve">
+    <value>Edit Tourist Attraction Package</value>
   </data>
   <data name="EditarViagem" xml:space="preserve">
     <value>Edit Travel</value>

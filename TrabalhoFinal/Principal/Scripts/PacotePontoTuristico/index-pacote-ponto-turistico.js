@@ -46,10 +46,10 @@
         },
         messages: {
             'pacotePontoTuristo.IdPacote': {
-                required: 'Selecione um pacote'
+                required: STRINGS.selecionePacote
             },
             'pacotePontoTuristico.IdPontoTuristico': {
-                required: 'Selecione um ponto turistico'
+                required: STRINGS.selecionePT
             }
         }
     });
@@ -71,7 +71,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: 'Pacote Ponto Turistico Cadastrado com sucesso',
+                            text: STRINGS.cadastrado,
                             type: 'success'
                         });
                     });
@@ -122,11 +122,11 @@
             }
         },
         messages: {
-            'pacotePontoTuristico.IdPacote': {
-                required: 'Selecione um pacote'
+            'pacotePontoTuristo.IdPacote': {
+                required: STRINGS.selecionePacote
             },
             'pacotePontoTuristico.IdPontoTuristico': {
-                required: 'Selecione um ponto turistico'
+                required: STRINGS.selecionePT
             }
         }
     });
@@ -150,7 +150,7 @@
                             $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: 'Alterado com sucesso',
+                                text: STRINGS.alterado,
                                 type: 'info'
                             });
                         });
@@ -180,7 +180,7 @@
                 if (result == 1) {
                     new PNotify({
                         title: 'Desativado',
-                        text: 'Pacote Ponto Turistico Desativado com sucesso',
+                        text: STRINGS.desativado,
                         type: 'success'
                     });
                     $('#table-pacote-ponto-turistico').DataTable().ajax.reload();

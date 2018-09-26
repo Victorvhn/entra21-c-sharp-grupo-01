@@ -187,6 +187,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cadastrar Pacote Ponto Turístico.
+        /// </summary>
+        public static string CadastrarPPT {
+            get {
+                return ResourceManager.GetString("CadastrarPPT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cadastro de Cidaed.
         /// </summary>
         public static string CadastroCidade {
@@ -552,6 +561,15 @@ namespace Principal.Resources {
         public static string EditarPacote {
             get {
                 return ResourceManager.GetString("EditarPacote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Pacote Ponto Turístico.
+        /// </summary>
+        public static string EditarPPT {
+            get {
+                return ResourceManager.GetString("EditarPPT", resourceCulture);
             }
         }
         
