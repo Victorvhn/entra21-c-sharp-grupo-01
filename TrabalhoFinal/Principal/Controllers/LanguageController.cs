@@ -16,16 +16,16 @@ namespace Principal.Controllers
             return View();
         }
 
-        public ActionResult Change(String LanguageAbbrevation)
+        public ActionResult Change(String lang)
         {
-            if (LanguageAbbrevation != null)
+            if (lang != null)
             {
-                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(LanguageAbbrevation);
-                Thread.CurrentThread.CurrentCulture = new CultureInfo(LanguageAbbrevation);
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
                 
             }
             HttpCookie cookie = new HttpCookie("Language");
-            cookie.Value = LanguageAbbrevation;
+            cookie.Value = lang;
             Response.Cookies.Add(cookie);
 
             return RedirectToAction("Index", "Home");        

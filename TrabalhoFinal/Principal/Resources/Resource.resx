@@ -423,7 +423,7 @@
   <data name="Logradouro" xml:space="preserve">
     <value>Logradouro</value>
   </data>
-  <data name="tabelaEnderecos" xml:space="preserve">
+  <data name="TabelaEnderecos" xml:space="preserve">
     <value>Tabela de Endereços</value>
   </data>
   <data name="TelaGerenciamentoEndereco" xml:space="preserve">

@@ -1134,9 +1134,9 @@ namespace Principal.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Tabela de Endereços.
         /// </summary>
-        public static string tabelaEnderecos {
+        public static string TabelaEnderecos {
             get {
-                return ResourceManager.GetString("tabelaEnderecos", resourceCulture);
+                return ResourceManager.GetString("TabelaEnderecos", resourceCulture);
             }
         }
         
