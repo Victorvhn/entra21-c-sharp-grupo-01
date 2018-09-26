@@ -69,7 +69,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: nomeVar + " " + STRINGS.cadastro,
+                            text: nomeVar + " " + STRINGS.cadastrado,
                             type: 'success'
                         });
                     });

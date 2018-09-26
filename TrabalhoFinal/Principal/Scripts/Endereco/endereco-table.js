@@ -228,7 +228,7 @@
                 },
                 'endereco.Logradouro': {
                     required: true,
-                    rangelength: [6, 40]
+                    rangelength: [6, 30]
                 },
                 'endereco.Numero': {
                     required: true

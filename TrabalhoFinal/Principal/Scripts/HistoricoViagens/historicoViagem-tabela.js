@@ -98,7 +98,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: PacoteVar + " " + STRINGS.cadastrado,
+                            text: PacoteVar + " " + STRINGS.cadastro,
                             type: 'success'
                         });
                     });
