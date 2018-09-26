@@ -292,7 +292,7 @@
     <value>País</value>
   </data>
   <data name="PercentualDesconto" xml:space="preserve">
-    <value>Percentual máximo de desconto deve ser Preenchido</value>
+    <value>Percentual de Desconto</value>
   </data>
   <data name="PercentualDescontoDeveConter" xml:space="preserve">
     <value>Percentual máximo de desconto deve conter números inteiros ou decimais</value>
@@ -588,7 +588,16 @@
   <data name="CadastroIdioma" xml:space="preserve">
     <value>Cadastro de Idioma</value>
   </data>
+  <data name="Desconto" xml:space="preserve">
+    <value>Desconto</value>
+  </data>
   <data name="EditarIdioma" xml:space="preserve">
     <value>Editar Idioma</value>
+  </data>
+  <data name="EditarPacote" xml:space="preserve">
+    <value>Editar Pacote</value>
+  </data>
+  <data name="PercentualDescontoPreenchido" xml:space="preserve">
+    <value>Percentual máximo de desconto deve ser Preenchido</value>
   </data>
 </root>

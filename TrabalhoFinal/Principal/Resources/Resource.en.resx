@@ -588,4 +588,16 @@
   <data name="TelaBloqueio" xml:space="preserve">
     <value>Lockscreen</value>
   </data>
+  <data name="CadastroIdioma" xml:space="preserve">
+    <value>Language Registration</value>
+  </data>
+  <data name="Desconto" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="EditarIdioma" xml:space="preserve">
+    <value>Edit Language</value>
+  </data>
+  <data name="EditarPacote" xml:space="preserve">
+    <value>Edit Package</value>
+  </data>
 </root>

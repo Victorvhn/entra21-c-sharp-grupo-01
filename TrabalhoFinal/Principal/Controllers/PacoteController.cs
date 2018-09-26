@@ -13,6 +13,25 @@ namespace Principal.Controllers
     public class PacoteController : Controller
     {
         // GET: Pacote
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
+                cadastrado = Resources.Resource.CadastradoSucesso,
+                alterado = Resources.Resource.AlteradoSucesso,
+                desativado = Resources.Resource.DesativadoSucesso,
+                percentualPreenchido = Resources.Resource.PercentualDescontoPreenchido,
+                percentualConter = Resources.Resource.PercentualDescontoDeveConter,
+                percentualDeveSer = Resources.Resource.PercentualDescontoDeveSer,
+                valorPreenchido = Resources.Resource.ValorPreenchido,
+                valorDeveSer = Resources.Resource.ValorDeveSer,
+                valorInteiro = Resources.Resource.ValorInteros,
+                pacotePreenchido = Resources.Resource.PacotePreenchido,
+                pacoteConter = Resources.Resource.PacoteDeveConter
+            });
+        }
+        [HttpGet]
         public ActionResult Index()
         {
             return View();

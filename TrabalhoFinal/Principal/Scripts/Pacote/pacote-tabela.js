@@ -68,18 +68,18 @@
         },
         messages: {
             'Pacote.Nome': {
-                required: 'Pacote deve ser preenchido',
-                rangelength: 'Pacote deve conter de {0} a {1} caracteres'
+                required: STRINGS.pacotePreenchido,
+                rangelength: STRINGS.pacoteConter
             },
             'Pacote.Valor': {
-                required: 'Valor deve ser preenchido',
-                range: 'Valor deve ser de R$ 500,00 a R$ 12.000,00',
-                number: 'Valor deve conter números inteiros ou decimais'
+                required: STRINGS.valorPreenchido,
+                range: STRINGS.valorDeveSer,
+                number: STRINGS.valorInteiro
             },
             'Pacote.PercentualMaximoDesconto': {
-                required: 'Percentual maximo de desconto deve ser preenchido',
-                range: 'Percentual maximo de desconto deve ser de {0}% a {1}%',
-                number: 'Percentual maximo de desconto deve conter números inteiros ou decimais'
+                required: STRINGS.percentualPreenchido,
+                range: STRINGS.percentualDeveSer,
+                number: STRINGS.percentualConter
             }
         }
     });
@@ -104,7 +104,7 @@
                     $(function () {
                         new PNotify({
                             title: 'Sucesso!',
-                            text: nomeVar + ' cadastrado com sucesso',
+                            text: nomeVar + " " + STRINGS.cadastrado,
                             type: 'success'
                         });
                     });
@@ -152,18 +152,18 @@
         },
         messages: {
             'Pacote.Nome': {
-                required: 'Pacote deve ser preenchido',
-                rangelength: 'Pacote deve conter de {0} a {1} caracteres'
+                required: STRINGS.pacotePreenchido,
+                rangelength: STRINGS.pacoteConter
             },
             'Pacote.Valor': {
-                required: 'Valor deve ser preenchido',
-                range: 'Valor deve ser de R$ {0} a R$ {1}',
-                number: 'Valor deve conter números inteiros ou decimais'
+                required: STRINGS.valorPreenchido,
+                range: STRINGS.valorDeveSer,
+                number: STRINGS.valorInteiro
             },
             'Pacote.PercentualMaximoDesconto': {
-                required: 'Percentual maximo de desconto deve ser preenchido',
-                range: 'Percentual maximo de desconto deve ser de {0}% a {1}%',
-                number: 'Percentual maximo de desconto deve conter números inteiros ou decimais'
+                required: STRINGS.percentualPreenchido,
+                range: STRINGS.percentualDeveSer,
+                number: STRINGS.percentualConter
             }
         }
     });
@@ -189,7 +189,7 @@
                         $(function () {
                             new PNotify({
                                 title: 'Sucesso!',
-                                text: 'Alterado com sucesso',
+                                text: STRINGS.alterado,
                                 type: 'info'
                             });
                         });
@@ -219,7 +219,7 @@
                 if (resultado == 1) {
                     new PNotify({
                         title: 'Desativado!',
-                        text: nome + ' desativado com sucesso',
+                        text: nome + " " + STRINGS.desativado,
                         type: 'success'
                     });
 

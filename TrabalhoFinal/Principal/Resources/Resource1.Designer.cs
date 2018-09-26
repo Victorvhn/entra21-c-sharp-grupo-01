@@ -475,6 +475,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desconto.
+        /// </summary>
+        public static string Desconto {
+            get {
+                return ResourceManager.GetString("Desconto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editar.
         /// </summary>
         public static string Editar {
@@ -525,6 +534,15 @@ namespace Principal.Resources {
         public static string EditarIdioma {
             get {
                 return ResourceManager.GetString("EditarIdioma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Pacote.
+        /// </summary>
+        public static string EditarPacote {
+            get {
+                return ResourceManager.GetString("EditarPacote", resourceCulture);
             }
         }
         
@@ -925,7 +943,7 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Percentual máximo de desconto deve ser Preenchido.
+        ///   Looks up a localized string similar to Percentual de Desconto.
         /// </summary>
         public static string PercentualDesconto {
             get {
@@ -948,6 +966,15 @@ namespace Principal.Resources {
         public static string PercentualDescontoDeveSer {
             get {
                 return ResourceManager.GetString("PercentualDescontoDeveSer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Percentual máximo de desconto deve ser Preenchido.
+        /// </summary>
+        public static string PercentualDescontoPreenchido {
+            get {
+                return ResourceManager.GetString("PercentualDescontoPreenchido", resourceCulture);
             }
         }
         
