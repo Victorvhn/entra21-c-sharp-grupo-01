@@ -70,7 +70,7 @@
                     $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                     $(function () {
                         new PNotify({
-                            title: 'Sucesso!',
+                            title: STRINGS.sucesso,
                             text: STRINGS.cadastrado,
                             type: 'success'
                         });
@@ -149,7 +149,7 @@
                         $(function () {
                             $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                             new PNotify({
-                                title: 'Sucesso!',
+                                title: STRINGS.sucesso,
                                 text: STRINGS.alterado,
                                 type: 'info'
                             });
@@ -179,8 +179,8 @@
                 var result = JSON.parse(data);
                 if (result == 1) {
                     new PNotify({
-                        title: 'Desativado',
-                        text: STRINGS.desativado,
+                        title: STRINGS.desativado,
+                        text: STRINGS.desativadoSucesso,
                         type: 'success'
                     });
                     $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
