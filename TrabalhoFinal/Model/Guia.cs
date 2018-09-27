@@ -41,7 +41,8 @@ namespace Model
 
         public DateTime DataNascimento { get; set; }
 
-        public string DataNascimentoPadraoBR { get { return string.Format("{0:dd/MM/yyyy H:mm}", DataNascimentoPadraoBR); } }
+        //public string DataNascimentoPadraoBR { get { return string.Format("{0:dd/MM/yyyy H:mm}", DataNascimentoPadraoBR); } }
+        public string DataNascimentoPadraoBR { get { return "{0:dd/MM/yyyy H:mm}"; } }
 
         public byte Rank { get; set; }
 

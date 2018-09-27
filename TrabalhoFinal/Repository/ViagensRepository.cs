@@ -14,16 +14,27 @@ namespace Repository
     {
         public List<Viagem> ObterTodosPorJSON(string start, string length, string search, string orderColumn, string orderDir)
         {
+            string whereSearch = "";
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {                
+                whereSearch = "AND((v.id LIKE @SEARCH) OR(p.nome LIKE @SEARCH) OR(g.nome LIKE @SEARCH))";
+            }
+
             List<Viagem> viagens = new List<Viagem>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT v.id, p.id, p.nome, g.id, g.nome, v.data_horario_saida, v.data_horario_volta, v.id_pacote, v.id_guia
+            command.CommandText = $@"SELECT v.id, p.id, p.nome, g.id, g.nome, v.data_horario_saida, v.data_horario_volta, v.id_pacote, v.id_guia
             FROM viagens v 
             INNER JOIN pacotes p ON (p.id = v.id_pacote)
             INNER JOIN guias g ON (g.id = v.id_guia)
-            WHERE v.ativo = 1 AND ((v.id LIKE @SEARCH) OR (p.nome LIKE @SEARCH) OR (g.nome LIKE @SEARCH) OR (v.data_horario_saida LIKE @SEARCH) OR (v.data_horario_volta LIKE @SEARCH))
-            ORDER BY " + orderColumn + " " + orderDir + " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+            WHERE v.ativo = 1 {whereSearch}
+            ORDER BY {orderColumn} {orderDir} OFFSET {start} ROWS FETCH NEXT {length} ROWS ONLY ";
 
-            command.Parameters.AddWithValue("@SEARCH", search);
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                command.Parameters.AddWithValue("@SEARCH", string.Concat("'%", search, "%'"));  
+            }
+
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
