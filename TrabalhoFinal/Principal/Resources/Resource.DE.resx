@@ -117,14 +117,113 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Acao" xml:space="preserve">
+    <value>Aktion</value>
+  </data>
+  <data name="Africa" xml:space="preserve">
+    <value>Afrika</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Alter</value>
+  </data>
+  <data name="AlteradoSucesso" xml:space="preserve">
+    <value>Erfolgreich geändert</value>
+  </data>
+  <data name="America" xml:space="preserve">
+    <value>Amerika</value>
+  </data>
+  <data name="Aprovacao" xml:space="preserve">
+    <value>Genehmigungen</value>
+  </data>
+  <data name="Asia" xml:space="preserve">
+    <value>Asien</value>
+  </data>
+  <data name="Avancado" xml:space="preserve">
+    <value>Fortgeschritten</value>
+  </data>
+  <data name="BairroDeveConter" xml:space="preserve">
+    <value>Die Nachbarschaft muss zwischen 4 und 20 Zeichen enthalten</value>
+  </data>
+  <data name="BairroPreenchido" xml:space="preserve">
+    <value>Nachbarschaftsfeld muss ausgefüllt werden</value>
+  </data>
+  <data name="Basicos" xml:space="preserve">
+    <value>Grundlagen</value>
+  </data>
+  <data name="Buscar" xml:space="preserve">
+    <value>Suche</value>
+  </data>
+  <data name="CadastradoSucesso" xml:space="preserve">
+    <value>Erfolgreich registriert</value>
+  </data>
+  <data name="Cadastrar" xml:space="preserve">
+    <value>Registrieren</value>
+  </data>
+  <data name="CadastrarHV" xml:space="preserve">
+    <value>Reiseverlauf Registrierung</value>
+  </data>
+  <data name="CadastrarPacote" xml:space="preserve">
+    <value>Paket registrieren</value>
+  </data>
+  <data name="CadastrarPPT" xml:space="preserve">
+    <value>Registrieren Sie sich für das Touristenattraktionspaket</value>
+  </data>
+  <data name="CadastroCiade" xml:space="preserve">
+    <value>Stadtregistrierung</value>
+  </data>
+  <data name="CadastroDeTrabalho" xml:space="preserve">
+    <value>Arbeitserlaubnis</value>
+  </data>
+  <data name="CadastroEndereco" xml:space="preserve">
+    <value>Adressregistrierung</value>
+  </data>
+  <data name="CadastroEstado" xml:space="preserve">
+    <value>staatliche Registrierung</value>
+  </data>
+  <data name="CadastroIdioma" xml:space="preserve">
+    <value>Sprachregistrierung</value>
+  </data>
+  <data name="Cadastros" xml:space="preserve">
+    <value>Registrieren</value>
+  </data>
+  <data name="CadastroViagem" xml:space="preserve">
+    <value>Reiseanmeldung</value>
+  </data>
   <data name="CarteiraDeTrabalho" xml:space="preserve">
     <value>Arbeitserlaubnis</value>
+  </data>
+  <data name="CarteiraTrabalhoDigitos" xml:space="preserve">
+    <value>Die Arbeitserlaubnis darf nur Ziffern enthalten</value>
+  </data>
+  <data name="CarteiraTrabalhoPreenchido" xml:space="preserve">
+    <value>Das Arbeitsgenehmigungsfeld muss ausgefüllt sein</value>
+  </data>
+  <data name="CEPDeveConter" xml:space="preserve">
+    <value>CEP muss 8 Zeichen enthalten</value>
+  </data>
+  <data name="CEPPreenchido" xml:space="preserve">
+    <value>Das CEP-Feld muss ausgefüllt sein</value>
+  </data>
+  <data name="ChatGlobal" xml:space="preserve">
+    <value>Globaler Chat</value>
   </data>
   <data name="Cidade" xml:space="preserve">
     <value>Stadt</value>
   </data>
+  <data name="CidadeDeveConterEntre" xml:space="preserve">
+    <value>Die Stadt muss zwischen 3 und 30 Zeichen enthalten</value>
+  </data>
+  <data name="CidadePreenchido" xml:space="preserve">
+    <value>Das Stadtfeld muss ausgefüllt werden</value>
+  </data>
+  <data name="Cidades" xml:space="preserve">
+    <value>Städte</value>
+  </data>
   <data name="Classificacao" xml:space="preserve">
     <value>Rang</value>
+  </data>
+  <data name="Codigo" xml:space="preserve">
+    <value>Code</value>
   </data>
   <data name="Complemento" xml:space="preserve">
     <value>Ergänzen</value>
@@ -135,52 +234,391 @@
   <data name="Cpf" xml:space="preserve">
     <value>CPF</value>
   </data>
+  <data name="CpfPreenchido" xml:space="preserve">
+    <value>Das CPF-Feld muss ausgefüllt sein</value>
+  </data>
+  <data name="CriacaoUsuario" xml:space="preserve">
+    <value>Benutzererstellung (Zwischen)</value>
+  </data>
+  <data name="CriarPacote" xml:space="preserve">
+    <value>Paket erstellen</value>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Datum</value>
+  </data>
+  <data name="DataHorarioIda" xml:space="preserve">
+    <value>Datum und Uhrzeit der Abreise</value>
+  </data>
+  <data name="DataHorarioVolta" xml:space="preserve">
+    <value>Datum und Uhrzeit der Rückkehr</value>
   </data>
   <data name="DataNascimento" xml:space="preserve">
     <value>Geburtsdatum</value>
   </data>
+  <data name="DataNascimentoInvalido" xml:space="preserve">
+    <value>Ungültiges Geburtsdatum</value>
+  </data>
+  <data name="DataNascimentoPreenchido" xml:space="preserve">
+    <value>Das Geburtsdatum muss ausgefüllt sein</value>
+  </data>
+  <data name="DataValida" xml:space="preserve">
+    <value>Das Datum ist nicht gültig</value>
+  </data>
+  <data name="DesativadoSucesso" xml:space="preserve">
+    <value>Deaktiviert erfolgreich</value>
+  </data>
+  <data name="Desativar" xml:space="preserve">
+    <value>Deaktivieren</value>
+  </data>
+  <data name="Desconto" xml:space="preserve">
+    <value>Rabatt</value>
+  </data>
+  <data name="Editar" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="EditarCidade" xml:space="preserve">
+    <value>Stadt bearbeiten</value>
+  </data>
+  <data name="EditarEnderecos" xml:space="preserve">
+    <value>Adressen bearbeiten</value>
+  </data>
+  <data name="EditarEstado" xml:space="preserve">
+    <value>Zustand Bearbeiten</value>
+  </data>
+  <data name="EditarHV" xml:space="preserve">
+    <value>Reiseverlauf bearbeiten</value>
+  </data>
+  <data name="EditarIdioma" xml:space="preserve">
+    <value>Sprache bearbeiten</value>
+  </data>
+  <data name="EditarPacote" xml:space="preserve">
+    <value>Paket bearbeiten</value>
+  </data>
+  <data name="EditarPPT" xml:space="preserve">
+    <value>Bearbeiten Sie das Paket für Touristenattraktionen</value>
+  </data>
+  <data name="EditarViagem" xml:space="preserve">
+    <value>Reise bearbeiten</value>
+  </data>
   <data name="Endereco" xml:space="preserve">
     <value>Adresse</value>
   </data>
+  <data name="EnderecoCadastradoSucesso" xml:space="preserve">
+    <value>Adresse erfolgreich registriert</value>
+  </data>
+  <data name="EnderecoDesativadoSucesso" xml:space="preserve">
+    <value>Adresse wurde erfolgreich deaktiviert</value>
+  </data>
+  <data name="EnderecoEditadoSucesso" xml:space="preserve">
+    <value>Adresse erfolgreich geändert</value>
+  </data>
+  <data name="Enderecos" xml:space="preserve">
+    <value>Adressen</value>
+  </data>
   <data name="Estado" xml:space="preserve">
-    <value>Staat</value>
+    <value>Zustand</value>
+  </data>
+  <data name="EstadoDeveConter" xml:space="preserve">
+    <value>State muss zwischen 2 und 30 Zeichen enthalten</value>
+  </data>
+  <data name="EstadoPreenchido" xml:space="preserve">
+    <value>Statusfeld muss gefüllt sein</value>
+  </data>
+  <data name="Estados" xml:space="preserve">
+    <value>Zustände</value>
+  </data>
+  <data name="Europa" xml:space="preserve">
+    <value>Europa</value>
+  </data>
+  <data name="Fechar" xml:space="preserve">
+    <value>Schließen</value>
   </data>
   <data name="Genero" xml:space="preserve">
-    <value>Genre</value>
+    <value>Geschlecht</value>
+  </data>
+  <data name="GeneroPreenchido" xml:space="preserve">
+    <value>Genderfeld muss ausgefüllt werden</value>
+  </data>
+  <data name="Guia" xml:space="preserve">
+    <value>Führen</value>
+  </data>
+  <data name="Guias" xml:space="preserve">
+    <value>Führer</value>
+  </data>
+  <data name="HabilitacaoDeveConter" xml:space="preserve">
+    <value>Führerschein muss zwischen 1 und 5 Zeichen enthalten</value>
+  </data>
+  <data name="HabilitacaoPreenchida" xml:space="preserve">
+    <value>Führerscheinkategorie muss ausgefüllt werden</value>
+  </data>
+  <data name="HistoricoViagem" xml:space="preserve">
+    <value>Reisegeschichte</value>
   </data>
   <data name="Idade" xml:space="preserve">
     <value>Alter</value>
   </data>
+  <data name="Idioma" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="IdiomaDeveConter" xml:space="preserve">
+    <value>Sprache muss zwischen 4 und 20 Zeichen enthalten</value>
+  </data>
+  <data name="IdiomaPreenchido" xml:space="preserve">
+    <value>Das Sprachfeld muss ausgefüllt sein</value>
+  </data>
+  <data name="Idiomas" xml:space="preserve">
+    <value>Sprachen</value>
+  </data>
+  <data name="InformeData" xml:space="preserve">
+    <value>Geben Sie das Datum ein</value>
+  </data>
+  <data name="InformeDataSaida" xml:space="preserve">
+    <value>Geben Sie das Abreisedatum ein</value>
+  </data>
+  <data name="InformeDataVolta" xml:space="preserve">
+    <value>Geben Sie das Rückgabedatum ein</value>
+  </data>
+  <data name="Logradouro" xml:space="preserve">
+    <value>Öffentlicher Platz</value>
+  </data>
+  <data name="LogradouroDeveConter" xml:space="preserve">
+    <value>Öffentlicher Ort muss zwischen 6 und 30 Zeichen enthalten</value>
+  </data>
+  <data name="LogradouroPreenchido" xml:space="preserve">
+    <value>Öffentlicher Platz muss ausgefüllt werden</value>
+  </data>
+  <data name="MeuPerfil" xml:space="preserve">
+    <value>Mein Profil</value>
+  </data>
   <data name="Nome" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="NomeDeveConter" xml:space="preserve">
+    <value>Name muss zwischen 3 und 30 Zeichen enthalten</value>
+  </data>
+  <data name="NomePreenchido" xml:space="preserve">
+    <value>Das Namensfeld muss ausgefüllt sein</value>
   </data>
   <data name="Numero" xml:space="preserve">
     <value>Nummer</value>
   </data>
+  <data name="NumeroDigitos" xml:space="preserve">
+    <value>Die Nummer darf nur Ziffern enthalten</value>
+  </data>
+  <data name="NumeroPreenchido" xml:space="preserve">
+    <value>Das Nummernfeld muss ausgefüllt sein</value>
+  </data>
+  <data name="Oceania" xml:space="preserve">
+    <value>Ozeanien</value>
+  </data>
   <data name="Pacote" xml:space="preserve">
     <value>Paket</value>
+  </data>
+  <data name="PacoteDeveConter" xml:space="preserve">
+    <value>Das Paket muss zwischen 3 und 30 Zeichen enthalten</value>
+  </data>
+  <data name="PacoteNome" xml:space="preserve">
+    <value>Paketnamen</value>
+  </data>
+  <data name="PacotePontoTuristico" xml:space="preserve">
+    <value>Touristenattraktionspaket</value>
+  </data>
+  <data name="PacotePreenchido" xml:space="preserve">
+    <value>Das Paketfeld muss ausgefüllt sein</value>
+  </data>
+  <data name="Pacotes" xml:space="preserve">
+    <value>Pakete</value>
   </data>
   <data name="Pais" xml:space="preserve">
     <value>Land</value>
   </data>
+  <data name="PercentualDesconto" xml:space="preserve">
+    <value>Maximaler Rabattprozentsatz</value>
+  </data>
+  <data name="PercentualDescontoDeveConter" xml:space="preserve">
+    <value>Der maximale Rabattprozentsatz darf nur ganze Zahlen und Dezimalstellen enthalten</value>
+  </data>
+  <data name="PercentualDescontoPreenchido" xml:space="preserve">
+    <value>Maximaler Rabattprozentsatz muss ausgefüllt werden</value>
+  </data>
+  <data name="PontosTuristicos" xml:space="preserve">
+    <value>Sehenswürdigkeiten</value>
+  </data>
+  <data name="PontoTuristico" xml:space="preserve">
+    <value>Touristenattraktion</value>
+  </data>
+  <data name="PontoTuristicoDeveConter" xml:space="preserve">
+    <value>Touristenattraktion muss zwischen 3 und 30 Zeichen enthalten</value>
+  </data>
+  <data name="PontoTuristicoPreenchido" xml:space="preserve">
+    <value>Das Feld für Touristenattraktionen muss ausgefüllt werden</value>
+  </data>
   <data name="Referencia" xml:space="preserve">
     <value>Referenz</value>
+  </data>
+  <data name="RgDigitos" xml:space="preserve">
+    <value>RG muss nur Ziffern enthalten</value>
+  </data>
+  <data name="RgMaximo" xml:space="preserve">
+    <value>RG muss maximal 12 Ziffern enthalten</value>
+  </data>
+  <data name="RgMinimo" xml:space="preserve">
+    <value>RG muss mindestens 7 Ziffern enthalten</value>
+  </data>
+  <data name="RgPreenchido" xml:space="preserve">
+    <value>RG-Feld muss ausgefüllt werden</value>
+  </data>
+  <data name="Sair" xml:space="preserve">
+    <value>Ausgang</value>
+  </data>
+  <data name="SalalarioDeveSer" xml:space="preserve">
+    <value>Der Lohn muss zwischen R$ 954,00 und R$ 10.000,00 liegen</value>
   </data>
   <data name="Salario" xml:space="preserve">
     <value>Gehalt</value>
   </data>
+  <data name="SalarioDigitosDecimais" xml:space="preserve">
+    <value>Lohn muss nur ganze Zahlen und Dezimalzahlen enthalten</value>
+  </data>
+  <data name="SalarioMinimo" xml:space="preserve">
+    <value>Lohn muss mindestens 3 Ziffern enthalten</value>
+  </data>
+  <data name="SalarioPreenchido" xml:space="preserve">
+    <value>Lohnfeld muss gefüllt sein</value>
+  </data>
+  <data name="SelecioneDestino" xml:space="preserve">
+    <value>Wählen Sie ein Ziel</value>
+  </data>
+  <data name="SelecioneEstado" xml:space="preserve">
+    <value>Wähle einen Staat</value>
+  </data>
+  <data name="SelecioneGuia" xml:space="preserve">
+    <value>Wählen Sie einen Reiseführer</value>
+  </data>
+  <data name="SelecionePacote" xml:space="preserve">
+    <value>Wählen Sie ein Paket aus</value>
+  </data>
+  <data name="SelecionePontoTuristico" xml:space="preserve">
+    <value>Wählen Sie eine Touristenattraktion</value>
+  </data>
   <data name="Senha" xml:space="preserve">
     <value>Passwort</value>
   </data>
+  <data name="Show" xml:space="preserve">
+    <value>Anzeigen</value>
+  </data>
   <data name="Sobrenome" xml:space="preserve">
     <value>Familienname</value>
+  </data>
+  <data name="SobrenomeDeveConter" xml:space="preserve">
+    <value>Der Nachname muss zwischen 3 und 30 Zeichen enthalten</value>
+  </data>
+  <data name="SobrenomePrenchido" xml:space="preserve">
+    <value>Nachname Feld muss ausgefüllt werden</value>
+  </data>
+  <data name="SuaMensagemAqui" xml:space="preserve">
+    <value>Ihre Nachricht hier</value>
+  </data>
+  <data name="TabelaCidades" xml:space="preserve">
+    <value>Stadt Tabelle</value>
+  </data>
+  <data name="TabelaEnderecos" xml:space="preserve">
+    <value>Adress Tabelle</value>
+  </data>
+  <data name="TabelaEstados" xml:space="preserve">
+    <value>Staaten Tabelle</value>
+  </data>
+  <data name="TabelaGuias" xml:space="preserve">
+    <value>Führungs Tabelle</value>
+  </data>
+  <data name="TabelaHV" xml:space="preserve">
+    <value>Reiseverlaufs Tabelle</value>
+  </data>
+  <data name="TabelaIdiomas" xml:space="preserve">
+    <value>Language Table</value>
+  </data>
+  <data name="TabelaPacotes" xml:space="preserve">
+    <value>Paket Tabelle</value>
+  </data>
+  <data name="TabelaPPT" xml:space="preserve">
+    <value>Touristenattraktionspaket Tabelle</value>
+  </data>
+  <data name="TabelaPT" xml:space="preserve">
+    <value>Touristenattraktions Tabelle</value>
+  </data>
+  <data name="TabelaViagens" xml:space="preserve">
+    <value>Reise Tabelle</value>
+  </data>
+  <data name="TabelaVT" xml:space="preserve">
+    <value>Touristische Reise Tabelle</value>
+  </data>
+  <data name="TelaBloqueio" xml:space="preserve">
+    <value>Sperrbildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoCidade" xml:space="preserve">
+    <value>Stadtverwaltung Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoEndereco" xml:space="preserve">
+    <value>Verwaltung der Adressen Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoEstado" xml:space="preserve">
+    <value>Statusverwaltung Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoGuias" xml:space="preserve">
+    <value>Leitfaden Management-Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoHV" xml:space="preserve">
+    <value>Reisehistorie Management Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoPacotes" xml:space="preserve">
+    <value>Paketverwaltungs Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoPPT" xml:space="preserve">
+    <value>Paketverwaltungsbildschirm für Touristenattraktion</value>
+  </data>
+  <data name="TelaGerenciamentoTA" xml:space="preserve">
+    <value>Touristenattraktions Management Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoTourist" xml:space="preserve">
+    <value>Tourist Management Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoViagens" xml:space="preserve">
+    <value>Reisemanagement-Bildschirm</value>
+  </data>
+  <data name="TelaGerenciamentoVT" xml:space="preserve">
+    <value>Tourist Travel Management Bildschirm</value>
+  </data>
+  <data name="Teste" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Turistas" xml:space="preserve">
+    <value>Touristen</value>
   </data>
   <data name="Usuario" xml:space="preserve">
     <value>Benutzer</value>
   </data>
   <data name="Valor" xml:space="preserve">
     <value>Wert</value>
+  </data>
+  <data name="ValorDeveSer" xml:space="preserve">
+    <value>Der Wert muss zwischen R$ 500,00 und R$ 12.000,00 liegen</value>
+  </data>
+  <data name="ValorInteros" xml:space="preserve">
+    <value>Der Wert darf nur ganze Zahlen und Dezimalzahlen enthalten</value>
+  </data>
+  <data name="ValorPreenchido" xml:space="preserve">
+    <value>Wertfeld muss gefüllt sein</value>
+  </data>
+  <data name="ValorTotal" xml:space="preserve">
+    <value>Betrag: R$</value>
+  </data>
+  <data name="Viagem" xml:space="preserve">
+    <value>Reise</value>
+  </data>
+  <data name="ViagemTurista" xml:space="preserve">
+    <value>Touristenreisen</value>
+  </data>
+  <data name="Viagens" xml:space="preserve">
+    <value>Reisen</value>
   </data>
 </root>

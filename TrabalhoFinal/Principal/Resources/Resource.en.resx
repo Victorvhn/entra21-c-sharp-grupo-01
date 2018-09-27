@@ -196,7 +196,7 @@
     <value>Address</value>
   </data>
   <data name="Enderecos" xml:space="preserve">
-    <value>Adresses</value>
+    <value>Addresses</value>
   </data>
   <data name="Estado" xml:space="preserve">
     <value>State</value>
@@ -412,7 +412,7 @@
     <value>Address Registered successfully</value>
   </data>
   <data name="EnderecoDesativadoSucesso" xml:space="preserve">
-    <value>Address Desactivated successfully</value>
+    <value>Address Deactivated successfully</value>
   </data>
   <data name="EnderecoEditadoSucesso" xml:space="preserve">
     <value>Address Altered successfully</value>
@@ -620,5 +620,11 @@
   </data>
   <data name="Buscar" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="Desativado" xml:space="preserve">
+    <value>Disabled!</value>
+  </data>
+  <data name="Sucesso" xml:space="preserve">
+    <value>Success!</value>
   </data>
 </root>

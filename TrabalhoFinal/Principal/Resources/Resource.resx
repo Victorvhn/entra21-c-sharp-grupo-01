@@ -618,4 +618,10 @@
   <data name="Buscar" xml:space="preserve">
     <value>Buscar</value>
   </data>
+  <data name="Desativado" xml:space="preserve">
+    <value>Desativado!</value>
+  </data>
+  <data name="Sucesso" xml:space="preserve">
+    <value>Sucesso!</value>
+  </data>
 </root>
