@@ -97,6 +97,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anterior.
+        /// </summary>
+        public static string Anterior {
+            get {
+                return ResourceManager.GetString("Anterior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show.
         /// </summary>
         public static string Apresentar {
@@ -264,6 +273,15 @@ namespace Principal.Resources {
         public static string CadastroViagem {
             get {
                 return ResourceManager.GetString("CadastroViagem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Carregando....
+        /// </summary>
+        public static string Carregando {
+            get {
+                return ResourceManager.GetString("Carregando", resourceCulture);
             }
         }
         
@@ -880,6 +898,24 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nenhum Registro Disponível.
+        /// </summary>
+        public static string NenhumRegistroDisponivel {
+            get {
+                return ResourceManager.GetString("NenhumRegistroDisponivel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nenhum Registro foi encontrado.
+        /// </summary>
+        public static string NenhumRegistroEncontrado {
+            get {
+                return ResourceManager.GetString("NenhumRegistroEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome.
         /// </summary>
         public static string Nome {
@@ -1074,6 +1110,24 @@ namespace Principal.Resources {
         public static string PontoTuristicoPreenchido {
             get {
                 return ResourceManager.GetString("PontoTuristicoPreenchido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primeiro.
+        /// </summary>
+        public static string Primeiro {
+            get {
+                return ResourceManager.GetString("Primeiro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processando....
+        /// </summary>
+        public static string Processando {
+            get {
+                return ResourceManager.GetString("Processando", resourceCulture);
             }
         }
         

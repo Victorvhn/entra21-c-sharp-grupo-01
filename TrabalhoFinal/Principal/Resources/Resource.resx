@@ -624,4 +624,22 @@
   <data name="Sucesso" xml:space="preserve">
     <value>Sucesso!</value>
   </data>
+  <data name="Anterior" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="Carregando" xml:space="preserve">
+    <value>Carregando...</value>
+  </data>
+  <data name="NenhumRegistroDisponivel" xml:space="preserve">
+    <value>Nenhum Registro Disponível</value>
+  </data>
+  <data name="NenhumRegistroEncontrado" xml:space="preserve">
+    <value>Nenhum Registro foi encontrado</value>
+  </data>
+  <data name="Primeiro" xml:space="preserve">
+    <value>Primeiro</value>
+  </data>
+  <data name="Processando" xml:space="preserve">
+    <value>Processando...</value>
+  </data>
 </root>
