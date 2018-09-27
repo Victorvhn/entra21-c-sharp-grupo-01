@@ -25,17 +25,17 @@
             {
                 data: "Cpf",
                 bSortable: true,
-                width: "30%"
+                width: "20%"
             },
             {
                 data: "Rank",
-                bSortable: false,
+                bSortable: true,
                 width:"5%"
             },
             {
                 data: null,
                 bSortable: false,
-                width: "10%",
+                width: "20%",
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-info botao-editar-guia' data-id='" + row.Id + "'>Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1 botao-excluir-guia' data-id='" + row.Id + "' href='#' >Desativar</a>";

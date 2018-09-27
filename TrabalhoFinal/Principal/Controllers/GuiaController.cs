@@ -83,11 +83,11 @@ namespace Principal.Controllers
         public ActionResult ObterTodosPorJSON()
         {
             string[] colunasNomes = new string[5];
-            colunasNomes[0] = "";
-            colunasNomes[1] = "";
-            colunasNomes[2] = "";
-            colunasNomes[3] = "";
-            colunasNomes[4] = "";
+            colunasNomes[0] = "id";
+            colunasNomes[1] = "nome";
+            colunasNomes[2] = "sobrenome";
+            colunasNomes[3] = "cpf";
+            colunasNomes[4] = "rank_";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
             string draw = Request.QueryString["draw"];
@@ -98,7 +98,7 @@ namespace Principal.Controllers
 
             GuiaRepository repository = new GuiaRepository();
 
-            List<Guia> guias = new GuiaRepository().ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
+            List<Guia> guias = repository.ObterTodosParaJSON(start, length, search, orderColumn, orderDir);
 
             int countViagens = repository.ContabilizarGuias();
             int countFiltered = repository.ContabilizarGuiasFiltrados(search);
