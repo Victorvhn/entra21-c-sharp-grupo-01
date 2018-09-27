@@ -89,7 +89,7 @@
                     if (resultado == 1) {
                         $(function () {
                             new PNotify({
-                                title: 'Sucesso!',
+                                title: STRINGS.sucesso',
                                 text: STRINGS.cadastrado,
                                 type: 'success'
                             });
