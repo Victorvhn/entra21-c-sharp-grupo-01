@@ -97,7 +97,7 @@
                     $('#historico-viagem-tabela').DataTable().ajax.reload();
                     $(function () {
                         new PNotify({
-                            title: 'Sucesso!',
+                            title: STRINGS.sucesso,
                             text: PacoteVar + " " + STRINGS.cadastro,
                             type: 'success'
                         });
@@ -179,7 +179,7 @@
                         $('#historico-viagem-tabela').DataTable().ajax.reload();
                         $(function () {
                             new PNotify({
-                                title: 'Sucesso!',
+                                title: STRINGS.sucesso,
                                 text: STRINGS.alterado,
                                 type: 'info'
                             });
@@ -208,8 +208,8 @@
                 var resultado = JSON.parse(data);
                 if (resultado == 1) {
                     new PNotify({
-                        title: 'Desativado!',
-                        text: STRINGS.desativado,
+                        title: STRINGS.desativado,
+                        text: STRINGS.desativadoSucesso,
                         type: 'success'
                     });
 
