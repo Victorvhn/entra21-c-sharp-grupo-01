@@ -13,8 +13,11 @@ namespace Repository
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT id, id_endereco, sexo, nome, sobrenome, numero_carteira_trabalho, 
-            categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_ FROM guias";
+            command.CommandText = @"SELECT g.id, g.id_endereco, g.sexo, g.nome, g.sobrenome, g.numero_carteira_trabalho, 
+            g.categoria_habilitacao, g.salario, g.cpf, g.rg, g.data_nascimento, g.rank_ 
+            e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome, es.id, es.nome
+            FROM guias g
+            ";
             DataTable tabela = new DataTable();
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -41,12 +44,13 @@ namespace Repository
         {
             List<Guia> guias = new List<Guia>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT g.id, g.id_endereco, g.nome, g.sobrenome, g.cpf, g.rank_, 
-            e.id, e.id_cidade, e.cep, e.logradouro
-            e.numero, e.complemento, e.referencia
+            command.CommandText = @"SELECT g.id, g.id_endereco, g.nome, g.sobrenome, g.cpf, g.rank_,             
+            e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, c.id, c.nome, es.id, es.nome
             FROM guias g
-            INNER JOIN enderecos e ON (e.id = g.id_endereco)            
-            WHERE ativo = 1 AND ((g.nome LIKE @SEARCH) OR (g.sobrenome LIKE @SEARCH) OR (g.cpf LIKE @SEARCH))
+            INNER JOIN enderecos e ON (e.id = g.id_endereco)
+            INNER JOIN cidades c ON (c.id = e.id_cidade)
+            INNER JOIN estados es ON (es.id = c.id_estado )
+            WHERE g.ativo = 1 AND ((g.nome LIKE @SEARCH) OR (g.sobrenome LIKE @SEARCH) OR (g.cpf LIKE @SEARCH))
              ORDER BY " + orderColumn + " " + orderDir +
             " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY";
             command.Parameters.AddWithValue("@SEARCH", search);
@@ -55,19 +59,28 @@ namespace Repository
             foreach (DataRow linha in tabela.Rows)
             {
                 Guia guia = new Guia();
-                guia.Id = Convert.ToInt32(linha[0].ToString());
-                guia.Nome = linha[2].ToString();
-                guia.Sobrenome = linha[3].ToString();
-                guia.Cpf = linha[4].ToString();
-                guia.Rank = Convert.ToByte(linha[5].ToString());
-                guia.Endereco = new Endereco();
-                guia.Endereco.Id = Convert.ToInt32(linha[6].ToString());
-                guia.Endereco.Cep = linha[8].ToString();
-                guia.Endereco.Logradouro = linha[9].ToString();
-                guia.Endereco.Numero = Convert.ToInt16(linha[10].ToString());
-                guia.Endereco.Complemento = linha[11].ToString();
-                guia.Endereco.Referencia = linha[12].ToString();
+                {
+                    guia.Id = Convert.ToInt32(linha[0].ToString());
+                    guia.Nome = linha[2].ToString();
+                    guia.Sobrenome = linha[3].ToString();
+                    guia.Cpf = linha[4].ToString();
+                    guia.Rank = Convert.ToByte(linha[5].ToString());
+                    guia.Endereco = new Endereco();
+                    guia.Endereco.Id = Convert.ToInt32(linha[6].ToString());
+                    guia.Endereco.Cep = linha[8].ToString();
+                    guia.Endereco.Logradouro = linha[9].ToString();
+                    guia.Endereco.Numero = Convert.ToInt16(linha[10].ToString());
+                    guia.Endereco.Complemento = linha[11].ToString();
+                    guia.Endereco.Referencia = linha[12].ToString();
+                    guia.Endereco.Cidade = new Cidade();
+                    guia.Endereco.Cidade.Id = Convert.ToInt32(linha[13].ToString());
+                    guia.Endereco.Cidade.Nome = linha[14].ToString();
+                    guia.Endereco.Cidade.Estado = new Estado();
+                    guia.Endereco.Cidade.Estado.Id = Convert.ToInt32(linha[15].ToString());
+                    guia.Endereco.Cidade.Estado.Nome = linha[16].ToString();
+                };
                 guias.Add(guia);
+                
             }
             return guias;
         }
@@ -117,7 +130,7 @@ namespace Repository
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT COUNT(g.id)
             FROM guias g
-            WHERE ativo = 1 AND ((g.nome LIKE @SEARCH) OR (g.sobrenome LIKE @SEARCH) OR (g.cpf LIKE @SEARCH))";
+            WHERE g.ativo = 1 AND ((g.nome LIKE @SEARCH) OR (g.sobrenome LIKE @SEARCH) OR (g.cpf LIKE @SEARCH))";
             command.Parameters.AddWithValue("@SEARCH", search);
             return Convert.ToInt32(command.ExecuteScalar().ToString());
 
@@ -171,8 +184,12 @@ namespace Repository
         {
             Guia guia = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT login_, sexo, senha, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_, id_endereco
-            FROM guias JOIN enderecos ON(guias.id_endereco = enderecos.id) WHERE guias.id = @ID";
+            command.CommandText = @"SELECT g.login_ AS 'login', g.sexo AS 'sexo', g.senha AS 'senha', g.nome AS 'nome', g.sobrenome AS 'sobrenome', g.numero_carteira_trabalho AS 'numero_carteira_trabalho', g.categoria_habilitacao AS 'categoria_habilitacao', 
+            g.salario AS 'salario', g.cpf AS 'cpf', g.rg AS 'rg', g.data_nascimento AS 'data_nascimento', g.rank_ AS 'rank_', g.id_endereco AS 'id_endereco'
+            e.id, e.cep AS 'cep', e.logradouro AS 'logradouro', e.numero AS 'numero', e.complemento AS 'complemento', e.referencia AS 'referencia', e.id_cidade AS 'id_cidade'
+            FROM guias 
+            INNER JOIN enderecos e ON(e.id = g.id_endereco) 
+            WHERE g.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -186,16 +203,30 @@ namespace Repository
                 guia.Sexo = table.Rows[0][1].ToString();
                 // TODO ajustar login
                 //guia.Senha = table.Rows[0][2].ToString();
-                guia.Nome = table.Rows[0][3].ToString();
-                guia.Sobrenome = table.Rows[0][4].ToString();
-                guia.CarteiraTrabalho = table.Rows[0][5].ToString();
-                guia.CategoriaHabilitacao = table.Rows[0][6].ToString();
-                guia.Salario = Convert.ToSingle(table.Rows[0][7]);
-                guia.Cpf = table.Rows[0][8].ToString();
-                guia.Rg = table.Rows[0][9].ToString();
-                guia.DataNascimento = Convert.ToDateTime(table.Rows[0][10]);
-                guia.Rank = Convert.ToByte(table.Rows[0][11].ToString());
-                guia.IdEndereco = Convert.ToInt32(table.Rows[0][12].ToString());
+                guia.Nome = table.Rows[0]["nome"].ToString();
+                guia.Sobrenome = table.Rows[0]["sobrenome"].ToString();
+                guia.CarteiraTrabalho = table.Rows[0]["numero_carteira_trabalho"].ToString();
+                guia.CategoriaHabilitacao = table.Rows[0]["categoria_habilitacao"].ToString();
+                guia.Salario = Convert.ToSingle(table.Rows[0]["salario"]);
+                guia.Cpf = table.Rows[0]["cpf"].ToString();
+                guia.Rg = table.Rows[0]["rg"].ToString();
+                guia.DataNascimento = Convert.ToDateTime(table.Rows[0]["data_nascimento"]);
+                guia.Rank = Convert.ToByte(table.Rows[0]["rank_"].ToString());
+                guia.IdEndereco = Convert.ToInt32(table.Rows[0]["id_endereco"].ToString());
+                guia.Endereco = new Endereco()
+                {
+                    Id = Convert.ToInt32(table.Rows[0]["id_endereco"].ToString()),
+                    Cep = table.Rows[1]["cep"].ToString(),
+                    Logradouro = table.Rows[2]["logradouro"].ToString(),
+                    Numero = Convert.ToInt16(table.Rows[3]["numero"].ToString()),
+                    Complemento = table.Rows[4]["complemento"].ToString(),
+                    Referencia = table.Rows[5]["referencia"].ToString(),
+                    IdCidade = Convert.ToInt32(table.Rows[6]["id_cidade"].ToString()),
+                };
+
+
+
+
             }
             return guia;
         }
