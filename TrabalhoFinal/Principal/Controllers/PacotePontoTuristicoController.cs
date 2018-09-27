@@ -17,9 +17,11 @@ namespace Principal.Controllers
         {
             return Json(new
             {
+                sucesso = Resources.Resource.Sucesso,
+                desativado = Resources.Resource.Desativado,
                 cadastrado = Resources.Resource.CadastradoSucesso,
                 alterado = Resources.Resource.AlteradoSucesso,
-                desativado = Resources.Resource.DesativadoSucesso,
+                desativadoSucesso = Resources.Resource.DesativadoSucesso,
                 selecionePT = Resources.Resource.SelecionePontoTuristico,
                 selecionePacote = Resources.Resource.SelecionePacote
             });

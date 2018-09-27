@@ -18,9 +18,11 @@ namespace Principal.Controllers
         {
             return Json(new
             {
+                sucesso = Resources.Resource.Sucesso,
+                desativado = Resources.Resource.Desativado,
                 cadastrado = Resources.Resource.CadastradoSucesso,
                 alterado = Resources.Resource.AlteradoSucesso,
-                desativado = Resources.Resource.DesativadoSucesso,
+                desativadoSucesso = Resources.Resource.DesativadoSucesso,
                 percentualPreenchido = Resources.Resource.PercentualDescontoPreenchido,
                 percentualConter = Resources.Resource.PercentualDescontoDeveConter,
                 percentualDeveSer = Resources.Resource.PercentualDescontoDeveSer,

@@ -19,12 +19,14 @@ namespace Principal.Controllers
         {
             return Json(new
             {
+                sucesso = Resources.Resource.Sucesso,
+                desativado = Resources.Resource.Desativado,
                 selecioneEstado = Resources.Resource.SelecioneEstado,
                 cidadePreenchido = Resources.Resource.CidadePreenchido,
                 cidadeConter = Resources.Resource.CidadeDeveConterEntre,
                 cadastrado = Resources.Resource.CadastradoSucesso,
                 alterado = Resources.Resource.AlteradoSucesso,
-                desativado = Resources.Resource.DesativadoSucesso
+                desativadoSucesso = Resources.Resource.DesativadoSucesso
 
             });
         }

@@ -18,7 +18,9 @@ namespace Principal.Controllers
         public JsonResult GetStrings()
         {
             return Json(new
-            {                
+            {   
+                sucesso = Resources.Resource.Sucesso,
+                desativado = Resources.Resource.Desativado,
                 logPreenchido = Resources.Resource.LogradouroPreenchido,
                 logDeveConter = Resources.Resource.LogradouroDeveConter,
                 cidadePreenchido = Resources.Resource.CidadePreenchido,

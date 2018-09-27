@@ -18,9 +18,11 @@ namespace Principal.Content
         {
             return Json(new
             {
+                sucesso = Resources.Resource.Sucesso,
+                desativado = Resources.Resource.Desativado,
                 cadastrado = Resources.Resource.CadastradoSucesso,
                 alterado = Resources.Resource.AlteradoSucesso,
-                desativado = Resources.Resource.DesativadoSucesso,
+                desativadoSucesso = Resources.Resource.DesativadoSucesso,
                 selecionePacote = Resources.Resource.SelecionePacote,
                 selecioneGuia = Resources.Resource.SelecioneGuia,
                 informeDataIda = Resources.Resource.InformeDataSaida,
