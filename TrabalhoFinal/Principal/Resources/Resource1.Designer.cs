@@ -493,6 +493,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desativado!.
+        /// </summary>
+        public static string Desativado {
+            get {
+                return ResourceManager.GetString("Desativado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Desativado com sucesso.
         /// </summary>
         public static string DesativadoSucesso {
@@ -1254,6 +1263,15 @@ namespace Principal.Resources {
         public static string SuaMensagemAqui {
             get {
                 return ResourceManager.GetString("SuaMensagemAqui", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sucesso!.
+        /// </summary>
+        public static string Sucesso {
+            get {
+                return ResourceManager.GetString("Sucesso", resourceCulture);
             }
         }
         
