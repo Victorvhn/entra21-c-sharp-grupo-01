@@ -6,7 +6,7 @@
         columns: [
             {
                 data: "Id",
-                bSortable: true,
+                bSortable: false,
                 width: "5%",
                 target: 0
             },
@@ -25,17 +25,20 @@
             {
                 data: "Cpf",
                 bSortable: true,
-                width: "20%"
+                width: "20%",
+                target: 3
             },
             {
                 data: "Rank",
                 bSortable: true,
-                width:"5%"
+                width: "5%",
+                target: 4
             },
             {
                 data: null,
                 bSortable: false,
                 width: "20%",
+                target: 5,
                 render: function (data, type, row) {
                     return "<a class='btn btn-outline-info botao-editar-guia' data-id='" + row.Id + "'>Editar</a>" +
                         "<a class='btn btn-outline-danger ml-1 botao-excluir-guia' data-id='" + row.Id + "' href='#' >Desativar</a>";

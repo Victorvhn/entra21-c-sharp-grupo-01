@@ -82,12 +82,11 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult ObterTodosPorJSON()
         {
-            string[] colunasNomes = new string[5];
-            colunasNomes[0] = "id";
-            colunasNomes[1] = "nome";
-            colunasNomes[2] = "sobrenome";
-            colunasNomes[3] = "cpf";
-            colunasNomes[4] = "rank_";
+            string[] colunasNomes = new string[4];
+            colunasNomes[0] = "g.id";
+            colunasNomes[1] = "g.nome";
+            colunasNomes[2] = "g.sobrenome";
+            colunasNomes[3] = "g.cpf";
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
             string draw = Request.QueryString["draw"];

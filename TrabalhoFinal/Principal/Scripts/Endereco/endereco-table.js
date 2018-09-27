@@ -7,30 +7,32 @@
             {
                 data: 'Id',
                 bSortable: false,
-                width: "10%"
+                width: "10%",
+                target: 0
             },
             {
                 data: 'Cep',
                 bSortable: true,
                 width: "15%",
-                target: 0
+                target: 1
             },
             {
                 data: 'Logradouro',
                 bSortable: true,
                 width: "30%",
-                target: 1
+                target: 2
             },
             {
                 data: 'Cidade.Nome',
                 bSortable: true,
                 width: "25%",
-                target: 2
+                target: 3
             },
             {
                 data: null,
                 bSortable: false,
                 width: "20%",
+                target: 4,
                 render: function (data, type, row) {
                     return '<a class="btn btn-outline-info botao-editar-endereco" data-id="' + row.Id + '" data-toggle="modal" data-target="#endereco-modal-editar">Editar</a>' +
                         '<a class="btn btn-outline-danger ml-1 botao-excluir-endereco" data-id="' + row.Id + '">Desativar</a>';

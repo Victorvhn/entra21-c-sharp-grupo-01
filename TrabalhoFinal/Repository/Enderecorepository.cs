@@ -100,13 +100,13 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
         {
             List<Endereco> enderecos = new List<Endereco>();
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT e.id AS 'id', e.id_cidade AS 'eidcidade' , e.cep AS 'cep', e.logradouro AS 'logradouro', 
-                                    e.numero AS 'numero', e.complemento AS 'complemento', e.referencia AS 'referencia', 
-                                    c.id AS 'cidadeid', c.nome AS 'cidadenome', es.id AS 'estadoid', es.nome AS 'nomeestado' FROM enderecos e 
+            command.CommandText = @"SELECT e.id, e.id_cidade, e.cep, e.logradouro, 
+                                    e.numero, e.complemento, e.referencia, 
+                                    c.id, c.nome, es.id, es.nome FROM enderecos e 
                                     JOIN cidades c ON(c.id = e.id_cidade )
                                     JOIN estados es ON (es.id = c.id_estado ) 
                                     WHERE e.ativo = 1 AND ((e.cep LIKE @SEARCH) OR (e.logradouro LIKE @SEARCH) OR (c.nome LIKE @SEARCH))
-                                    ORDER BY  "+ orderColumn + " " + orderDir + " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+                                    ORDER BY  " + orderColumn + " " + orderDir + " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
             command.Parameters.AddWithValue("@SEARCH", search);
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
@@ -114,21 +114,21 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
             foreach (DataRow line in table.Rows)
             {
                 Endereco endereco = new Endereco();
-                endereco.Id =  Convert.ToInt32(line["id"].ToString());
-                endereco.IdCidade = Convert.ToInt32(line["eidcidade"].ToString());
-                endereco.Cep = line["cep"].ToString();
-                endereco.Logradouro = line["logradouro"].ToString();
-                endereco.Numero = Convert.ToInt16(line["numero"].ToString());
-                endereco.Complemento = line["complemento"].ToString();
-                endereco.Referencia = line["referencia"].ToString();
+                endereco.Id =  Convert.ToInt32(line[0].ToString());
+                endereco.IdCidade = Convert.ToInt32(line[1].ToString());
+                endereco.Cep = line[2].ToString();
+                endereco.Logradouro = line[3].ToString();
+                endereco.Numero = Convert.ToInt16(line[4].ToString());
+                endereco.Complemento = line[5].ToString();
+                endereco.Referencia = line[6].ToString();
 
                 endereco.Cidade = new Cidade();
-                endereco.Cidade.Id = Convert.ToInt32(line["cidadeid"].ToString());
-                endereco.Cidade.Nome = line["cidadenome"].ToString();
+                endereco.Cidade.Id = Convert.ToInt32(line[7].ToString());
+                endereco.Cidade.Nome = line[8].ToString();
 
                 endereco.Cidade.Estado = new Estado();
-                endereco.Cidade.Estado.Id = Convert.ToInt32(line["estadoid"].ToString());
-                endereco.Cidade.Estado.Nome = line["nomeestado"].ToString();
+                endereco.Cidade.Estado.Id = Convert.ToInt32(line[9].ToString());
+                endereco.Cidade.Estado.Nome = line[10].ToString();
 
                 enderecos.Add(endereco);
             }
