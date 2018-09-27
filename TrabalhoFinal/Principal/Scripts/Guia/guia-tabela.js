@@ -221,19 +221,12 @@
                     digits: true,
                     validacep:true
                                    
-                },
-                'endereco.Logradouro': {
-                    required: true,
-                    rangelength:[3, 40]
-                },
+                },               
                 'endereco.Numero': {  
                     required: true,
                     digits: true
-                },
-                'endereco.Bairro': {
-                    required: true,
-                    rangelength:[4, 20]
-                },
+                }
+               
                
                 
             },
@@ -288,19 +281,12 @@
                     digits: 'Cep deve conter somente digitos',
                     validacep:'Cep inválido.'
                     
-                },
-                'endereco.Logradouro': {
-                    required: 'Logradouro deve ser preenchido.',
-                    rangelength: 'Logradouro deve conter entre {0} a {1} caracteres.'
-                },
+                },               
                 'endereco.Numero': {    
                     required: 'Número deve ser preenchido.',
                     digits: 'Número deve conter apenas dígitos.'
-                },
-                'endereco.Bairro': {
-                    required: 'Bairro deve ser preenchido.',
-                    rangelength: 'Bairro deve conter entre {0} a {1} caracteres.'
                 }
+               
                 
             }
 
