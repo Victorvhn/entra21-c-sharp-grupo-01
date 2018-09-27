@@ -119,7 +119,7 @@
                     $('#table-cidade').DataTable().ajax.reload();
                     $(function () {
                         new PNotify({
-                            title: 'Sucesso!',
+                            title: STRINGS.desativado,
                             text: nomeVar + " " + STRINGS.cadastrado,
                             type: 'success'
                         });
@@ -200,7 +200,7 @@
                     if (resultado == 1) {
                         $(function () {
                             new PNotify({
-                                title: 'Sucesso!',
+                                title: STRINGS.desativado,
                                 text: STRINGS.alterado,
                                 type: 'info'
                             });
@@ -231,8 +231,8 @@
                 var resultado = JSON.parse(data);
                 if (resultado == 1) {
                     new PNotify({
-                        title: 'Desativado!',
-                        text: nome + " " + STRINGS.desativado,
+                        title: STRINGS.desativado,
+                        text: nome + " " + STRINGS.desativadoSucesso,
                         type: 'success'
                     });
 
