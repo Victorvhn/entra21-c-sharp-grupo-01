@@ -175,7 +175,7 @@
                     $('#endereco-modal-cadastro').modal('hide');
                     $(function () {
                         new PNotify({
-                            title: 'Sucesso!',
+                            title: STRINGS.sucesso,
                             text: STRINGS.enderecoCadastrado,
                             type: 'success'
                         });
@@ -331,7 +331,7 @@
                     if (resultado == 1) {
                         $(function () {
                             new PNotify({
-                                title: 'Sucesso!',
+                                title: STRINGS.sucesso,
                                 text: STRINGS.enderecoAlterado,
                                 type: 'info'
                             });
@@ -361,7 +361,7 @@
                 var resultado = JSON.parse(data);
                 if (resultado == 1) {
                     new PNotify({
-                        title: 'Desativado',
+                        title: STRINGS.desativado,
                         text: STRINGS.enderecoDesativado,
                         type: 'success'
                     });
