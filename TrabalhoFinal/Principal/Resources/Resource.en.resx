@@ -633,7 +633,7 @@
   <data name="Carregando" xml:space="preserve">
     <value>Loading...</value>
   </data>
-  <data name="NenhumRegistroDisponível" xml:space="preserve">
+  <data name="NenhumRegistroDisponivel" xml:space="preserve">
     <value>No record available</value>
   </data>
   <data name="NenhumRegistroEncontrado" xml:space="preserve">
@@ -647,5 +647,29 @@
   </data>
   <data name="Rank" xml:space="preserve">
     <value>Rank</value>
+  </data>
+  <data name="de" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="filtrados" xml:space="preserve">
+    <value>Filtered</value>
+  </data>
+  <data name="filtradosde" xml:space="preserve">
+    <value>filtered from</value>
+  </data>
+  <data name="MostrandoPagina" xml:space="preserve">
+    <value>Showing Page</value>
+  </data>
+  <data name="OrdenarAscendentes" xml:space="preserve">
+    <value>: Sort ascending columns</value>
+  </data>
+  <data name="OrdenarDescentes" xml:space="preserve">
+    <value>: Sorting columns downward</value>
+  </data>
+  <data name="Proximo" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Ultimo" xml:space="preserve">
+    <value>Last</value>
   </data>
 </root>

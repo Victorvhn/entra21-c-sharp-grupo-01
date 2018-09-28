@@ -511,7 +511,7 @@
     <value>Viagem Turista</value>
   </data>
   <data name="CadastroCidade" xml:space="preserve">
-    <value>Cadastro de Cidaed</value>
+    <value>Cadastro de Cidade</value>
   </data>
   <data name="Africa" xml:space="preserve">
     <value>África</value>
@@ -644,5 +644,29 @@
   </data>
   <data name="Rank" xml:space="preserve">
     <value>Rank</value>
+  </data>
+  <data name="de" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="filtrados" xml:space="preserve">
+    <value>Filtrados</value>
+  </data>
+  <data name="filtradosde" xml:space="preserve">
+    <value>filtrados de</value>
+  </data>
+  <data name="MostrandoPagina" xml:space="preserve">
+    <value>Mostrando Página</value>
+  </data>
+  <data name="OrdenarAscendentes" xml:space="preserve">
+    <value>: Ordenar Colunas de forma ascendente</value>
+  </data>
+  <data name="OrdenarDescendentes" xml:space="preserve">
+    <value>: Ordenar Colunas de forma descendente</value>
+  </data>
+  <data name="Proximo" xml:space="preserve">
+    <value>Próximo</value>
+  </data>
+  <data name="Ultimo" xml:space="preserve">
+    <value>Último</value>
   </data>
 </root>

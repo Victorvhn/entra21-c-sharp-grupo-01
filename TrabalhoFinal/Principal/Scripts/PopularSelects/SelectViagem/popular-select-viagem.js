@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     $('#select-cadastro-viagem-pacote').select2({
-        placeholder: "Selecione um Pacote",
+        placeholder: STRINGS.selecionePacote,
         ajax: {
             url: '/Pacote/ObterTodosPorJSONToSelect2',
             dataType: 'json'
@@ -12,7 +12,7 @@
     });
 
     $('#select-cadastro-viagem-guia').select2({
-        placeholder: "Selecione um Guia",
+        placeholder: STRINGS.selecioneGuia,
         ajax: {
             url: '/Guia/ObterTodosParaSelect2',
             dataType: 'json'
@@ -24,7 +24,7 @@
 
 $(document).ready(function () {
     $('#select-modal-editar-viagem-pacote').select2({
-        placeholder: "Selecione um Pacote",
+        placeholder: STRINGS.selecionePacote,
         ajax: {
             url: '/Pacote/ObterTodosPorJSONToSelect2',
             dataType: 'json'
@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
 
     $('#select-modal-editar-viagem-guia').select2({
-        placeholder: "Selecione um Guia",
+        placeholder: STRINGS.selecioneGuia,
         ajax: {
             url: '/Guia/ObterTodosParaSelect2',
             dataType: 'json'

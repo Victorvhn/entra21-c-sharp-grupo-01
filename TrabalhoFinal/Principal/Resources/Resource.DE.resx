@@ -645,4 +645,28 @@
   <data name="Rank" xml:space="preserve">
     <value>Rang</value>
   </data>
+  <data name="de" xml:space="preserve">
+    <value>von</value>
+  </data>
+  <data name="filtrados" xml:space="preserve">
+    <value>gefiltert</value>
+  </data>
+  <data name="filtradosde" xml:space="preserve">
+    <value>gefiltert von</value>
+  </data>
+  <data name="MostrandoPagina" xml:space="preserve">
+    <value>Seite Anzeigen</value>
+  </data>
+  <data name="OrdenarAscendentes" xml:space="preserve">
+    <value>: Spalten aufsteigend sortieren</value>
+  </data>
+  <data name="OrdenarDescentes" xml:space="preserve">
+    <value>: Spalten nach unten sortieren</value>
+  </data>
+  <data name="Proximo" xml:space="preserve">
+    <value>Nächster</value>
+  </data>
+  <data name="Ultimo" xml:space="preserve">
+    <value>Letzte</value>
+  </data>
 </root>

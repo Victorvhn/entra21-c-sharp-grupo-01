@@ -12,7 +12,7 @@
 
 $(document).ready(function () {
     $('#select-modal-editar-cidade').select2({
-        placeholder: "Selecione um Estado",
+        placeholder: STRINGS.selecioneEstado,
         ajax: {
             url: '/Estado/ObterTodosPorJSONToSelect2',
             dataType: 'json'

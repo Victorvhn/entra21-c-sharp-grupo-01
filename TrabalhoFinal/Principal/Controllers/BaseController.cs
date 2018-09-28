@@ -24,26 +24,26 @@ namespace Principal.Controllers
         {
             return Json(new
             {
-                sEmptyTable = "Nenhum registro encontrado",
-                sInfo = "Mostrando página _PAGE_ de _PAGES_",
-                sInfoEmpty = "Nenhum registro disponível",
-                sInfoFiltered = "(Filtrados de _MAX_ registros)",
+                sEmptyTable = Resources.Resource.NenhumRegistroEncontrado,
+                sInfo = Resources.Resource.MostrandoPagina + " " + " _PAGE_ " + Resources.Resource.de + " " + " _PAGES_ ",
+                sInfoEmpty = Resources.Resource.NenhumRegistroDisponivel,
+                sInfoFiltered = "(" + Resources.Resource.filtradosde + " _MAX_ "+ Resources.Resource.Cadastros+")",
                 sInfoPostFix = "",
                 sInfoThousands = ".",
-                sLengthMenu = "<span>Apresentar:</span> _MENU_",
-                sLoadingRecords = "Carregando...",
-                sProcessing = "Processando...",
-                sZeroRecords = "Nenhum registro encontrado",
-                sSearch = "Pesquisa:  ",
+                sLengthMenu = "<span>"+ Resources.Resource.Apresentar +"</span> _MENU_",
+                sLoadingRecords = Resources.Resource.Carregando,
+                sProcessing = Resources.Resource.Processando,
+                sZeroRecords = Resources.Resource.NenhumRegistroEncontrado,
+                sSearch = Resources.Resource.Buscar,
                 oPaginate = new {
-                sNext = "Próximo",
-                    sPrevious = "Anterior",
-                    sFirst = "Primeiro",
-                    sLast = "Último"
+                sNext = Principal.Resources.Resource.Proximo,
+                    sPrevious = Resources.Resource.Anterior,
+                    sFirst = Resources.Resource.Primeiro,
+                    sLast = Resources.Resource.Ultimo
                 },
                 oAria = new {
-                    sSortAscending = ": Ordenar colunas de forma ascendente",
-                    sSortDescending = ": Ordenar colunas de forma descendente"
+                    sSortAscending = Resources.Resource.OrdenarAscendentes,
+                    sSortDescending = Resources.Resource.OrdenarDescendentes
                 }
             });
         }

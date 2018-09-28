@@ -223,7 +223,7 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cadastro de Cidaed.
+        ///   Looks up a localized string similar to Cadastro de Cidade.
         /// </summary>
         public static string CadastroCidade {
             get {
@@ -511,6 +511,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to de.
+        /// </summary>
+        public static string de {
+            get {
+                return ResourceManager.GetString("de", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Desativado!.
         /// </summary>
         public static string Desativado {
@@ -727,6 +736,24 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filtrados.
+        /// </summary>
+        public static string filtrados {
+            get {
+                return ResourceManager.GetString("filtrados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to filtrados de.
+        /// </summary>
+        public static string filtradosde {
+            get {
+                return ResourceManager.GetString("filtradosde", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Gênero.
         /// </summary>
         public static string Genero {
@@ -898,6 +925,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mostrando Página.
+        /// </summary>
+        public static string MostrandoPagina {
+            get {
+                return ResourceManager.GetString("MostrandoPagina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nenhum Registro Disponível.
         /// </summary>
         public static string NenhumRegistroDisponivel {
@@ -975,6 +1011,24 @@ namespace Principal.Resources {
         public static string Oceania {
             get {
                 return ResourceManager.GetString("Oceania", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to : Ordenar Colunas de forma ascendente.
+        /// </summary>
+        public static string OrdenarAscendentes {
+            get {
+                return ResourceManager.GetString("OrdenarAscendentes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to : Ordenar Colunas de forma descendente.
+        /// </summary>
+        public static string OrdenarDescendentes {
+            get {
+                return ResourceManager.GetString("OrdenarDescendentes", resourceCulture);
             }
         }
         
@@ -1128,6 +1182,15 @@ namespace Principal.Resources {
         public static string Processando {
             get {
                 return ResourceManager.GetString("Processando", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Próximo.
+        /// </summary>
+        public static string Proximo {
+            get {
+                return ResourceManager.GetString("Proximo", resourceCulture);
             }
         }
         
@@ -1560,6 +1623,15 @@ namespace Principal.Resources {
         public static string Turistas {
             get {
                 return ResourceManager.GetString("Turistas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Último.
+        /// </summary>
+        public static string Ultimo {
+            get {
+                return ResourceManager.GetString("Ultimo", resourceCulture);
             }
         }
         
