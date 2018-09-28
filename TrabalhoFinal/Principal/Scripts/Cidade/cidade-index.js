@@ -119,7 +119,7 @@
                     $('#table-cidade').DataTable().ajax.reload();
                     $(function () {
                         new PNotify({
-                            title: STRINGS.desativado,
+                            title: STRINGS.sucesso,
                             text: nomeVar + " " + STRINGS.cadastrado,
                             type: 'success'
                         });
@@ -200,7 +200,7 @@
                     if (resultado == 1) {
                         $(function () {
                             new PNotify({
-                                title: STRINGS.desativado,
+                                title: STRINGS.sucesso,
                                 text: STRINGS.alterado,
                                 type: 'info'
                             });
