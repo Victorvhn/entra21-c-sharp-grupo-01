@@ -9,8 +9,8 @@
             {
                 data: null,
                 render: function (data, type, row) {
-                    return '<a class="btn btn-outline-info botao-editar-pacote-ponto-turistico" data-id="' + row.Id + '" data-toggle="modal" data-target="#pacote-ponto-turistico-modal-editar">Editar</a>' +
-                        '<a class="btn btn-outline-danger ml-1 botao-excluir-pacote-ponto-turistico" data-id="' + row.Id + '">Desativar</a>';
+                    return '<a style="font-size: 24px;" class="btn fa fa-edit botao-editar-pacote-ponto-turistico" data-id="' + row.Id + '" data-toggle="modal" data-target="#pacote-ponto-turistico-modal-editar"></a>' +
+                        '<a style="font-size: 24px;" class="btn fa fa-trash ml-1 botao-excluir-pacote-ponto-turistico" data-id="' + row.Id + '"></a>';
                 }
             }
         ]

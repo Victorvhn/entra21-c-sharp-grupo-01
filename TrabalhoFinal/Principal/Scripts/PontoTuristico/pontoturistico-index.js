@@ -27,8 +27,8 @@
                 bSortable: false,
                 width: "20%",
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info botao-editar-pontoturistico' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1 botao-excluir-pontoturistico' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
+                    return "<a style='font-size: 24px;' class='btn fa fa-edit botao-editar-pontoturistico' data-id='" + row.Id + "'></a>" +
+                        "<a style='font-size: 24px;' class='btn fa fa-trash ml-1 botao-excluir-pontoturistico' data-id='" + row.Id + "' data-nome='" + row.Nome + "'></a>";
                 }
             }
         ]

@@ -33,8 +33,8 @@
                 bSortable: false,
                 width: "20%",
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info botao-editar-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1 botao-excluir-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
+                    return "<a style='font-size: 24px;' class='btn fa fa-edit botao-editar-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Editar</a>" +
+                        "<a style='font-size: 24px;' class='btn fa fa-trash ml-1 botao-excluir-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "'>Desativar</a>";
                 }
             }
         ]

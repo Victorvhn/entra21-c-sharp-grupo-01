@@ -34,8 +34,8 @@
                 width: "20%",
                 target: 4,
                 render: function (data, type, row) {
-                    return '<a class="btn btn-outline-info botao-editar-endereco" data-id="' + row.Id + '" data-toggle="modal" data-target="#endereco-modal-editar">Editar</a>' +
-                        '<a class="btn btn-outline-danger ml-1 botao-excluir-endereco" data-id="' + row.Id + '">Desativar</a>';
+                    return '<a style="font-size: 24px;" class="btn fa fa-edit botao-editar-endereco" data-id="' + row.Id + '" data-toggle="modal" data-target="#endereco-modal-editar"></a>' +
+                        '<a style="font-size: 24px;" class="btn fa fa-trash ml-1 botao-excluir-endereco" data-id="' + row.Id + '"></a>';
                 }
             }
         ]

@@ -40,8 +40,8 @@
                 width: "20%",
                 target: 5,
                 render: function (data, type, row) {
-                    return "<a class='btn btn-outline-info botao-editar-guia' data-id='" + row.Id + "'>Editar</a>" +
-                        "<a class='btn btn-outline-danger ml-1 botao-excluir-guia' data-id='" + row.Id + "' href='#' >Desativar</a>";
+                    return "<a class='btn fa fa-edit botao-editar-guia' data-id='" + row.Id + "' style='font-size: 24px;'></a>" +
+                        "<a class='btn fa fa-trash ml-1 botao-excluir-guia' data-id='" + row.Id + "' style='font-size: 24px;'></a>";
 
                 }
             }
