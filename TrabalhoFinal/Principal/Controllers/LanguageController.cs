@@ -28,7 +28,7 @@ namespace Principal.Controllers
             cookie.Value = lang;
             Response.Cookies.Add(cookie);
 
-            return RedirectToAction("Index", "Home");        
+            return Redirect(Request.UrlReferrer.ToString());
         }
     }
 }

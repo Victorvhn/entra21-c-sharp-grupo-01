@@ -11,7 +11,14 @@ namespace Principal.Controllers
     public class GuiaController : Controller
     {
         // GET: Guia
+        [HttpPost]
+        public JsonResult GetStrings()
+        {
+            return Json(new
+            {
 
+            });
+        }
         [HttpGet]
         public ActionResult Index()
         {

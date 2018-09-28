@@ -1,49 +1,63 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "LuvTour - Home";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
 <h2>Dashboard</h2>
+<div class="row mt-5">
+    <div class=" col-md-3 mb-4">
+        <a class="card-home" href="/Cidade">
+            <i class="icofont icofont-building-alt"></i>
+            <h2>@Principal.Resources.Resource.Cidades</h2>
+        </a>
+    </div>
+    <div class=" col-md-3 mb-4">
+        <a class="card-home" href="/Endereco">
+            <i class="icofont icofont-location-pin"></i>
+            <h2>@Principal.Resources.Resource.Enderecos</h2>
+        </a>
+    </div>
+    <div class=" col-md-3 mb-4">
+        <a class="card-home" href="/Estado">
+            <i class="icofont icofont-university"></i>
+            <h2>@Principal.Resources.Resource.Estados</h2>
+        </a>
+    </div>
 
-<a class="card-home" href="/Cidade">
-    <i class="icofont icofont-building-alt"></i>
-    <h2>@Principal.Resources.Resource.Cidades</h2>
-</a>
+    <div class=" col-md-3 mb-4">
+        <a class="card-home" href="/Idioma">
+            <i class="icofont icofont-book-alt"></i>
+            <h2>@Principal.Resources.Resource.Idiomas</h2>
+        </a>
 
-<a class="card-home" href="/Endereco">
-    <i class="icofont icofont-location-pin"></i>
-    <h2>@Principal.Resources.Resource.Enderecos</h2>
-</a>
-
-<a class="card-home" href="/Estado">
-    <i class="icofont icofont-university"></i>
-    <h2>@Principal.Resources.Resource.Estados</h2>
-</a>
-
-<a class="card-home" href="/Idioma">
-    <i class="icofont icofont-book-alt"></i>
-    <h2>@Principal.Resources.Resource.Idiomas</h2>
-</a>
-
-<a class="card-home" href="/Pacote">
-    <i class="icofont icofont-social-dropbox"></i>
-    <h2>@Principal.Resources.Resource.Pacotes</h2>
-</a>
-
-
-<a class="card-home" href="/Viagem">
-    <i class="icofont icofont-airplane-alt"></i>
-    <h2>@Principal.Resources.Resource.Viagens</h2>
-</a>
-
-<a class="card-home" href="/Guia">
-    <i class="icofont icofont-business-man-alt-3"></i>
-    <h2>@Principal.Resources.Resource.Guias</h2>
-</a>
+    </div>
+    <div class=" col-md-3 mb-4">
+        <a class="card-home" href="/Pacote">
+            <i class="icofont icofont-social-dropbox"></i>
+            <h2>@Principal.Resources.Resource.Pacotes</h2>
+        </a>
 
 
-<a class="card-home" href="/HistoricoViagem">
-    <i class="icofont icofont-document-search"></i>
-    <h2>@Principal.Resources.Resource.HistoricoViagem</h2>
-</a>
+    </div>
+    <div class=" col-md-3 mb-4">
+        <a class="card-home" href="/Viagem">
+            <i class="icofont icofont-airplane-alt"></i>
+            <h2>@Principal.Resources.Resource.Viagens</h2>
+        </a>
+
+    </div>
+    <div class=" col-md-3 mb-4">
+        <a class="card-home" href="/Guia">
+            <i class="icofont icofont-business-man-alt-3"></i>
+            <h2>@Principal.Resources.Resource.Guias</h2>
+        </a>
+
+
+    </div>
+    <div class=" col-md-3 mb-4">
+        <a class="card-home" href="/HistoricoViagem">
+            <i class="icofont icofont-document-search"></i>
+            <h2>@Principal.Resources.Resource.HistoricoViagem</h2>
+        </a>
+    </div>
+</div>
