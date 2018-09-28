@@ -17,8 +17,9 @@ namespace Repository
             string whereSearch = "";
 
             if (!string.IsNullOrWhiteSpace(search))
-            {                
-                whereSearch = "AND((v.id LIKE @SEARCH) OR(p.nome LIKE @SEARCH) OR(g.nome LIKE @SEARCH))";
+            {
+                search = $"'%{search}%'";
+                whereSearch = $" AND ((v.id LIKE {search}) OR (p.nome LIKE {search}) OR (g.nome LIKE {search}))";
             }
 
             List<Viagem> viagens = new List<Viagem>();
@@ -29,11 +30,6 @@ namespace Repository
             INNER JOIN guias g ON (g.id = v.id_guia)
             WHERE v.ativo = 1 {whereSearch}
             ORDER BY {orderColumn} {orderDir} OFFSET {start} ROWS FETCH NEXT {length} ROWS ONLY ";
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                command.Parameters.AddWithValue("@SEARCH", string.Concat("'%", search, "%'"));  
-            }
 
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
