@@ -123,7 +123,7 @@ $(function () {
 
     });
 
-    //Validação Modal Cadastro
+    //Validação Modal editar
     function init() {
 
         $('#form-modal-editar-guia').validate({
@@ -196,11 +196,11 @@ $(function () {
                 }
             },
             messages: {
-                'guia.Nome': {
+                'Guia.Nome': {
                     required: STRINGS.nomePreenchido,
                     rangelength: STRINGS.nomeDeveConter
                 },
-                'guia.Sobrenome': {
+                'Guia.Sobrenome': {
                     required: STRINGS.sobrenomePreenchido,
                     rangelength: STRINGS.sobrenomeDeveConter
                 },
@@ -210,35 +210,35 @@ $(function () {
                 //    minlength: 'RG deve conter no mínimo 7 dígitos.',
                 //    maxlength: 'RG deve conter no máximo 12 digitos.'
                 //},
-                'guia.Cpf': {
+                'Guia.Cpf': {
                     required: STRINGS.cpfPreenchido
                 },
-                'guia.DataNascimento': {
+                'Guia.DataNascimento': {
                     required: STRINGS.dataNascimentoPreenchido,
                     date: STRINGS.dataNascimentoInvalida
                 },
-                'sexo': {
+                'Guia.Sexo': {
                     required: STRINGS.sexoPreenchido
                 },
-                'guia.CarteiraTrabalho': {
+                'Guia.CarteiraTrabalho': {
                     required: STRINGS.carteiraTrabalhoPreenchido,
                     digits: STRINGS.carteiraTrabalhoDigitos
                 },
-                'guia.Salario': {
+                'Guia.Salario': {
                     required: STRINGS.salarioPreenchido,
                     number: STRINGS.salarioNumber,
                     minlength: STRINGS.salariominimo,
                     range: STRINGS.salarioDeveSer
 
                 },
-                'guia.CategoriaHabilitacao': {
+                'Guia.CategoriaHabilitacao': {
                     required: STRINGS.categoriaHabilitacaoPreenchido
 
                 },
                 'cidade.IdEstado': {
                     required: STRINGS.estadoPreenchido
                 },
-                'select-cadastro-guia-cidade': {
+                'select-editar-guia-cidade': {
                     required: STRINGS.cidadePreenchido
                 },
                 'endereco.Cep': {
@@ -281,7 +281,7 @@ $(function () {
         if ((x = b % 11) < 2) { a[10] = 0; } else { a[10] = 11 - x; }
         if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) return false;
         return true;
-    }, "Informe um CPF válido.");
+    }, STRINGS.cpfInvalido);
 
     //Validar Data
     $.validator.addMethod("dateBR", function (value, element) {
@@ -304,8 +304,8 @@ $(function () {
 
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
-        $('#campo-logradouro-cadastro-guia').val('');
-        $('#campo-complemento-guia-cadastro').val('');
+        $('#campo-logradouro-editar-guia').val('');
+        $('#campo-complemento-guia-editar').val('');
     }
 
     //valida cep
@@ -324,16 +324,16 @@ $(function () {
         if (validacep.test(cep)) {
 
             //Preenche os campos com "..." enquanto consulta webservice.
-            $('#campo-logradouro-cadastro-guia').val("...");
-            $('#campo-complemento-guia-cadastro').val("...");
+            $('#campo-logradouro-editar-guia').val("...");
+            $('#campo-complemento-guia-editar').val("...");
 
             //Consulta o webservice viacep.com.br/
             $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                 if (!("erro" in dados)) {
                     //Atualiza os campos com os valores da consulta.
-                    $('#campo-logradouro-cadastro-guia').val(dados.logradouro);
-                    $('#campo-complemento-guia-cadastro').val(dados.bairro);
+                    $('#campo-logradouro-editar-guia').val(dados.logradouro);
+                    $('#campo-complemento-guia-editar').val(dados.bairro);
                 } //end if.
                 else {
                     //CEP pesquisado não foi encontrado.
@@ -352,7 +352,7 @@ $(function () {
 
         return true;
 
-    }, STRING.cepinvalido);
+    }, STRINGS.cepInvalido);
 
     $(document).ready(init);
 
@@ -571,7 +571,7 @@ $(function () {
         if ((x = b % 11) < 2) { a[10] = 0; } else { a[10] = 11 - x; }
         if ((cpf.charAt(9) != a[9]) || (cpf.charAt(10) != a[10]) || cpf.match(expReg)) return false;
         return true;
-    }, "Informe um CPF válido.");
+    }, STRINGS.cpfpInvalido);
 
     //Validar Data
     $.validator.addMethod("dateBR", function (value, element) {
@@ -642,7 +642,7 @@ $(function () {
         
         return true;
 
-    }, STRING.cepinvalido);
+    }, STRINGS.cepInvalido);
     
     $(document).ready(init);
  

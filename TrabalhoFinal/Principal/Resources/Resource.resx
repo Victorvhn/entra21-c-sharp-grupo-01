@@ -678,4 +678,28 @@
   <data name="CEPInvalido" xml:space="preserve">
     <value>CEP Inválido</value>
   </data>
+  <data name="Bairro" xml:space="preserve">
+    <value>Bairro</value>
+  </data>
+  <data name="CadastrarGuia" xml:space="preserve">
+    <value>Cadastrar Guia</value>
+  </data>
+  <data name="CarteiradeHabilitacao" xml:space="preserve">
+    <value>CarteiradeHabilitacao</value>
+  </data>
+  <data name="DadosPessoais" xml:space="preserve">
+    <value>Dados Pessoais</value>
+  </data>
+  <data name="Feminino" xml:space="preserve">
+    <value>Feminino</value>
+  </data>
+  <data name="Masculino" xml:space="preserve">
+    <value>Masculino</value>
+  </data>
+  <data name="NumeroCarteiraTrabalho" xml:space="preserve">
+    <value>NumeroCarteiraTrabalho</value>
+  </data>
+  <data name="Endereço" xml:space="preserve">
+    <value>Endereço</value>
+  </data>
 </root>

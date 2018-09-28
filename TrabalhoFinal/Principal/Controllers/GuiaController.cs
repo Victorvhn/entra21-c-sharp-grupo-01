@@ -35,7 +35,7 @@ namespace Principal.Controllers
                 categoriaHabilitacaoPreenchido = Resources.Resource.CarteiraTrabalhoPreenchido,
                 estadoPreenchido = Resources.Resource.EstadoPreenchido,
                 cidadePreenchido = Resources.Resource.EstadoPreenchido,
-                cepPreenchido = Resources.Resource.CEPPreenchido,
+                cepPreenchido = Resources.Resource.CEPPreenchido,                
                 cepInvalido = Resources.Resource.CEPInvalido,
                 numeroPrenchido = Resources.Resource.NumeroPreenchido,
                 numeroDigitos = Resources.Resource.NumeroDigitos,

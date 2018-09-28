@@ -142,6 +142,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bairro.
+        /// </summary>
+        public static string Bairro {
+            get {
+                return ResourceManager.GetString("Bairro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bairro deve conter entre 4 a 20 caracteres.
         /// </summary>
         public static string BairroDeveConter {
@@ -192,6 +201,15 @@ namespace Principal.Resources {
         public static string Cadastrar {
             get {
                 return ResourceManager.GetString("Cadastrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cadastrar Guia.
+        /// </summary>
+        public static string CadastrarGuia {
+            get {
+                return ResourceManager.GetString("CadastrarGuia", resourceCulture);
             }
         }
         
@@ -282,6 +300,15 @@ namespace Principal.Resources {
         public static string Carregando {
             get {
                 return ResourceManager.GetString("Carregando", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CarteiradeHabilitacao.
+        /// </summary>
+        public static string CarteiradeHabilitacao {
+            get {
+                return ResourceManager.GetString("CarteiradeHabilitacao", resourceCulture);
             }
         }
         
@@ -462,6 +489,15 @@ namespace Principal.Resources {
         public static string CriarPacote {
             get {
                 return ResourceManager.GetString("CriarPacote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dados Pessoais.
+        /// </summary>
+        public static string DadosPessoais {
+            get {
+                return ResourceManager.GetString("DadosPessoais", resourceCulture);
             }
         }
         
@@ -664,6 +700,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Endereço.
+        /// </summary>
+        public static string Endereço {
+            get {
+                return ResourceManager.GetString("Endereço", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Endereço Cadastrado com Sucesso.
         /// </summary>
         public static string EnderecoCadastradoSucesso {
@@ -750,6 +795,15 @@ namespace Principal.Resources {
         public static string Fechar {
             get {
                 return ResourceManager.GetString("Fechar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feminino.
+        /// </summary>
+        public static string Feminino {
+            get {
+                return ResourceManager.GetString("Feminino", resourceCulture);
             }
         }
         
@@ -934,6 +988,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Masculino.
+        /// </summary>
+        public static string Masculino {
+            get {
+                return ResourceManager.GetString("Masculino", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Meu Perfil.
         /// </summary>
         public static string MeuPerfil {
@@ -1002,6 +1065,15 @@ namespace Principal.Resources {
         public static string Numero {
             get {
                 return ResourceManager.GetString("Numero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NumeroCarteiraTrabalho.
+        /// </summary>
+        public static string NumeroCarteiraTrabalho {
+            get {
+                return ResourceManager.GetString("NumeroCarteiraTrabalho", resourceCulture);
             }
         }
         

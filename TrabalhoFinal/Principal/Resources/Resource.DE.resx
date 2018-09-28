@@ -681,4 +681,31 @@
   <data name="Desativado" xml:space="preserve">
     <value>Behindert</value>
   </data>
+  <data name="Barirro" xml:space="preserve">
+    <value>Gegend</value>
+  </data>
+  <data name="CadastrarGuia" xml:space="preserve">
+    <value>sich anmelden</value>
+  </data>
+  <data name="CarteiradeHabilitacao" xml:space="preserve">
+    <value>Führerschein</value>
+  </data>
+  <data name="DadosPessoais" xml:space="preserve">
+    <value>persönliche Daten</value>
+  </data>
+  <data name="Feminino" xml:space="preserve">
+    <value>Weiblich</value>
+  </data>
+  <data name="Masculino" xml:space="preserve">
+    <value>Maskulino</value>
+  </data>
+  <data name="NumeroCarteiraTrabalho" xml:space="preserve">
+    <value>Arbeitsportfolio-Nummer</value>
+  </data>
+  <data name="Endereço" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="CEPInvalido" xml:space="preserve">
+    <value>Ungültige Postleitzahl</value>
+  </data>
 </root>

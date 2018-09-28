@@ -7,7 +7,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Editar Guia</h4>
+                <h4 class="modal-title">@Principal.Resources.Resource.CadastrarGuia</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -18,14 +18,18 @@
                     <input type="hidden" id="campo-editar-guia-id" value="" />
                     <input type="hidden" id="campo-editar-guia-endereco-id" value="" />
 
+                    <div class="ion-arrow-move">
+                        <h5>@Principal.Resources.Resource.DadosPessoais</h5><br /> <br />
+                    </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="campo-nome">Nome <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="campo-nome">@Principal.Resources.Resource.Nome <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.Nome" type="text" id="campo-editar-guia-nome" class="form-control" value="" />
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="campo-sobrenome">Sobrenome <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="campo-sobrenome">@Principal.Resources.Resource.Sobrenome <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.Sobrenome" type="text" id="campo-editar-guia-sobrenome" class="form-control" value="" />
                         </div>
 
@@ -41,31 +45,33 @@
                         </div>
 
                         <div class="form-group col">
-                            <label for="campo-data-nascimento">Data de Nascimento <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="campo-data-nascimento">@Principal.Resources.Resource.DataNascimento <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.DataNascimento" type="date" id="campo-editar-guia-data-nascimento" class="form-control" value="" />
                         </div>
 
-                        <div class="form-group col">
-                            <label for="campo-sexo">Sexo <span class="text-danger font-weight-bold">*</span></label>
-                            <select id="campo-editar-guia-sexo" name="Guia.Sexo" class="form-control" required="required">
-                                <option value="M">Masculino</option>
-                                <option value="F">Feminino</option>
-                            </select>
+                        <div class="form-group col-md-4">
+                            <label for="campo-editar-guia-sexo">@Principal.Resources.Resource.Sexo  <span class="text-danger font-weight-bold">*</span></label>
+                            <div>
+                                <input type="radio" id="radio-sexo-masculino" name="sexo" class="ml-md-1" value="M" />
+                                <label for="radio-sexo-masculino">@Principal.Resources.Resource.Masculino</label>
+                                <input type="radio" id="radio-sexo-feminino" name="sexo" class="ml-md-5" value="F" />
+                                <label for="radio-sexo-feminino">@Principal.Resources.Resource.Feminino</label>
+                            </div>
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="campo-numero-carteira-trabalho">Número Carteira de Trabalho <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="campo-numero-carteira-trabalho">@Principal.Resources.Resource.CarteiraDeTrabalho <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.CarteiraTrabalho" type="text" id="campo-editar-guia-numero-carteira-trabalho"
                                    class="form-control" value="" />
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="campo-salario">Salário <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="campo-salario">@Principal.Resources.Resource.Salario <span class="text-danger font-weight-bold">*</span></label>
                             <input name="Guia.Salario" type="text" id="campo-editar-guia-salario" class="form-control" value="" />
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="campo-categoria-habilitacao">Categoria da Habilitação <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="campo-categoria-habilitacao">@Principal.Resources.Resource.CarteiradeHabilitacao <span class="text-danger font-weight-bold">*</span></label>
                             <select id="campo-editar-guia-categoria-habilitacao" name="Guia.CategoriaHabilitacao" class="form-control" required="required">
                                 <option disabled="disabled" selected="selected">- Selecione uma Categoria -</option>
                                 <option value="A">A</option>
@@ -88,7 +94,7 @@
                         </div>
 
                         <div class="form-group col-sm-4">
-                            <label for="campo-rank">Rank</label>
+                            <label for="campo-rank">@Principal.Resources.Resource.Rank</label>
                             <select name="Guia.Rank" type="text" id="campo-editar-guia-rank" class="form-control">
                                 <option disabled="disabled" selected="selected">- Selecione o Rank -</option>
                                 <option value="0">0</option>
@@ -101,22 +107,22 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <h5>Endereço</h5> <br /><br />
+                    <div class="ion-arrow-move">
+                        <h5>@Principal.Resources.Resource.Endereco</h5> <br /><br />
                     </div>
 
                     <div class="row">
 
                         <div class="form-group col-md-6">
 
-                            <label for="select-cadastro-guia-estado">Estado  <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="select-cadastro-guia-estado">@Principal.Resources.Resource.Estado <span class="text-danger font-weight-bold">*</span></label>
                             <select class="form-control" name="cidade.IdEstado" id="select-editar-guia-estado"></select>
 
                         </div>
 
                         <div class="form-group col-md-6">
 
-                            <label for="select-cadastro-cidade-guia">Cidade  <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="select-cadastro-cidade-guia">@Principal.Resources.Resource.Cidade <span class="text-danger font-weight-bold">*</span></label>
                             <select class="form-control" name="select-editar-guia-cidade" id="select-editar-guia-cidade"></select>
 
                         </div>
@@ -138,14 +144,14 @@
 
                         <div class="form-group col-md-8">
 
-                            <label for="logradouro">Logradouro  <span class="text-danger font-weight-bold">*</span></label>
-                            <input name="endereco.Logradouro" type="text" id="campo-logradouro-editar-guia" size="150" class="form-control" readonly="readonly"/>
+                            <label for="logradouro">@Principal.Resources.Resource.Logradouro <span class="text-danger font-weight-bold">*</span></label>
+                            <input name="endereco.Logradouro" type="text" id="campo-logradouro-editar-guia" size="150" class="form-control" readonly="readonly" />
 
                         </div>
 
                         <div class="form-group col-md-4">
 
-                            <label for="campo-numero-editar-guia">Número <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="campo-numero-editar-guia">@Principal.Resources.Resource.Numero <span class="text-danger font-weight-bold">*</span></label>
                             <input id="campo-numero-editar-guia" name="endereco.Numero" type="text" class="form-control">
                         </div>
 
@@ -155,14 +161,14 @@
 
                         <div class="form-group col-md-8">
 
-                            <label for="bairro">Bairro  <span class="text-danger font-weight-bold">*</span></label>
+                            <label for="bairro">@Principal.Resources.Resource.Bairro  <span class="text-danger font-weight-bold">*</span></label>
                             <input id="campo-complemento-guia-editar" name="endereco.Bairro" type="text" class="form-control" readonly="readonly">
 
                         </div>
 
                         <div class="form-group col-md-4">
 
-                            <label for="campo-referencia-guia-editar">Referência</label>
+                            <label for="campo-referencia-guia-editar">@Principal.Resources.Resource.Referencia</label>
                             <input id="campo-referencia-guia-editar" name="endereco.Referencia" class="form-control">
 
                         </div>
@@ -172,8 +178,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-editar-guia">Fechar</button>
-                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-acao-editar-guia">Cadastrar</button>
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-editar-guia">@Principal.Resources.Resource.Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-acao-editar-guia">@Principal.Resources.Resource.Cadastrar</button>
             </div>
         </div>
     </div>

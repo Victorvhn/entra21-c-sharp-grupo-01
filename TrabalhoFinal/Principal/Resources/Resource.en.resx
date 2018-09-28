@@ -681,4 +681,29 @@
   <data name="CEPInvalido" xml:space="preserve">
     <value>Invalid Postal Code</value>
   </data>
+  <data name="Bairro" xml:space="preserve">
+    <value>Neighborhood</value>
+  </data>
+  <data name="CadastrarGuia" xml:space="preserve">
+    <value>Register Guide</value>
+  </data>
+  <data name="CarteiradeHabilitacao" xml:space="preserve">
+    <value>Driver's License</value>
+  </data>
+  <data name="DadosPessoais" xml:space="preserve">
+    <value>Personal data</value>
+  </data>
+  <data name="Feminino" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="Masculino" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="NumeroCarteiraTraNumeroCarteiraTrabalho" xml:space="preserve">
+    <value>Work Portfolio Number</value>
+  </data>
+  <data name="Endereço" xml:space="preserve">
+    <value>8/5000
+Address</value>
+  </data>
 </root>
