@@ -421,6 +421,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CPF inválido.
+        /// </summary>
+        public static string CpfInvalido {
+            get {
+                return ResourceManager.GetString("CpfInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CPF deve ser Preenchido.
         /// </summary>
         public static string CpfPreenchido {

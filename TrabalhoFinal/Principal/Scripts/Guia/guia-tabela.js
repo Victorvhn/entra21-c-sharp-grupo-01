@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿
+$(function () {
     //Preenche DataTable
     $('#guia-tabela').DataTable({       
         ajax: "/Guia/ObterTodosPorJSON",
@@ -156,8 +157,8 @@
                 $("#guia-modal-editar").modal('hide');
                 $(function () {
                     new PNotify({
-                        title: 'Sucesso!',
-                        text: nomeVar + ' cadastrado com sucesso',
+                        title: STRINGS.Sucesso,
+                        text: nomeVar + " " + STRINGS.cadastradoSucesso,
                         type: 'success'
                     });
                 });
@@ -248,12 +249,12 @@
             },
             messages: {
                 'guia.Nome': {
-                    required: 'Nome deve ser preenchido.',
-                    rangelength: 'Nome deve conter entre {0} a {1} caracteres.'
+                    required: STRINGS.nomePreenchido,
+                    rangelength: STRINGS.nomeDeveConter,
                 },
                 'guia.Sobrenome': {
-                    required: 'Sobrenome deve ser preenchido.',
-                    rangelength: 'Sobrenome deve conter entre {0} a {1} caracteres.'
+                    required: STRINGS.sobrenomePreenchido,
+                    rangelength: STRINGS.sobrenomeDeveConter
                 },
                 //'guia.Rg': {
                 //    required: 'RG deve ser preenchido.',
@@ -262,7 +263,7 @@
                 //    maxlength: 'RG deve conter no máximo 12 digitos.'
                 //},
                 'guia.Cpf': {
-                    required: 'CPF deve ser preenchido.',                    
+                    required: STRINGS.cpfPreenchido                 
                 },
                 'guia.DataNascimento': {
                     required: 'Data de Nascimento deve ser preenchido.',

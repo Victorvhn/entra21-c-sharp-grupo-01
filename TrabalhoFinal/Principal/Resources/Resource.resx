@@ -669,4 +669,7 @@
   <data name="Ultimo" xml:space="preserve">
     <value>Último</value>
   </data>
+  <data name="CpfInvalido" xml:space="preserve">
+    <value>CPF inválido</value>
+  </data>
 </root>

@@ -16,7 +16,13 @@ namespace Principal.Controllers
         {
             return Json(new
             {
-
+                nomePreenchido = Resources.Resource.NomePreenchido,
+                nomeDeveConter = Resources.Resource.NomeDeveConter,
+                sobrenomePreenchido = Resources.Resource.SobrenomePrenchido,
+                sobrenemeDeveConter = Resources.Resource.SobrenomeDeveConter,
+                cadastradoSucesso = Resources.Resource.CadastradoSucesso,
+                cpfPreenchido = Resources.Resource.CpfPreenchido,
+                sucesso = Resources.Resource.Sucesso,
             });
         }
         [HttpGet]
@@ -43,6 +49,13 @@ namespace Principal.Controllers
             {
                 idTurista = -1;
             }
+
+
+            if(idTurista != -1)
+            {
+                return RedirectToAction("Index", "HomeTurista");
+            }
+
             if (idGuia == -1)
             {
                 if (idTurista != -1)
