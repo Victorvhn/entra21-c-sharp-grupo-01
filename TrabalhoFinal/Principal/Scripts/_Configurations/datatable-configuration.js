@@ -7,7 +7,6 @@
     "sInfoThousands": ".",
     "sLengthMenu": '<span>Apresentar:</span> _MENU_',
     "sLoadingRecords": "Carregando...",
-    "sProcessing": "Processando...",
     "sZeroRecords": "Nenhum registro encontrado",
     "sSearch": "Pesquisa:  ",
     "oPaginate": {
@@ -19,7 +18,15 @@
     "oAria": {
         "sSortAscending": ": Ordenar colunas de forma ascendente",
         "sSortDescending": ": Ordenar colunas de forma descendente"
-    }
+    },
+    "processing": '   <div class="loader-full">\
+        <div class="preloader3 loader-block loader-interno">\
+        <div class= "circ1 loader-primary" ></div>\
+            <div class="circ2 loader-primary"></div>\
+            <div class="circ3 loader-primary"></div>\
+            <div class="circ4 loader-primary"></div>\
+                                                                </div>\
+                                                                </div>'
 };
 
 $(function () {

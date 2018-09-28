@@ -157,30 +157,50 @@
     $('table').on('click', '.botao-excluir-estado', function () {
         var id = $(this).data('id');
         var nome = $(this).data('nome');
-        $.ajax({
-            url: 'Estado/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    new PNotify({
-                        title: STRINGS.desativado,
-                        text: nome + " " + STRINGS.desativadoSucesso,
-                        type: 'success'
+        swal({
+            title: "Você tem certeza?",
+            text: "Você ira desativar o estado " + nome + "!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Desativar!",
+            cancelButtonText: "Não, Cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Desativar!", "Você desativou o estado " + nome + ".", "success");
+                    $.ajax({
+                        url: 'Estado/Excluir?id=' + id,
+                        method: 'get',
+                        success: function (data) {
+                            var resultado = JSON.parse(data);
+                            if (resultado == 1) {
+                                new PNotify({
+                                    title: STRINGS.desativado,
+                                    text: nome + " " + STRINGS.desativadoSucesso,
+                                    type: 'success'
+                                });
+
+                                $('#table-estados').DataTable().ajax.reload();
+
+                            } else {
+                                new PNotify({
+                                    title: 'Erro!',
+                                    text: 'Erro ao desativar ' + nome,
+                                    type: 'error'
+                                });
+                            }
+                        }
                     });
-
-                    $('#table-estados').DataTable().ajax.reload();
-
                 } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar ' + nome,
-                        type: 'error'
-                    });
+                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
                 }
-            }
-        });
+            });
     });
+
+    
 
     function limparCampos() {
         $('#campo-cadastro-estado-nome').val('');       

@@ -201,32 +201,50 @@
     //Desativar
     $('table').on('click', '.botao-excluir-historico-viagem', function () {
         var id = $(this).data('id');
-        $.ajax({
-            url: 'HistoricoViagem/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    new PNotify({
-                        title: STRINGS.desativado,
-                        text: STRINGS.desativadoSucesso,
-                        type: 'success'
+        swal({
+            title: "Você tem certeza?",
+            text: "Você ira desativar o registro!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Desativar!",
+            cancelButtonText: "Não, Cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Desativar!", "Você desativou o registro.", "success");
+                    $.ajax({
+                        url: 'HistoricoViagem/Excluir?id=' + id,
+                        method: 'get',
+                        success: function (data) {
+                            var resultado = JSON.parse(data);
+                            if (resultado == 1) {
+                                new PNotify({
+                                    title: STRINGS.desativado,
+                                    text: STRINGS.desativadoSucesso,
+                                    type: 'success'
+                                });
+
+                                $('#historico-viagem-tabela').DataTable().ajax.reload();
+
+                            } else {
+                                new PNotify({
+                                    title: 'Erro!',
+                                    text: 'Erro ao desativar viagem',
+                                    type: 'error'
+                                });
+                            }
+                        }
                     });
-
-                    $('#historico-viagem-tabela').DataTable().ajax.reload();
-
                 } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar viagem',
-                        type: 'error'
-                    });
+                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
                 }
-            }
-        });
+            });
     });
 
-
+    
     function limparCampos() {
         $('#select-cadastro-historico-viagem-idPacote').val('').trigger('change');
         $("#campo-cadastro-historico-viagem-data").val(null);            

@@ -355,28 +355,48 @@
     //Desativar
     $('table').on('click', '.botao-excluir-endereco', function () {
         var id = $(this).data('id');
-        $.ajax({
-            url: '/Endereco/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    new PNotify({
-                        title: STRINGS.desativado,
-                        text: STRINGS.enderecoDesativado,
-                        type: 'success'
+        swal({
+            title: "Você tem certeza?",
+            text: "Você ira desativar o endereço!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Desativar!",
+            cancelButtonText: "Não, Cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Desativar!", "Você desativou o endereço.", "success");
+                    $.ajax({
+                        url: '/Endereco/Excluir?id=' + id,
+                        method: 'get',
+                        success: function (data) {
+                            var resultado = JSON.parse(data);
+                            if (resultado == 1) {
+                                new PNotify({
+                                    title: STRINGS.desativado,
+                                    text: STRINGS.enderecoDesativado,
+                                    type: 'success'
+                                });
+                                $('#table-endereco').DataTable().ajax.reload();
+                            } else {
+                                new PNotify({
+                                    title: 'Erro!',
+                                    text: 'Erro ao desativar Endereço',
+                                    type: 'error'
+                                });
+                            }
+                        }
                     });
-                    $('#table-endereco').DataTable().ajax.reload();
                 } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar Endereço',
-                        type: 'error'
-                    });
+                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
                 }
-            }
-        });
+            });
     });
+
+    
 
     function limparCamposEnderecoCadastro() {
         $('#campo-cadastro-endereco-id').val('');

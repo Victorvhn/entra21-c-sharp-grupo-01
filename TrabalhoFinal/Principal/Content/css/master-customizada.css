@@ -1,6 +1,31 @@
 ﻿.texto-barra-lateral {
     color: #BDC3C7
 }
+
 .show-notification {
-    width: 19em  !important;
+    width: 19em !important;
+}
+
+
+.loader-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    height: 100%;
+    z-index: 100000;
+    margin: 0;
+    padding: 0;
+    opacity: 0.5;
+}
+
+.loader-interno {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+.dataTables_processing panel{
+    width: 0 !important;
 }
