@@ -182,19 +182,19 @@
                     required: true,
                     rangelength: [3, 30]
                 },
-                'guia.Rg': {
-                    required: true,
-                    digits: true,
-                    minlength: [7],
-                    maxlength: [12]
-                },
+                //'guia.Rg': {
+                //    required: true,
+                //    digits: true,
+                //    minlength: [7],
+                //    maxlength: [12]
+                //},'
                 'guia.Cpf': {
                     required: true,
                     verificaCPF: true
                 },
                 'guia.DataNascimento': {
                     required: true,                   
-                    dateBR: true
+                    date: true
                 },
                 'sexo': {
                     required: true
@@ -242,12 +242,12 @@
                     required: 'Sobrenome deve ser preenchido.',
                     rangelength: 'Sobrenome deve conter entre {0} a {1} caracteres.'
                 },
-                'guia.Rg': {
-                    required: 'RG deve ser preenchido.',
-                    digits: 'RG deve conter somente digitos.',
-                    minlength: 'RG deve conter no mínimo 7 dígitos.',
-                    maxlength: 'RG deve conter no máximo 12 digitos.'
-                },
+                //'guia.Rg': {
+                //    required: 'RG deve ser preenchido.',
+                //    digits: 'RG deve conter somente digitos.',
+                //    minlength: 'RG deve conter no mínimo 7 dígitos.',
+                //    maxlength: 'RG deve conter no máximo 12 digitos.'
+                //},
                 'guia.Cpf': {
                     required: 'CPF deve ser preenchido.',                    
                 },
@@ -400,6 +400,7 @@
     //Salvar modal cadastro
     $("#botao-salvar-modal-cadastrar-guia").on("click", function () {
         var nomeVar = $("#campo-cadastro-guia-nome").val();
+
         if ($('#form-modal-cadastro-guia').valid()) {
             $.ajax({
                 url: '/Guia/Store',
