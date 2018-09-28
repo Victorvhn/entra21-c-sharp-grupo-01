@@ -89,7 +89,7 @@
                     if (resultado == 1) {
                         $(function () {
                             new PNotify({
-                                title: STRINGS.sucesso',
+                                title: STRINGS.sucesso,
                                 text: STRINGS.cadastrado,
                                 type: 'success'
                             });
@@ -107,6 +107,10 @@
                 }
             });
         }
+    });
+
+    $('#campo-data-horario-retorno-cadastro-user').focusout(function () {
+        gerarValorPacote();
     });
 
     function gerarValorPacote() {
