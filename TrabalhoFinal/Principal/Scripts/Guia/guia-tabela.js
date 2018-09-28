@@ -86,7 +86,7 @@
     $('table').on('click', '.botao-editar-guia', function () {
         var id = $(this).data('id');
         $.ajax({
-            url: '/Guia/Editar?id=' + id,
+            url: 'Guia/Editar?id=' + id,
             success: function (result) {
                 var data = JSON.parse(result);
                 $('#campo-editar-guia-nome').val(data.Nome);
@@ -106,8 +106,6 @@
                 $('#campo-numero-cadastro-guia').val(data.Numero);
                 $('#campo-complemento-guia-cadastro').val(data.Complemento);
                 $('#campo-referencia-guia-cadastro').val(data.Referencia);
-
-
                 $('#guia-modal-editar').modal("show");
             }
         });

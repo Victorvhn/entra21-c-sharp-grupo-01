@@ -78,7 +78,7 @@ CREATE TABLE guias (
     numero_carteira_trabalho VARCHAR(11),
     categoria_habilitacao VARCHAR(10), 
     salario FLOAT,
-    cpf VARCHAR(11),
+    cpf VARCHAR(14),
     rg VARCHAR(20),	
     sexo CHAR(1),
     data_nascimento DATE,  
