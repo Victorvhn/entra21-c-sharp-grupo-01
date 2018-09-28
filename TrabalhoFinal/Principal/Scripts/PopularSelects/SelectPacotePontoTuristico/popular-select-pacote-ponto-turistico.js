@@ -7,7 +7,7 @@
         }
     }).on('change', function () {
         $('#form-modal-cadastro-pacote-ponto-turistico').valid();
-        $('select-cadastro-pacote-ponto-turistico-ponto-turistico').select2('open');
+        $('#select-cadastro-pacote-ponto-turistico-ponto-turistico').select2('open');
     });
 
     //select cadastro - ponto turistico

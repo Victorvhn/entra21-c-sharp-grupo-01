@@ -110,6 +110,26 @@ namespace Repository
             return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
+        public List<PontoTuristico> ObterTodosParaSelect()
+        {
+            List<PontoTuristico> pontosTuristicos = new List<PontoTuristico>();
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "SELECT id, nome, id_endereco FROM pontos_turisticos";
+            DataTable tabela = new DataTable();
+            tabela.Load(command.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                PontoTuristico pontoTuristico = new PontoTuristico()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Nome = linha[1].ToString(),
+                    IdEndereco = Convert.ToInt32(linha[2].ToString())
+                };
+                pontosTuristicos.Add(pontoTuristico);
+            }
+            return pontosTuristicos;
+        }
+
         public int ContabilizarPontosTuristicos()
         {
             SqlCommand command = new Conexao().ObterConexao();
