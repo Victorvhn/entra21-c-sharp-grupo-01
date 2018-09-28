@@ -322,6 +322,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CEP Inválido.
+        /// </summary>
+        public static string CEPInvalido {
+            get {
+                return ResourceManager.GetString("CEPInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CEP deve ser Preenchido.
         /// </summary>
         public static string CEPPreenchido {

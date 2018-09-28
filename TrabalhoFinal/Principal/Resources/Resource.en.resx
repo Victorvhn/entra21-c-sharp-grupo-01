@@ -678,4 +678,7 @@
   <data name="Sexo" xml:space="preserve">
     <value>Sex must be filled in</value>
   </data>
+  <data name="CEPInvalido" xml:space="preserve">
+    <value>Invalid Postal Code</value>
+  </data>
 </root>

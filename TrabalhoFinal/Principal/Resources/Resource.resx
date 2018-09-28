@@ -675,4 +675,7 @@
   <data name="Sexo" xml:space="preserve">
     <value>Sexo deve ser preenchido</value>
   </data>
+  <data name="CEPInvalido" xml:space="preserve">
+    <value>CEP Inválido</value>
+  </data>
 </root>
