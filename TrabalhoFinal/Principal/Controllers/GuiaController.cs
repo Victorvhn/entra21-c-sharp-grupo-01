@@ -38,8 +38,18 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
+            
             bool apagado = new GuiaRepository().Excluir(id);
-            return Content(JsonConvert.SerializeObject(apagado));
+            int sucesso = 0;
+            if (apagado == true)
+            {
+                sucesso = 1;
+            }
+            else
+            {
+                sucesso = 0;
+            }
+            return Content(JsonConvert.SerializeObject(sucesso));
         }
 
         [HttpPost]

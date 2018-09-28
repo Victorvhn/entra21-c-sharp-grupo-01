@@ -58,20 +58,18 @@
     $('table').on('click', '.botao-excluir-guia', function () {
         var id = $(this).data('id');
         $.ajax({
-            ulr: 'Guia/Excluir?id=' + id,
+            url: '/Guia/Excluir?id=' + id,
             method: 'get',
-            success: function (result) {
-                var apagado = JSON.parse(result)
-                if (apagado == 1) {
+            success: function (data) {
+                var result = JSON.parse(data)
+                if (result == 1) {
 
                     new PNotify({
                         title: 'Desativado!',
                         text: 'Usuário desativado com sucesso',
                         type: 'success'
                     });
-
                     $('#guia-tabela').DataTable().ajax.reload();
-
                 } else {
 
                     new PNotify({

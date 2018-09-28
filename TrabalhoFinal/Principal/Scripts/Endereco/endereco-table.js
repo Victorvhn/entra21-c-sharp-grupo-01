@@ -82,8 +82,7 @@
             },
             messages: {
                 'endereco.Cep': {
-                    required: STRINGS.cepPreenchido
-                    
+                    required: STRINGS.cepPreenchido                    
                 },
                 'endereco.Logradouro': {
                     required: STRINGS.logPreenchido,
