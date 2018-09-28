@@ -105,10 +105,11 @@ namespace Repository
         public int Cadastrar(Guia guia)
         {
             SqlCommand command = new Conexao().ObterConexao();
+            // 
 
-            command.CommandText = @"INSERT INTO guias (sexo, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_)
+            command.CommandText = @"INSERT INTO guias (sexo, nome, sobrenome, numero_carteira_trabalho, categoria_habilitacao, salario, cpf, rg, data_nascimento, rank_, id_endereco) 
             OUTPUT INSERTED.ID
-            VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_)";
+            VALUES (@SEXO, @NOME, @SOBRENOME, @NUMERO_CARTEIRA_TRABALHO, @CATEGORIA_HABILITACAO, @SALARIO, @CPF, @RG, @DATA_NASCIMENTO, @RANK_, @ID_ENDERECO)";
             command.Parameters.AddWithValue("@SEXO", guia.Sexo);
             command.Parameters.AddWithValue("@NOME", guia.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
@@ -119,7 +120,11 @@ namespace Repository
             command.Parameters.AddWithValue("@RG", guia.Rg);
             command.Parameters.AddWithValue("@DATA_NASCIMENTO", guia.DataNascimento);
             command.Parameters.AddWithValue("@RANK_", guia.Rank);
-            int id = Convert.ToInt32(command.ExecuteScalar().ToString());
+            command.Parameters.AddWithValue("@ID_ENDERECO", guia.Endereco.Id);
+
+            var result = command.ExecuteScalar();
+
+            int id = Convert.ToInt32(result.ToString());
 
             return id;
 
@@ -181,12 +186,17 @@ namespace Repository
         {
             Guia guia = null;
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"SELECT g.sexo, g.nome , g.sobrenome, g.numero_carteira_trabalho, g.categoria_habilitacao, g.salario, g.cpf AS 'cpf', g.rg AS 'rg', g.data_nascimento AS 'data_nascimento', g.rank_ AS 'rank_', g.id_endereco AS 'id_endereco'
-            e.id, e.cep AS 'cep', e.logradouro AS 'logradouro', e.numero AS 'numero', e.complemento AS 'complemento', e.referencia AS 'referencia', e.id_cidade AS 'id_cidade'
+            command.CommandText = @"SELECT g.sexo, g.nome , g.sobrenome, g.numero_carteira_trabalho, g.categoria_habilitacao, g.salario, g.cpf, g.rg, g.data_nascimento, g.rank_, g.id_endereco,
+            e.id, e.cep, e.logradouro, e.numero, e.complemento, e.referencia, e.id_cidade, 
+            Cidades.id as cidades_id , Cidades.nome as cidades_nome, 
+            Estados.id as estados_id, Estados.nome as estados_nome 
             FROM guias g
-            INNER JOIN enderecos e ON(e.id = g.id_endereco) 
+            INNER JOIN enderecos e ON (g.id_endereco = e.id) 
+            INNER JOIN cidades Cidades ON (Cidades.id = e.id_cidade) 
+            INNER JOIN estados Estados ON (Estados.id = Cidades.id_estado)
             WHERE g.id = @ID";
             command.Parameters.AddWithValue("@ID", id);
+
             DataTable table = new DataTable();
             table.Load(command.ExecuteReader());
 
@@ -207,18 +217,25 @@ namespace Repository
                 guia.IdEndereco = Convert.ToInt32(table.Rows[0]["id_endereco"].ToString());
                 guia.Endereco = new Endereco()
                 {
-                    Id = Convert.ToInt32(table.Rows[0]["id_endereco"].ToString()),
-                    Cep = table.Rows[1]["cep"].ToString(),
-                    Logradouro = table.Rows[2]["logradouro"].ToString(),
-                    Numero = Convert.ToInt16(table.Rows[3]["numero"].ToString()),
-                    Complemento = table.Rows[4]["complemento"].ToString(),
-                    Referencia = table.Rows[5]["referencia"].ToString(),
-                    IdCidade = Convert.ToInt32(table.Rows[6]["id_cidade"].ToString()),
+                    Id = table.Rows[0].Field<int>("id_endereco"),
+                    Cep = table.Rows[0].Field<string>("cep"),
+                    Logradouro = table.Rows[0].Field<string>("logradouro"),
+                    Numero = table.Rows[0].Field<short>("numero"),
+                    Complemento = table.Rows[0].Field<string>("complemento"),
+                    Referencia = table.Rows[0].Field<string>("referencia"),
+                    IdCidade = table.Rows[0].Field<int>("id_cidade"),
+                    Cidade = new Cidade
+                    {
+                        Id = table.Rows[0].Field<int>("cidades_id"),
+                        Nome = table.Rows[0].Field<string>("cidades_nome"),
+                        IdEstado = table.Rows[0].Field<int>("estados_id"),
+                        Estado = new Estado
+                        {
+                            Id = table.Rows[0].Field<int>("estados_id"),
+                            Nome = table.Rows[0].Field<string>("estados_nome"),
+                        }
+                    }
                 };
-
-
-
-
             }
             return guia;
         }

@@ -421,7 +421,8 @@
                         },
                         cep: $("#campo-cep-cadastro-guia").val(),
                         numero: $("#campo-numero-cadastro-guia").val(),
-                        referencia: $("#campo-referencia-guia-cadastro").val()
+                        referencia: $("#campo-referencia-guia-cadastro").val(),
+                        logradouro: $("#campo-logradouro-cadastro-guia").val()
                     }
                 },
                 success: function (data) {

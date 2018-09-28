@@ -30,8 +30,6 @@ namespace Model
             {
                 return Cidade.Estado.Nome + " - " + Cidade.Nome + " - " + Logradouro + " - " + Numero;
             }
-
-
         }
     }
 }

@@ -146,50 +146,32 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
             return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
 
+        public object DBValue(object value)
+        {
+            if (value == null)
+            {
+                return DBNull.Value;
+            }
+
+            return value;
+        }
+
         public int Cadastrar(Endereco endereco)
         {
-            string complemento = "";
-            string complementoText = "";
-            string referencia = "";
-            string referenciaText = "";
-            if (endereco.Complemento != null)
-            {
-                complemento = " complemento,";
-                complementoText = " @COMPLEMENTO,";
-            }
-            else
-            {
-                complemento = "";
-                complementoText = "";
-            }
-
-            if (endereco.Referencia != null)
-            {
-                referencia = " referencia,";
-                referenciaText = " @REFERENCIA,";
-            }
-            else
-            {
-                referencia = "";
-                referenciaText = "";
-            }
             SqlCommand command = new Conexao().ObterConexao();
-            command.CommandText = @"INSERT INTO enderecos(cep, logradouro, numero," + complemento + "" + referencia + " id_cidade) OUTPUT INSERTED.ID VALUES (@CEP, @LOGRADOURO, @NUMERO," + complementoText + " " + referenciaText + " @ID_CIDADE)";
-            command.Parameters.AddWithValue("@CEP", endereco.Cep);
-            command.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
-            command.Parameters.AddWithValue("@NUMERO", endereco.Numero);
-            if (endereco.Complemento != null)
-            {
-                command.Parameters.AddWithValue("@COMPLEMENTO", endereco.Complemento);
-            }
-            if (endereco.Referencia != null)
-            {
-                command.Parameters.AddWithValue("@REFERENCIA", endereco.Referencia);
-            }
-            command.Parameters.AddWithValue("@ID_CIDADE", endereco.IdCidade);
-            int id = Convert.ToInt32(command.ExecuteScalar().ToString());
-            return id;
+            command.CommandText = $@"INSERT INTO enderecos (id_cidade, cep, logradouro, numero, complemento, referencia) OUTPUT INSERTED.ID 
+            VALUES (@ID_CIDADE, @CEP, @LOGRADOURO, @NUMERO, @COMPLEMENTO, @REFERENCIA)";
 
+            command.Parameters.AddWithValue("@ID_CIDADE", DBValue(endereco.Cidade.Id));
+            command.Parameters.AddWithValue("@CEP", DBValue(endereco.Cep));
+            command.Parameters.AddWithValue("@LOGRADOURO", DBValue(endereco.Logradouro));
+            command.Parameters.AddWithValue("@NUMERO", DBValue(endereco.Numero));
+            command.Parameters.AddWithValue("@COMPLEMENTO", DBValue(endereco.Complemento));
+            command.Parameters.AddWithValue("@REFERENCIA", DBValue(endereco.Referencia)); 
+
+            var newId = command.ExecuteScalar().ToString();
+
+            return Convert.ToInt32(newId);
         }
 
         public bool Alterar(Endereco endereco)
