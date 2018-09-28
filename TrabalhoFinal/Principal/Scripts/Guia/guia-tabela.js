@@ -89,23 +89,25 @@
             url: 'Guia/Editar?id=' + id,
             success: function (result) {
                 var data = JSON.parse(result);
+                var cidade = data.Endereco.Cidade;
+                var estado = cidade.Estado;
                 $('#campo-editar-guia-nome').val(data.Nome);
                 $('#campo-editar-guia-sobrenome').val(data.Sobrenome);
                 $('#campo-editar-guia-rg').val(data.Rg);
                 $('#campo-editar-guia-cpf').val(data.Cpf);
-                $('#campo-editar-guia-data-nascimento').val(data.DataNascimentoPadraoBR);
+                $('#campo-editar-guia-data-nascimento').val(data.DataNascimento);
                 $('#campo-editar-guia-sexo').val(data.Sexo);
                 $('#campo-editar-guia-numero-carteira-trabalho').val(data.CarteiraTrabalho);
                 $('#campo-editar-guia-salario').val(data.Salario);
                 $('#campo-editar-guia-categoria-habilitacao').val(data.CategoriaHabilitacao);
                 $('#campo-editar-guia-rank').val(data.Rank);
-                $('#select-cadastro-guia-estado').append(new Option(data.Estado.Nome, data.IdEstado, false, false)).val(data.IdEstado).trigger('change');
-                $('#select-cadastro-guia-cidade').append(new Option(data.Cidade.Nome, data.IdCidade, false, false)).val(data.IdCidade).trigger('change');
-                $('#campo-cep-cadastro-guia').val(data.Cep);
-                $('#campo-logradouro-cadastro-guia').val(data.Logradouro);
-                $('#campo-numero-cadastro-guia').val(data.Numero);
-                $('#campo-complemento-guia-cadastro').val(data.Complemento);
-                $('#campo-referencia-guia-cadastro').val(data.Referencia);
+                $('#select-editar-guia-estado').append(new Option(estado.Nome, estado.Id, false, false)).val(estado.Id).trigger('change');
+                $('#select-editar-guia-cidade').append(new Option(cidade.Nome, cidade.Id, false, false)).val(cidade.Id).trigger('change');
+                $('#campo-cep-editar-guia').val(data.Endereco.Cep);
+                $('#campo-logradouro-editar-guia').val(data.Endereco.Logradouro);
+                $('#campo-numero-editar-guia').val(data.Endereco.Numero);
+                $('#campo-complemento-guia-editar').val(data.Endereco.Complemento);
+                $('#campo-referencia-guia-editar').val(data.Endereco.Referencia);
                 $('#guia-modal-editar').modal("show");
             }
         });
@@ -128,7 +130,8 @@
                 carteiratrabalho: $("#campo-editar-guia-numero-carteira-trabalho").val(),
                 categoriahabilitacao: $("#campo-editar-guia-categoria-habilitacao").val(),
                 salario: $("#campo-editar-guia-salario").val(),
-                rank: $("#campo-editar-guia-rank").val()
+                rank: $("#campo-editar-guia-rank").val(),
+
             },
             success: function (data) {
                 var resultado = JSON.parse(data);

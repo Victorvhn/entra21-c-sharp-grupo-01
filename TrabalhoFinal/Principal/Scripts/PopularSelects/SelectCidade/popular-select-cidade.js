@@ -1,6 +1,6 @@
 ﻿﻿$(document).ready(function () {
     $('#select-modal-cadastro-cidade').select2({
-        placeholder: "Selecione um Estado",
+        placeholder: STRINGS.selecioneEstado,
         ajax: {
             url: '/Estado/ObterTodosPorJSONToSelect2',
             dataType: 'json'
