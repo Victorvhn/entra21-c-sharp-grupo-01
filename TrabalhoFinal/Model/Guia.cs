@@ -13,12 +13,9 @@ namespace Model
 
         public int Id { get; set; }
 
-        public Endereco Endereco { get; set; }
-
         public int IdLogin { get; set; }
 
         public Login Login { get; set; }
-
 
         public char Ativo { get; set; }
 
@@ -38,14 +35,14 @@ namespace Model
 
         public string Rg { get; set; }
         
-
         public DateTime DataNascimento { get; set; }
-
-        //public string DataNascimentoPadraoBR { get { return string.Format("{0:dd/MM/yyyy H:mm}", DataNascimentoPadraoBR); } }
+        
         public string DataNascimentoPadraoBR { get { return "{0:dd/MM/yyyy H:mm}"; } }
 
         public byte Rank { get; set; }
 
         public List<Pacote> Pacotes { get; set; }
+
+        public Endereco Endereco { get; set; }
     }
 }

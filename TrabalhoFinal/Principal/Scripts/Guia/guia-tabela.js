@@ -409,13 +409,24 @@
                     nome: $("#campo-cadastro-guia-nome").val(),
                     sobrenome: $("#campo-cadastro-guia-sobrenome").val(),
                     datanascimento: $("#campo-cadastro-guia-data-nascimento").val(),
-                    sexo: $("#campo-cadastro-guia-sexo").val(),
+                    sexo: $('input[type=radio][name=sexo]:checked').val(),
                     rg: $("#campo-cadastro-guia-rg").val(),
                     cpf: $("#campo-cadastro-guia-cpf").val(),
                     carteiratrabalho: $("#campo-cadastro-guia-numero-carteira-trabalho").val(),
                     categoriahabilitacao: $("#campo-cadastro-guia-categoria-habilitacao").val(),
                     salario: $("#campo-cadastro-guia-salario").val(),
-                    rank: $("#campo-cadastro-guia-rank").val()
+                    rank: $("#campo-cadastro-guia-rank").val(),
+                    endereco: {
+                        cidade: {
+                            id: $("#select-cadastro-cidade-guia").val(),
+                            estado: {
+                                id: $("#select-cadastro-guia-estado").val()
+                            }
+                        },
+                        cep: $("#campo-cep-cadastro-guia").val(),
+                        numero: $("#campo-numero-cadastro-guia").val(),
+                        referencia: $("#campo-referencia-guia-cadastro").val()
+                    }
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);

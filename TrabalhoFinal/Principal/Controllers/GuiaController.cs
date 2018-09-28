@@ -43,32 +43,32 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(GuiaString guia, EnderecoString endereco)
+        public ActionResult Store(Guia guia)
         {
 
-            Endereco enderecoModel = new Endereco();
-            enderecoModel.Cep = endereco.Cep.ToString();
-            enderecoModel.Logradouro = endereco.Logradouro.ToString();
-            enderecoModel.Numero = Convert.ToInt16(endereco.Numero.ToString());
-            enderecoModel.Referencia = endereco.Referencia.ToString();
-            enderecoModel.Complemento = endereco.Complemento.ToString();
+            //Endereco enderecoModel = new Endereco();
+            //enderecoModel.Cep = endereco.Cep.ToString();
+            //enderecoModel.Logradouro = endereco.Logradouro.ToString();
+            //enderecoModel.Numero = Convert.ToInt16(endereco.Numero.ToString());
+            //enderecoModel.Referencia = endereco.Referencia.ToString();
+            //enderecoModel.Complemento = endereco.Complemento.ToString();
 
-            int codigoEndereco = new EnderecoRepository().Cadastrar(enderecoModel);
+            //int codigoEndereco = new EnderecoRepository().Cadastrar(enderecoModel);
 
-            Guia guiaModel = new Guia();
-            guiaModel.IdEndereco = codigoEndereco;
-            guiaModel.Nome = guia.Nome.ToString();
-            guiaModel.Sobrenome = guia.Sobrenome.ToString();
-            guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/", "-").ToString());
-            guiaModel.Sexo = guia.Sexo.ToString();
-            guiaModel.Rg = guia.Rg.ToString();
-            guiaModel.Cpf = guia.Cpf.ToString();
-            guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
-            guiaModel.CategoriaHabilitacao = guia.CategoriaHabilitacao.ToString();
-            guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
-            guiaModel.Rank = Convert.ToByte(guia.Rank.ToString());
+            //Guia guiaModel = new Guia();
+            //guiaModel.IdEndereco = codigoEndereco;
+            //guiaModel.Nome = guia.Nome.ToString();
+            //guiaModel.Sobrenome = guia.Sobrenome.ToString();
+            //guiaModel.DataNascimento = Convert.ToDateTime(guia.DataNascimento.Replace("/", "-").ToString());
+            //guiaModel.Sexo = guia.Sexo.ToString();
+            //guiaModel.Rg = guia.Rg.ToString();
+            //guiaModel.Cpf = guia.Cpf.ToString();
+            //guiaModel.CarteiraTrabalho = guia.CarteiraTrabalho.ToString();
+            //guiaModel.CategoriaHabilitacao = guia.CategoriaHabilitacao.ToString();
+            //guiaModel.Salario = Convert.ToDouble(guia.Salario.ToString());
+            //guiaModel.Rank = Convert.ToByte(guia.Rank.ToString());
 
-            int identificador = new GuiaRepository().Cadastrar(guiaModel);
+            int identificador = new GuiaRepository().Cadastrar(guia);
             return Content(JsonConvert.SerializeObject(new { id = identificador }));
         }
 
@@ -76,7 +76,7 @@ namespace Principal.Controllers
         public ActionResult Update(Guia guia)
         {
             bool alterado = new GuiaRepository().Alterar(guia);
-            return Content(JsonConvert.SerializeObject(new {id = alterado }));
+            return Content(JsonConvert.SerializeObject(new { id = alterado }));
         }
 
         [HttpGet]
