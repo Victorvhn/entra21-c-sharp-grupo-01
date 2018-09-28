@@ -75,7 +75,7 @@ namespace Repository
 
         public PacotePontoTuristico ObterPeloId(int id)
         {
-            PacotePontoTuristico pacoteTuristico = null;
+            PacotePontoTuristico pacotePontoTuristico = null;
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"SELECT ppt.id, p.id, p.nome, pt.id, pt.nome
             FROM pacotes_pontos_turisticos ppt
@@ -86,7 +86,7 @@ namespace Repository
             table.Load(command.ExecuteReader());
             if (table.Rows.Count == 1)
             {
-                PacotePontoTuristico pacotePontoTuristico = new PacotePontoTuristico();
+                pacotePontoTuristico = new PacotePontoTuristico();
                 pacotePontoTuristico.Id = Convert.ToInt32(table.Rows[0][0].ToString());
                 pacotePontoTuristico.Pacote = new Pacote();
                 pacotePontoTuristico.Pacote.Id = Convert.ToInt32(table.Rows[0][1].ToString());
@@ -95,7 +95,7 @@ namespace Repository
                 pacotePontoTuristico.PontoTuristico.Id = Convert.ToInt32(table.Rows[0][3].ToString());
                 pacotePontoTuristico.PontoTuristico.Nome = table.Rows[0][4].ToString();
             }
-            return pacoteTuristico;
+            return pacotePontoTuristico;
         }
 
 

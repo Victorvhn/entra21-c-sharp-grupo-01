@@ -86,12 +86,12 @@
     $('table').on('click', '.botao-editar-pacote-ponto-turistico', function () {
         var id = $(this).data('id');
         $.ajax({
-            url: '/PacotePontoTuristico/Editar?id=' + id,
+            url: 'PacotePontoTuristico/Editar?id=' + id,
             success: function (resultado) {
                 var data = JSON.parse(resultado);
                 $('#campo-editar-pacote-ponto-turistico-id').val(data.Id);
-                $('#select-editar-pacote-ponto-turistico-pacote').append(new Option(data.Pacote.Nome, data.IdPacote, false, false)).val(data.idPacote).trigger('change');
-                $('#select-editar-pacote-ponto-turistito-ponto-turistico').append(new Option(data.PontoTuristico.Nome, data.idPontoTuristico, false, false)).val(data.idPontoTuristico).trigger('change');
+                $('#select-editar-pacote-ponto-turistico-pacote').append(new Option(data.Pacote.Nome, data.Pacote.Id, false, false)).val(data.Pacote.Id);
+                $('#select-editar-pacote-ponto-turistito-ponto-turistico').append(new Option(data.PontoTuristico.Nome, data.PontoTuristico.Id, false, false)).val(data.PontoTuristico.Id);
                 $('#pacote-ponto-turistico-modal-editar').modal('show');
             }
         });
@@ -154,7 +154,7 @@
                         });
                         $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                         $('#pacote-ponto-turistico-modal-editar').modal('hide');
-                        limparCampoEditar();
+                        limparCamposEditar();
                     } else {
                         new PNotify({
                             title: 'Erro!',
