@@ -52,6 +52,12 @@ namespace Principal.Controllers
             {
                 idTurista = -1;
             }
+
+            if (idTurista != -1)
+            {
+                return RedirectToAction("Index", "HomeTurista");
+            }
+
             if (idGuia == -1)
             {
                 if (idTurista != -1)
