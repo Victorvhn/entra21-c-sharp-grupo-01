@@ -26,6 +26,7 @@ namespace Principal.Controllers
                 selecionePacote = Resources.Resource.SelecionePacote
             });
         }
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -41,11 +42,9 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            PacotePontoTuristico pacotePontoTuristico = new PacotePontosTuristicosRepository().ObterPeloId(id);
-            ViewBag.PacotePontoTuristico = pacotePontoTuristico;
-          
-
-            return View();
+            PacotePontoTuristico pacotePontoTuristicos = new PacotePontosTuristicosRepository().ObterPeloId(id);
+            ViewBag.PacotePontoTuristico = pacotePontoTuristicos;
+            return  Content(JsonConvert.SerializeObject(pacotePontoTuristicos));
         }
 
 
@@ -104,6 +103,7 @@ namespace Principal.Controllers
             }));
         }
 
+        [HttpGet]
         public ActionResult ObterTodosPorJSONParaSelect2()
         {
             List<PacotePontoTuristico> pacotePontoTuristicos = new PacotePontosTuristicosRepository().ObterTodosParaSelect();
@@ -124,6 +124,7 @@ namespace Principal.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult ModalEditar()
         {
             return View();

@@ -28,11 +28,11 @@
         }
     }).on('change', function () {
         $('#form-modal-editar-pacote-ponto-turistico').valid();
-        $('#select-editar-pacote-ponto-turisto-ponto-turistico').select2('open');
+        $('#select-editar-pacote-ponto-turistito-ponto-turistico').select2('open');
     });
 
     //select editar - ponto turistico
-    $('#select-editar-pacote-ponto-turisto-ponto-turistico').select2({
+    $('#select-editar-pacote-ponto-turistito-ponto-turistico').select2({
         ajax: {
             url: '/PontoTuristico/ObterTodosPorJSONSelect2',
             dataType: 'json'

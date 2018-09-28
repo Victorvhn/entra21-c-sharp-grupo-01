@@ -87,12 +87,11 @@
         var id = $(this).data('id');
         $.ajax({
             url: '/PacotePontoTuristico/Editar?id=' + id,
-            method: 'get',
             success: function (resultado) {
                 var data = JSON.parse(resultado);
                 $('#campo-editar-pacote-ponto-turistico-id').val(data.Id);
                 $('#select-editar-pacote-ponto-turistico-pacote').append(new Option(data.Pacote.Nome, data.IdPacote, false, false)).val(data.idPacote).trigger('change');
-                $('#select-editar-pacote-ponto-turistico-ponto-turistico').append(new Option(data.PontoTuristico.Nome, data.idPontoTuristico, false, false)).val(data.idPontoTuristico).trigger('change');
+                $('#select-editar-pacote-ponto-turistito-ponto-turistico').append(new Option(data.PontoTuristico.Nome, data.idPontoTuristico, false, false)).val(data.idPontoTuristico).trigger('change');
                 $('#pacote-ponto-turistico-modal-editar').modal('show');
             }
         });
@@ -136,24 +135,24 @@
         if ($('#form-modal-editar-pacote-ponto-turistico').valid()) {
             $.ajax({
                 url: '/PacotePontoTuristico/Update',
-                method: 'post',
+                method: 'Post',
                 dataType: 'json',
                 data: {
                     id: $('#campo-editar-pacote-ponto-turistico-id').val(),
                     idPacote: $('#select-editar-pacote-ponto-turistico-pacote').val(),
-                    idPontoTuristico: $('#select-editar-pacote-ponto-turistico-ponto-turistico').val()
+                    idPontoTuristico: $('#select-editar-pacote-ponto-turistito-ponto-turistico').val()
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
                     if (resultado == 1) {
                         $(function () {
-                            $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                             new PNotify({
                                 title: STRINGS.sucesso,
                                 text: STRINGS.alterado,
                                 type: 'info'
                             });
                         });
+                        $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                         $('#pacote-ponto-turistico-modal-editar').modal('hide');
                         limparCampoEditar();
                     } else {
