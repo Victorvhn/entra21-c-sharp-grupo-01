@@ -178,13 +178,13 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = "UPDATE enderecos SET cep = @CEP, logradouro = @LOGRADOURO, numero = @NUMERO, complemento = @COMPLEMENTO, referencia = @REFERENCIA, id_cidade = @ID_CIDADE WHERE id = @ID";
-            command.Parameters.AddWithValue("@CEP", endereco.Cep);
-            command.Parameters.AddWithValue("@LOGRADOURO", endereco.Logradouro);
-            command.Parameters.AddWithValue("@NUMERO", endereco.Numero);
-            command.Parameters.AddWithValue("@COMPLEMENTO", endereco.Complemento);
-            command.Parameters.AddWithValue("@REFERENCIA", endereco.Referencia);
-            command.Parameters.AddWithValue("@ID_CIDADE", endereco.IdCidade);
+            command.CommandText = "UPDATE enderecos SET id_cidade = @ID_CIDADE, cep = @CEP, logradouro = @LOGRADOURO, numero = @NUMERO, complemento = @COMPLEMENTO, referencia = @REFERENCIA WHERE id = @ID";
+            command.Parameters.AddWithValue("@ID_CIDADE", DBValue(endereco.Cidade.Id));
+            command.Parameters.AddWithValue("@CEP", DBValue(endereco.Cep));
+            command.Parameters.AddWithValue("@LOGRADOURO", DBValue(endereco.Logradouro));
+            command.Parameters.AddWithValue("@NUMERO", DBValue(endereco.Numero));
+            command.Parameters.AddWithValue("@COMPLEMENTO", DBValue(endereco.Complemento));
+            command.Parameters.AddWithValue("@REFERENCIA", DBValue(endereco.Referencia));
             command.Parameters.AddWithValue("@ID", endereco.Id);
             return command.ExecuteNonQuery() == 1;
 

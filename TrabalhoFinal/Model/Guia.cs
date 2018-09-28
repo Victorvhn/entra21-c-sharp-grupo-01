@@ -39,7 +39,7 @@ namespace Model
         
         public string DataNascimentoPadraoBR { get { return "{0:dd/MM/yyyy H:mm}"; } }
 
-        public byte Rank { get; set; }
+        public int Rank { get; set; }
 
         public List<Pacote> Pacotes { get; set; }
 

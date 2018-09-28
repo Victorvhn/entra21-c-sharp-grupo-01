@@ -66,7 +66,7 @@ namespace Principal.Controllers
         public ActionResult Update(Guia guia)
         {
             bool alterado = new GuiaRepository().Alterar(guia);
-            return Content(JsonConvert.SerializeObject(new { id = alterado }));
+            return Content(JsonConvert.SerializeObject(new { success = alterado }));
         }
 
         [HttpGet]

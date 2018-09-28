@@ -156,9 +156,10 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
             command.CommandText = @"UPDATE guias
-            SET id_endereco = @ID_ENDERECO, sexo = @SEXO, nome = @NOME, sobrenome = @SOBRENOME, numero_carteira_trabalho = @NUMERO_CARTEIRA_TRABALHO, categoria_habilitacao = @CATEGORIA_HABILITACAO
-            salario = @SALARIO, cpf = @CPF, rg = @RG, data_nascimento = @DATA_NASCIMENTO
-            WHERE id = @ID";
+            SET sexo = @SEXO, nome = @NOME, sobrenome = @SOBRENOME, numero_carteira_trabalho = @NUMERO_CARTEIRA_TRABALHO, categoria_habilitacao = @CATEGORIA_HABILITACAO, 
+            salario = @SALARIO, cpf = @CPF, rg = @RG, data_nascimento = @DATA_NASCIMENTO WHERE id = @ID";
+
+            command.Parameters.AddWithValue("@ID", guia.Id);
             command.Parameters.AddWithValue("@SEXO", guia.Sexo);
             command.Parameters.AddWithValue("@NOME", guia.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
@@ -169,7 +170,9 @@ namespace Repository
             command.Parameters.AddWithValue("@RG", guia.Rg);
             command.Parameters.AddWithValue("@DATA_NASCIMENTO", guia.DataNascimento);
             command.Parameters.AddWithValue("@RANK_", guia.Rank);
-            command.Parameters.AddWithValue("@ID_ENDERECO", guia.IdEndereco);
+
+            new EnderecoRepository().Alterar(guia.Endereco);
+
             return command.ExecuteNonQuery() == 1;
         }
 
@@ -202,37 +205,39 @@ namespace Repository
 
             if (table.Rows.Count == 1)
             {
+                var row = table.Rows[0];
+
                 guia = new Guia();
                 guia.Id = id;
-                guia.Sexo = table.Rows[0][1].ToString();
-                guia.Nome = table.Rows[0]["nome"].ToString();
-                guia.Sobrenome = table.Rows[0]["sobrenome"].ToString();
-                guia.CarteiraTrabalho = table.Rows[0]["numero_carteira_trabalho"].ToString();
-                guia.CategoriaHabilitacao = table.Rows[0]["categoria_habilitacao"].ToString();
-                guia.Salario = Convert.ToSingle(table.Rows[0]["salario"]);
-                guia.Cpf = table.Rows[0]["cpf"].ToString();
-                guia.Rg = table.Rows[0]["rg"].ToString();
-                guia.DataNascimento = Convert.ToDateTime(table.Rows[0]["data_nascimento"]);
-                guia.Rank = Convert.ToByte(table.Rows[0]["rank_"].ToString());
-                guia.IdEndereco = Convert.ToInt32(table.Rows[0]["id_endereco"].ToString());
+                guia.Nome = row.Field<string>("nome");
+                guia.Sexo = row.Field<string>("sexo");
+                guia.Sobrenome = row.Field<string>("sobrenome");
+                guia.CarteiraTrabalho = row.Field<string>("numero_carteira_trabalho");
+                guia.CategoriaHabilitacao = row.Field<string>("categoria_habilitacao");
+                guia.Salario = row.Field<double>("salario");
+                guia.Cpf = row.Field<string>("cpf");
+                guia.Rg = row.Field<string>("rg");
+                guia.DataNascimento = row.Field<DateTime>("data_nascimento");
+                guia.Rank = row.Field<Int16>("rank_");
+                guia.IdEndereco = row.Field<int>("id_endereco");
                 guia.Endereco = new Endereco()
                 {
-                    Id = table.Rows[0].Field<int>("id_endereco"),
-                    Cep = table.Rows[0].Field<string>("cep"),
-                    Logradouro = table.Rows[0].Field<string>("logradouro"),
-                    Numero = table.Rows[0].Field<short>("numero"),
-                    Complemento = table.Rows[0].Field<string>("complemento"),
-                    Referencia = table.Rows[0].Field<string>("referencia"),
-                    IdCidade = table.Rows[0].Field<int>("id_cidade"),
+                    Id = row.Field<int>("id_endereco"),
+                    Cep = row.Field<string>("cep"),
+                    Logradouro = row.Field<string>("logradouro"),
+                    Numero = row.Field<short>("numero"),
+                    Complemento = row.Field<string>("complemento"),
+                    Referencia = row.Field<string>("referencia"),
+                    IdCidade = row.Field<int>("id_cidade"),
                     Cidade = new Cidade
                     {
-                        Id = table.Rows[0].Field<int>("cidades_id"),
-                        Nome = table.Rows[0].Field<string>("cidades_nome"),
-                        IdEstado = table.Rows[0].Field<int>("estados_id"),
+                        Id = row.Field<int>("cidades_id"),
+                        Nome = row.Field<string>("cidades_nome"),
+                        IdEstado = row.Field<int>("estados_id"),
                         Estado = new Estado
                         {
-                            Id = table.Rows[0].Field<int>("estados_id"),
-                            Nome = table.Rows[0].Field<string>("estados_nome"),
+                            Id = row.Field<int>("estados_id"),
+                            Nome = row.Field<string>("estados_nome"),
                         }
                     }
                 };

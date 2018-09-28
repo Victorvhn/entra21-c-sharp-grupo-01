@@ -16,6 +16,8 @@
 
                 <form id="form-modal-editar-guia" method="post">
                     <input type="hidden" id="campo-editar-guia-id" value="" />
+                    <input type="hidden" id="campo-editar-guia-endereco-id" value="" />
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="campo-nome">Nome <span class="text-danger font-weight-bold">*</span></label>
@@ -46,9 +48,8 @@
                         <div class="form-group col">
                             <label for="campo-sexo">Sexo <span class="text-danger font-weight-bold">*</span></label>
                             <select id="campo-editar-guia-sexo" name="Guia.Sexo" class="form-control" required="required">
-                                <option disabled="disabled" selected="selected">Sexo</option>
-                                <option value="Homem">Masculino</option>
-                                <option value="Mulher">Feminino</option>
+                                <option value="M">Masculino</option>
+                                <option value="F">Feminino</option>
                             </select>
                         </div>
 

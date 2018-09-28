@@ -91,6 +91,9 @@
                 var data = JSON.parse(result);
                 var cidade = data.Endereco.Cidade;
                 var estado = cidade.Estado;
+                $("#campo-editar-guia-id").val(id);
+                $("#campo-editar-guia-endereco-id").val(data.Endereco.Id);
+                
                 $('#campo-editar-guia-nome').val(data.Nome);
                 $('#campo-editar-guia-sobrenome').val(data.Sobrenome);
                 $('#campo-editar-guia-rg').val(data.Rg);
@@ -121,20 +124,34 @@
             method: 'post',
             dataType: 'json',
             data: {
+                id: $("#campo-editar-guia-id").val(),
                 nome: $("#campo-editar-guia-nome").val(),
                 sobrenome: $("#campo-editar-guia-sobrenome").val(),
-                datanascimento: $("#campo-editar-guia-data-nascimento").val(),
-                sexo: $("#campo-editar-guia-sexo").val(),
                 rg: $("#campo-editar-guia-rg").val(),
                 cpf: $("#campo-editar-guia-cpf").val(),
-                carteiratrabalho: $("#campo-editar-guia-numero-carteira-trabalho").val(),
-                categoriahabilitacao: $("#campo-editar-guia-categoria-habilitacao").val(),
+                dataNascimento: $("#campo-editar-guia-data-nascimento").val(),
+                sexo: $("#campo-editar-guia-sexo").val(),
+                carteiraTrabalho: $("#campo-editar-guia-numero-carteira-trabalho").val(),
                 salario: $("#campo-editar-guia-salario").val(),
+                categoriaHabilitacao: $("#campo-editar-guia-categoria-habilitacao").val(),
                 rank: $("#campo-editar-guia-rank").val(),
 
+                endereco: {
+                    id: $("#campo-editar-guia-endereco-id").val(),
+                    cidade: {
+                        id: $("#select-editar-guia-cidade").val(),
+                        estado: {
+                            id: $("#select-editar-guia-estado").val()
+                        }
+                    },
+                    cep: $("#campo-cep-editar-guia").val(),
+                    numero: $("#campo-numero-editar-guia").val(),
+                    referencia: $("#campo-referencia-guia-editar").val(),
+                    logradouro: $("#campo-logradouro-editar-guia").val()
+                }
+
             },
-            success: function (data) {
-                var resultado = JSON.parse(data);
+            success: function (data) {                
                 limparCampos();
                 $("#guia-modal-editar").modal('hide');
                 $(function () {
@@ -228,9 +245,6 @@
                     required: true,
                     digits: true
                 }
-               
-               
-                
             },
             messages: {
                 'guia.Nome': {
@@ -288,8 +302,6 @@
                     required: 'Número deve ser preenchido.',
                     digits: 'Número deve conter apenas dígitos.'
                 }
-               
-                
             }
 
         });
