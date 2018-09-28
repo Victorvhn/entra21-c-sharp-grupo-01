@@ -642,4 +642,7 @@
   <data name="Processando" xml:space="preserve">
     <value>Wird bearbeitet...</value>
   </data>
+  <data name="Rank" xml:space="preserve">
+    <value>Rang</value>
+  </data>
 </root>
