@@ -24,3 +24,27 @@
         })
     })
 }
+
+function loadDataTableStrings(controller) {
+    // Executa um ajax e busta no controler Base as strings
+    $(document).ready(function () {
+        $.ajax({
+            url: '/' + controller + '/GetDataTableStrings',
+            type: 'POST',
+            dataType: 'json',
+            async: false,
+            contentType: 'application/json',
+            success: function (response) {
+                if (response) {
+                    $.extend($.fn.dataTable.defaults, {
+                        language: response,
+                        responsive: true,
+                        autoWidth: false,
+                        processing: true,
+                        serverSide: true
+                    });
+                }
+            }
+        })
+    })
+}

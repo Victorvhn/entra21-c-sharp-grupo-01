@@ -23,13 +23,11 @@
 };
 
 $(function () {
-
     $.extend($.fn.dataTable.defaults, {
         language: window.dataTableLanguage,
         responsive: true,
         autoWidth: false,
         processing: true,
-        serverSide: true,
+        serverSide: true
     });
-
 });

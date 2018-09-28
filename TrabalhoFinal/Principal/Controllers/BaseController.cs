@@ -19,6 +19,35 @@ namespace Principal.Controllers
             base.OnActionExecuting(filterContext);
         }
 
+        [HttpPost]
+        public JsonResult GetDataTableStrings()
+        {
+            return Json(new
+            {
+                sEmptyTable = "Nenhum registro encontrado",
+                sInfo = "Mostrando página _PAGE_ de _PAGES_",
+                sInfoEmpty = "Nenhum registro disponível",
+                sInfoFiltered = "(Filtrados de _MAX_ registros)",
+                sInfoPostFix = "",
+                sInfoThousands = ".",
+                sLengthMenu = "<span>Apresentar:</span> _MENU_",
+                sLoadingRecords = "Carregando...",
+                sProcessing = "Processando...",
+                sZeroRecords = "Nenhum registro encontrado",
+                sSearch = "Pesquisa:  ",
+                oPaginate = new {
+                sNext = "Próximo",
+                    sPrevious = "Anterior",
+                    sFirst = "Primeiro",
+                    sLast = "Último"
+                },
+                oAria = new {
+                    sSortAscending = ": Ordenar colunas de forma ascendente",
+                    sSortDescending = ": Ordenar colunas de forma descendente"
+                }
+            });
+        }
+
         public ActionResult ChangeIdiom(String lang)
         {
             if (lang != null)
