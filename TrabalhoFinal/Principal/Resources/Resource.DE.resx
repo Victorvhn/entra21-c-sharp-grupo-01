@@ -675,4 +675,10 @@
   <data name="Sexo" xml:space="preserve">
     <value>Sex muss ausgefüllt werden</value>
   </data>
+  <data name="ConfirmarPacotes" xml:space="preserve">
+    <value>Bestätigen Sie die Pakete</value>
+  </data>
+  <data name="Desativado" xml:space="preserve">
+    <value>Behindert</value>
+  </data>
 </root>
