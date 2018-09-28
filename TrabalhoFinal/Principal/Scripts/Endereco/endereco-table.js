@@ -69,8 +69,8 @@
                     validacep: true
                 },
                 'endereco.Logradouro': {
-                    required: true,
-                    rangelength: [6, 30]
+                    required: true
+                    
                 },
                 'endereco.Numero': {
                     required: true,
@@ -114,9 +114,7 @@
         //Nova variável "cep" somente com dígitos.
         var cep = value;
 
-        //Verifica se campo cep possui valor informado.
-
-
+        
         //Expressão regular para validar o CEP.
         var validacep = /^[0-9]{8}$/;
 
@@ -152,7 +150,7 @@
 
         return true;
 
-    }, "Por favor, digite um CEP válido");
+    }, STRINGS.cepInvalido);
 
     $(document).ready(init);
 
@@ -308,9 +306,11 @@
 
         return true;
 
-    }, "Por favor, digite um CEP válido");
+    }, STRINGS.cepInvalido);
 
     $(document).ready(init);
+
+
     //Update Modal Editar
     $('#botao-salvar-modal-editar-endereco').on('click', function () {
         if ($('#form-modal-editar-endereco').valid()) {

@@ -27,7 +27,7 @@ namespace Principal.Controllers
                 numPreenchido = Resources.Resource.NumeroPreenchido,
                 numSomenteDig = Resources.Resource.NumeroDigitos,
                 cepPreenchido = Resources.Resource.CEPPreenchido,
-                cepDeveConter = Resources.Resource.CEPDeveConter,
+                cepInvalido = Resources.Resource.CEPInvalido,
                 endereco = Resources.Resource.Endereco,
                 enderecoCadastrado = Resources.Resource.EnderecoCadastradoSucesso,
                 enderecoAlterado = Resources.Resource.EnderecoEditadoSucesso,
