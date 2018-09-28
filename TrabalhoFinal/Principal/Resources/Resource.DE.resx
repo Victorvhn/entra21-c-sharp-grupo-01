@@ -669,4 +669,10 @@
   <data name="Ultimo" xml:space="preserve">
     <value>Letzte</value>
   </data>
+  <data name="CpfInvalido" xml:space="preserve">
+    <value>Gültiger CPF-Bericht</value>
+  </data>
+  <data name="Sexo" xml:space="preserve">
+    <value>Sex muss ausgefüllt werden</value>
+  </data>
 </root>

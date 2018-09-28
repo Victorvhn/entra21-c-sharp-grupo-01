@@ -421,7 +421,7 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CPF inválido.
+        ///   Looks up a localized string similar to Informe um CPF válido.
         /// </summary>
         public static string CpfInvalido {
             get {
@@ -1362,6 +1362,15 @@ namespace Principal.Resources {
         public static string Senha {
             get {
                 return ResourceManager.GetString("Senha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sexo deve ser preenchido.
+        /// </summary>
+        public static string Sexo {
+            get {
+                return ResourceManager.GetString("Sexo", resourceCulture);
             }
         }
         

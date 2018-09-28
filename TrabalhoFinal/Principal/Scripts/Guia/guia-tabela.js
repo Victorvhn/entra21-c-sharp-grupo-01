@@ -266,8 +266,8 @@ $(function () {
                     required: STRINGS.cpfPreenchido                 
                 },
                 'guia.DataNascimento': {
-                    required: 'Data de Nascimento deve ser preenchido.',
-                    date: 'Data de Nascimento Inválida.'
+                    required: STRINGS.dataNascimentoPreenchido,
+                    date: STRINGS.dataNascimentoInvalida
                 },
                 'sexo': {
                     required: 'Sexo deve ser preenchido.'

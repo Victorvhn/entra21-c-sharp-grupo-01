@@ -20,8 +20,12 @@ namespace Principal.Controllers
                 nomeDeveConter = Resources.Resource.NomeDeveConter,
                 sobrenomePreenchido = Resources.Resource.SobrenomePrenchido,
                 sobrenemeDeveConter = Resources.Resource.SobrenomeDeveConter,
-                cadastradoSucesso = Resources.Resource.CadastradoSucesso,
                 cpfPreenchido = Resources.Resource.CpfPreenchido,
+                cpfInvalido = Resources.Resource.CpfInvalido,
+                dataNascimentoPreenchido = Resources.Resource.DataNascimentoPreenchido,
+                dataNascimentoInvalida = Resources.Resource.DataNascimentoInvalido,
+                sexoPreenchido = Resources.Resource.SexoPreenchido,
+                cadastradoSucesso = Resources.Resource.CadastradoSucesso,
                 sucesso = Resources.Resource.Sucesso,
             });
         }

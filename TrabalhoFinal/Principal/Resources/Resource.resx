@@ -670,6 +670,9 @@
     <value>Último</value>
   </data>
   <data name="CpfInvalido" xml:space="preserve">
-    <value>CPF inválido</value>
+    <value>Informe um CPF válido</value>
+  </data>
+  <data name="Sexo" xml:space="preserve">
+    <value>Sexo deve ser preenchido</value>
   </data>
 </root>
