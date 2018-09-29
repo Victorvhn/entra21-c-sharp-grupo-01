@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class HistoricoViagemController : Controller
+    public class HistoricoViagemController : BaseController
     {
         // GET: HistoricoViagem
         [HttpPost]

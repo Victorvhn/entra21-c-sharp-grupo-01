@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class GuiaController : Controller
+    public class GuiaController : BaseController
     {
         // GET: Guia
         [HttpPost]

@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class EstadoController : Controller
+    public class EstadoController : BaseController
     {
         [HttpPost]
         public JsonResult GetStrings()

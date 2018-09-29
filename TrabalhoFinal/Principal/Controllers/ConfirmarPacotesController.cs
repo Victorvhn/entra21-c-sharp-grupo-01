@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class ConfirmarPacotesController : Controller
+    public class ConfirmarPacotesController : BaseController
     {
         // GET: ConfirmarPacotes
         [HttpGet]

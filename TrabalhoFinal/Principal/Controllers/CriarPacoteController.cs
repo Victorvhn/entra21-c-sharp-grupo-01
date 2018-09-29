@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class CriarPacoteController : Controller
+    public class CriarPacoteController : BaseController
     {
         // GET: CriarPacote
         [HttpPost]

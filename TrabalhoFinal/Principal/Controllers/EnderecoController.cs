@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class EnderecoController : Controller
+    public class EnderecoController : BaseController
     {
         // GET: Endereco
 

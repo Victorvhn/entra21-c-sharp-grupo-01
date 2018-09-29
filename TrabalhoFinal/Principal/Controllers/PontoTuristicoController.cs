@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class PontoTuristicoController : Controller
+    public class PontoTuristicoController : BaseController
     {
         // GET: PontoTuristico
         [HttpGet]

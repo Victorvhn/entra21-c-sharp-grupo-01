@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Principal.Content
 {
-    public class ViagemController : Controller
+    public class ViagemController : BaseController
     {
         // GET: Viagem
         [HttpPost]

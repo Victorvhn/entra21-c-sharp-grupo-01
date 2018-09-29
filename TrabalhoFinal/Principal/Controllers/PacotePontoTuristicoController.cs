@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class PacotePontoTuristicoController : Controller
+    public class PacotePontoTuristicoController : BaseController
     {
         // GET: PacotePontoTuristico
         [HttpPost]

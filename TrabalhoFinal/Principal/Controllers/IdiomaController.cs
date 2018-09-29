@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class IdiomaController : Controller
+    public class IdiomaController : BaseController
     {
         // GET: Idioma
         [HttpPost]

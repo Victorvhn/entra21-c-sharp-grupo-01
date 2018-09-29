@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class TuristaController : Controller
+    public class TuristaController : BaseController
     {
         // GET: Turista
         public ActionResult Index()

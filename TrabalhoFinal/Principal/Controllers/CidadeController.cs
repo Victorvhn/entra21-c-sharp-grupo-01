@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Principal.Controllers
 {
-    public class CidadeController : Controller
+    public class CidadeController : BaseController
     {
 
         // GET: Cidade
