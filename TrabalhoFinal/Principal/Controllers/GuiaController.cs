@@ -24,7 +24,7 @@ namespace Principal.Controllers
                 cpfInvalido = Resources.Resource.CpfInvalido,
                 dataNascimentoPreenchido = Resources.Resource.DataNascimentoPreenchido,
                 dataNascimentoInvalida = Resources.Resource.DataNascimentoInvalido,
-                sexoPreenchido = Resources.Resource.Sexo,
+                sexoPreenchido = Resources.Resource.SexoPreenchido,
                 cadastradoSucesso = Resources.Resource.CadastradoSucesso,
                 carteiraTrabalhoPreenchido = Resources.Resource.CarteiraTrabalhoPreenchido,
                 carteiraTrabalhoDigitos = Resources.Resource.CarteiraTrabalhoDigitos,

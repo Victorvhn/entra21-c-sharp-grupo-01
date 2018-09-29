@@ -124,11 +124,11 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(EnderecoString endereco)
+        public ActionResult Store(Endereco endereco)
         {
             Endereco enderecoModel = new Endereco();
 
-            enderecoModel.Cep = endereco.Cep.Replace("-", "").ToString();
+            enderecoModel.Cep = endereco.Cep.ToString();
             enderecoModel.Logradouro = endereco.Logradouro.ToString();
             enderecoModel.Numero = Convert.ToInt16(endereco.Numero);
             if (endereco.Complemento != null)

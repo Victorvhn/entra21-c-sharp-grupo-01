@@ -292,7 +292,7 @@
     <value>País</value>
   </data>
   <data name="PercentualDesconto" xml:space="preserve">
-    <value>Percentual de Desconto</value>
+    <value>Percentual de  Máximo Desconto</value>
   </data>
   <data name="PercentualDescontoDeveConter" xml:space="preserve">
     <value>Percentual máximo de desconto deve conter números inteiros ou decimais</value>
@@ -672,7 +672,7 @@
   <data name="CpfInvalido" xml:space="preserve">
     <value>Informe um CPF válido</value>
   </data>
-  <data name="Sexo" xml:space="preserve">
+  <data name="SexoPreenchido" xml:space="preserve">
     <value>Sexo deve ser preenchido</value>
   </data>
   <data name="CEPInvalido" xml:space="preserve">
@@ -685,7 +685,7 @@
     <value>Cadastrar Guia</value>
   </data>
   <data name="CarteiradeHabilitacao" xml:space="preserve">
-    <value>CarteiradeHabilitacao</value>
+    <value>Carteira da Habilitacao</value>
   </data>
   <data name="DadosPessoais" xml:space="preserve">
     <value>Dados Pessoais</value>
@@ -697,9 +697,12 @@
     <value>Masculino</value>
   </data>
   <data name="NumeroCarteiraTrabalho" xml:space="preserve">
-    <value>NumeroCarteiraTrabalho</value>
+    <value>Carteira de Trabalho</value>
   </data>
   <data name="Endereço" xml:space="preserve">
     <value>Endereço</value>
+  </data>
+  <data name="Sexo" xml:space="preserve">
+    <value>Sexo</value>
   </data>
 </root>

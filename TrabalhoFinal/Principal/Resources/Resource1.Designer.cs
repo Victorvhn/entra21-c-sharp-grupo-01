@@ -304,7 +304,7 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CarteiradeHabilitacao.
+        ///   Looks up a localized string similar to Carteira da Habilitacao.
         /// </summary>
         public static string CarteiradeHabilitacao {
             get {
@@ -1069,7 +1069,7 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NumeroCarteiraTrabalho.
+        ///   Looks up a localized string similar to Carteira de Trabalho.
         /// </summary>
         public static string NumeroCarteiraTrabalho {
             get {
@@ -1186,7 +1186,7 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Percentual de Desconto.
+        ///   Looks up a localized string similar to Percentual de  Máximo Desconto.
         /// </summary>
         public static string PercentualDesconto {
             get {
@@ -1447,11 +1447,20 @@ namespace Principal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sexo deve ser preenchido.
+        ///   Looks up a localized string similar to Sexo.
         /// </summary>
         public static string Sexo {
             get {
                 return ResourceManager.GetString("Sexo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sexo deve ser preenchido.
+        /// </summary>
+        public static string SexoPreenchido {
+            get {
+                return ResourceManager.GetString("SexoPreenchido", resourceCulture);
             }
         }
         

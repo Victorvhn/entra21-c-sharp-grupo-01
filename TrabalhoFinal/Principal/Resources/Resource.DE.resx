@@ -672,7 +672,7 @@
   <data name="CpfInvalido" xml:space="preserve">
     <value>Gültiger CPF-Bericht</value>
   </data>
-  <data name="Sexo" xml:space="preserve">
+  <data name="SexoPreenchido" xml:space="preserve">
     <value>Sex muss ausgefüllt werden</value>
   </data>
   <data name="ConfirmarPacotes" xml:space="preserve">
@@ -685,7 +685,7 @@
     <value>Gegend</value>
   </data>
   <data name="CadastrarGuia" xml:space="preserve">
-    <value>sich anmelden</value>
+    <value>Sich Anmelden</value>
   </data>
   <data name="CarteiradeHabilitacao" xml:space="preserve">
     <value>Führerschein</value>
@@ -707,5 +707,8 @@
   </data>
   <data name="CEPInvalido" xml:space="preserve">
     <value>Ungültige Postleitzahl</value>
+  </data>
+  <data name="Sexo" xml:space="preserve">
+    <value>Sex</value>
   </data>
 </root>

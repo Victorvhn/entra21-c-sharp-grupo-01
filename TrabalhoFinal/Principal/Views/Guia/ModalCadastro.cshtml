@@ -15,12 +15,12 @@
             <div class="modal-body">
 
                 <form id="form-modal-cadastro-guia" method="post">
-                    <div class="ion-arrow-move">
+                    <div>
                         <h5>@Principal.Resources.Resource.DadosPessoais</h5>
-                        <hr />
                     </div>
+                        <hr />
 
-                    <div class="row">
+                    <div class="form-row">
 
                         <div class="form-group col-md-6">
                             <label for="campo-cadastro-guia-nome">@Principal.Resources.Resource.Nome  <span class="text-danger font-weight-bold">*</span></label>
@@ -32,10 +32,7 @@
                             <input name="guia.Sobrenome" type="text" id="campo-cadastro-guia-sobrenome" class="form-control" />
                         </div>
 
-                    </div>
-
-                    <div class="row">
-
+                    
                         <div class="form-group col-sm-4">
                             <label for="campo-cadastro-guia-rg">RG</label>
                             <input name="guia.Rg" type="text" id="campo-cadastro-guia-rg" class="form-control" />
@@ -46,43 +43,36 @@
                             <input name="guia.Cpf" type="text" id="campo-cadastro-guia-cpf" class="form-control" />
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col">
                             <label for="campo-cadastro-guia-data-nascimento">@Principal.Resources.Resource.DataNascimento <span class="text-danger font-weight-bold">*</span></label>
                             <input name="guia.DataNascimento" type="date" id="campo-cadastro-guia-data-nascimento" class="form-control"  />
                         </div>
-
-                    </div>
-
-                    <div class="row">
-
+                    
                         <div class="form-group col-md-4">
                             <label for="campo-cadastro-guia-sexo">@Principal.Resources.Resource.Sexo  <span class="text-danger font-weight-bold">*</span></label>
                             <div>
-                                <input type="radio" id="radio-sexo-masculino" name="sexo" class="ml-md-1" value="M" />
+                                <input type="radio" id="radio-sexo-masculino" name="sexo" class="radio-outline" value="M" />
                                 <label for="radio-sexo-masculino">@Principal.Resources.Resource.Masculino</label>
                                 <input type="radio" id="radio-sexo-feminino" name="sexo" class="ml-md-5" value="F" />
                                 <label for="radio-sexo-feminino">@Principal.Resources.Resource.Feminino</label>
                             </div>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="campo-cadastro-guia-numero-carteira-trabalho">@Principal.Resources.Resource.NumeroCarteiraTrabalho <span class="text-danger font-weight-bold">*</span></label>
                             <input name="guia.CarteiraTrabalho" type="text" id="campo-cadastro-guia-numero-carteira-trabalho"
                                    class="form-control" />
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-sm-4">
                             <label for="campo-cadastro-guia-salario">@Principal.Resources.Resource.Salario  <span class="text-danger font-weight-bold">*</span></label>
                             <input name="guia.Salario" type="text" id="campo-cadastro-guia-salario" class="form-control" />
                         </div>
 
-                    </div>
-
-                    <div class="row">
-
+                    
                         <div class="form-group col-md-4">
                             <label for="campo-cadastro-guia-categoria-habilitacao">@Principal.Resources.Resource.CarteiradeHabilitacao <span class="text-danger font-weight-bold">*</span></label>
-                            <select id="campo-cadastro-guia-categoria-habilitacao" name="guia.CategoriaHabilitacao" class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" required="required" tabindex="-1">
+                            <select id="campo-cadastro-guia-categoria-habilitacao" name="guia.CategoriaHabilitacao" class="form-control">
                                 <option value="A">A</option>
                                 <option value="B">B</option>
                                 <option value="C">C</option>
@@ -103,11 +93,10 @@
                             </select>
                         </div>
 
-
-
                         <div class="form-group col-sm-4">
                             <label for="campo-cadastro-guia-rank">@Principal.Resources.Resource.Rank</label>
-                            <select name="guia.Rank" type="text" id="campo-cadastro-guia-rank" class="form-control">
+                            <select name="guia.Rank" id="campo-cadastro-guia-rank" class="form-control">
+                                <option disabled="disabled" selected="selected">- Selecione o Rank -</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -119,10 +108,13 @@
 
                     </div>
 
-                    <div class="ion-arrow-move">
+                    <br />
+
+                    <div >
                         <h5>@Principal.Resources.Resource.Endereco</h5>
-                        <hr />
                     </div>
+
+                        <hr />
 
                     <div class="row">
 

@@ -60,18 +60,12 @@
             },
             errorPlacement: function (error, element) {
                 $(element).parent().append(error[0])
-            },
-
-
+            },            
             rules: {
                 'endereco.Cep': {
                     required: true,
                     validacep: true
-                },
-                'endereco.Logradouro': {
-                    required: true
-                    
-                },
+                },                
                 'endereco.Numero': {
                     required: true,
                     digits:true
@@ -83,10 +77,6 @@
             messages: {
                 'endereco.Cep': {
                     required: STRINGS.cepPreenchido                    
-                },
-                'endereco.Logradouro': {
-                    required: STRINGS.logPreenchido,
-                    rangelength: STRINGS.logDeveConter
                 },
                 'endereco.Numero': {
                     required: STRINGS.numPreenchido,
@@ -100,12 +90,11 @@
         });
 
     }
-
-
+    
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
-        $('##campo-cadastro-endereco-logradouro').val('');
-       
+        $('#campo-cadastro-endereco-logradouro').val('');
+
     }
 
     //valida cep
@@ -114,7 +103,9 @@
         //Nova variável "cep" somente com dígitos.
         var cep = value;
 
-        
+        //Verifica se campo cep possui valor informado.
+
+
         //Expressão regular para validar o CEP.
         var validacep = /^[0-9]{8}$/;
 
@@ -123,7 +114,7 @@
 
             //Preenche os campos com "..." enquanto consulta webservice.
             $('#campo-cadastro-endereco-logradouro').val("...");
-            
+
 
             //Consulta o webservice viacep.com.br/
             $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
@@ -131,7 +122,7 @@
                 if (!("erro" in dados)) {
                     //Atualiza os campos com os valores da consulta.
                     $('#campo-cadastro-endereco-logradouro').val(dados.logradouro);
-                   
+
                 } //end if.
                 else {
                     //CEP pesquisado não foi encontrado.
@@ -224,11 +215,7 @@
                 'endereco.Cep': {
                     required: true,
                     validacep: true
-                },
-                'endereco.Logradouro': {
-                    required: true,
-                    rangelength: [6, 30]
-                },
+                },               
                 'endereco.Numero': {
                     required: true
                 },
@@ -240,11 +227,7 @@
                 'endereco.Cep': {
                     required: STRINGS.cepPreenchido
                     
-                },
-                'endereco.Logradouro': {
-                    required: STRINGS.logPreenchido,
-                    rangelength: STRINGS.logDeveConter
-                },
+                },               
                 'endereco.Numero': {
                     required: STRINGS.numPreenchido,
                     digits: STRINGS.numSomenteDig

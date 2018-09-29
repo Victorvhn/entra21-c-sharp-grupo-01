@@ -675,7 +675,7 @@
   <data name="CpfInvalido" xml:space="preserve">
     <value>Valid CPF Report</value>
   </data>
-  <data name="Sexo" xml:space="preserve">
+  <data name="SexoPreenchido" xml:space="preserve">
     <value>Sex must be filled in</value>
   </data>
   <data name="CEPInvalido" xml:space="preserve">
@@ -705,5 +705,8 @@
   <data name="Endereço" xml:space="preserve">
     <value>8/5000
 Address</value>
+  </data>
+  <data name="Sexo" xml:space="preserve">
+    <value>Sex</value>
   </data>
 </root>
