@@ -102,8 +102,6 @@ $(function () {
             });
     });
 
-    
-
     //Botao editar
     $('table').on('click', '.botao-editar-guia', function () {
         var id = $(this).data('id');

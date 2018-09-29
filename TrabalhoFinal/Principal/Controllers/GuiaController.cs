@@ -42,6 +42,7 @@ namespace Principal.Controllers
                 sucesso = Resources.Resource.Sucesso,
             });
         }
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -188,7 +189,7 @@ namespace Principal.Controllers
             int i = 0;
             foreach (var guia in guias)
             {
-                x[i] = new { id = guia.Id, nome = guia.Nome, sobrenome = guia.Sobrenome, cpf = guia.Cpf, rank = guia.Rank };
+                x[i] = new { id = guia.Id, text = guia.Nome};
                 i++;
             }
 

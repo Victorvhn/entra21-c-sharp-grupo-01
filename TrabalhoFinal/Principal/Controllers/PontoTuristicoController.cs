@@ -162,5 +162,23 @@ namespace Principal.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult ObterTodosPorJSONSelect2()
+        {
+
+            List<PontoTuristico> pontoTuristicos = new PontosTuristicosRepository().ObterTodosParaSelect();
+
+            var x = new object[pontoTuristicos.Count];
+            int i = 0;
+            foreach (var pontoTuristico in pontoTuristicos)
+            {
+                x[i] = new { id = pontoTuristico.Id, text = pontoTuristico.Nome, idEndereco = pontoTuristico.IdEndereco };
+                i++;
+            }
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+
+        }
     }
 }

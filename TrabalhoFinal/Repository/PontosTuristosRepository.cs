@@ -119,12 +119,10 @@ namespace Repository
             tabela.Load(command.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
             {
-                PontoTuristico pontoTuristico = new PontoTuristico()
-                {
-                    Id = Convert.ToInt32(linha[0].ToString()),
-                    Nome = linha[1].ToString(),
-                    IdEndereco = Convert.ToInt32(linha[2].ToString())
-                };
+                PontoTuristico pontoTuristico = new PontoTuristico();
+                pontoTuristico.Id = Convert.ToInt32(linha[0].ToString());
+                pontoTuristico.Nome = linha[1].ToString();
+                pontoTuristico.IdEndereco = Convert.ToInt32(linha[2].ToString());
                 pontosTuristicos.Add(pontoTuristico);
             }
             return pontosTuristicos;

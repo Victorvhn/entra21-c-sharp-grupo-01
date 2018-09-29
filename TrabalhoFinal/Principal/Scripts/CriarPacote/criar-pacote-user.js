@@ -80,30 +80,19 @@
                     DataHorarioVolta: $("#campo-data-horario-retorno-cadastro-user").val(),
                     IdGuia: $("#select-guia-pacote-user").val(),
                     IdsPontosTuristicos: $("#select-pontos-turisticos-cadastro-user").val(),
-                    Valor: $("#campo-valor-total-pacote-user").val()
+                    Valor: $("#campo-valor-total-pacote-user").html()
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    limparCamposCidadeCadastro();
-                    $('#modal-cadastro-pacote-user').modal('hide');
-                    if (resultado == 1) {
-                        $(function () {
-                            new PNotify({
-                                title: STRINGS.sucesso,
-                                text: STRINGS.cadastrado,
-                                type: 'success'
-                            });
+                    limparCampos();
+                    $('#modal-cadastro-pacote-user').modal('hide'); 
+                    $(function () {
+                        new PNotify({
+                            title: STRINGS.sucesso,
+                            text: STRINGS.cadastrado,
+                            type: 'success'
                         });
-                    } else {
-                        $('#modal-cadastro-pacote-user').modal('hide');
-                        $(function () {
-                            new PNotify({
-                                title: 'Sucesso!',
-                                text: 'Erro ao cadastrar pacote',
-                                type: 'erro'
-                            });
-                        });
-                    }
+                    });
                 }
             });
         }
@@ -138,7 +127,7 @@
             precoViagem = 2000;
         }
 
-        var valorTotal = valorDiario + precoViagem + valorGuiaDiario;
+        var valorTotal = ((valorDiario + precoViagem + valorGuiaDiario)*100)/100;
 
         $('#campo-valor-total-pacote-user').html(valorTotal);
     };

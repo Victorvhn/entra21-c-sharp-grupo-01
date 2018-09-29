@@ -1,13 +1,13 @@
 ﻿﻿$(document).ready(function () {
      //SELECT GUIAS
-    $('#select-guia-pacote-user').select2({
+     $('#select-guia-pacote-user').select2({
         placeholder: "Selecione um Guia",
         ajax: {
             url: '/Guia/ObterTodosParaSelect2',
             dataType: 'json'
         }
     }).on('change', function (e) {
-        $('#form-modal-cadastro-pacote-usuario').valid()
+        $('#form-modal-cadastro-pacote-usuario').valid();
     });
     
 
@@ -19,6 +19,6 @@
             dataType: 'json'
          }
      }).on('change', function (e) {
-         $('#form-modal-cadastro-pacote-usuario').valid()
+         $('#form-modal-cadastro-pacote-usuario').valid();
      });
 });
