@@ -8,6 +8,7 @@ namespace Model
 {
     public class Guia
     {
+        
 
         public string Sexo { get; set; }
 
@@ -36,8 +37,8 @@ namespace Model
         public string Rg { get; set; }
         
         public DateTime DataNascimento { get; set; }
-        
-        public string DataNascimentoPadraoBR { get { return "{0:dd/MM/yyyy H:mm}"; } }
+
+        public string DataNascimentoPadraoBR { get { return "{0:dd/MM/yyyy HH:mm:ss}"; } }
 
         public int Rank { get; set; }
 
