@@ -5,7 +5,7 @@
             ajax: {
                 url: '/Endereco/ObterTodosPorJSONToSelect2',
                 dataType: 'json',
-                method: 'get'
+                
             }
         });
     });
