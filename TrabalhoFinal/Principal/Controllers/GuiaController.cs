@@ -37,6 +37,7 @@ namespace Principal.Controllers
                 cidadePreenchido = Resources.Resource.EstadoPreenchido,
                 cepPreenchido = Resources.Resource.CEPPreenchido,                
                 cepInvalido = Resources.Resource.CEPInvalido,
+                cepSomenteDigitos = Resources.Resource.cepDigitos,
                 numeroPrenchido = Resources.Resource.NumeroPreenchido,
                 numeroDigitos = Resources.Resource.NumeroDigitos,
                 sucesso = Resources.Resource.Sucesso,

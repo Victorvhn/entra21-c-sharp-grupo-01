@@ -711,4 +711,7 @@
   <data name="Sexo" xml:space="preserve">
     <value>Sex</value>
   </data>
+  <data name="cepDigitos" xml:space="preserve">
+    <value>Die Postleitzahl sollte nur Ziffern enthalten</value>
+  </data>
 </root>

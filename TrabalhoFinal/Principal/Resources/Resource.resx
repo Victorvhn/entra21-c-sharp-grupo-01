@@ -705,4 +705,7 @@
   <data name="Sexo" xml:space="preserve">
     <value>Sexo</value>
   </data>
+  <data name="cepDigitos" xml:space="preserve">
+    <value>CEP deve conter somente digitos</value>
+  </data>
 </root>

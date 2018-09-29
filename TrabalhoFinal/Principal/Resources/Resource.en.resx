@@ -709,4 +709,7 @@ Address</value>
   <data name="Sexo" xml:space="preserve">
     <value>Sex</value>
   </data>
+  <data name="cepDigitos" xml:space="preserve">
+    <value>Zip code should contain only digits</value>
+  </data>
 </root>

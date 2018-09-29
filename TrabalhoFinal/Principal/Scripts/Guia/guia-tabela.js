@@ -206,7 +206,8 @@ $(function () {
                 },
                 'endereco.Cep': {
                     required: true,
-                    validacep: true
+                    validacep: true,
+                    digits: true
 
                 },
                 'endereco.Numero': {
@@ -262,7 +263,8 @@ $(function () {
                 },
                 'endereco.Cep': {
                     required: STRINGS.cepPreenchido,
-                    validacep: STRINGS.cepInvalido
+                    validacep: STRINGS.cepInvalido,
+                    digits: STRINGS.cepSomenteDigitos
 
                 },
                 'endereco.Numero': {
@@ -332,7 +334,7 @@ $(function () {
 
         //Nova variável "cep" somente com dígitos.
         var cep = value;
-
+        var cep = value.replace("-", "");
         //Verifica se campo cep possui valor informado.
 
 
@@ -496,7 +498,8 @@ $(function () {
                 },
                 'endereco.Cep': {
                     required: true,                    
-                    validacep:true
+                    digits: true,
+                    validacep: true
                                    
                 },               
                 'endereco.Numero': {  
@@ -552,6 +555,7 @@ $(function () {
                 },
                 'endereco.Cep': {
                     required: STRINGS.cepPreenchido,                                        
+                    digits: STRINGS.cepSomenteDigitos,
                     validacep: STRINGS.cepInvalido
                     
                 },               

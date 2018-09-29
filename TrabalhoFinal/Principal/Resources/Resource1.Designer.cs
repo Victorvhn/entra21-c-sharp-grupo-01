@@ -349,6 +349,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CEP deve conter somente digitos.
+        /// </summary>
+        public static string cepDigitos {
+            get {
+                return ResourceManager.GetString("cepDigitos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CEP Inválido.
         /// </summary>
         public static string CEPInvalido {
