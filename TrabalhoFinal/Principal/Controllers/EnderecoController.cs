@@ -124,13 +124,16 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Endereco endereco)
+        public ActionResult Store(EnderecoString endereco)
         {
             Endereco enderecoModel = new Endereco();
-
-            enderecoModel.Cep = endereco.Cep.ToString();
-            enderecoModel.Logradouro = endereco.Logradouro.ToString();
-            enderecoModel.Numero = Convert.ToInt16(endereco.Numero);
+            {
+                enderecoModel.Cep = endereco.Cep.ToString();
+                enderecoModel.Logradouro = endereco.Logradouro.ToString();
+                enderecoModel.Numero = Convert.ToInt16(endereco.Numero);
+                enderecoModel.IdCidade = Convert.ToInt32(endereco.IdCidade.ToString());
+            }
+            
             if (endereco.Complemento != null)
             {
                 enderecoModel.Complemento = endereco.Complemento.ToString();
@@ -139,9 +142,7 @@ namespace Principal.Controllers
             {
                 enderecoModel.Referencia = endereco.Referencia.ToString();
             }
-            enderecoModel.IdCidade = Convert.ToInt32(endereco.IdCidade.ToString());
-
-
+            
             int identificador = new EnderecoRepository().Cadastrar(enderecoModel);
             return Content(JsonConvert.SerializeObject(new { id = identificador }));
 

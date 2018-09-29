@@ -49,8 +49,9 @@
 
     //Validação modal Cadastro
     function init() {
+       
         $('#form-modal-cadastro-endereco').validate({
-         errorClass: 'form-control-danger',
+            errorClass: 'form-control-danger',
             validClass: 'form-control-success',
             highlight: function (element) {
                 jQuery(element).closest('.form-group').addClass('has-error');
@@ -60,29 +61,37 @@
             },
             errorPlacement: function (error, element) {
                 $(element).parent().append(error[0])
-            },            
+            },
             rules: {
-                'endereco.Cep': {
+                'campo-cadastro-endereco-cep': {
                     required: true,
                     validacep: true
-                },                
-                'endereco.Numero': {
+                },
+                'campo-cadastro-endereco-logradouro': {
                     required: true,
-                    digits:true
-                },                                    
-                'endereco.IdCidade': {
+                    rangelength: [4, 40]
+                },
+                'campo-cadastro-endereco-numero': {
+                    required: true,
+                    digits: true
+                },
+                'select-cadastro-endereco-cidade': {
                     required: true
                 }
             },
             messages: {
-                'endereco.Cep': {
-                    required: STRINGS.cepPreenchido                    
+                'campo-cadastro-endereco-cep': {
+                    required: STRINGS.cepPreenchido
                 },
-                'endereco.Numero': {
+                'campo-cadastro-endereco-logradouro': {
+                    required: STRINGS.logPreenchido,
+                    rangelength: STRINGS.logDeveConter
+                },
+                'campo-cadastro-endereco-numero': {
                     required: STRINGS.numPreenchido,
                     digits: STRINGS.numSomenteDig
-                },            
-                'endereco.IdCidade': {
+                },
+                'select-cadastro-endereco-cidade': {
                     required: STRINGS.cidadePreenchido
                 }
             }
@@ -90,21 +99,11 @@
         });
 
     }
-    
-    function limpa_formulário_cep() {
-        // Limpa valores do formulário de cep.
-        $('#campo-cadastro-endereco-logradouro').val('');
 
-    }
-
-    //valida cep
     jQuery.validator.addMethod("validacep", function (value, element) {
 
         //Nova variável "cep" somente com dígitos.
         var cep = value;
-
-        //Verifica se campo cep possui valor informado.
-
 
         //Expressão regular para validar o CEP.
         var validacep = /^[0-9]{8}$/;
@@ -112,16 +111,12 @@
         //Valida o formato do CEP.
         if (validacep.test(cep)) {
 
-            //Preenche os campos com "..." enquanto consulta webservice.
-            $('#campo-cadastro-endereco-logradouro').val("...");
-
-
             //Consulta o webservice viacep.com.br/
             $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                 if (!("erro" in dados)) {
-                    //Atualiza os campos com os valores da consulta.
-                    $('#campo-cadastro-endereco-logradouro').val(dados.logradouro);
+                    // retorna o resultado
+                    return true;
 
                 } //end if.
                 else {
@@ -148,6 +143,7 @@
     //Salvar Modal Cadastro
     $('#botao-salvar-modal-cadastrar-endereco').on('click', function () {
         if ($('#form-modal-cadastro-endereco').valid()) {
+            var EnderecoVar = $("#campo-cadastro-endereco-logradouro").text();
             $.ajax({
                 url: '/Endereco/Store',
                 method: 'post',
@@ -161,12 +157,12 @@
                 },
                 success: function (data) {
                     var resultado = JSON.parse(data);
-                    $('#table-endereco').DataTable().ajax.reload();
                     $('#endereco-modal-cadastro').modal('hide');
+                    $('#table-endereco').DataTable().ajax.reload();
                     $(function () {
                         new PNotify({
                             title: STRINGS.sucesso,
-                            text: STRINGS.enderecoCadastrado,
+                            text: EnderecoVar + " " + STRINGS.enderecoCadastrado,
                             type: 'success'
                         });
                     });
@@ -211,11 +207,16 @@
             errorPlacement: function (error, element) {
                 $(element).parent().append(error[0])
             },
+
             rules: {
                 'endereco.Cep': {
                     required: true,
                     validacep: true
-                },               
+                },
+                'endereco.Logradouro': {
+                    required: true,
+                    rangelength:[4, 40]
+                },
                 'endereco.Numero': {
                     required: true
                 },
@@ -223,11 +224,16 @@
                     required: true
                 }
             },
+
             messages: {
                 'endereco.Cep': {
                     required: STRINGS.cepPreenchido
-                    
-                },               
+
+                },
+                'endereco.Logradouro': {
+                    required: STRINGS.logPreenchido,
+                    rangelength: STRINGS.logDeveConter
+                },
                 'endereco.Numero': {
                     required: STRINGS.numPreenchido,
                     digits: STRINGS.numSomenteDig
@@ -239,20 +245,10 @@
         });
     }
 
-    function limpa_formulário_cep() {
-        // Limpa valores do formulário de cep.
-        $('#campo-editar-endereco-logradouro').val('');
-
-    }
-
-    //valida cep
     jQuery.validator.addMethod("validacep", function (value, element) {
 
         //Nova variável "cep" somente com dígitos.
         var cep = value;
-
-        //Verifica se campo cep possui valor informado.
-
 
         //Expressão regular para validar o CEP.
         var validacep = /^[0-9]{8}$/;
@@ -260,16 +256,12 @@
         //Valida o formato do CEP.
         if (validacep.test(cep)) {
 
-            //Preenche os campos com "..." enquanto consulta webservice.
-            $('#campo-editar-endereco-logradouro').val("...");
-
-
             //Consulta o webservice viacep.com.br/
             $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                 if (!("erro" in dados)) {
-                    //Atualiza os campos com os valores da consulta.
-                    $('#campo-editar-endereco-logradouro').val(dados.logradouro);
+                    // retorna o resultado
+                    return true;
 
                 } //end if.
                 else {
@@ -290,7 +282,7 @@
         return true;
 
     }, STRINGS.cepInvalido);
-
+    
     $(document).ready(init);
 
 
