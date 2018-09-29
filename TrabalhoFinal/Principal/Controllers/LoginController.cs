@@ -88,7 +88,19 @@ namespace Principal.Controllers
         }
 
         [HttpGet]
+        public ActionResult ModalCadastroTurista()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult ModalCriarConta()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ModalCriarEndereco()
         {
             return View();
         }
@@ -98,10 +110,32 @@ namespace Principal.Controllers
         {
             Login loginModel = new Login();
             loginModel.Email = login.Email;
-            loginModel.Senha = login.Senha;
+            loginModel.Senha = CriptografaSHA512(login.Senha);
 
             int result = new LoginRepository().Cadastrar(loginModel);
             return Content(JsonConvert.SerializeObject(new { id = result }));
+        }
+
+        [HttpPost]
+        public ActionResult StoreTurista(TuristaString turista)
+        {
+            Turista turistaModel = new Turista();
+            turistaModel.IdLogin = Convert.ToInt32(turista.IdLogin.ToString());
+            turistaModel.Nome = turista.Nome.ToString();
+            turistaModel.Sobrenome = turista.Sobrenome.ToString();
+            turistaModel.Cpf = turista.Cpf.ToString();
+            turistaModel.Rg = turista.Rg.ToString();
+            turistaModel.DataNascimento = Convert.ToDateTime(turista.DataNascimento.Replace("/", "-").ToString());
+            turistaModel.Sexo = turista.Sexo.ToString();
+
+            int identificador = new TuristaRepository().Cadastrar(turistaModel);
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
+        }
+
+        [HttpPost]
+        public ActionResult StoreEndereco(EnderecoString endereco)
+        {
+            return null;
         }
 
         [HttpPost]
@@ -134,6 +168,39 @@ namespace Principal.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public ActionResult ObterCidadeSelect()
+        {
+
+            List<Cidade> cidades = new CidadeRepository().ObterTodosParaSelect();
+
+            var x = new object[cidades.Count];
+            int i = 0;
+            foreach (var cidade in cidades)
+            {
+                x[i] = new { id = cidade.Id, text = cidade.Nome, idEstado = cidade.IdEstado };
+                i++;
+            }
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
+        }
+
+        [HttpGet]
+        public ActionResult ObterEstadoSelect()
+        {
+            List<Estado> estados = new EstadoRepository().ObterTodosParaSelect();
+
+            var x = new object[estados.Count];
+            int i = 0;
+            foreach (var estado in estados)
+            {
+                x[i] = new { id = estado.Id, text = estado.Nome };
+                i++;
+            }
+
+            return Content(JsonConvert.SerializeObject(new { results = x }));
         }
 
         public ActionResult Logout()

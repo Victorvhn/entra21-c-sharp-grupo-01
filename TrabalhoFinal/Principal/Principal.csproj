@@ -5176,6 +5176,7 @@
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\Mensagem\Index.js" />
     <Content Include="Scripts\MultiIdioma\multi-idioma.js" />
+    <Content Include="Scripts\PopularSelects\Login\popular-cidade.js" />
     <Content Include="Scripts\PopularSelects\SelectEndereco\popular-select-endereco.js" />
     <Content Include="Scripts\Validate\cep-validate.js" />
     <Content Include="Scripts\ViagemTurista\index.viagemTurista.js" />
@@ -5618,6 +5619,8 @@
     <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\Login\ModalCriarConta.cshtml" />
+    <Content Include="Views\Login\ModalCadastroTurista.cshtml" />
+    <Content Include="Views\Login\ModalCriarEndereco.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

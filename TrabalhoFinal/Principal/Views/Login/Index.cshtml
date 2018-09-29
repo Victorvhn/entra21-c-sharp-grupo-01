@@ -38,6 +38,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/linearicons.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/lib/select2/css/select2.min.css" />
 
 
 </head>
@@ -98,7 +99,7 @@
                                             </label>
                                         </div>
                                         <div class="forgot-phone text-right f-right">
-                                            <a href="#" class="text-right f-w-600 text-inverse" id="criar-conta"> Criar Conta!</a>
+                                            <a class="text-right f-w-600 text-inverse" id="criar-conta"> Criar Conta!</a>
                                         </div>
                                     </div>
                                 </div>
@@ -130,10 +131,12 @@
         </div>
         <!-- end of container-fluid -->
     </section>
-    
-    @Html.Partial("~/Views/Login/ModalCriarConta.cshtml")
 
-        <![endif]-->
+    @Html.Partial("~/Views/Login/ModalCriarConta.cshtml")
+    @Html.Partial("~/Views/Login/ModalCadastroTurista.cshtml")
+    @Html.Partial("~/Views/Login/ModalCriarEndereco.cshtml")
+
+    <![endif]-->
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
     <script type="text/javascript" src="~/Content/lib/jquery/js/jquery.min.js"></script>
@@ -156,7 +159,9 @@
     <script src="~/Content/assets/js/demo-12.js"></script>
     <script src="~/Content/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
+    <script src="~/Content/lib/select2/js/select2.full.min.js"></script>
     <script src="~/Scripts/Login/login-index.js"></script>
+    <script src="~/Scripts/PopularSelects/Login/popular-cidade.js"></script>
 </body>
 
 </html>

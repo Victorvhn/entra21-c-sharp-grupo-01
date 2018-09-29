@@ -1,4 +1,5 @@
 ﻿using Model;
+using Newtonsoft.Json;
 using Principal.Models;
 using Repository;
 using System;
@@ -66,7 +67,7 @@ namespace Principal.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-           
+
             ViewBag.Turista = new Turista();
             return View();
         }
@@ -77,10 +78,9 @@ namespace Principal.Controllers
 
             Turista turista = new TuristaRepository().ObterPeloId(id);
             ViewBag.Turista = turista;
-       
+
             return View();
         }
-
 
         [HttpGet]
         public ActionResult Excluir(int id)
@@ -92,14 +92,19 @@ namespace Principal.Controllers
         [HttpPost]
         public ActionResult Store(TuristaString turista)
         {
-            Turista turistaModel = new Turista()
-            {
-                Nome = turista.Nome.ToString(),
-            };
+            Turista turistaModel = new Turista();
+            turistaModel.IdLogin = Convert.ToInt32(turista.IdLogin.ToString());
+            turistaModel.Nome = turista.Nome.ToString();
+            turistaModel.Sobrenome = turista.Sobrenome.ToString();
+            turistaModel.Cpf = turista.Cpf.ToString();
+            turistaModel.Rg = turista.Rg.ToString();
+            turistaModel.DataNascimento = Convert.ToDateTime(turista.DataNascimento.Replace("/", "-").ToString());
+            turistaModel.Sexo = turista.Sexo.ToString();
+
             int identificador = new TuristaRepository().Cadastrar(turistaModel);
-            return null;
+            return Content(JsonConvert.SerializeObject(new { id = identificador }));
         }
-        
+
         [HttpPost]
         public ActionResult Update(Turista turista)
         {

@@ -115,7 +115,6 @@
         }
     });
 
-
     //Update modal editar
     $('#botao-salvar-modal-editar-idioma').on('click', function () {
         if ($('#form-modal-editar-idioma').valid()) {

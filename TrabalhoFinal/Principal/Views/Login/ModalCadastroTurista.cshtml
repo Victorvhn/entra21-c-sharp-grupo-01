@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div id="modal-criar-turista" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="login-card card-block login-card-modal">
+            <form class="md-float-material">
+                <div class="auth-box">
+                    <div class="row m-b-20">
+                        <div class="col-md-12">
+                            <h3 class="text-center txt-primary">Dados Pessoais</h3>
+                        </div>
+                    </div>
+                    <hr />
+                    <input type="hidden" id="campo-id-invisivel" />
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cadastro-nome-turista" placeholder="Seu Nome">
+                        <span class="md-line"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cadastro-sobrenome-turista" placeholder="Seu Sobrenome">
+                        <span class="md-line"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cadastro-cpf-turista" placeholder="Seu CPF">
+                        <span class="md-line"></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cadastro-rg-turista" placeholder="Seu RG">
+                        <span class="md-line"></span>
+                    </div>
+                    <div>
+                        <label for="cadastro-data-nascimento">Data de Nascimento</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="date" id="cadastro-data-nascimento" class="form-control" />
+                        <span class="md-line"></span>
+                    </div>
+                    <div>
+                        <label>Sexo</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" id="cadastro-sexo-masculino" name="sexo" class="radio-outline" value="M" />
+                        <label for="cadastro-sexo-masculino">Masculino</label>
+                        <input type="radio" id="cadastro-sexo-feminino" name="sexo" class="ml-md-5" value="F" />
+                        <label for="cadastro-sexo-feminino">Feminino</label>
+                        <span class="md-line"></span>
+                    </div>
+                    <div class="row m-t-15">
+                        <div class="col-md-12">
+                            <button type="button" id="cadastrar-agora-turista" class="btn btn-primary btn-md btn-block waves-effect text-center">Cadastrar agora</button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-10">
+                            <p class="text-inverse text-left m-b-0">Obrigado e aproveite nosso site.</p>
+                            <p class="text-inverse text-left"><b>Sua equipe de autenticação</b></p>
+                        </div>
+                        <div class="col-md-2">
+                            <img src="~/Content/imagens/LogoLuvTour42x45.png" alt="small-logo.png">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- end of form -->
+        </div>
+    </div>
+</div>

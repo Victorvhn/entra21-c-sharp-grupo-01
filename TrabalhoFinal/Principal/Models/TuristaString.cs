@@ -14,6 +14,8 @@ namespace Principal.Models
 
         public string Id { get; set; }
 
+        public string IdLogin { get; set; }
+
         public string Endereco { get; set; }
 
         public string Senha { get; set; }

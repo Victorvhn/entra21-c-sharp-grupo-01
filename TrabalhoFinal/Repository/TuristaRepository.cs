@@ -81,21 +81,18 @@ namespace Repository
         {
             SqlCommand command = new Conexao().ObterConexao();
 
-            command.CommandText = @"INSERT INTO turistas (login_, sexo, senha, nome, sobrenome, cpf, rg, data_nascimento) OUTPUT INSERTED.ID VALUES (@LOGIN_, @SEXO, @SENHA, @NOME, @SOBRENOME, @CPF, @RG, @DATA_NASCIMENTO)";
+            command.CommandText = @"INSERT INTO turistas (id_login, nome, sobrenome, cpf, rg, data_nascimento, sexo) 
+            OUTPUT INSERTED.ID VALUES (@IDLOGIN, @NOME, @SOBRENOME, @CPF, @RG, @DATA_NASCIMENTO, @SEXO)";
             
-            command.Parameters.AddWithValue("@LOGIN_", turista.Login_);
-            command.Parameters.AddWithValue("@SEXO", turista.Sexo);
-            command.Parameters.AddWithValue("@SENHA", turista.Senha);
+            command.Parameters.AddWithValue("@IDLOGIN", turista.IdLogin);
             command.Parameters.AddWithValue("@NOME", turista.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", turista.Sobrenome);
             command.Parameters.AddWithValue("@CPF", turista.Cpf);
             command.Parameters.AddWithValue("@RG", turista.Rg);
             command.Parameters.AddWithValue("@DATA_NASCIMENTO", turista.DataNascimento);
-            int id = Convert.ToInt32(command.ExecuteReader().ToString());
+            command.Parameters.AddWithValue("@SEXO", turista.Sexo);
+            int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
- 
-
-
 
         }
 
