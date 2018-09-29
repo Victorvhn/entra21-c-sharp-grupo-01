@@ -272,5 +272,9 @@
         $('#select-modal-cadastro-cidade').val('').trigger('change');
         $('#campo-cadastro-cidade-nome').val('');
     }
+    function limparCamposCidadeEditar() {
+        $('#select-modal-editar-cidade').val('').trigger('change');
+        $('#campo-editar-cidade-nome').val('');
+    }
 
 });
