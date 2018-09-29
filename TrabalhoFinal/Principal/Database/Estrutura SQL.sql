@@ -160,7 +160,8 @@ INSERT INTO logins(email, senha, privilegio) VALUES
 ('user@u4.com', 'u4', 'Usuário'),
 ('f@f.com', 'f', 'Funcionário'),
 ('f@f2.com', 'f2', 'Funcionário'),
-('f@f3.com', 'f3', 'Funcionário');
+('f@f3.com', 'f3', 'Funcionário'),
+('v@a.com', 'va', 'Administrador');
 
 INSERT INTO pacotes (nome, valor, percentual_max_desconto) VALUES
 ('Disney', 4000, 20),
@@ -217,12 +218,14 @@ INSERT INTO guias (id_login, id_endereco, nome, sobrenome, data_nascimento, sexo
 (1, (SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Marcos', 'Antonio', '04-10-1990', 'M', 35789654123, 7532147, 12345678912, 2000, 'AB', 3),
 (6, (SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Marcio', 'Luz', '05-12-1900', 'M',  75325896325, 0147898, 11234567891, 3000, 'B', 4),
 (7,(SELECT id FROM enderecos WHERE cep = 14785236 AND numero =  987), 'Eduarda', 'Volx', '07-02-1995', 'F',  54896325418, 5789632, 22136547894, 4000, 'A', 2),
-(8, (SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'F', 47896521478, 4789654, 78987456321, 1500, 'ABC', 1);
+(8, (SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'F', 47896521478, 4789654, 78987456321, 1500, 'ABC', 1),
+(9, (SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Victor', 'Hugo', '11-09-2001', 'M', 07611034901, 7240414, 4444512, 10000, 'AB', 5);
+
 
 INSERT INTO idiomas (nome) VALUES
-('Ingles'),
+('Russo'),
 ('Alemão'),
-('Ingles'),
+('Português'),
 ('Alemão');
 
 INSERT INTO pontos_turisticos (id_endereco, nome) VALUES
