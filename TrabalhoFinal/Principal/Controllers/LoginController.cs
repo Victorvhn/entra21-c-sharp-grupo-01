@@ -57,6 +57,12 @@ namespace Principal.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult ModalCriarConta()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Index(string usuario, string senha)
         {

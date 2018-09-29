@@ -30,10 +30,14 @@
     <link rel="stylesheet" type="text/css" href="~/Content/lib/bootstrap/css/bootstrap.min.css">
     <!-- themify-icons line icon -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/icon/themify-icons/themify-icons.css">
+    <!-- Menu-Search css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/pages/menu-search/css/component.css">
     <!-- ico font -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/icon/icofont/css/icofont.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/linearicons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/jquery.mCustomScrollbar.css">
 
 
 </head>
@@ -94,7 +98,7 @@
                                             </label>
                                         </div>
                                         <div class="forgot-phone text-right f-right">
-                                            <a href="auth-reset-password.html" class="text-right f-w-600 text-inverse"> Esqueceu a senha?</a>
+                                            <a href="#" class="text-right f-w-600 text-inverse" id="criar-conta"> Criar Conta!</a>
                                         </div>
                                     </div>
                                 </div>
@@ -108,6 +112,9 @@
                                     <div class="col-md-10">
                                         <p class="text-inverse text-left m-b-0">Obrigado e aproveite nosso site.</p>
                                         <p class="text-inverse text-left"><b>Sua equipe de autenticação</b></p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="~/Content/imagens/LogoLuvTour42x45.png" alt="small-logo.png">
                                     </div>
                                 </div>
 
@@ -123,49 +130,10 @@
         </div>
         <!-- end of container-fluid -->
     </section>
-    <!-- Warning Section Starts -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 10]>
-    <div class="ie-warning">
-        <h1>Warning!!</h1>
-        <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-        <div class="iew-container">
-            <ul class="iew-download">
-                <li>
-                    <a href="http://www.google.com/chrome/">
-                        <img src="assets/images/browser/chrome.png" alt="Chrome">
-                        <div>Chrome</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.mozilla.org/en-US/firefox/new/">
-                        <img src="assets/images/browser/firefox.png" alt="Firefox">
-                        <div>Firefox</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.opera.com">
-                        <img src="assets/images/browser/opera.png" alt="Opera">
-                        <div>Opera</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.apple.com/safari/">
-                        <img src="assets/images/browser/safari.png" alt="Safari">
-                        <div>Safari</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                        <img src="assets/images/browser/ie.png" alt="">
-                        <div>IE (9 & above)</div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <p>Sorry for the inconvenience!</p>
-    </div>
-    <![endif]-->
+    
+    @Html.Partial("~/Views/Login/ModalCriarConta.cshtml")
+
+        <![endif]-->
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
     <script type="text/javascript" src="~/Content/lib/jquery/js/jquery.min.js"></script>
@@ -183,6 +151,12 @@
     <script type="text/javascript" src="~/Content/lib/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript" src="~/Content/lib/jquery-i18next/js/jquery-i18next.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/common-pages.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
+    <script src="~/Content/assets/js/pcoded.min.js"></script>
+    <script src="~/Content/assets/js/demo-12.js"></script>
+    <script src="~/Content/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
+    <script src="~/Scripts/Login/login-index.js"></script>
 </body>
 
 </html>

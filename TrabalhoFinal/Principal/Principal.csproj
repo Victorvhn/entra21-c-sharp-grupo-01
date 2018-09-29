@@ -4809,6 +4809,7 @@
     <Content Include="Content\imagens\icone2.png" />
     <Content Include="Content\imagens\ingles.png" />
     <Content Include="Content\imagens\LogoLuvTour.png" />
+    <Content Include="Content\imagens\LogoLuvTour42x45.png" />
     <Content Include="Content\lib\animate.css\css\animate.css" />
     <Content Include="Content\lib\autosize\js\autosize.min.js" />
     <Content Include="Content\lib\bootstrap-datepicker\css\bootstrap-datepicker3.css" />
@@ -5615,6 +5616,7 @@
     <Content Include="Views\HomeTurista\Index.cshtml" />
     <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
+    <Content Include="Views\Login\ModalCriarConta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
