@@ -17,7 +17,7 @@ CREATE TABLE logins (
 	id INT IDENTITY(1,1) PRIMARY KEY,
 	privilegio VARCHAR(15),
 	email VARCHAR(150),
-    senha VARCHAR(100),
+    senha VARCHAR(128),
 	ativo BIT DEFAULT '1'
 );
 
@@ -153,15 +153,12 @@ CREATE TABLE historico_de_viagens (
 );
 
 INSERT INTO logins(email, senha, privilegio) VALUES
-('admin@admin.com', 'admin', 'Administrador'),
-('user@u.com', 'u', 'Usuário'),
-('user@u2.com', 'u2', 'Usuário'),
-('user@u3.com', 'u3', 'Usuário'),
-('user@u4.com', 'u4', 'Usuário'),
-('f@f.com', 'f', 'Funcionário'),
-('f@f2.com', 'f2', 'Funcionário'),
-('f@f3.com', 'f3', 'Funcionário'),
-('v@a.com', 'va', 'Administrador');
+('admin@admin.com', 'd61d004c03457bac7b90c1e8d4f51113be162346b27af5307caffe21ef88597ff15ab1569e07155302ff7b0af29f7f0431531004568da3849a5708176815a70f', 'Administrador'),
+('v@a.com', '6275aa6bc22ffa83a1c3f7bf8a559dcded6ded804b449c2a90e8a8b8b2ecdf08894de351039a98a1d4de0fe58fd0d35c02bee760de5ae781a02ce68ac08a44a1', 'Administrador'),
+('user@u.com', '8af874dfc6ca0920d1bf81f08972e483c53436796da0da2c8ae08b251b1e00776a4c7b6db8e7ae2bf6e1869e34e8149ff88623c40a0d3e443e6c4639c38ec16b', 'Usuário'),
+('user@u2.com', 'a8360e04e4144307b5e1d06b9298a908aaa9846923191dc4ceff123f7360a269049950126d00bbe1a0328300614ec0692be297015767b56f5e67dd2caeb3df1f', 'Usuário'),
+('f@f.com', 'e1bebd885e0679d69e7b515c60b6e99eb8d9025903b6069db911c1dbc0358f82620c6302a51abe350727355c792e65578ef6715f352ecf2e77011dfbc3563e46', 'Funcionário'),
+('f@f2.com', '288fd03c0f00a7bd9fa1124747c87a2bd55a6a6701e45c3ee5c440e0044fcedcb8dc13d34473090be74fdafb9604268dd805f2e6267f1e91208878166dfdc7b5', 'Funcionário');
 
 INSERT INTO pacotes (nome, valor, percentual_max_desconto) VALUES
 ('Disney', 4000, 20),
@@ -209,17 +206,14 @@ INSERT INTO enderecos (id_cidade, cep, logradouro, numero, complemento, referenc
 ((SELECT id FROM cidades WHERE nome = 'Catalo'), 96325777, 'Centro', 777, 'Centro', 'Proximo a capela 3 anjos');
 
 INSERT INTO turistas (id_login ,id_endereco, nome, sobrenome, sexo, cpf, rg, data_nascimento) VALUES
-(2,(SELECT id FROM enderecos WHERE cep = 14785236 AND numero = 658), 'João', 'Fernandes', 'Masculino', 74125878965, 7896523, '02-07-1998'),
 (3,(SELECT id FROM enderecos WHERE cep = 87965425 AND numero = 895), 'Antonio', 'Amaral', 'Masculino', 87965823654, 1478965, '05-12-1994'),
 (4,(SELECT id FROM enderecos WHERE cep = 89015255 AND numero = 458), 'Maria', 'Rosa', 'Feminino', 74523698541, 4569871, '03-11-1997'),
-(5,(SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Camila', 'Vieira', 'Feminino', 98745632147, 8796541, '04-02-1997');
+(5,(SELECT id FROM enderecos WHERE cep = 14785236 AND numero = 658), 'João', 'Fernandes', 'Masculino', 74125878965, 7896523, '02-07-1998'),
+(6,(SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Camila', 'Vieira', 'Feminino', 98745632147, 8796541, '04-02-1997');
    
 INSERT INTO guias (id_login, id_endereco, nome, sobrenome, data_nascimento, sexo, cpf, rg, numero_carteira_trabalho, salario, categoria_habilitacao, rank_) VALUES
 (1, (SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Marcos', 'Antonio', '04-10-1990', 'M', 35789654123, 7532147, 12345678912, 2000, 'AB', 3),
-(6, (SELECT id FROM enderecos WHERE cep = 98543228 AND numero = 796), 'Marcio', 'Luz', '05-12-1900', 'M',  75325896325, 0147898, 11234567891, 3000, 'B', 4),
-(7,(SELECT id FROM enderecos WHERE cep = 14785236 AND numero =  987), 'Eduarda', 'Volx', '07-02-1995', 'F',  54896325418, 5789632, 22136547894, 4000, 'A', 2),
-(8, (SELECT id FROM enderecos WHERE cep = 96325874 AND numero = 357), 'Fernanda', 'Fortuna', '10-07-2000', 'F', 47896521478, 4789654, 78987456321, 1500, 'ABC', 1),
-(9, (SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Victor', 'Hugo', '11-09-2001', 'M', 07611034901, 7240414, 4444512, 10000, 'AB', 5);
+(2, (SELECT id FROM enderecos WHERE cep = 12345678 AND numero = 123), 'Victor', 'Hugo', '11-09-2001', 'M', 07611034901, 7240414, 4444512, 10000, 'AB', 5);
 
 
 INSERT INTO idiomas (nome) VALUES

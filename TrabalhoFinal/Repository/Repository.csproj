@@ -47,6 +47,7 @@
     <Compile Include="GuiaRepository.cs" />
     <Compile Include="HistoricoViagemRepository.cs" />
     <Compile Include="IdiomaRepository.cs" />
+    <Compile Include="LoginRepository.cs" />
     <Compile Include="PacotePontosTuristicosRepository.cs" />
     <Compile Include="PacoteRepository.cs" />
     <Compile Include="PontosTuristosRepository.cs" />

@@ -1,4 +1,6 @@
 ﻿using Model;
+using Newtonsoft.Json;
+using Principal.Models;
 using Repository;
 using System;
 using System.Collections.Generic;
@@ -6,11 +8,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace Principal.Controllers
 {
     public class LoginController : Controller
     {
+        private string CriptografaSHA512(string valor)
+        {
+            var _stringHash = "";
+            try
+            {
+                UnicodeEncoding _encode = new UnicodeEncoding();
+                byte[] _hashBytes, _messageBytes = _encode.GetBytes(valor);
+
+                SHA512Managed _sha512Manager = new SHA512Managed();
+
+                _hashBytes = _sha512Manager.ComputeHash(_messageBytes);
+
+                foreach (byte b in _hashBytes)
+                {
+                    _stringHash += String.Format("{0:x2}", b);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            return _stringHash;
+        }
+
         // GET: Login
         public ActionResult Index()
         {
@@ -64,11 +94,23 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
+        public ActionResult Store(LoginString login)
+        {
+            Login loginModel = new Login();
+            loginModel.Email = login.Email;
+            loginModel.Senha = login.Senha;
+
+            int result = new LoginRepository().Cadastrar(loginModel);
+            return Content(JsonConvert.SerializeObject(new { id = result }));
+        }
+
+        [HttpPost]
         public ActionResult Index(string usuario, string senha)
         {
+            var _senha = CriptografaSHA512(senha);
             try
             {
-                Guia guia = new GuiaRepository().VerificarLogin(usuario, senha);
+                Guia guia = new GuiaRepository().VerificarLogin(usuario, _senha);
                 if (guia == null)
                 {
                     Turista turista = new TuristaRepository().VerificarLogin(usuario, senha);

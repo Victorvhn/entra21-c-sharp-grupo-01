@@ -5230,6 +5230,7 @@
     <Compile Include="Models\GuiaString.cs" />
     <Compile Include="Models\HistoricoViagemString.cs" />
     <Compile Include="Models\IdiomaString.cs" />
+    <Compile Include="Models\LoginString.cs" />
     <Compile Include="Models\PacotePontoTuristicoString.cs" />
     <Compile Include="Models\PacoteString.cs" />
     <Compile Include="Models\PaisString.cs" />
