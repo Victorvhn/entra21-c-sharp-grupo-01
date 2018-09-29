@@ -343,7 +343,7 @@
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativar!", "Você desativou o endereço.", "success");
+                    swal("Desativado!", "Você desativou o endereço.", "success");
                     $.ajax({
                         url: '/Endereco/Excluir?id=' + id,
                         method: 'get',
