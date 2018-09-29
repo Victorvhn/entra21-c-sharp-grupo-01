@@ -158,28 +158,49 @@
     //Desativar
     $('table').on('click', '.botao-excluir-pontoturistico', function () {
         var id = $(this).data('id');
-        $.ajax({
-            url: '/PontoTuristico/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    new PNotify({
-                        title: 'Desativado!',
-                        text: nome + ' desativado com sucesso',
-                        type: 'success'
+        swal({
+            title: "Você tem certeza?",
+            text: "Você ira desativar o ponto turístico!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Desativar!",
+            cancelButtonText: "Não, Cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Desativado!", "Você desativou o ponto turístico.", "success");
+                    $.ajax({
+                        url: '/PontoTuristico/Excluir?id=' + id,
+                        method: 'get',
+                        success: function (data) {
+                            var resultado = JSON.parse(data);
+                            if (resultado == 1) {
+                                new PNotify({
+                                    title: 'Desativado!',
+                                    text: 'Ponto turístico desativado com sucesso',
+                                    type: 'success'
+                                });
+
+                                $('#table-pontoturistico').DataTable().ajax.reload();
+                            } else {
+                                new PNotify({
+                                    title: 'Erro!',
+                                    text: 'Erro ao desativar ponto turístico.',
+                                    type: 'error'
+                                });
+                            }
+                        }
                     });
-                    $('#table-pontoturistico').DataTable().ajax.reload();
                 } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar ' + nome,
-                        type: 'error'
-                    });
+                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
                 }
-            }
-        });
+            });
     });
+
+    
 
     function limparCamposPontoTuristicoCadastro() {
         $('#select-modal-cadastro-pontoturistico').val('').trigger('change');

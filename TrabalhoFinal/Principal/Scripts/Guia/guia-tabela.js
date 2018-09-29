@@ -42,7 +42,7 @@ $(function () {
                 target: 5,
                 render: function (data, type, row) {
                     return "<a class='btn fa fa-edit botao-editar-guia' data-id='" + row.Id + "' style='font-size: 24px;'></a>" +
-                        "<a class='btn fa fa-trash ml-1 botao-excluir-guia' data-id='" + row.Id + "' style='font-size: 24px;'></a>";
+                        "<a class='btn fa fa-trash ml-1 botao-excluir-guia' data-id='" + row.Id + "' data-nome='" + row.Nome + "' style='font-size: 24px;'></a>";
 
                 }
             }
@@ -58,30 +58,51 @@ $(function () {
     //Desativar
     $('table').on('click', '.botao-excluir-guia', function () {
         var id = $(this).data('id');
-        $.ajax({
-            url: '/Guia/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var result = JSON.parse(data)
-                if (result == 1) {
+        var nome = $(this).data('nome');
+        swal({
+            title: "Você tem certeza?",
+            text: "Você ira desativar o guia " + nome + "!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Desativar!",
+            cancelButtonText: "Não, Cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Desativado!", "Você desativou o guia " + nome + ".", "success");
+                    $.ajax({
+                        url: '/Guia/Excluir?id=' + id,
+                        method: 'get',
+                        success: function (data) {
+                            var result = JSON.parse(data)
+                            if (result == 1) {
 
-                    new PNotify({
-                        title: 'Desativado!',
-                        text: 'Usuário desativado com sucesso',
-                        type: 'success'
+                                new PNotify({
+                                    title: 'Desativado!',
+                                    text: nome + ' desativado com sucesso',
+                                    type: 'success'
+                                });
+                                $('#guia-tabela').DataTable().ajax.reload();
+                            } else {
+
+                                new PNotify({
+                                    title: 'Erro!',
+                                    text: 'Erro ao desativar ' + nome,
+                                    type: 'error'
+                                });
+                            }
+                        }
                     });
-                    $('#guia-tabela').DataTable().ajax.reload();
                 } else {
-
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar usuário',
-                        type: 'error'
-                    });
+                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
                 }
-            }
-        });
+            });
     });
+
+    
 
     //Botao editar
     $('table').on('click', '.botao-editar-guia', function () {

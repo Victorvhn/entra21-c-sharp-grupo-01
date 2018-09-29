@@ -158,30 +158,49 @@
     $('table').on('click', '.botao-excluir-idioma', function () {
         var id = $(this).data('id');
         var nome = $(this).data('nome');
-        $.ajax({
-            url: '/Idioma/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    new PNotify({
-                        title: STRINGS.desativado,
-                        text: nome + " " + STRINGS.desativadoSucesso,
-                        type: 'success'
-                    });
+        swal({
+            title: "Você tem certeza?",
+            text: "Você ira desativar o idioma " + nome + "!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Desativar!",
+            cancelButtonText: "Não, Cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Desativado!", "Você desativou o idioma " + nome + ".", "success");
+                    $.ajax({
+                        url: '/Idioma/Excluir?id=' + id,
+                        method: 'get',
+                        success: function (data) {
+                            var resultado = JSON.parse(data);
+                            if (resultado == 1) {
+                                new PNotify({
+                                    title: STRINGS.desativado,
+                                    text: nome + " " + STRINGS.desativadoSucesso,
+                                    type: 'success'
+                                });
 
-                    $('#table-idiomas').DataTable().ajax.reload();
-                }
-                else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar ' + nome,
-                        type: 'error'
+                                $('#table-idiomas').DataTable().ajax.reload();
+                            }
+                            else {
+                                new PNotify({
+                                    title: 'Erro!',
+                                    text: 'Erro ao desativar ' + nome,
+                                    type: 'error'
+                                });
+                            }
+                        }
                     });
+                } else {
+                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
                 }
-            }
-        });
+            });
     });
+    
 
     function limparCampos() {
         $("#campo-cadastro-idioma").prop('');

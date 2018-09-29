@@ -170,7 +170,7 @@
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativar!", "Você desativou o estado " + nome + ".", "success");
+                    swal("Desativado!", "Você desativou o estado " + nome + ".", "success");
                     $.ajax({
                         url: 'Estado/Excluir?id=' + id,
                         method: 'get',

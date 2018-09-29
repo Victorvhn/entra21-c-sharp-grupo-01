@@ -214,7 +214,7 @@
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativar!", "Você desativou o registro.", "success");
+                    swal("Desativado!", "Você desativou o registro.", "success");
                     $.ajax({
                         url: 'HistoricoViagem/Excluir?id=' + id,
                         method: 'get',

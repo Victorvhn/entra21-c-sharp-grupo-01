@@ -237,7 +237,7 @@
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativar!", "Você desativou a cidade " + nome + ".", "success");
+                    swal("Desativado!", "Você desativou a cidade " + nome + ".", "success");
                     $.ajax({
                         url: 'Cidade/Excluir?id=' + id,
                         method: 'get',

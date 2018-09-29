@@ -171,28 +171,48 @@
     //Desativar
     $('table').on('click', '.botao-excluir-pacote-ponto-turistico', function () {
         var id = $(this).data('id');
-        $.ajax({
-            url: '/PacotePontoTuristico/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var result = JSON.parse(data);
-                if (result == 1) {
-                    new PNotify({
-                        title: STRINGS.desativado,
-                        text: STRINGS.desativadoSucesso,
-                        type: 'success'
+        swal({
+            title: "Você tem certeza?",
+            text: "Você ira desativar a ligação entre Pacote e Ponto Turistico!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Desativar!",
+            cancelButtonText: "Não, Cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Desativado!", "Você desativou a ligação entre Pacote e Ponto Turistico.", "success");
+                    $.ajax({
+                        url: '/PacotePontoTuristico/Excluir?id=' + id,
+                        method: 'get',
+                        success: function (data) {
+                            var result = JSON.parse(data);
+                            if (result == 1) {
+                                new PNotify({
+                                    title: STRINGS.desativado,
+                                    text: STRINGS.desativadoSucesso,
+                                    type: 'success'
+                                });
+                                $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
+                            } else {
+                                new PNotify({
+                                    title: 'Erro!',
+                                    text: 'Erro ao desativar Pacote Ponto Turistico',
+                                    type: 'error'
+                                });
+                            }
+                        }
                     });
-                    $('#table-pacote-ponto-turistico').DataTable().ajax.reload();
                 } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar Pacote Ponto Turistico',
-                        type: 'error'
-                    });
+                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
                 }
-            }
-        });
+            });
     });
+
+    
 
     function limparCampos() {
         $('#select-cadastro-pacote-ponto-turistico-pacote').val();

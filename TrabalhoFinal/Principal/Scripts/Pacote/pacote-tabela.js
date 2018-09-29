@@ -34,7 +34,7 @@
                 width: "20%",
                 render: function (data, type, row) {
                     return "<a style='font-size: 24px;' class='btn fa fa-edit botao-editar-pacote' data-id='" + row.Id + "' style='font-size: 24px; '></a>" +
-                        "<a style='font-size: 24px;' class='btn fa fa-trash ml-1 botao-excluir-pacote' data-id='" + row.Id + "' style='font-size: 24px;'></a>";
+                        "<a style='font-size: 24px;' class='btn fa fa-trash ml-1 botao-excluir-pacote' data-id='" + row.Id + "' data-nome='" + row.Nome + "' style='font-size: 24px;'></a>";
                 }
             }
         ]
@@ -211,31 +211,50 @@
     $('table').on('click', '.botao-excluir-pacote', function () {
         var id = $(this).data('id');
         var nome = $(this).data('nome');
-        $.ajax({
-            url: 'Pacote/Excluir?id=' + id,
-            method: 'get',
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                if (resultado == 1) {
-                    new PNotify({
-                        title: STRINGS.desativado,
-                        text: nome + " " + STRINGS.desativadoSucesso,
-                        type: 'success'
+        swal({
+            title: "Você tem certeza?",
+            text: "Você ira desativar o pacote " + nome + "!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Sim, Desativar!",
+            cancelButtonText: "Não, Cancelar!",
+            closeOnConfirm: false,
+            closeOnCancel: false
+        },
+            function (isConfirm) {
+                if (isConfirm) {
+                    swal("Desativado!", "Você desativou o pacote " + nome + ".", "success");
+                    $.ajax({
+                        url: 'Pacote/Excluir?id=' + id,
+                        method: 'get',
+                        success: function (data) {
+                            var resultado = JSON.parse(data);
+                            if (resultado == 1) {
+                                new PNotify({
+                                    title: STRINGS.desativado,
+                                    text: nome + " " + STRINGS.desativadoSucesso,
+                                    type: 'success'
+                                });
+
+                                $('#pacote-tabela').DataTable().ajax.reload();
+
+                            } else {
+                                new PNotify({
+                                    title: 'Erro!',
+                                    text: 'Erro ao desativar ' + nome,
+                                    type: 'error'
+                                });
+                            }
+                        }
                     });
-
-                    $('#pacote-tabela').DataTable().ajax.reload();
-
                 } else {
-                    new PNotify({
-                        title: 'Erro!',
-                        text: 'Erro ao desativar ' + nome,
-                        type: 'error'
-                    });
+                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
                 }
-            }
-        });
+            });
     });
 
+    
 
     function limparCampos() {
         $('#campo-cadastro-pacote-nome').val('');
