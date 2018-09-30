@@ -135,6 +135,17 @@ INNER JOIN cidades ON cidades.id = enderecos.id_cidade";
             return enderecos;
         }
 
+        public bool AlterarBasico(Endereco endereco)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "UPDATE enderecos SET cep = @CEP" +
+            "WHERE id = @ID";
+            command.Parameters.AddWithValue("@NOME", endereco.Cep);
+            command.Parameters.AddWithValue("@ID", endereco.Id);
+
+            return command.ExecuteNonQuery() == 1;
+        }
+
         public int ContabilizarEnderecosFiltrados(string search)
         {
             SqlCommand command = new Conexao().ObterConexao();

@@ -20,6 +20,8 @@ namespace Model
 
         public char Ativo { get; set; }
 
+        public Endereco Endereco { get; set; }
+
         public int IdEndereco { get; set; }
 
         public string Nome { get; set; }
@@ -43,7 +45,5 @@ namespace Model
         public int Rank { get; set; }
 
         public List<Pacote> Pacotes { get; set; }
-
-        public Endereco Endereco { get; set; }
     }
 }

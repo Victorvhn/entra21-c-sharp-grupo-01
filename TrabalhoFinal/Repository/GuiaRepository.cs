@@ -85,6 +85,19 @@ namespace Repository
             return guias;
         }
 
+        public bool AlterarBasico(Guia guia)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = "UPDATE guias SET nome = @NOME, sobrenome = @SOBRENOME, data_nascimento = @DATANASCIMENTO" +
+            "WHERE id = @ID";
+            command.Parameters.AddWithValue("@NOME", guia.Nome);
+            command.Parameters.AddWithValue("@SOBRENOME", guia.Sobrenome);
+            command.Parameters.AddWithValue("@DATANASCIMENTO", guia.DataNascimento);
+            command.Parameters.AddWithValue("@ID", guia.Id);
+
+            return command.ExecuteNonQuery() == 1;
+        }
+
         public List<Guia> ObterTodosParaSelect()
         {
             List<Guia> guias = new List<Guia>();

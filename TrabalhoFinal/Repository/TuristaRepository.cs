@@ -35,7 +35,7 @@ namespace Repository
                     Cpf = linha[7].ToString(),
                     Rg = linha[8].ToString(),
                     DataNascimento = Convert.ToDateTime(linha[9].ToString()),
-                    
+
                 };
                 turista.Add(turistas);
             }
@@ -60,18 +60,25 @@ namespace Repository
                 turista.Id = Convert.ToInt32(table.Rows[0][0].ToString());
 
                 turista.Nome = table.Rows[0][3].ToString();
-                turista.IdEndereco = Convert.ToInt32(table.Rows[0][2].ToString());
-                turista.Sobrenome = table.Rows[0][4].ToString();
-                turista.Cpf = table.Rows[0][5].ToString();
-                turista.Rg = table.Rows[0][6].ToString();
-                turista.Sexo = table.Rows[0][7].ToString();
-                turista.DataNascimento = Convert.ToDateTime(table.Rows[0][8].ToString());
+                try
+                {
+                    turista.IdEndereco = Convert.ToInt32(table.Rows[0][2].ToString());
+                }
+                catch
+                {
+                    turista.Sobrenome = table.Rows[0][4].ToString();
+                    turista.Cpf = table.Rows[0][5].ToString();
+                    turista.Rg = table.Rows[0][6].ToString();
+                    turista.Sexo = table.Rows[0][7].ToString();
+                    turista.DataNascimento = Convert.ToDateTime(table.Rows[0][8].ToString());
 
-                turista.Login = new Login();
-                turista.Login.Email = table.Rows[0][10].ToString();
-                turista.Login.Id = Convert.ToInt32(table.Rows[0][1].ToString());
-                turista.IdLogin = Convert.ToInt32(table.Rows[0][1].ToString());
-                turista.Login.Privilegio = table.Rows[0][9].ToString();            
+                    turista.Login = new Login();
+                    turista.Login.Email = table.Rows[0][10].ToString();
+                    turista.Login.Id = Convert.ToInt32(table.Rows[0][1].ToString());
+                    turista.IdLogin = Convert.ToInt32(table.Rows[0][1].ToString());
+                    turista.Login.Privilegio = table.Rows[0][9].ToString();
+                }
+                
             }
 
             return turista;
@@ -83,7 +90,7 @@ namespace Repository
 
             command.CommandText = @"INSERT INTO turistas (id_login, nome, sobrenome, cpf, rg, data_nascimento, sexo) 
             OUTPUT INSERTED.ID VALUES (@IDLOGIN, @NOME, @SOBRENOME, @CPF, @RG, @DATA_NASCIMENTO, @SEXO)";
-            
+
             command.Parameters.AddWithValue("@IDLOGIN", turista.IdLogin);
             command.Parameters.AddWithValue("@NOME", turista.Nome);
             command.Parameters.AddWithValue("@SOBRENOME", turista.Sobrenome);
@@ -112,6 +119,18 @@ namespace Repository
 
         }
 
+        public bool AlterarBasico(Turista turista)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"UPDATE turistar SET nome = @NOME, sobrenome = @SOBRENOME, data_nascimento = @DATANASCIMENTO
+            WHERE id = @ID";
+            command.Parameters.AddWithValue("@NOME", turista.Nome);
+            command.Parameters.AddWithValue("@SOBRENOME", turista.Sobrenome);
+            command.Parameters.AddWithValue("@DATANASCIMENTO", turista.DataNascimento);
+
+            return command.ExecuteNonQuery() == 1;
+        }
+
         public bool Excluir(int id)
         {
             SqlCommand command = new Conexao().ObterConexao();
@@ -137,7 +156,7 @@ namespace Repository
                 turista.Sexo = table.Rows[0][1].ToString();
                 turista.Senha = table.Rows[0][2].ToString();
                 turista.Nome = table.Rows[0][3].ToString();
-                turista.Sobrenome = table.Rows[0][4].ToString();   
+                turista.Sobrenome = table.Rows[0][4].ToString();
                 turista.Cpf = table.Rows[0][5].ToString();
                 turista.Rg = table.Rows[0][6].ToString();
                 turista.DataNascimento = Convert.ToDateTime(table.Rows[0][7]);

@@ -5172,6 +5172,7 @@
     <Content Include="Scripts\Estado\estado-index.js" />
     <Content Include="Scripts\Guia\guia-tabela.js" />
     <Content Include="Scripts\HistoricoViagens\historicoViagem-tabela.js" />
+    <Content Include="Scripts\Home\index-master.js" />
     <Content Include="Scripts\Idioma\idioma-tabela.js" />
     <Content Include="Scripts\Login\login-index.js" />
     <Content Include="Scripts\Mensagem\Index.js" />
@@ -5620,6 +5621,7 @@
     <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\Login\ModalCriarConta.cshtml" />
     <Content Include="Views\Login\ModalCadastroTurista.cshtml" />
+    <Content Include="Views\Home\ModalConfiguracoes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

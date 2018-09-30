@@ -118,7 +118,7 @@ namespace Principal.Controllers
 
         [HttpPost]
         public ActionResult StoreTurista(TuristaString turista)
-        {
+       {
             Turista turistaModel = new Turista();
             turistaModel.IdLogin = Convert.ToInt32(turista.IdLogin.ToString());
             turistaModel.Nome = turista.Nome.ToString();
@@ -133,12 +133,6 @@ namespace Principal.Controllers
         }
 
         [HttpPost]
-        public ActionResult StoreEndereco(EnderecoString endereco)
-        {
-            return null;
-        }
-
-        [HttpPost]
         public ActionResult Index(string usuario, string senha)
         {
             var _senha = CriptografaSHA512(senha);
@@ -147,7 +141,7 @@ namespace Principal.Controllers
                 Guia guia = new GuiaRepository().VerificarLogin(usuario, _senha);
                 if (guia == null)
                 {
-                    Turista turista = new TuristaRepository().VerificarLogin(usuario, senha);
+                    Turista turista = new TuristaRepository().VerificarLogin(usuario, _senha);
                     if (turista == null)
                     {
                         return View();
@@ -155,7 +149,7 @@ namespace Principal.Controllers
                     else
                     {
                         Session.Add("usuarioLogado", turista);
-                        return RedirectToAction("Index", "HomeTurista");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 else

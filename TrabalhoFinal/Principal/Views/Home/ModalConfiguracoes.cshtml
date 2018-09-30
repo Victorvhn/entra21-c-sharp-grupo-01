@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="modal fade modal-flex" id="Modal-tab" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tab-home" role="tab">Acesso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tab-profile" role="tab">Dados Pessoais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#tab-messages" role="tab">Endereço</a>
+                    </li>
+                </ul>
+                <div class="tab-content modal-body">
+                    <div class="tab-pane active" id="tab-home" role="tabpanel">
+                        <div>
+                            <label>Alterar e-mail</label>
+                        </div>
+                        <div>
+                            <input type="email" id="alterar-email" class="form-control" />
+                        </div>
+                        <div>
+                            <label>Alterar senha</label>
+                        </div>
+                        <div>
+                            <label>Senha atual</label>
+                        </div>
+                        <div>
+                            <input type="email" id="senha-atual" class="form-control" />
+                        </div>
+
+                        <div>
+                            <label>Nova senha</label>
+                        </div>
+                        <div>
+                            <input type="email" id="alterar-senha" class="form-control" />
+                        </div>
+
+                        <div>
+                            <label>Confirmar nova senha</label>
+                        </div>
+                        <div>
+                            <input type="email" id="confirmar-senha" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-profile" role="tabpanel">
+                        <div>
+                            <label>Nome</label>
+                            <input type="text" class="form-control" id="configuracoes-nome" value="@ViewBag.UsuarioNome"/>
+                        </div>
+                        <div>
+                            <label>Sobrenome</label>
+                            <input type="text" class="form-control" id="configuracoes-sobrenome" value="@ViewBag.UsuarioSobrenome"/>
+                        </div>
+                        <div>
+                            <label>Data de Nascimento</label>
+                            <input type="datetime" class="form-control" id="configuracoes-data-nascimento" value="@ViewBag.UsuarioDataNascimento"/>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-messages" role="tabpanel">
+                        <div>
+                            <label>CEP</label>
+                            <input type="text" class="form-control" id="configuracoes-cep" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-cadastro-cidade">@Principal.Resources.Resource.Fechar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-configuracoes">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

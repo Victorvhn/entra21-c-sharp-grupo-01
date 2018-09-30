@@ -25,5 +25,27 @@ namespace Repository
             int id = Convert.ToInt32(command.ExecuteScalar().ToString());
             return id;
         }
+
+        public bool EditarEmail(Login login)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+
+            command.CommandText = @"UPDATE logins SET email = @EMAIL WHERE id = @ID";
+            command.Parameters.AddWithValue("@EMAIL", login.Email);
+            command.Parameters.AddWithValue("@ID", login.Id);
+
+            return command.ExecuteNonQuery() == 1;
+        }
+
+        public bool EditarSenha(Login login)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+
+            command.CommandText = @"UPDATE logins SET senha = @SENHA WHERE id = @ID";
+            command.Parameters.AddWithValue("@SENHA", login.Senha);
+            command.Parameters.AddWithValue("@ID", login.Id);
+
+            return command.ExecuteNonQuery() == 1;
+        }
     }
 }
