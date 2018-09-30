@@ -35,18 +35,18 @@
                 dataNascimento: $('#cadastro-data-nascimento').val(),
                 sexo: $('input[type=radio][name=sexo]:checked').val()
             },
-            success: function (data) {
-                var resultado = JSON.parse(data);
+            success: function () {
                 limparCamposTurista1();
                 $('#modal-criar-turista').modal('hide');
-                $('#modal-criar-turista-endereco').modal('show');
-                $('#id-turista-invisivel').val(resultado.id);
+                $(function () {
+                    new PNotify({
+                        title: 'Sucesso',
+                        text: 'Você acaba de se cadastrar, favor entre para cadastrar seu endereço',
+                        type: 'success'
+                    });
+                });
             }
         });
-    });
-
-    $('#cadastrar-agora-turista-endereco').on('click', function () {
-
     });
 
     function limparCampos() {
@@ -62,9 +62,5 @@
         $('#cadastro-rg-turista').val("");
         $('#cadastro-data-nascimento').val("");
         $('input[type=radio][name=sexo]:checked').val("");
-    }
-
-    function limparCamposTuristaEndereco() {
-
     }
 });

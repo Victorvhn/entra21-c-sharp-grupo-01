@@ -10,6 +10,8 @@ namespace Principal.Controllers
     public class HomeTuristaController : BaseController
     {
         // GET: HomeTurista
+        public int idEndereco = 0;
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -41,6 +43,14 @@ namespace Principal.Controllers
                     ViewBag.UsuarioNome = ((Turista)Session["usuarioLogado"]).Nome;
                     ViewBag.UsuarioSobrenome = ((Turista)Session["usuarioLogado"]).Sobrenome;
                     ViewBag.UsuarioPrivilegio = ((Turista)Session["usuarioLogado"]).Login.Privilegio;
+                    try
+                    {
+                        ViewBag.UsuarioidEndereco = ((Turista)Session["usuarioLogado"]).IdEndereco;
+                    }
+                    catch
+                    {
+                        idEndereco = -1;
+                    }
                 }
                 else
                 {

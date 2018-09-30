@@ -5620,7 +5620,6 @@
     <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\Login\ModalCriarConta.cshtml" />
     <Content Include="Views\Login\ModalCadastroTurista.cshtml" />
-    <Content Include="Views\Login\ModalCriarEndereco.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
