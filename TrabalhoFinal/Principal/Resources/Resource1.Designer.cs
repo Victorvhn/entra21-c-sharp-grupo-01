@@ -1951,6 +1951,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Você irá desativar o registro.
+        /// </summary>
+        public static string VoceIraDesativarRegistro {
+            get {
+                return ResourceManager.GetString("VoceIraDesativarRegistro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Você tem certeza?.
         /// </summary>
         public static string VoceTemCerteza {

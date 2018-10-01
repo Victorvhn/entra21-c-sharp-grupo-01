@@ -202,19 +202,19 @@
     $('table').on('click', '.botao-excluir-historico-viagem', function () {
         var id = $(this).data('id');
         swal({
-            title: "Você tem certeza?",
-            text: "Você ira desativar o registro!",
+            title: STRINGS.voceTemCerteza,
+            text: STRINGS.voceIraDesativarRegistro,
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-danger",
-            confirmButtonText: "Sim, Desativar!",
-            cancelButtonText: "Não, Cancelar!",
+            confirmButtonText: STRINGS.simDesativar,
+            cancelButtonText: STRINGS.naoCancelar,
             closeOnConfirm: false,
             closeOnCancel: false
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativado!", "Você desativou o registro.", "success");
+                    swal(STRINGS.desativado, STRINGS.voceDesativouRegistro, "success");
                     $.ajax({
                         url: 'HistoricoViagem/Excluir?id=' + id,
                         method: 'get',
@@ -239,7 +239,7 @@
                         }
                     });
                 } else {
-                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
+                    swal(STRINGS.cancelado, STRINGS.seuArquivoEstaSalvo, "error");
                 }
             });
     });
