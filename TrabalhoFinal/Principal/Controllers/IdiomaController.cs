@@ -23,7 +23,14 @@ namespace Principal.Controllers
                 alterado = Resources.Resource.AlteradoSucesso,
                 desativadoSucesso = Resources.Resource.DesativadoSucesso,
                 idiomaPreenchido = Resources.Resource.IdiomaPreenchido,
-                idiomaConter = Resources.Resource.IdiomaDeveConter
+                idiomaConter = Resources.Resource.IdiomaDeveConter,
+                voceTemCerteza = Resources.Resource.VoceTemCerteza,
+                simDesativar = Resources.Resource.SimDesativar,
+                naoCancelar = Resources.Resource.NaoCancelar,
+                cancelado = Resources.Resource.Cancelado,
+                seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
+                voceIraDesativarIdioma = Resources.Resource.VoceIraDesativarLingua,
+                voceDesativouIdioma = Resources.Resource.VoceDesativouLingua
             });
         }
         [HttpGet]        

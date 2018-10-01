@@ -732,6 +732,9 @@
   <data name="VoceDesativouGuia" xml:space="preserve">
     <value>Você desativou o guia</value>
   </data>
+  <data name="VoceDesativouLingua" xml:space="preserve">
+    <value>Você desativou o idioma</value>
+  </data>
   <data name="VoceDesativouRegistro" xml:space="preserve">
     <value>Você desativou o registro</value>
   </data>
@@ -746,6 +749,12 @@
   </data>
   <data name="VoceIraDesativarGuia" xml:space="preserve">
     <value>Você irá desativar o guia</value>
+  </data>
+  <data name="VoceIraDesativarLingua" xml:space="preserve">
+    <value>Você irá desativar o idioma</value>
+  </data>
+  <data name="VoceIraDesativarRegistro" xml:space="preserve">
+    <value>Você irá desativar o registro</value>
   </data>
   <data name="VoceTemCerteza" xml:space="preserve">
     <value>Você tem certeza?</value>

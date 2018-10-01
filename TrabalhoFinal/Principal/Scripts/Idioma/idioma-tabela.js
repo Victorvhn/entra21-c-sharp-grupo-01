@@ -158,19 +158,19 @@
         var id = $(this).data('id');
         var nome = $(this).data('nome');
         swal({
-            title: "Você tem certeza?",
-            text: "Você ira desativar o idioma " + nome + "!",
+            title: STRINGS.voceTemCerteza,
+            text: STRINGS.voceIraDesativarIdioma + " " + nome + "!",
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-danger",
-            confirmButtonText: "Sim, Desativar!",
-            cancelButtonText: "Não, Cancelar!",
+            confirmButtonText: STRINGS.simDesativar,
+            cancelButtonText: STRINGS.naoCancelar,
             closeOnConfirm: false,
             closeOnCancel: false
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativado!", "Você desativou o idioma " + nome + ".", "success");
+                    swal(STRINGS.desativado, STRINGS.voceDesativouIdioma + " " + nome + ".", "success");
                     $.ajax({
                         url: '/Idioma/Excluir?id=' + id,
                         method: 'get',
@@ -195,7 +195,7 @@
                         }
                     });
                 } else {
-                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
+                    swal(STRINGS.cancelado, STRINGS.seuArquivoEstaSalvo, "error");
                 }
             });
     });

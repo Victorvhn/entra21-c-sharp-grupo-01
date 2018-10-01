@@ -736,6 +736,9 @@ Address</value>
   <data name="VoceDesativouGuia" xml:space="preserve">
     <value>You disabled guide</value>
   </data>
+  <data name="VoceDesativouLingua" xml:space="preserve">
+    <value>You have disabled language</value>
+  </data>
   <data name="VoceDesativouRegistro" xml:space="preserve">
     <value>You have disabled registration</value>
   </data>
@@ -750,6 +753,9 @@ Address</value>
   </data>
   <data name="VoceIraDesativarGuia" xml:space="preserve">
     <value>You will disable guide</value>
+  </data>
+  <data name="VoceIraDesativarLingua" xml:space="preserve">
+    <value>You will deactivate language</value>
   </data>
   <data name="VoceIraDesativarRegistro" xml:space="preserve">
     <value>You will disable registration</value>
