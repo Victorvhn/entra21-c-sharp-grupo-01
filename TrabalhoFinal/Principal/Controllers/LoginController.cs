@@ -164,39 +164,6 @@ namespace Principal.Controllers
             }
         }        
 
-        [HttpGet]
-        public ActionResult ObterCidadeSelect()
-        {
-
-            List<Cidade> cidades = new CidadeRepository().ObterTodosParaSelect();
-
-            var x = new object[cidades.Count];
-            int i = 0;
-            foreach (var cidade in cidades)
-            {
-                x[i] = new { id = cidade.Id, text = cidade.Nome, idEstado = cidade.IdEstado };
-                i++;
-            }
-
-            return Content(JsonConvert.SerializeObject(new { results = x }));
-        }
-
-        [HttpGet]
-        public ActionResult ObterEstadoSelect()
-        {
-            List<Estado> estados = new EstadoRepository().ObterTodosParaSelect();
-
-            var x = new object[estados.Count];
-            int i = 0;
-            foreach (var estado in estados)
-            {
-                x[i] = new { id = estado.Id, text = estado.Nome };
-                i++;
-            }
-
-            return Content(JsonConvert.SerializeObject(new { results = x }));
-        }
-
         public ActionResult Logout()
         {
             Session.Remove("usuarioLogado");
