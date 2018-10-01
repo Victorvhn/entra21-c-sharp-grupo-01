@@ -46,7 +46,14 @@ namespace Principal.Controllers
                 {
                     ViewBag.UsuarioNome = ((Turista)Session["usuarioLogado"]).Nome;
                     ViewBag.UsuarioSobrenome = ((Turista)Session["usuarioLogado"]).Sobrenome;
-                    ViewBag.UsuarioPrivilegio = ((Turista)Session["usuarioLogado"]).Login.Privilegio;
+                    try
+                    {
+                        ViewBag.UsuarioPrivilegio = ((Turista)Session["usuarioLogado"]).Login.Privilegio;
+                    }
+                    catch
+                    {
+                        ViewBag.UsuarioPrivilegio = "Funcionário";
+                    }
                     ViewBag.UsuarioDataNascimento = ((Turista)Session["usuarioLogado"]).DataNascimento;
                 }
                 else
@@ -69,6 +76,6 @@ namespace Principal.Controllers
         public ActionResult ModalConfiguracoes()
         {
             return View();
-        }                
+        }
     }
 }

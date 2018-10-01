@@ -63,5 +63,16 @@ ORDER BY " + orderColumn + " " + orderDir +
             command.CommandText = @"SELECT COUNT(id) FROM turistas_pacotes WHERE ativo = 1";
             return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
+
+        public int Cadastro(TuristaPacote turistaPacoteModel)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"INSERT INTO turistas_pacotes(id_pacote, id_turista, status_do_pedido, data_requisicao) OUTPUT INSERTED.ID VALUES (@IDPACOTE, @IDTURISTA, @STATUS, GETDATE())";
+            command.Parameters.AddWithValue("@IDPACOTE", turistaPacoteModel.IdPacote);
+            command.Parameters.AddWithValue("@IDTURISTA", turistaPacoteModel.IdTurista);
+            command.Parameters.AddWithValue("@STATUS", turistaPacoteModel.StatusPedido);
+
+            return Convert.ToInt32(command.ExecuteScalar().ToString());
+        }
     }
 }

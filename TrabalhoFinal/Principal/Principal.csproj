@@ -5237,7 +5237,6 @@
     <Compile Include="Models\PacoteString.cs" />
     <Compile Include="Models\PaisString.cs" />
     <Compile Include="Models\PontoTuristicoString.cs" />
-    <Compile Include="Models\TuristaPacote.cs" />
     <Compile Include="Models\TuristaString.cs" />
     <Compile Include="Models\ViagemString.cs" />
     <Compile Include="Models\ViagemTuristaString.cs" />
@@ -5617,11 +5616,11 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\LockScreen.cshtml" />
     <Content Include="Views\HomeTurista\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <Content Include="Views\Login\ModalCriarConta.cshtml" />
     <Content Include="Views\Login\ModalCadastroTurista.cshtml" />
     <Content Include="Views\Home\ModalConfiguracoes.cshtml" />
+    <None Include="Properties\PublishProfiles\LuvTour - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\LuvTour - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

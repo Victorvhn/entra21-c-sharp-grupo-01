@@ -33,11 +33,15 @@ namespace Principal.Controllers
                 selecionePontoTuristico = Resources.Resource.SelecionePontoTuristico
             });
         }
+
+        public int idUsuarioLogado = 0;
+
         [HttpGet]
         public ActionResult Index()
         {
             var idGuia = 0;
             var idTurista = 0;
+            idUsuarioLogado = 0;
 
             try
             {
@@ -50,13 +54,29 @@ namespace Principal.Controllers
 
             try
             {
-
                 idTurista = ((Turista)Session["usuarioLogado"]).Id;
             }
             catch
             {
                 idTurista = -1;
             }
+
+            try
+            {
+                idUsuarioLogado = idGuia;
+            }
+            catch
+            {
+                try
+                {
+                    idUsuarioLogado = idTurista;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+
             if (idGuia == -1)
             {
                 if (idTurista != -1)
@@ -87,6 +107,13 @@ namespace Principal.Controllers
             pacoteModel.Valor = Convert.ToDouble(pacoteString.Valor.ToString());
 
             int codigoPacote = new PacoteRepository().Cadastrar(pacoteModel);
+
+            TuristaPacote turistaPacoteModel = new TuristaPacote();
+            turistaPacoteModel.IdPacote = codigoPacote;
+            turistaPacoteModel.IdTurista = 1;
+            turistaPacoteModel.StatusPedido = "Aguardando Aprovação";            
+
+            int idTuristaPacote = new TuristaPacoteRepository().Cadastro(turistaPacoteModel);
 
             PacotePontosTuristicosRepository pacotePontosTuristicosRepository = new PacotePontosTuristicosRepository();
 
