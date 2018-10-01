@@ -775,4 +775,25 @@ Address</value>
   <data name="VoceTemCerteza" xml:space="preserve">
     <value>Are you sure?</value>
   </data>
+  <data name="Acesso" xml:space="preserve">
+    <value>Access</value>
+  </data>
+  <data name="AlterarEmail" xml:space="preserve">
+    <value>Change e-mail</value>
+  </data>
+  <data name="AlterarSenha" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="ConfirmarSenha" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="NovaSenha" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="Salvar" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SenhaAtual" xml:space="preserve">
+    <value>Current password</value>
+  </data>
 </root>

@@ -771,4 +771,25 @@
   <data name="VoceTemCerteza" xml:space="preserve">
     <value>Você tem certeza?</value>
   </data>
+  <data name="Acesso" xml:space="preserve">
+    <value>Acesso</value>
+  </data>
+  <data name="AlterarEmail" xml:space="preserve">
+    <value>Alterar e-mail</value>
+  </data>
+  <data name="AlterarSenha" xml:space="preserve">
+    <value>Alterar Senha</value>
+  </data>
+  <data name="ConfirmarSenha" xml:space="preserve">
+    <value>Confirmar nova senha</value>
+  </data>
+  <data name="NovaSenha" xml:space="preserve">
+    <value>Nova senha</value>
+  </data>
+  <data name="Salvar" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="SenhaAtual" xml:space="preserve">
+    <value>Senha atual</value>
+  </data>
 </root>

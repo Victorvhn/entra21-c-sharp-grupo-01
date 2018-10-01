@@ -12,42 +12,42 @@
                 </button>
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#tab-home" role="tab">Acesso</a>
+                        <a class="nav-link active" data-toggle="tab" href="#tab-home" role="tab">@Principal.Resources.Resource.Acesso</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#tab-profile" role="tab">Dados Pessoais</a>
+                        <a class="nav-link" data-toggle="tab" href="#tab-profile" role="tab">@Principal.Resources.Resource.DadosPessoais</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#tab-messages" role="tab">Endereço</a>
+                        <a class="nav-link" data-toggle="tab" href="#tab-messages" role="tab">@Principal.Resources.Resource.Endereco</a>
                     </li>
                 </ul>
                 <div class="tab-content modal-body">
                     <div class="tab-pane active" id="tab-home" role="tabpanel">
                         <div>
-                            <label>Alterar e-mail</label>
+                            <label>@Principal.Resources.Resource.AlterarEmail</label>
                         </div>
                         <div>
                             <input type="email" id="alterar-email" class="form-control" />
                         </div>
                         <div>
-                            <label>Alterar senha</label>
+                            <label>@Principal.Resources.Resource.AlterarSenha</label>
                         </div>
                         <div>
-                            <label>Senha atual</label>
+                            <label>@Principal.Resources.Resource.SenhaAtual</label>
                         </div>
                         <div>
                             <input type="email" id="senha-atual" class="form-control" />
                         </div>
 
                         <div>
-                            <label>Nova senha</label>
+                            <label>@Principal.Resources.Resource.NovaSenha</label>
                         </div>
                         <div>
                             <input type="email" id="alterar-senha" class="form-control" />
                         </div>
 
                         <div>
-                            <label>Confirmar nova senha</label>
+                            <label>@Principal.Resources.Resource.ConfirmarSenha</label>
                         </div>
                         <div>
                             <input type="email" id="confirmar-senha" class="form-control" />
@@ -56,15 +56,15 @@
 
                     <div class="tab-pane" id="tab-profile" role="tabpanel">
                         <div>
-                            <label>Nome</label>
+                            <label>@Principal.Resources.Resource.Nome</label>
                             <input type="text" class="form-control" id="configuracoes-nome" value="@ViewBag.UsuarioNome"/>
                         </div>
                         <div>
-                            <label>Sobrenome</label>
+                            <label>@Principal.Resources.Resource.Sobrenome</label>
                             <input type="text" class="form-control" id="configuracoes-sobrenome" value="@ViewBag.UsuarioSobrenome"/>
                         </div>
                         <div>
-                            <label>Data de Nascimento</label>
+                            <label>@Principal.Resources.Resource.DataNascimento</label>
                             <input type="datetime" class="form-control" id="configuracoes-data-nascimento" value="@ViewBag.UsuarioDataNascimento"/>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default waves-effect " data-dismiss="modal" id="botao-fechar-modal-cadastro-cidade">@Principal.Resources.Resource.Fechar</button>
-                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-configuracoes">Salvar</button>
+                <button type="button" class="btn btn-primary waves-effect waves-light " id="botao-salvar-modal-configuracoes">@Principal.Resources.Resource.Salvar</button>
             </div>
         </div>
     </div>

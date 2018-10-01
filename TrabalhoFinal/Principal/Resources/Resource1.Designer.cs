@@ -70,6 +70,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Acesso.
+        /// </summary>
+        public static string Acesso {
+            get {
+                return ResourceManager.GetString("Acesso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to África.
         /// </summary>
         public static string Africa {
@@ -84,6 +93,24 @@ namespace Principal.Resources {
         public static string AlteradoSucesso {
             get {
                 return ResourceManager.GetString("AlteradoSucesso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alterar e-mail.
+        /// </summary>
+        public static string AlterarEmail {
+            get {
+                return ResourceManager.GetString("AlterarEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alterar Senha.
+        /// </summary>
+        public static string AlterarSenha {
+            get {
+                return ResourceManager.GetString("AlterarSenha", resourceCulture);
             }
         }
         
@@ -462,6 +489,15 @@ namespace Principal.Resources {
         public static string ConfirmarPacotes {
             get {
                 return ResourceManager.GetString("ConfirmarPacotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmar nova senha.
+        /// </summary>
+        public static string ConfirmarSenha {
+            get {
+                return ResourceManager.GetString("ConfirmarSenha", resourceCulture);
             }
         }
         
@@ -1105,6 +1141,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nova senha.
+        /// </summary>
+        public static string NovaSenha {
+            get {
+                return ResourceManager.GetString("NovaSenha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Número.
         /// </summary>
         public static string Numero {
@@ -1438,6 +1483,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Salvar.
+        /// </summary>
+        public static string Salvar {
+            get {
+                return ResourceManager.GetString("Salvar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selecione um destino.
         /// </summary>
         public static string SelecioneDestino {
@@ -1488,6 +1542,15 @@ namespace Principal.Resources {
         public static string Senha {
             get {
                 return ResourceManager.GetString("Senha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Senha atual.
+        /// </summary>
+        public static string SenhaAtual {
+            get {
+                return ResourceManager.GetString("SenhaAtual", resourceCulture);
             }
         }
         
