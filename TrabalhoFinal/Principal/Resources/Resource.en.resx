@@ -712,4 +712,31 @@ Address</value>
   <data name="cepDigitos" xml:space="preserve">
     <value>Zip code should contain only digits</value>
   </data>
+  <data name="Cancelado" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="NaoCancelar" xml:space="preserve">
+    <value>No, Cancel!</value>
+  </data>
+  <data name="SeuArquivoEstaSalvo" xml:space="preserve">
+    <value>Your file is safe :)</value>
+  </data>
+  <data name="SimDesativar" xml:space="preserve">
+    <value>Yes, Disable!</value>
+  </data>
+  <data name="VoceDesativouCidade" xml:space="preserve">
+    <value>You deactivated the city</value>
+  </data>
+  <data name="VoceDesativouEndereco" xml:space="preserve">
+    <value>You have disabled the address!</value>
+  </data>
+  <data name="VoceIraDesativarCidade" xml:space="preserve">
+    <value>You will deactivate the city</value>
+  </data>
+  <data name="VoceIraDesativarEndereco" xml:space="preserve">
+    <value>You will disable the address!</value>
+  </data>
+  <data name="VoceTemCerteza" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
 </root>

@@ -708,4 +708,31 @@
   <data name="cepDigitos" xml:space="preserve">
     <value>CEP deve conter somente digitos</value>
   </data>
+  <data name="Cancelado" xml:space="preserve">
+    <value>Cancelado</value>
+  </data>
+  <data name="NaoCancelar" xml:space="preserve">
+    <value>Não, Cancelar!</value>
+  </data>
+  <data name="SeuArquivoEstaSalvo" xml:space="preserve">
+    <value>Seu arquivo está salvo :)</value>
+  </data>
+  <data name="SimDesativar" xml:space="preserve">
+    <value>Sim, Desativar!</value>
+  </data>
+  <data name="VoceDesativouCidade" xml:space="preserve">
+    <value>Você desativou a cidade</value>
+  </data>
+  <data name="VoceDesativouEndereco" xml:space="preserve">
+    <value>Você desativou o endereço!</value>
+  </data>
+  <data name="VoceIraDesativarCidade" xml:space="preserve">
+    <value>Você irá desativar a cidade</value>
+  </data>
+  <data name="VoceIraDesativarEndereco" xml:space="preserve">
+    <value>Você irá desativar o endereço!</value>
+  </data>
+  <data name="VoceTemCerteza" xml:space="preserve">
+    <value>Você tem certeza?</value>
+  </data>
 </root>

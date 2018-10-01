@@ -23,7 +23,14 @@ namespace Principal.Controllers
                 alterado = Resources.Resource.AlteradoSucesso,
                 desativadoSucesso = Resources.Resource.DesativadoSucesso,
                 estadoPreenchido = Resources.Resource.EstadoPreenchido,
-                estadoConter = Resources.Resource.EstadoDeveConter
+                estadoConter = Resources.Resource.EstadoDeveConter,
+                //
+                voceTemCerteza = Resources.Resource.VoceTemCerteza,
+                simDesativar = Resources.Resource.SimDesativar,
+                naoCancelar = Resources.Resource.NaoCancelar,
+                cancelado = Resources.Resource.Cancelado,
+                seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
+
 
             });
         }

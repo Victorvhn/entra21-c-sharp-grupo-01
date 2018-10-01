@@ -225,19 +225,19 @@
         var id = $(this).data('id');
         var nome = $(this).data('nome');
         swal({
-            title: "Você tem certeza?",
-            text: "Você ira desativar a cidade " + nome + "!",
+            title: STRINGS.voceTemCerteza,
+            text: STRINGS.voceIraDesativarCidade + " " + nome + "!",
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-danger",
-            confirmButtonText: "Sim, Desativar!",
-            cancelButtonText: "Não, Cancelar!",
+            confirmButtonText: STRINGS.simDesativar,
+            cancelButtonText: STRINGS.naoCancelar,
             closeOnConfirm: false,
             closeOnCancel: false
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativado!", "Você desativou a cidade " + nome + ".", "success");
+                    swal(STRINGS.desativado, STRINGS.voceDesativouCidade + " " + nome + ".", "success");
                     $.ajax({
                         url: 'Cidade/Excluir?id=' + id,
                         method: 'get',
@@ -262,7 +262,7 @@
                         }
                     });
                 } else {
-                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
+                    swal(STRINGS.cancelado, STRINGS.seuArquivoEstaSalvo, "error");
                 }
             });
     });

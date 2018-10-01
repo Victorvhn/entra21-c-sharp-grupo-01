@@ -295,6 +295,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelado.
+        /// </summary>
+        public static string Cancelado {
+            get {
+                return ResourceManager.GetString("Cancelado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Carregando....
         /// </summary>
         public static string Carregando {
@@ -1024,6 +1033,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não, Cancelar!.
+        /// </summary>
+        public static string NaoCancelar {
+            get {
+                return ResourceManager.GetString("NaoCancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nenhum Registro Disponível.
         /// </summary>
         public static string NenhumRegistroDisponivel {
@@ -1456,6 +1474,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Seu arquivo está salvo :).
+        /// </summary>
+        public static string SeuArquivoEstaSalvo {
+            get {
+                return ResourceManager.GetString("SeuArquivoEstaSalvo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sexo.
         /// </summary>
         public static string Sexo {
@@ -1470,6 +1497,15 @@ namespace Principal.Resources {
         public static string SexoPreenchido {
             get {
                 return ResourceManager.GetString("SexoPreenchido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sim, Desativar!.
+        /// </summary>
+        public static string SimDesativar {
+            get {
+                return ResourceManager.GetString("SimDesativar", resourceCulture);
             }
         }
         
@@ -1830,6 +1866,51 @@ namespace Principal.Resources {
         public static string Viagens {
             get {
                 return ResourceManager.GetString("Viagens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você desativou a cidade.
+        /// </summary>
+        public static string VoceDesativouCidade {
+            get {
+                return ResourceManager.GetString("VoceDesativouCidade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você desativou o endereço!.
+        /// </summary>
+        public static string VoceDesativouEndereco {
+            get {
+                return ResourceManager.GetString("VoceDesativouEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você irá desativar a cidade.
+        /// </summary>
+        public static string VoceIraDesativarCidade {
+            get {
+                return ResourceManager.GetString("VoceIraDesativarCidade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você irá desativar o endereço!.
+        /// </summary>
+        public static string VoceIraDesativarEndereco {
+            get {
+                return ResourceManager.GetString("VoceIraDesativarEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você tem certeza?.
+        /// </summary>
+        public static string VoceTemCerteza {
+            get {
+                return ResourceManager.GetString("VoceTemCerteza", resourceCulture);
             }
         }
     }

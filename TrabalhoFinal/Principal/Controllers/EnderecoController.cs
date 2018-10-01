@@ -33,7 +33,14 @@ namespace Principal.Controllers
                 enderecoAlterado = Resources.Resource.EnderecoEditadoSucesso,
                 enderecoDesativado = Resources.Resource.EnderecoDesativadoSucesso,
                 editar = Resources.Resource.Editar,
-                desativar = Resources.Resource.Desativar
+                desativar = Resources.Resource.Desativar,                
+                voceTemCerteza = Resources.Resource.VoceTemCerteza,
+                simDesativar = Resources.Resource.SimDesativar,
+                naoCancelar = Resources.Resource.NaoCancelar,
+                cancelado = Resources.Resource.Cancelado,
+                seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
+                voceIraDesativarEndereco = Resources.Resource.VoceIraDesativarEndereco,
+                voceDesativouEndereco = Resources.Resource.VoceDesativouEndereco
             });
         }
 

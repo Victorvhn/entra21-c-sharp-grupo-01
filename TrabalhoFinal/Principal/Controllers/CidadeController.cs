@@ -26,7 +26,15 @@ namespace Principal.Controllers
                 cidadeConter = Resources.Resource.CidadeDeveConterEntre,
                 cadastrado = Resources.Resource.CadastradoSucesso,
                 alterado = Resources.Resource.AlteradoSucesso,
-                desativadoSucesso = Resources.Resource.DesativadoSucesso
+                desativadoSucesso = Resources.Resource.DesativadoSucesso,
+                voceTemCerteza = Resources.Resource.VoceTemCerteza, 
+                simDesativar = Resources.Resource.SimDesativar,
+                naoCancelar = Resources.Resource.NaoCancelar,
+                cancelado = Resources.Resource.Cancelado,
+                seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
+                voceDesativouCidade = Resources.Resource.VoceDesativouCidade,
+                voceIraDesativarCidade = Resources.Resource.VoceIraDesativarCidade
+
 
             });
         }

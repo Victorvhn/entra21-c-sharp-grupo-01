@@ -714,4 +714,31 @@
   <data name="cepDigitos" xml:space="preserve">
     <value>Die Postleitzahl sollte nur Ziffern enthalten</value>
   </data>
+  <data name="Cancelado" xml:space="preserve">
+    <value>Abgebrochen</value>
+  </data>
+  <data name="NaoCancelar" xml:space="preserve">
+    <value>Nein, Abbrechen!</value>
+  </data>
+  <data name="SeuArquivoEstaSalvo" xml:space="preserve">
+    <value>Ihre Datei ist sicher :)</value>
+  </data>
+  <data name="SimDesativar" xml:space="preserve">
+    <value>Ja, Deaktivieren!</value>
+  </data>
+  <data name="VoceDesativouCidade" xml:space="preserve">
+    <value>Du hast die Stadt deaktiviert</value>
+  </data>
+  <data name="VoceDesativouEndereco" xml:space="preserve">
+    <value>Sie haben die Adresse deaktiviert</value>
+  </data>
+  <data name="VoceIraDesativarCidade" xml:space="preserve">
+    <value>Du wirst die Stadt deaktivieren</value>
+  </data>
+  <data name="VoceIraDesativarEndereco" xml:space="preserve">
+    <value>Sie werden die Adresse deaktivieren</value>
+  </data>
+  <data name="VoceTemCerteza" xml:space="preserve">
+    <value>Bist du sicher?</value>
+  </data>
 </root>
