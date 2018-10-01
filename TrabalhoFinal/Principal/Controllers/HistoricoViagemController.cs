@@ -23,7 +23,12 @@ namespace Principal.Controllers
                 desativadoSucesso = Resources.Resource.DesativadoSucesso,
                 selecionePacote = Resources.Resource.SelecionePacote,
                 informeData = Resources.Resource.InformeData,
-                dataValida = Resources.Resource.DataValida
+                dataValida = Resources.Resource.DataValida,
+                voceTemCerteza = Resources.Resource.VoceTemCerteza,
+                simDesativar = Resources.Resource.SimDesativar,
+                naoCancelar = Resources.Resource.NaoCancelar,
+                cancelado = Resources.Resource.Cancelado,
+                seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
             });
         }
         [HttpGet]

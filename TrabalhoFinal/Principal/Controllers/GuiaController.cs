@@ -41,6 +41,17 @@ namespace Principal.Controllers
                 numeroPrenchido = Resources.Resource.NumeroPreenchido,
                 numeroDigitos = Resources.Resource.NumeroDigitos,
                 sucesso = Resources.Resource.Sucesso,
+                voceTemCerteza = Resources.Resource.VoceTemCerteza,
+                simDesativar = Resources.Resource.SimDesativar,
+                naoCancelar = Resources.Resource.NaoCancelar,
+                cancelado = Resources.Resource.Cancelado,
+                seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
+                desativado = Resources.Resource.Desativado,
+                desativadoSucesso = Resources.Resource.DesativadoSucesso,
+                alteradoSucesso = Resources.Resource.AlteradoSucesso,
+                voceIraDesativarGuia = Resources.Resource.VoceIraDesativarGuia,
+                voceDesativouGuia = Resources.Resource.VoceDesativouGuia
+
             });
         }
 

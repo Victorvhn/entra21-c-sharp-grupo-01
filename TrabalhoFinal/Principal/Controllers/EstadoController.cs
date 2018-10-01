@@ -30,6 +30,8 @@ namespace Principal.Controllers
                 naoCancelar = Resources.Resource.NaoCancelar,
                 cancelado = Resources.Resource.Cancelado,
                 seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
+                voceIraDesativarEstado = Resources.Resource.VoceIraDesativarEstado,
+                voceDesativouEstado = Resources.Resource.VoceDesativouEstado
 
 
             });

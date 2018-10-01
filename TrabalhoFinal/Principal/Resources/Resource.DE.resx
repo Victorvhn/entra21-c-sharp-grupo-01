@@ -735,6 +735,9 @@
   <data name="VoceDesativouEstado" xml:space="preserve">
     <value>Du hast den Staat deaktiviert</value>
   </data>
+  <data name="VoceDesativouGuia" xml:space="preserve">
+    <value>Du hast den führen deaktiviert</value>
+  </data>
   <data name="VoceIraDesativarCidade" xml:space="preserve">
     <value>Du wirst die Stadt deaktivieren</value>
   </data>
@@ -743,6 +746,9 @@
   </data>
   <data name="VoceIraDesativarEstado" xml:space="preserve">
     <value>Sie werden den Staat deaktivieren</value>
+  </data>
+  <data name="VoceIraDesativarGuia" xml:space="preserve">
+    <value>Du wirst die führen deaktivieren</value>
   </data>
   <data name="VoceTemCerteza" xml:space="preserve">
     <value>Bist du sicher?</value>

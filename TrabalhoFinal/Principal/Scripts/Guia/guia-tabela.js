@@ -60,19 +60,19 @@ $(function () {
         var id = $(this).data('id');
         var nome = $(this).data('nome');
         swal({
-            title: "Você tem certeza?",
-            text: "Você ira desativar o guia " + nome + "!",
+            title: STRINGS.voceTemCerteza,
+            text: STRINGS.voceIraDesativarGuia + " " + nome + "!",
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-danger",
-            confirmButtonText: "Sim, Desativar!",
-            cancelButtonText: "Não, Cancelar!",
+            confirmButtonText: STRINGS.simDesativar,
+            cancelButtonText: STRINGS.naoCancelar,
             closeOnConfirm: false,
             closeOnCancel: false
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativado!", "Você desativou o guia " + nome + ".", "success");
+                    swal(STRINGS.desativado, STRINGS.voceDesativouGuia + " " + nome + ".", "success");
                     $.ajax({
                         url: '/Guia/Excluir?id=' + id,
                         method: 'get',
@@ -81,8 +81,8 @@ $(function () {
                             if (result == 1) {
 
                                 new PNotify({
-                                    title: 'Desativado!',
-                                    text: nome + ' desativado com sucesso',
+                                    title: STRINGS.desativado,
+                                    text: nome + " " + STRINGS.desativadoSucesso,
                                     type: 'success'
                                 });
                                 $('#guia-tabela').DataTable().ajax.reload();
@@ -97,7 +97,7 @@ $(function () {
                         }
                     });
                 } else {
-                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
+                    swal(STRINGS.cancelado, STRINGS.seuArquivoEstaSalvo, "error");
                 }
             });
     });
@@ -418,7 +418,7 @@ $(function () {
                 $(function () {
                     new PNotify({
                         title: STRINGS.sucesso,
-                        text: nomeVar + " " + STRINGS.cadastradoSucesso,
+                        text: nomeVar + " " + STRINGS.alteradoSucesso,
                         type: 'success'
                     });
                 });
@@ -707,8 +707,8 @@ $(function () {
                     $('#guia-tabela').DataTable().ajax.reload();
                     $(function () {
                         new PNotify({
-                            title: 'Sucesso!',
-                            text: nomeVar + ' cadastrado com sucesso',
+                            title: STRINGS.sucesso,
+                            text: nomeVar + " " + STRINGS.cadastradoSucesso,
                             type: 'success'
                         });
                     });

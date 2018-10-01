@@ -1897,6 +1897,24 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Você desativou o guia.
+        /// </summary>
+        public static string VoceDesativouGuia {
+            get {
+                return ResourceManager.GetString("VoceDesativouGuia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você desativou o registro.
+        /// </summary>
+        public static string VoceDesativouRegistro {
+            get {
+                return ResourceManager.GetString("VoceDesativouRegistro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Você irá desativar a cidade.
         /// </summary>
         public static string VoceIraDesativarCidade {
@@ -1920,6 +1938,15 @@ namespace Principal.Resources {
         public static string VoceIraDesativarEstado {
             get {
                 return ResourceManager.GetString("VoceIraDesativarEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você irá desativar o guia.
+        /// </summary>
+        public static string VoceIraDesativarGuia {
+            get {
+                return ResourceManager.GetString("VoceIraDesativarGuia", resourceCulture);
             }
         }
         
