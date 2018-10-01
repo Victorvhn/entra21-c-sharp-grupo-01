@@ -732,11 +732,17 @@
   <data name="VoceDesativouEndereco" xml:space="preserve">
     <value>Sie haben die Adresse deaktiviert</value>
   </data>
+  <data name="VoceDesativouEstado" xml:space="preserve">
+    <value>Du hast den Staat deaktiviert</value>
+  </data>
   <data name="VoceIraDesativarCidade" xml:space="preserve">
     <value>Du wirst die Stadt deaktivieren</value>
   </data>
   <data name="VoceIraDesativarEndereco" xml:space="preserve">
     <value>Sie werden die Adresse deaktivieren</value>
+  </data>
+  <data name="VoceIraDesativarEstado" xml:space="preserve">
+    <value>Sie werden den Staat deaktivieren</value>
   </data>
   <data name="VoceTemCerteza" xml:space="preserve">
     <value>Bist du sicher?</value>

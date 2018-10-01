@@ -726,11 +726,17 @@
   <data name="VoceDesativouEndereco" xml:space="preserve">
     <value>Você desativou o endereço!</value>
   </data>
+  <data name="VoceDesativouEstado" xml:space="preserve">
+    <value>Você desativou o estado</value>
+  </data>
   <data name="VoceIraDesativarCidade" xml:space="preserve">
     <value>Você irá desativar a cidade</value>
   </data>
   <data name="VoceIraDesativarEndereco" xml:space="preserve">
     <value>Você irá desativar o endereço!</value>
+  </data>
+  <data name="VoceIraDesativarEstado" xml:space="preserve">
+    <value>Você irá desativar o estado</value>
   </data>
   <data name="VoceTemCerteza" xml:space="preserve">
     <value>Você tem certeza?</value>

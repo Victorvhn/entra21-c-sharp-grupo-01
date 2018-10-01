@@ -730,11 +730,17 @@ Address</value>
   <data name="VoceDesativouEndereco" xml:space="preserve">
     <value>You have disabled the address!</value>
   </data>
+  <data name="VoceDesativouEstado" xml:space="preserve">
+    <value>You disabled state</value>
+  </data>
   <data name="VoceIraDesativarCidade" xml:space="preserve">
     <value>You will deactivate the city</value>
   </data>
   <data name="VoceIraDesativarEndereco" xml:space="preserve">
     <value>You will disable the address!</value>
+  </data>
+  <data name="VoceIraDesativarEstado" xml:space="preserve">
+    <value>You will disable state</value>
   </data>
   <data name="VoceTemCerteza" xml:space="preserve">
     <value>Are you sure?</value>

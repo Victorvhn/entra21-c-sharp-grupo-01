@@ -1888,6 +1888,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Você desativou o estado.
+        /// </summary>
+        public static string VoceDesativouEstado {
+            get {
+                return ResourceManager.GetString("VoceDesativouEstado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Você irá desativar a cidade.
         /// </summary>
         public static string VoceIraDesativarCidade {
@@ -1902,6 +1911,15 @@ namespace Principal.Resources {
         public static string VoceIraDesativarEndereco {
             get {
                 return ResourceManager.GetString("VoceIraDesativarEndereco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você irá desativar o estado.
+        /// </summary>
+        public static string VoceIraDesativarEstado {
+            get {
+                return ResourceManager.GetString("VoceIraDesativarEstado", resourceCulture);
             }
         }
         
