@@ -148,5 +148,12 @@ namespace Principal.Controllers
 
             return Content(JsonConvert.SerializeObject(new { data = pacotes }));
         }
+
+        [HttpGet]
+        public ActionResult Confirmar(int id)
+        {
+            bool apagado = new TuristaPacoteRepository().Excluir(id);
+            return Content(JsonConvert.SerializeObject(apagado));
+        }
     }
 }

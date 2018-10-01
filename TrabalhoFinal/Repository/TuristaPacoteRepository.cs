@@ -74,5 +74,13 @@ ORDER BY " + orderColumn + " " + orderDir +
 
             return Convert.ToInt32(command.ExecuteScalar().ToString());
         }
+
+        public bool Excluir(int id)
+        {
+            SqlCommand command = new Conexao().ObterConexao();
+            command.CommandText = @"UPDATE turistas_pacotes SET status_do_pedido = 'Aguardando Pagamento' WHERE id = @ID";
+            command.Parameters.AddWithValue("@ID", id);
+            return command.ExecuteNonQuery() == 1;
+        }
     }
 }
