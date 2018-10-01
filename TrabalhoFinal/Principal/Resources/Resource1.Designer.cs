@@ -1915,6 +1915,15 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Você desativou o pacote.
+        /// </summary>
+        public static string VoceDesativouPacote {
+            get {
+                return ResourceManager.GetString("VoceDesativouPacote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Você desativou o registro.
         /// </summary>
         public static string VoceDesativouRegistro {
@@ -1965,6 +1974,15 @@ namespace Principal.Resources {
         public static string VoceIraDesativarLingua {
             get {
                 return ResourceManager.GetString("VoceIraDesativarLingua", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você irá desativar o pacote.
+        /// </summary>
+        public static string VoceIraDesativarPacote {
+            get {
+                return ResourceManager.GetString("VoceIraDesativarPacote", resourceCulture);
             }
         }
         

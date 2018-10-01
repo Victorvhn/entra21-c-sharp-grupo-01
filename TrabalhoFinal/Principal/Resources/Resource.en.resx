@@ -731,13 +731,16 @@ Address</value>
     <value>You have disabled the address!</value>
   </data>
   <data name="VoceDesativouEstado" xml:space="preserve">
-    <value>You disabled state</value>
+    <value>You have disabled state</value>
   </data>
   <data name="VoceDesativouGuia" xml:space="preserve">
-    <value>You disabled guide</value>
+    <value>You have disabled guide</value>
   </data>
   <data name="VoceDesativouLingua" xml:space="preserve">
     <value>You have disabled language</value>
+  </data>
+  <data name="VoceDesativouPacote" xml:space="preserve">
+    <value>You have disabled package</value>
   </data>
   <data name="VoceDesativouRegistro" xml:space="preserve">
     <value>You have disabled registration</value>
@@ -752,10 +755,13 @@ Address</value>
     <value>You will disable state</value>
   </data>
   <data name="VoceIraDesativarGuia" xml:space="preserve">
-    <value>You will disable guide</value>
+    <value>You have will disable guide</value>
   </data>
   <data name="VoceIraDesativarLingua" xml:space="preserve">
-    <value>You will deactivate language</value>
+    <value>You will disable language</value>
+  </data>
+  <data name="VoceIraDesativarPacote" xml:space="preserve">
+    <value>You will disable package</value>
   </data>
   <data name="VoceIraDesativarRegistro" xml:space="preserve">
     <value>You will disable registration</value>

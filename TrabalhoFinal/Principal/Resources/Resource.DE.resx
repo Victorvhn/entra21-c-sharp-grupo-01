@@ -741,6 +741,9 @@
   <data name="VoceDesativouLingua" xml:space="preserve">
     <value>Sie haben die Sprache deaktiviert</value>
   </data>
+  <data name="VoceDesativouPacote" xml:space="preserve">
+    <value>Sie haben das Paket deaktiviert</value>
+  </data>
   <data name="VoceDesativouRegistro" xml:space="preserve">
     <value>Sie haben die Registrierung deaktiviert</value>
   </data>
@@ -758,6 +761,9 @@
   </data>
   <data name="VoceIraDesativarLingua" xml:space="preserve">
     <value>Sie werden die Sprache deaktivieren</value>
+  </data>
+  <data name="VoceIraDesativarPacote" xml:space="preserve">
+    <value>Sie werden das Paket deaktivieren</value>
   </data>
   <data name="VoceIraDesativarRegistro" xml:space="preserve">
     <value>Sie werden die Registrierung deaktivieren</value>

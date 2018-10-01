@@ -30,7 +30,12 @@ namespace Principal.Controllers
                 valorDeveSer = Resources.Resource.ValorDeveSer,
                 valorInteiro = Resources.Resource.ValorInteros,
                 pacotePreenchido = Resources.Resource.PacotePreenchido,
-                pacoteConter = Resources.Resource.PacoteDeveConter
+                voceTemCerteza = Resources.Resource.VoceTemCerteza,
+                pacoteConter = Resources.Resource.PacoteDeveConter,
+                simDesativar = Resources.Resource.SimDesativar,
+                naoCancelar = Resources.Resource.NaoCancelar,
+                cancelado = Resources.Resource.Cancelado,
+                seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
             });
         }
         [HttpGet]
