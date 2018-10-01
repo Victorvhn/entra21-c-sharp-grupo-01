@@ -36,6 +36,8 @@ namespace Principal.Controllers
                 naoCancelar = Resources.Resource.NaoCancelar,
                 cancelado = Resources.Resource.Cancelado,
                 seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
+                voceDesativouPacote = Resources.Resource.VoceDesativouPacote,
+                voceIraDesativarPacote = Resources.Resource.VoceIraDesativarPacote,                
             });
         }
         [HttpGet]

@@ -711,6 +711,12 @@
   <data name="Cancelado" xml:space="preserve">
     <value>Cancelado</value>
   </data>
+  <data name="Ligacao" xml:space="preserve">
+    <value>Você desativará a conexão entre Pacote e Ponto Turístico</value>
+  </data>
+  <data name="Ligacao2" xml:space="preserve">
+    <value>Você desativou a conexão entre Pacote e Ponto Turístico</value>
+  </data>
   <data name="NaoCancelar" xml:space="preserve">
     <value>Não, Cancelar!</value>
   </data>

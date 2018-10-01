@@ -23,7 +23,15 @@ namespace Principal.Controllers
                 alterado = Resources.Resource.AlteradoSucesso,
                 desativadoSucesso = Resources.Resource.DesativadoSucesso,
                 selecionePT = Resources.Resource.SelecionePontoTuristico,
-                selecionePacote = Resources.Resource.SelecionePacote
+                selecionePacote = Resources.Resource.SelecionePacote,
+                voceTemCerteza = Resources.Resource.VoceTemCerteza,
+                pacoteConter = Resources.Resource.PacoteDeveConter,
+                simDesativar = Resources.Resource.SimDesativar,
+                naoCancelar = Resources.Resource.NaoCancelar,
+                cancelado = Resources.Resource.Cancelado,
+                seuArquivoEstaSalvo = Resources.Resource.SeuArquivoEstaSalvo,
+                voceIraDesativar = Resources.Resource.Ligacao,
+                vocedesativou = Resources.Resource.Ligacao2
             });
         }
         [HttpGet]

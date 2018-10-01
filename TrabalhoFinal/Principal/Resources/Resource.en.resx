@@ -715,6 +715,12 @@ Address</value>
   <data name="Cancelado" xml:space="preserve">
     <value>Canceled</value>
   </data>
+  <data name="Ligacao" xml:space="preserve">
+    <value>You will deactivate the connection between Package and Attraction</value>
+  </data>
+  <data name="Ligacao2" xml:space="preserve">
+    <value>You have disabled the connection between Package and Attraction</value>
+  </data>
   <data name="NaoCancelar" xml:space="preserve">
     <value>No, Cancel!</value>
   </data>

@@ -172,19 +172,19 @@
     $('table').on('click', '.botao-excluir-pacote-ponto-turistico', function () {
         var id = $(this).data('id');
         swal({
-            title: "Você tem certeza?",
-            text: "Você ira desativar a ligação entre Pacote e Ponto Turistico!",
+            title: STRINGS.voceTemCerteza,
+            text: STRINGS.voceIraDesativar,
             type: "warning",
             showCancelButton: true,
             confirmButtonClass: "btn-danger",
-            confirmButtonText: "Sim, Desativar!",
-            cancelButtonText: "Não, Cancelar!",
+            confirmButtonText: STRINGS.simDesativar,
+            cancelButtonText: STRINGS.naoCancelar,
             closeOnConfirm: false,
             closeOnCancel: false
         },
             function (isConfirm) {
                 if (isConfirm) {
-                    swal("Desativado!", "Você desativou a ligação entre Pacote e Ponto Turistico.", "success");
+                    swal(STRINGS.desativado, STRINGS.vocedesativou, "success");
                     $.ajax({
                         url: '/PacotePontoTuristico/Excluir?id=' + id,
                         method: 'get',
@@ -207,7 +207,7 @@
                         }
                     });
                 } else {
-                    swal("Cancelado", "Seu arquivo está a salvo :)", "error");
+                    swal(STRINGS.cancelado, STRINGS.seuArquivoEstaSalvo, "error");
                 }
             });
     });

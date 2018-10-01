@@ -717,6 +717,12 @@
   <data name="Cancelado" xml:space="preserve">
     <value>Abgebrochen</value>
   </data>
+  <data name="Ligacao" xml:space="preserve">
+    <value>Sie deaktivieren die Verbindung zwischen Paket und Attraktion</value>
+  </data>
+  <data name="Ligacao2" xml:space="preserve">
+    <value>Sie haben die Verbindung zwischen Paket und Attraktion deaktiviert</value>
+  </data>
   <data name="NaoCancelar" xml:space="preserve">
     <value>Nein, Abbrechen!</value>
   </data>

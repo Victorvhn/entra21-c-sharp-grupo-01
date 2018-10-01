@@ -979,6 +979,24 @@ namespace Principal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Você desativará a conexão entre Pacote e Ponto Turístico.
+        /// </summary>
+        public static string Ligacao {
+            get {
+                return ResourceManager.GetString("Ligacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Você desativou a conexão entre Pacote e Ponto Turístico.
+        /// </summary>
+        public static string Ligacao2 {
+            get {
+                return ResourceManager.GetString("Ligacao2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logradouro.
         /// </summary>
         public static string Logradouro {
