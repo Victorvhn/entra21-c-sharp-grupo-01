@@ -102,6 +102,8 @@ CREATE TABLE turistas_pacotes(
 	status_do_pedido VARCHAR(20),
 	ativo BIT DEFAULT '1',
 	data_requisicao DATE
+	FOREIGN KEY (id_turista) REFERENCES turistas(id),
+	FOREIGN KEY (id_pacote) REFERENCES pacotes(id)
 ); --NXN
 
 CREATE TABLE pontos_turisticos (
